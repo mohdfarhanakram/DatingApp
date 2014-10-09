@@ -1,19 +1,26 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.digitalforce.datingapp"
+    package="com.digitalforce.datingapp11"
     android:versionCode="1"
     android:versionName="1.0" >
 
     <uses-sdk
         android:minSdkVersion="11"
         android:targetSdkVersion="19" />
+    
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
 
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@android:style/Theme.Black.NoTitleBar" >
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
         <activity
-            android:name="com.digitalforce.datingapp.view.LoginActivity"
+            android:name="com.digitalforce.datingapp.view.SplashActivity"
             android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,8 +29,15 @@
             </intent-filter>
         </activity>
         <activity 
-            android:name="com.digitalforce.datingapp.view.SplashActivity"
+            android:name="com.digitalforce.datingapp.view.LoginActivity"
             android:screenOrientation="portrait"/>
+        <activity 
+            android:name="com.digitalforce.datingapp.view.SignUpActivity"
+            android:screenOrientation="portrait"/>
+        <activity 
+            android:name="com.digitalforce.datingapp.view.ForgotpsswordActivity"
+            android:screenOrientation="portrait"/>
+        
     </application>
 
 </manifest>

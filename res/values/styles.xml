@@ -33,11 +33,20 @@
         <item name="android:textSize">@dimen/sp_14</item>
         <item name="android:background">@android:color/transparent</item>
     </style>
+    <style name="edit">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:padding">@dimen/dp_5</item>
+        <item name="android:textSize">@dimen/sp_14</item>
+        <item name="android:background">@android:color/white</item>
+    </style>
 
     <style name="view">
-        <item name="android:layout_width">@dimen/dp_1</item>
-        <item name="android:layout_height">match_parent</item>
-        <item name="android:background">@android:color/white</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/dp_1</item>
+        <item name="android:background">@color/btn_color</item>
     </style>
 
     <style name="btn">

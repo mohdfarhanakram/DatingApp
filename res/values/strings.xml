@@ -5,6 +5,7 @@
     <string name="new_user">New here? Sign Up!</string>
     <string name="returning_user">Returning User</string>
     <string name="email_address">Email address</string>
+    <string name="enter_email_address">Enter Email address</string>
     <string name="password">Password</string>
     <string name="confirm_password">Confirm Password</string>
     <string name="login_with">LOGIN WITH</string>
@@ -22,6 +23,17 @@
     <string name="lets_go">Let\'s Go!</string>
     <string name="forgot_password">Forgot password?</string>
 	<string name="terms_conditions">Terms &amp; Conditions</string>
+	<string name="terms_conditions_msg">
+	Neither we nor any third parties provide any warranty or guarantee as to the accuracy, 
+	timeliness, performance, completeness or suitability of the information and materials found 
+	or offered on this website for any particular purpose.</string>
 	<string name="privacy_policy">Privacy Policy</string>
+	<string name="forgot_msg">Did you forget your password?\n
+	    No problem. Enter your email\n
+	    address below and we\'ll send you\n
+	    a link to reset your password.</string>
+	    <string name="send">Send</string>
+	    <string name="ok">OK</string>
+	    <string name="cancel">Cancel</string>
     
 </resources>

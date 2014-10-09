@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg" >
+
+    <ImageView
+        android:id="@+id/img_logo"
+        android:layout_width="@dimen/dp_180"
+        android:layout_height="@dimen/dp_55"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/dp_100"
+        android:contentDescription="@null"
+        android:src="@drawable/app_title" />
+
+    <LinearLayout
+        android:id="@+id/layout_edt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp_20"
+        android:layout_marginTop="@dimen/dp_20"
+        android:layout_marginRight="@dimen/dp_20"
+        android:layout_marginBottom="@dimen/dp_5"
+        android:layout_below="@id/img_logo"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:layout_marginBottom="@dimen/dp_10"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <ImageView
+                style="@style/img_home"
+                android:contentDescription="@null"
+                android:padding="@dimen/dp_5"
+                android:src="@drawable/user" />
+
+            <EditText
+                android:id="@+id/edt_signup_cool_name"
+                style="@style/edit_txt"
+                android:hint="@string/cool_name" />
+        </LinearLayout>
+        
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <ImageView
+                style="@style/img_home"
+                android:contentDescription="@null"
+                android:padding="@dimen/dp_5"
+                android:src="@drawable/pass" />
+
+            <EditText
+                android:id="@+id/edt_signup_password"
+                style="@style/edit_txt"
+                android:hint="@string/password"
+                android:inputType="textPassword" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_10"
+            android:background="@android:color/white"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <ImageView
+                style="@style/img_home"
+                android:contentDescription="@null"
+                android:padding="@dimen/dp_5"
+                android:src="@drawable/pass" />
+
+            <EditText
+                android:id="@+id/edt_signup_confirm_password"
+                style="@style/edit_txt"
+                android:hint="@string/confirm_password"
+                android:inputType="textPassword" />
+        </LinearLayout>
+        <Button 
+            android:id="@+id/btn_signup"
+            style="@style/btn"
+            android:layout_marginTop="@dimen/dp_10"
+            android:text="@string/sign_up"/>
+    </LinearLayout>
+
+
+
+</RelativeLayout>

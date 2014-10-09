@@ -25,7 +25,9 @@
         android:textSize="@dimen/sp_14"
         android:text="@string/terms_conditions"/>
     <View 
-        style="@style/view"
+        android:layout_width="@dimen/dp_1"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
         android:layout_marginLeft="@dimen/dp_5"
         android:layout_marginRight="@dimen/dp_5"/>
     <TextView 

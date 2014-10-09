@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="action_bar_color">#E2E3E5</color>
+    <color name="tap_color">#EE6363</color>
+    <color name="black">#000000</color>
+    <color name="edit_txt_color">#D6D6DA</color>
+    <color name="btn_color">#00BAFF</color>
+    <color name="fb_btn_color">#3F60A2</color>
+    <color name="white">#FFFFFF</color>
+    <color name="red">#FF0000</color>
+    <color name="green">#00FF00</color>
+    <color name="blue">#0000FF</color>
+    <color name="yellow">#FFFF00</color>
+    <color name="silver">#C0C0C0</color>
+    <color name="maroon">#800000</color>
+    <color name="login_bottom_color">#1E224C</color>
+
+</resources>

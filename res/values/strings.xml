@@ -1,0 +1,27 @@
+<resources>
+
+    <string name="app_name">Dating App</string>
+    <string name="welcome">Welcome</string>
+    <string name="new_user">New here? Sign Up!</string>
+    <string name="returning_user">Returning User</string>
+    <string name="email_address">Email address</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="login_with">LOGIN WITH</string>
+    <string name="sign_up_with_facebook">Sign up with Facebook</string>
+    <string name="f">f</string>
+    <string name="sign_up">Sign up</string>
+    <string name="under_development">Under Development</string>
+    <string name="text">Text</string>
+    <string name="buzz">Buzz</string>
+    <string name="explore">Explore</string>
+    <string name="near_by">Near By</string>
+    <string name="favourite">Favourite</string>
+    <string name="chat">Chat</string>
+    <string name="cool_name">Cool Name</string>
+    <string name="lets_go">Let\'s Go!</string>
+    <string name="forgot_password">Forgot password?</string>
+	<string name="terms_conditions">Terms &amp; Conditions</string>
+	<string name="privacy_policy">Privacy Policy</string>
+    
+</resources>

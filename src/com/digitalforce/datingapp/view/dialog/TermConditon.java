@@ -2,7 +2,9 @@ package com.digitalforce.datingapp.view.dialog;
 
 import com.digitalforce.datingapp.R;
 import com.digitalforce.datingapp.view.LoginActivity;
+import com.digitalforce.datingapp.view.SignUpActivity;
 import com.digitalforce.datingapp.view.SplashActivity;
+import com.farru.android.ui.activity.BaseActivity;
 
 import android.app.Activity;
 import android.app.Dialog;
@@ -43,13 +45,13 @@ public class TermConditon extends Dialog implements android.view.View.OnClickLis
 		switch (v.getId()) {
 		case R.id.btn_dialog_tc_cancel:
 			dismiss();
-			((Activity) context).finish();
+			((BaseActivity) context).finish();
 			break;
 		case R.id.btn_dialog_tc_ok:
 			Intent i = new Intent(context, LoginActivity.class);
 			context.startActivity(i);
 			dismiss();
-			((Activity) context).finish();
+			((BaseActivity) context).finish();
 			break;
 
 		default:

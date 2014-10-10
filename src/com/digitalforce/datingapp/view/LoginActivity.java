@@ -1,12 +1,24 @@
 package com.digitalforce.datingapp.view;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import com.digitalforce.datingapp.R;
+import com.digitalforce.datingapp.constants.ApiEvent;
+import com.digitalforce.datingapp.constants.DatingConstants;
+import com.digitalforce.datingapp.constants.DatingUrlConstants;
+import com.digitalforce.datingapp.model.UserInfo;
+import com.digitalforce.datingapp.persistance.DatingAppPreference;
 import com.digitalforce.datingapp.utils.ToastCustom;
 import com.digitalforce.datingapp.utils.Validation;
+import com.farru.android.network.ServiceResponse;
+import com.farru.android.ui.activity.BaseActivity;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.GoogleApiClient.ConnectionCallbacks;
+import com.farru.android.utill.Utils;
+import com.farru.android.volley.VolleyError;
 import com.google.android.gms.common.api.GoogleApiClient.OnConnectionFailedListener;
 import com.google.android.gms.plus.Plus;
 import com.google.android.gms.plus.model.people.Person;
@@ -24,7 +36,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class LoginActivity extends Activity implements OnClickListener,
+
+public class LoginActivity extends BaseActivity implements OnClickListener,
 ConnectionCallbacks, OnConnectionFailedListener{
 
 	private EditText medtCoolName, medtPassword;
@@ -44,6 +57,7 @@ ConnectionCallbacks, OnConnectionFailedListener{
 		super.onCreate(savedInstanceState);
 
 		setContentView(R.layout.layout_login);
+		
 		medtCoolName = (EditText) findViewById(R.id.edt_login_cool_name);
 		medtPassword = (EditText) findViewById(R.id.edt_login_password);
 		mtxtNewUser = (TextView) findViewById(R.id.txt_login_forgot_password);
@@ -53,17 +67,17 @@ ConnectionCallbacks, OnConnectionFailedListener{
 		mimgTw = (ImageView) findViewById(R.id.img_login_twitter);
 		mimgGooglePlus = (ImageView) findViewById(R.id.img_login_google_plus);
 		
-		mtxtNewUser.setOnClickListener(this);
+		/*mtxtNewUser.setOnClickListener(this);
 		mtxtForgotPassword.setOnClickListener(this);
 		mbtnLogin.setOnClickListener(this);
 		mimgTw.setOnClickListener(this);
 		mimgFb.setOnClickListener(this);
-		mimgGooglePlus.setOnClickListener(this);
+		mimgGooglePlus.setOnClickListener(this);*/
 		
-		mGoogleApiClient = new GoogleApiClient.Builder(this)
+		/*mGoogleApiClient = new GoogleApiClient.Builder(this)
 		.addConnectionCallbacks(this)
 		.addOnConnectionFailedListener(this).addApi(Plus.API, null)
-		.addScope(Plus.SCOPE_PLUS_LOGIN).build();
+		.addScope(Plus.SCOPE_PLUS_LOGIN).build();*/
 	}
 
 	@Override
@@ -73,7 +87,9 @@ ConnectionCallbacks, OnConnectionFailedListener{
 		case R.id.btn_login_lets_go:
 			if(checkValidation())
 			{
-				ToastCustom.underDevelopment(this);
+				String postData = getRequestJson();
+				Log.e("Post Data", postData);
+				postData(DatingUrlConstants.LOGIN_URL, ApiEvent.LOGIN_EVENT, postData);
 			}
 
 			break;
@@ -115,14 +131,14 @@ ConnectionCallbacks, OnConnectionFailedListener{
 	}
 	protected void onStart() {
 		super.onStart();
-		mGoogleApiClient.connect();
+		//mGoogleApiClient.connect();
 	}
 
 	protected void onStop() {
 		super.onStop();
-		if (mGoogleApiClient.isConnected()) {
+		/*if (mGoogleApiClient.isConnected()) {
 			mGoogleApiClient.disconnect();
-		}
+		}*/
 	}
 	/**
 	 * Sign-in into google
@@ -168,6 +184,61 @@ ConnectionCallbacks, OnConnectionFailedListener{
 			}
 		}
 	}
+
+	@Override
+	public void onEvent(int eventId, Object eventData) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
+
+	@Override
+	protected void updateUi(ServiceResponse serviceResponse) {
+		if(serviceResponse!=null){
+			switch (serviceResponse.getErrorCode()) {
+			case ServiceResponse.SUCCESS:
+				
+				UserInfo userInfo = (UserInfo)serviceResponse.getResponseObject();
+				if(userInfo!=null){
+					showCommonError(userInfo.getUserId()); // its only for testing
+				}
+				
+				break;
+			case ServiceResponse.MESSAGE_ERROR:
+				showCommonError(serviceResponse.getErrorMessages());
+				break;
+			default:
+				break;
+			}
+		}else{
+			showCommonError(null);
+		}
+		
+		
+		
+	}
+	
+	
+	private String getRequestJson(){
+
+		//{"email":"shaan@gmail.com", "password":"12345", "lat":"743872432", "long":"3749382", "device":"89748937432784937498hjjk38343"}
+		JSONObject jsonObject = new JSONObject();
+		try {
+			jsonObject.putOpt("email", medtCoolName.getText().toString());
+			jsonObject.putOpt("password", medtPassword.getText().toString());
+			jsonObject.putOpt("lat", DatingAppPreference.getString(DatingAppPreference.USER_DEVICE_LATITUDE, "0.0", this));
+			jsonObject.putOpt("long", DatingAppPreference.getString(DatingAppPreference.USER_DEVICE_LONGITUDE, "0.0", this));
+			jsonObject.putOpt("device", Utils.getDeviceEMI(this));
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		Log.e("Login Request", jsonObject.toString());
+		return jsonObject.toString();
+	}
+	
 
 	@Override
 	public void onConnected(Bundle arg0) {

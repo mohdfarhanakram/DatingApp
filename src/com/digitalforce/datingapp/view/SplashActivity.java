@@ -2,13 +2,15 @@ package com.digitalforce.datingapp.view;
 
 import com.digitalforce.datingapp.R;
 import com.digitalforce.datingapp.view.dialog.TermConditon;
+import com.farru.android.network.ServiceResponse;
+import com.farru.android.ui.activity.BaseActivity;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
-public class SplashActivity extends Activity{
+public class SplashActivity extends BaseActivity{
 
 	// Splash screen timer
 	private static int SPLASH_TIME_OUT = 3000;
@@ -31,5 +33,17 @@ public class SplashActivity extends Activity{
 				//finish();
 			}
 		}, SPLASH_TIME_OUT);
+	}
+
+	@Override
+	public void onEvent(int eventId, Object eventData) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	protected void updateUi(ServiceResponse serviceResponse) {
+		// TODO Auto-generated method stub
+		
 	}
 }

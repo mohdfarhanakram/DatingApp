@@ -48,6 +48,11 @@
         <item name="android:layout_height">@dimen/dp_1</item>
         <item name="android:background">@color/btn_color</item>
     </style>
+    <style name="view_vetical">
+        <item name="android:layout_width">@dimen/dp_1</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@color/profile_tap_seprator_color</item>
+    </style>
 
     <style name="btn">
         <item name="android:layout_width">match_parent</item>
@@ -80,6 +85,20 @@
         <item name="android:padding">@dimen/dp_5</item>
         <item name="android:layout_weight">.20</item>
         <item name="android:orientation">vertical</item>
+    </style>
+    
+    <style name="txt_profile_below_tap">
+        <item name="android:layout_width">@dimen/dp_70</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:padding">@dimen/dp_5</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">@dimen/sp_14</item>
+    </style>
+    <style name="img_menu">
+        <item name="android:layout_width">@dimen/dp_80</item>
+        <item name="android:layout_height">@dimen/dp_80</item>
+        <item name="android:background">@drawable/menu_selector</item>
     </style>
 
 </resources>

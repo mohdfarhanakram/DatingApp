@@ -15,5 +15,8 @@
     <color name="silver">#C0C0C0</color>
     <color name="maroon">#800000</color>
     <color name="login_bottom_color">#1E224C</color>
+    <color name="profile_tap_color">#374A75</color>
+    <color name="profile_tap_seprator_color">#2D2F57</color>
+    <color name="about_bg_color">#09B3fc</color>
 
 </resources>

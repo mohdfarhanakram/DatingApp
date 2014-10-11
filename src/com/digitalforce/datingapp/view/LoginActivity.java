@@ -78,9 +78,11 @@ public class LoginActivity extends BaseActivity implements OnClickListener,OnLog
 			if(checkValidation())
 			{
 
-				String postData = getRequestJson(medtCoolName.getText().toString(),medtPassword.getText().toString());
+				/*String postData = getRequestJson(medtCoolName.getText().toString(),medtPassword.getText().toString());
 				Log.e("Post Data", postData);
-				postData(DatingUrlConstants.LOGIN_URL, ApiEvent.LOGIN_EVENT, postData);
+				postData(DatingUrlConstants.LOGIN_URL, ApiEvent.LOGIN_EVENT, postData);*/
+				Intent intent = new Intent(this, ProfileActivity.class);
+				startActivity(intent);
 			}
 
 			break;

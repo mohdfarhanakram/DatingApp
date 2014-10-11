@@ -45,6 +45,12 @@
         <activity
             android:name="com.digitalforce.datingapp.view.ForgotpsswordActivity"
             android:screenOrientation="portrait" />
+        <activity 
+            android:name="com.digitalforce.datingapp.view.ProfileActivity"
+            android:screenOrientation="portrait"/>
+        <activity 
+            android:name="com.digitalforce.datingapp.view.MenuActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

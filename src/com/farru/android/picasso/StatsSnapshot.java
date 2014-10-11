@@ -15,11 +15,12 @@
  */
 package com.farru.android.picasso;
 
-import android.util.Log;
+import static com.farru.android.picasso.Picasso.TAG;
+
 import java.io.PrintWriter;
 import java.io.StringWriter;
 
-import static com.farru.android.picasso.Picasso.TAG;
+import android.util.Log;
 
 /** Represents all stats for a {@link Picasso} instance at a single point in time. */
 public class StatsSnapshot {

@@ -15,15 +15,17 @@
  */
 package com.farru.android.picasso;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.net.NetworkInfo;
+import static com.farru.android.picasso.Picasso.LoadedFrom.DISK;
+import static com.farru.android.picasso.Picasso.LoadedFrom.NETWORK;
+
 import java.io.IOException;
 import java.io.InputStream;
 
-import static com.farru.android.picasso.Downloader.Response;
-import static com.farru.android.picasso.Picasso.LoadedFrom.DISK;
-import static com.farru.android.picasso.Picasso.LoadedFrom.NETWORK;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.NetworkInfo;
+
+import com.farru.android.picasso.Downloader.Response;
 
 class NetworkRequestHandler extends RequestHandler {
   static final int RETRY_COUNT = 2;

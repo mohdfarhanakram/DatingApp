@@ -26,8 +26,6 @@ import com.farru.android.volley.ParseError;
 import com.farru.android.volley.Request;
 import com.farru.android.volley.Response;
 import com.farru.android.volley.VolleyLog;
-import com.farru.android.volley.Request.Method;
-import com.farru.android.volley.Request.Priority;
 
 /**
  * A canned request for getting an image at a given URL and calling

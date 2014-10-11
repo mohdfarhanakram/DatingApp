@@ -18,7 +18,7 @@ package com.farru.android.picasso;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 
-import static com.farru.android.picasso.Picasso.LoadedFrom;
+import com.farru.android.picasso.Picasso.LoadedFrom;
 
 /**
  * Represents an arbitrary listener for image loading.

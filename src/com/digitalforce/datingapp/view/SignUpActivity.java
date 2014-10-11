@@ -1,16 +1,26 @@
 package com.digitalforce.datingapp.view;
 
-import com.digitalforce.datingapp.R;
-import com.digitalforce.datingapp.utils.Validation;
+import org.json.JSONException;
+import org.json.JSONObject;
 
-import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 
-public class SignUpActivity extends Activity implements OnClickListener{
+import com.digitalforce.datingapp.R;
+import com.digitalforce.datingapp.constants.ApiEvent;
+import com.digitalforce.datingapp.constants.DatingUrlConstants;
+import com.digitalforce.datingapp.model.UserInfo;
+import com.digitalforce.datingapp.persistance.DatingAppPreference;
+import com.digitalforce.datingapp.utils.Validation;
+import com.farru.android.network.ServiceResponse;
+import com.farru.android.ui.activity.BaseActivity;
+import com.farru.android.utill.Utils;
+
+public class SignUpActivity extends BaseActivity implements OnClickListener{
 
 	private EditText medtPassword, medtConfirmPassword, medtCoolName;
 	private Button mbtnSignup;
@@ -36,7 +46,9 @@ public class SignUpActivity extends Activity implements OnClickListener{
 		case R.id.btn_signup:
 			if(checkvalidation())
 			{
-				
+				String postData = getRequestJson();
+				Log.e("Post Data", postData);
+				postData(DatingUrlConstants.SIGN_UP_URL, ApiEvent.SIGN_UP_EVENT, postData);
 			}
 			break;
 
@@ -53,5 +65,68 @@ public class SignUpActivity extends Activity implements OnClickListener{
 			valid=false;
 		
 		return valid;
+	}
+
+	@Override
+	public void onEvent(int eventId, Object eventData) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	protected void updateUi(ServiceResponse serviceResponse) {
+		if(serviceResponse!=null){
+			switch (serviceResponse.getErrorCode()) {
+			case ServiceResponse.SUCCESS:
+				onSuccess(serviceResponse);
+				break;
+			case ServiceResponse.MESSAGE_ERROR:
+				showCommonError(serviceResponse.getErrorMessages());
+				break;
+			default:
+				showCommonError(null);
+				break;
+			}
+		}else{
+			showCommonError(null);
+		}
+		
+		
+		
+	}
+	
+	private void onSuccess(ServiceResponse serviceResponse){
+		switch (serviceResponse.getEventType()) {
+		case ApiEvent.SIGN_UP_EVENT:
+			UserInfo userInfo = (UserInfo)serviceResponse.getResponseObject();
+			if(userInfo!=null){
+				showCommonError(userInfo.getUserId()); // its only for testing
+			}
+			break;
+
+		default:
+			break;
+		}
+	}
+	
+	
+	private String getRequestJson(){
+
+		//{"email":"shaan@gmail.com", "password":"12345", "confirmpass":"12345", "lat":"743872432", "long":"3749382", "device":"89748937432784937498hjjk38343"}
+		JSONObject jsonObject = new JSONObject();
+		try {
+			jsonObject.putOpt("email", medtCoolName.getText().toString());
+			jsonObject.putOpt("password", medtPassword.getText().toString());
+			jsonObject.putOpt("confirmpass", medtConfirmPassword.getText().toString());
+			jsonObject.putOpt("lat", DatingAppPreference.getString(DatingAppPreference.USER_DEVICE_LATITUDE, "0.0", this));
+			jsonObject.putOpt("long", DatingAppPreference.getString(DatingAppPreference.USER_DEVICE_LONGITUDE, "0.0", this));
+			jsonObject.putOpt("device", Utils.getDeviceEMI(this));
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		Log.e("Sign Up Request", jsonObject.toString());
+		return jsonObject.toString();
 	}
 }

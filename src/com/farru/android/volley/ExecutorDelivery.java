@@ -16,9 +16,9 @@
 
 package com.farru.android.volley;
 
-import android.os.Handler;
-
 import java.util.concurrent.Executor;
+
+import android.os.Handler;
 
 /**
  * Delivers responses and errors.

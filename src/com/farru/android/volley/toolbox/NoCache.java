@@ -17,7 +17,6 @@
 package com.farru.android.volley.toolbox;
 
 import com.farru.android.volley.Cache;
-import com.farru.android.volley.Cache.Entry;
 
 /**
  * A cache that doesn't.

@@ -1,5 +1,6 @@
 package com.farru.android.network;
 
+import org.apache.http.HttpClientConnection;
 import org.apache.http.HttpEntity;
 
 

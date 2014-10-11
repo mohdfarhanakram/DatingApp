@@ -1,14 +1,13 @@
 package com.digitalforce.datingapp.view;
 
+
+import android.os.Bundle;
+import android.os.Handler;
+
 import com.digitalforce.datingapp.R;
 import com.digitalforce.datingapp.view.dialog.TermConditon;
 import com.farru.android.network.ServiceResponse;
 import com.farru.android.ui.activity.BaseActivity;
-
-import android.app.Activity;
-import android.content.Intent;
-import android.os.Bundle;
-import android.os.Handler;
 
 public class SplashActivity extends BaseActivity{
 

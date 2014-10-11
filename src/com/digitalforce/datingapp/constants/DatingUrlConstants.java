@@ -10,4 +10,5 @@ public interface DatingUrlConstants {
 	public static final String CHANGE_PASS_URL = BASE_URL+"changepass.php";
 	public static final String FORGOT_PASS_URL = BASE_URL+"forgotpass.php";
 	public static final String LOGOUT_URL = BASE_URL+"logout.php";
+	public static final String USER_NEAR_BY_URL = BASE_URL+"usernearby.php";
 }

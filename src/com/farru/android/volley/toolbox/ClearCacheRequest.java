@@ -23,8 +23,6 @@ import com.farru.android.volley.Cache;
 import com.farru.android.volley.NetworkResponse;
 import com.farru.android.volley.Request;
 import com.farru.android.volley.Response;
-import com.farru.android.volley.Request.Method;
-import com.farru.android.volley.Request.Priority;
 
 /**
  * A synthetic request used for clearing the cache.

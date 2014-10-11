@@ -129,11 +129,7 @@
             android:contentDescription="@null"
             android:src="@drawable/twitter" />
 
-        <ImageView
-            android:id="@+id/img_login_google_plus"
-            style="@style/img_home"
-            android:contentDescription="@null"
-            android:src="@drawable/google_plus" />
+        
     </LinearLayout>
 
 </RelativeLayout>

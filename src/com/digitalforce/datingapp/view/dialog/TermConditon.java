@@ -1,12 +1,6 @@
 package com.digitalforce.datingapp.view.dialog;
 
-import com.digitalforce.datingapp.R;
-import com.digitalforce.datingapp.view.LoginActivity;
-import com.digitalforce.datingapp.view.SignUpActivity;
-import com.digitalforce.datingapp.view.SplashActivity;
-import com.farru.android.ui.activity.BaseActivity;
 
-import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
@@ -14,6 +8,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
+
+import com.digitalforce.datingapp.R;
+import com.digitalforce.datingapp.view.LoginActivity;
+import com.farru.android.ui.activity.BaseActivity;
 
 public class TermConditon extends Dialog implements android.view.View.OnClickListener{
 

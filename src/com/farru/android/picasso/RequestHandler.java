@@ -15,11 +15,11 @@
  */
 package com.farru.android.picasso;
 
+import java.io.IOException;
+
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.NetworkInfo;
-
-import java.io.IOException;
 
 /**
  * {@link RequestHandler} allows you to extend Picasso to load images

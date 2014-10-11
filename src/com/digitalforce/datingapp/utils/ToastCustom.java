@@ -2,6 +2,9 @@ package com.digitalforce.datingapp.utils;
 
 
 
+
+import com.digitalforce.datingapp.R;
+
 import android.app.Activity;
 import android.content.Context;
 import android.view.Gravity;
@@ -9,8 +12,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.digitalforce.datingapp.R;
 
 public class ToastCustom {
 	

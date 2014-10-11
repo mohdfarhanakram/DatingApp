@@ -32,7 +32,6 @@ import org.apache.http.protocol.ExecutionContext;
 import org.apache.http.protocol.HttpContext;
 
 import android.content.Context;
-import android.provider.SyncStateContract.Constants;
 
 import com.farru.android.listener.IRequest;
 import com.farru.android.listener.IRequestCompletionListener;

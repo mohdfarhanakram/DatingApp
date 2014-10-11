@@ -36,7 +36,6 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import android.preference.PreferenceManager;
-import android.provider.SyncStateContract.Constants;
 import android.telephony.TelephonyManager;
 import android.text.Html;
 import android.text.Spanned;
@@ -46,16 +45,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.AdapterView;
 import android.widget.GridView;
-import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.farru.android.volley.AuthFailureError;
-import com.farru.android.volley.toolbox.NetworkImageView;
 
 //9650275007;	
 

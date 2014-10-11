@@ -26,9 +26,9 @@ import android.widget.ImageView;
 
 import com.farru.android.volley.Request;
 import com.farru.android.volley.RequestQueue;
-import com.farru.android.volley.VolleyError;
 import com.farru.android.volley.Response.ErrorListener;
 import com.farru.android.volley.Response.Listener;
+import com.farru.android.volley.VolleyError;
 
 /**
  * Helper that handles loading and caching images from remote URLs.

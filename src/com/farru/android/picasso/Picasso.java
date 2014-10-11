@@ -15,27 +15,7 @@
  */
 package com.farru.android.picasso;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.Color;
-import android.net.Uri;
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
-import android.os.Process;
-import android.widget.ImageView;
-import android.widget.RemoteViews;
-import java.io.File;
-import java.lang.ref.ReferenceQueue;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Map;
-import java.util.WeakHashMap;
-import java.util.concurrent.ExecutorService;
-
 import static android.os.Process.THREAD_PRIORITY_BACKGROUND;
-import static com.farru.android.picasso.Action.RequestWeakReference;
 import static com.farru.android.picasso.Dispatcher.HUNTER_BATCH_COMPLETE;
 import static com.farru.android.picasso.Dispatcher.REQUEST_BATCH_RESUME;
 import static com.farru.android.picasso.Dispatcher.REQUEST_GCED;
@@ -47,6 +27,28 @@ import static com.farru.android.picasso.Utils.VERB_ERRORED;
 import static com.farru.android.picasso.Utils.VERB_RESUMED;
 import static com.farru.android.picasso.Utils.checkMain;
 import static com.farru.android.picasso.Utils.log;
+
+import java.io.File;
+import java.lang.ref.ReferenceQueue;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+import java.util.WeakHashMap;
+import java.util.concurrent.ExecutorService;
+
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.Color;
+import android.net.Uri;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
+import android.os.Process;
+import android.widget.ImageView;
+import android.widget.RemoteViews;
+
+import com.farru.android.picasso.Action.RequestWeakReference;
 
 /**
  * Image downloading, transformation, and caching manager.

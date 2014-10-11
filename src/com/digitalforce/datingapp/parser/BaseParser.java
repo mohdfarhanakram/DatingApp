@@ -5,7 +5,6 @@ import org.json.JSONObject;
 
 import com.digitalforce.datingapp.constants.ApiEvent;
 import com.digitalforce.datingapp.model.DatingBaseModel;
-import com.farru.android.model.BaseModel;
 import com.farru.android.network.ServiceResponse;
 import com.farru.android.parser.IParser;
 
@@ -71,9 +70,9 @@ public class BaseParser implements IParser {
     	switch (response.getEventType()) {
         case ApiEvent.LOGIN_EVENT:
         case ApiEvent.SIGN_UP_EVENT:
+        case ApiEvent.FORGOT_PASSWORD_EVENT:
         	response.setErrorMessages(jsonObject.optString("error", null));
         	break;
-        case ApiEvent.FORGOT_PASSWORD_EVENT:
             default:
                 break;
         }
@@ -91,6 +90,11 @@ public class BaseParser implements IParser {
         	response.setResponseObject(JsonParser.parseSignUpJson(jsonObject));
         	break;
         case ApiEvent.FORGOT_PASSWORD_EVENT:
+        	response.setResponseObject(JsonParser.parseForgotPasswordJson(jsonObject));
+        	break;
+        case ApiEvent.USER_NEAR_BY_EVENT:
+        	response.setResponseObject(JsonParser.parseNearByUserJson(jsonObject));
+        	break;
             default:
                 break;
         }

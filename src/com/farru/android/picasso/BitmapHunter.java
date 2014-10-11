@@ -15,19 +15,7 @@
  */
 package com.farru.android.picasso;
 
-import android.graphics.Bitmap;
-import android.graphics.Matrix;
-import android.net.NetworkInfo;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.io.StringWriter;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.Future;
-import java.util.concurrent.atomic.AtomicInteger;
-
 import static com.farru.android.picasso.Picasso.LoadedFrom.MEMORY;
-import static com.farru.android.picasso.Picasso.Priority;
 import static com.farru.android.picasso.Picasso.Priority.LOW;
 import static com.farru.android.picasso.Utils.OWNER_HUNTER;
 import static com.farru.android.picasso.Utils.VERB_DECODED;
@@ -37,6 +25,20 @@ import static com.farru.android.picasso.Utils.VERB_REMOVED;
 import static com.farru.android.picasso.Utils.VERB_TRANSFORMED;
 import static com.farru.android.picasso.Utils.getLogIdsForHunter;
 import static com.farru.android.picasso.Utils.log;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.StringWriter;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.Future;
+import java.util.concurrent.atomic.AtomicInteger;
+
+import android.graphics.Bitmap;
+import android.graphics.Matrix;
+import android.net.NetworkInfo;
+
+import com.farru.android.picasso.Picasso.Priority;
 
 class BitmapHunter implements Runnable {
   /**

@@ -15,19 +15,8 @@
  */
 package com.farru.android.picasso;
 
-import android.content.ContentResolver;
-import android.content.Context;
-import android.database.Cursor;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.net.Uri;
-import android.provider.MediaStore;
-import java.io.IOException;
-
 import static android.content.ContentResolver.SCHEME_CONTENT;
 import static android.content.ContentUris.parseId;
-import static android.provider.MediaStore.Images;
-import static android.provider.MediaStore.Video;
 import static android.provider.MediaStore.Images.Thumbnails.FULL_SCREEN_KIND;
 import static android.provider.MediaStore.Images.Thumbnails.MICRO_KIND;
 import static android.provider.MediaStore.Images.Thumbnails.MINI_KIND;
@@ -35,6 +24,18 @@ import static com.farru.android.picasso.MediaStoreRequestHandler.PicassoKind.FUL
 import static com.farru.android.picasso.MediaStoreRequestHandler.PicassoKind.MICRO;
 import static com.farru.android.picasso.MediaStoreRequestHandler.PicassoKind.MINI;
 import static com.farru.android.picasso.Picasso.LoadedFrom.DISK;
+
+import java.io.IOException;
+
+import android.content.ContentResolver;
+import android.content.Context;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
+import android.provider.MediaStore;
+import android.provider.MediaStore.Images;
+import android.provider.MediaStore.Video;
 
 class MediaStoreRequestHandler extends ContentStreamRequestHandler {
   private static final String[] CONTENT_ORIENTATION = new String[] {

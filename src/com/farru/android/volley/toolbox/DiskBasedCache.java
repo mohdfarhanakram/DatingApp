@@ -34,7 +34,6 @@ import android.os.SystemClock;
 
 import com.farru.android.volley.Cache;
 import com.farru.android.volley.VolleyLog;
-import com.farru.android.volley.Cache.Entry;
 
 /**
  * Cache implementation that caches files directly onto the hard disk in the specified

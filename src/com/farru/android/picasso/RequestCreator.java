@@ -15,26 +15,10 @@
  */
 package com.farru.android.picasso;
 
-import android.app.Notification;
-import android.content.res.Resources;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.drawable.Drawable;
-import android.net.Uri;
-import android.widget.ImageView;
-import android.widget.RemoteViews;
-import java.io.IOException;
-import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.atomic.AtomicInteger;
-
-
 import static com.farru.android.picasso.BitmapHunter.forRequest;
 import static com.farru.android.picasso.Picasso.LoadedFrom.MEMORY;
-import static com.farru.android.picasso.Picasso.Priority;
 import static com.farru.android.picasso.PicassoDrawable.setBitmap;
 import static com.farru.android.picasso.PicassoDrawable.setPlaceholder;
-import static com.farru.android.picasso.RemoteViewsAction.AppWidgetAction;
-import static com.farru.android.picasso.RemoteViewsAction.NotificationAction;
 import static com.farru.android.picasso.Utils.OWNER_MAIN;
 import static com.farru.android.picasso.Utils.VERB_CHANGED;
 import static com.farru.android.picasso.Utils.VERB_COMPLETED;
@@ -44,6 +28,23 @@ import static com.farru.android.picasso.Utils.checkNotMain;
 import static com.farru.android.picasso.Utils.createKey;
 import static com.farru.android.picasso.Utils.isMain;
 import static com.farru.android.picasso.Utils.log;
+
+import java.io.IOException;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.atomic.AtomicInteger;
+
+import android.app.Notification;
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
+import android.widget.ImageView;
+import android.widget.RemoteViews;
+
+import com.farru.android.picasso.Picasso.Priority;
+import com.farru.android.picasso.RemoteViewsAction.AppWidgetAction;
+import com.farru.android.picasso.RemoteViewsAction.NotificationAction;
 
 /** Fluent API for building an image download request. */
 @SuppressWarnings("UnusedDeclaration") // Public API.

@@ -3,7 +3,6 @@
  */
 package com.farru.android.utill;
 
-import android.R;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;

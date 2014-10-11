@@ -15,10 +15,11 @@
  */
 package com.farru.android.picasso;
 
-import android.graphics.Bitmap;
-import android.net.Uri;
 import java.io.IOException;
 import java.io.InputStream;
+
+import android.graphics.Bitmap;
+import android.net.Uri;
 
 /** A mechanism to load images from external resources such as a disk cache and/or the internet. */
 public interface Downloader {

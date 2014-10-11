@@ -1,10 +1,11 @@
 package com.digitalforce.datingapp.utils;
 
+import java.util.regex.Pattern;
+
 import android.graphics.Color;
 import android.text.SpannableStringBuilder;
 import android.text.style.ForegroundColorSpan;
 import android.widget.EditText;
-import java.util.regex.Pattern;
 
 public class Validation {
 

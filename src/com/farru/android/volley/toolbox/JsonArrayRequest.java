@@ -24,7 +24,6 @@ import org.json.JSONException;
 import com.farru.android.volley.NetworkResponse;
 import com.farru.android.volley.ParseError;
 import com.farru.android.volley.Response;
-import com.farru.android.volley.Request.Method;
 import com.farru.android.volley.Response.ErrorListener;
 import com.farru.android.volley.Response.Listener;
 

@@ -15,9 +15,10 @@
  */
 package com.farru.android.picasso;
 
+import java.lang.ref.WeakReference;
+
 import android.view.ViewTreeObserver;
 import android.widget.ImageView;
-import java.lang.ref.WeakReference;
 
 
 class DeferredRequestCreator implements ViewTreeObserver.OnPreDrawListener {

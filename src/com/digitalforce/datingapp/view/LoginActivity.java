@@ -3,9 +3,7 @@ package com.digitalforce.datingapp.view;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-
 import android.content.Intent;
-import android.content.IntentSender.SendIntentException;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -14,9 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.digitalforce.datingapp.DatingApplication;
 import com.digitalforce.datingapp.R;
 import com.digitalforce.datingapp.constants.ApiEvent;
 import com.digitalforce.datingapp.constants.AppConstants;
@@ -25,14 +21,13 @@ import com.digitalforce.datingapp.model.UserInfo;
 import com.digitalforce.datingapp.persistance.DatingAppPreference;
 import com.digitalforce.datingapp.social.facebook.OnProfileListener;
 import com.digitalforce.datingapp.social.facebook.ProfileHelper;
-import com.digitalforce.datingapp.utils.ToastCustom;
+import com.digitalforce.datingapp.social.twitter.LoginTwitter;
 import com.digitalforce.datingapp.utils.Validation;
 import com.farru.android.network.ServiceResponse;
 import com.farru.android.utill.Utils;
 import com.sromku.simple.fb.Permission;
-import com.sromku.simple.fb.SimpleFacebookConfiguration;
-import com.sromku.simple.fb.Permission.Type;
 import com.sromku.simple.fb.SimpleFacebook;
+import com.sromku.simple.fb.SimpleFacebookConfiguration;
 import com.sromku.simple.fb.entities.Profile;
 import com.sromku.simple.fb.listeners.OnLoginListener;
 
@@ -104,7 +99,8 @@ public class LoginActivity extends BaseActivity implements OnClickListener,OnLog
 			loginWithFb();
 			break;
 		case R.id.img_login_twitter:
-			ToastCustom.underDevelopment(this);
+			//ToastCustom.underDevelopment(this);
+			new LoginTwitter(this);
 			break;
 
 
@@ -123,17 +119,7 @@ public class LoginActivity extends BaseActivity implements OnClickListener,OnLog
 
 		return valid;
 	}
-	protected void onStart() {
-		super.onStart();
-		//mGoogleApiClient.connect();
-	}
 
-	protected void onStop() {
-		super.onStop();
-		/*if (mGoogleApiClient.isConnected()) {
-			mGoogleApiClient.disconnect();
-		}*/
-	}
 
 
 	@Override
@@ -240,7 +226,7 @@ public class LoginActivity extends BaseActivity implements OnClickListener,OnLog
 
 	public void onProfile(Profile profile) {
 		removeProgressDialog();
-		doFbGmailLogin(profile.getEmail());
+		doSocialLogin(profile.getEmail());
 	}
 
 	public void onProfileFail(String reason) {
@@ -262,7 +248,7 @@ public class LoginActivity extends BaseActivity implements OnClickListener,OnLog
 		mSimpleFacebook.onActivityResult(this, requestCode, resultCode, data);
 	}
 	
-	private void doFbGmailLogin(String email){
+	public void doSocialLogin(String email){
 		String postData = getRequestJson(email,null);
 		Log.e("Post Data", postData);
 		postData(DatingUrlConstants.LOGIN_WITH_FB_GMAIL_URL, ApiEvent.LOGIN_FB_GMAIL_EVENT, postData);

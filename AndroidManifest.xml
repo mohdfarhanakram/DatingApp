@@ -22,8 +22,11 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@android:style/Theme.DeviceDefault.Light.NoActionBar" >
-        
+        <meta-data
+            android:name="APP_NAME"
+            android:value="com.digitalforce.datingapp" />
 
+        <activity android:name="com.facebook.LoginActivity" />
         <activity
             android:name="com.digitalforce.datingapp.view.SplashActivity"
             android:screenOrientation="portrait" >

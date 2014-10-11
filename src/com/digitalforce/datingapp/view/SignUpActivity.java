@@ -17,7 +17,6 @@ import com.digitalforce.datingapp.model.UserInfo;
 import com.digitalforce.datingapp.persistance.DatingAppPreference;
 import com.digitalforce.datingapp.utils.Validation;
 import com.farru.android.network.ServiceResponse;
-import com.farru.android.ui.activity.BaseActivity;
 import com.farru.android.utill.Utils;
 
 public class SignUpActivity extends BaseActivity implements OnClickListener{

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.farru.android.ui.activity;
+package com.digitalforce.datingapp.view;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -39,6 +39,7 @@ import android.widget.Toast;
 import com.digitalforce.datingapp.BuildConfig;
 import com.digitalforce.datingapp.parser.BaseParser;
 import com.digitalforce.datingapp.persistance.DatingAppPreference;
+import com.digitalforce.datingapp.social.facebook.ProfileHelper;
 import com.farru.android.application.BaseApplication;
 import com.farru.android.network.ServiceResponse;
 import com.farru.android.network.VolleyGenericRequest;
@@ -50,6 +51,7 @@ import com.farru.android.utill.StringUtils;
 import com.farru.android.utill.Utils;
 import com.farru.android.volley.Response;
 import com.farru.android.volley.VolleyError;
+import com.sromku.simple.fb.listeners.OnLoginListener;
 
 /**
  * @author FARHAN

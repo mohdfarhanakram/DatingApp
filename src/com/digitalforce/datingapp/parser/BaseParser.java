@@ -32,6 +32,7 @@ public class BaseParser implements IParser {
     	DatingBaseModel baseModel = new DatingBaseModel();
     	baseModel.setMessageCode(jsonObject.optInt("MessageCode", 102));
     	baseModel.setErrorMsg(jsonObject.optString("error"));
+    	baseModel.setSuccessMsg(jsonObject.optString("success"));
         return baseModel;
     }
 
@@ -84,6 +85,7 @@ public class BaseParser implements IParser {
     	JSONObject jsonObject = response.getJsonResponse();
         switch (response.getEventType()) {
         case ApiEvent.LOGIN_EVENT:
+        case ApiEvent.LOGIN_FB_GMAIL_EVENT:
         	response.setResponseObject(JsonParser.parseLoginJson(jsonObject));
         	break;
         case ApiEvent.SIGN_UP_EVENT:

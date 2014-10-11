@@ -10,8 +10,9 @@ import android.view.Window;
 import android.widget.Button;
 
 import com.digitalforce.datingapp.R;
+import com.digitalforce.datingapp.view.BaseActivity;
 import com.digitalforce.datingapp.view.LoginActivity;
-import com.farru.android.ui.activity.BaseActivity;
+
 
 public class TermConditon extends Dialog implements android.view.View.OnClickListener{
 

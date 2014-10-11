@@ -13,7 +13,14 @@ public class DatingBaseModel extends BaseModel{
 	
 	private int messageCode;
 	private String errorMsg;
+	private String successMsg;
 	
+	public String getSuccessMsg() {
+		return successMsg;
+	}
+	public void setSuccessMsg(String successMsg) {
+		this.successMsg = successMsg;
+	}
 	public int getMessageCode() {
 		return messageCode;
 	}

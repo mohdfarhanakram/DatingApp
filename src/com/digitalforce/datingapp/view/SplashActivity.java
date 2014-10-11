@@ -7,7 +7,6 @@ import android.os.Handler;
 import com.digitalforce.datingapp.R;
 import com.digitalforce.datingapp.view.dialog.TermConditon;
 import com.farru.android.network.ServiceResponse;
-import com.farru.android.ui.activity.BaseActivity;
 
 public class SplashActivity extends BaseActivity{
 

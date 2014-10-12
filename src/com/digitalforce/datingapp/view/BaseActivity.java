@@ -24,6 +24,7 @@ import android.content.pm.Signature;
 import android.location.Location;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.v4.app.FragmentActivity;
 import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Config;
@@ -31,15 +32,15 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.Window;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.digitalforce.datingapp.BuildConfig;
+import com.digitalforce.datingapp.R;
 import com.digitalforce.datingapp.parser.BaseParser;
 import com.digitalforce.datingapp.persistance.DatingAppPreference;
-import com.digitalforce.datingapp.social.facebook.ProfileHelper;
 import com.digitalforce.datingapp.utils.ToastCustom;
 import com.farru.android.application.BaseApplication;
 import com.farru.android.network.ServiceResponse;
@@ -52,7 +53,6 @@ import com.farru.android.utill.StringUtils;
 import com.farru.android.utill.Utils;
 import com.farru.android.volley.Response;
 import com.farru.android.volley.VolleyError;
-import com.sromku.simple.fb.listeners.OnLoginListener;
 
 /**
  * @author FARHAN
@@ -61,7 +61,7 @@ import com.sromku.simple.fb.listeners.OnLoginListener;
 /**
  * This class is used as base-class for application-base-activity.
  */
-public abstract class BaseActivity extends Activity implements IScreen,Response.Listener, Response.ErrorListener {
+public abstract class BaseActivity extends FragmentActivity implements IScreen,Response.Listener, Response.ErrorListener {
 
 	private String	LOG_TAG	= getClass().getSimpleName();
 
@@ -73,6 +73,23 @@ public abstract class BaseActivity extends Activity implements IScreen,Response.
 		}
 		
 		getHashKey();
+	}
+	
+	@Override
+	protected void onPostCreate(Bundle savedInstanceState) {
+		super.onPostCreate(savedInstanceState);
+		
+		View backBtn = findViewById(R.id.img_action_back);
+		if(backBtn!=null){
+			backBtn.setOnClickListener(new OnClickListener() {
+				
+				@Override
+				public void onClick(View arg0) {
+					finish();
+					
+				}
+			});
+		}
 	}
 
 	@Override

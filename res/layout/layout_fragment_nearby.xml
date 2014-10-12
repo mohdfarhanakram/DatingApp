@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/blue"
-    android:orientation="vertical" >
-    
-
-</LinearLayout>
+<GridView 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/grid_view_nearby"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:numColumns="auto_fit"
+    android:columnWidth="@dimen/dp_90"
+    android:horizontalSpacing="@dimen/dp_10"
+    android:verticalSpacing="@dimen/dp_10"
+    android:gravity="center"
+    android:stretchMode="columnWidth" >  
+ 
+</GridView>

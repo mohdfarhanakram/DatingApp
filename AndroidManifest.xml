@@ -52,6 +52,9 @@
             android:name="com.digitalforce.datingapp.view.MenuActivity"
             android:screenOrientation="portrait"
             android:theme="@style/Transparent" />
+        <activity 
+            android:name="com.digitalforce.datingapp.view.MembersActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

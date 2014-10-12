@@ -81,7 +81,7 @@ public class LoginActivity extends BaseActivity implements OnClickListener,OnLog
 				/*String postData = getRequestJson(medtCoolName.getText().toString(),medtPassword.getText().toString());
 				Log.e("Post Data", postData);
 				postData(DatingUrlConstants.LOGIN_URL, ApiEvent.LOGIN_EVENT, postData);*/
-				Intent intent = new Intent(this, ProfileActivity.class);
+				Intent intent = new Intent(this, MembersActivity.class);
 				startActivity(intent);
 			}
 

@@ -93,7 +93,7 @@ public class MembersActivity extends BaseActivity implements OnClickListener{
 	{
 		FragmentManager fragmentmaneger = getSupportFragmentManager();
 		FragmentTransaction fragmentTransaction=fragmentmaneger.beginTransaction();
-		fragmentTransaction.add(R.id.fragment_member, fragment);
+		fragmentTransaction.replace(R.id.fragment_member, fragment);
 		fragmentTransaction.commit();
 	}
 

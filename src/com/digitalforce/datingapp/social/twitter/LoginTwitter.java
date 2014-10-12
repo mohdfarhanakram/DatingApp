@@ -22,7 +22,7 @@ import com.digitalforce.datingapp.R;
 import com.digitalforce.datingapp.constants.DatingConstants;
 import com.digitalforce.datingapp.utils.ToastCustom;
 import com.digitalforce.datingapp.view.LoginActivity;
-import com.google.android.gms.internal.mc;
+
 
 public class LoginTwitter {
 

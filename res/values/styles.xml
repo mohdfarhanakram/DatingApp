@@ -2,13 +2,13 @@
 
     <!--
         Base application theme, dependent on API level. This theme is replaced
-        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
     -->
     <style name="AppBaseTheme" parent="android:Theme.Light">
         <!--
             Theme customizations available in newer API levels can go in
             res/values-vXX/styles.xml, while customizations related to
-            backward-compatibility can go here.
+            backward-compatibility can go here.
         -->
     </style>
 
@@ -33,6 +33,7 @@
         <item name="android:textSize">@dimen/sp_14</item>
         <item name="android:background">@android:color/transparent</item>
     </style>
+
     <style name="edit">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
@@ -48,6 +49,7 @@
         <item name="android:layout_height">@dimen/dp_1</item>
         <item name="android:background">@color/btn_color</item>
     </style>
+
     <style name="view_vetical">
         <item name="android:layout_width">@dimen/dp_1</item>
         <item name="android:layout_height">match_parent</item>
@@ -86,7 +88,7 @@
         <item name="android:layout_weight">.20</item>
         <item name="android:orientation">vertical</item>
     </style>
-    
+
     <style name="txt_profile_below_tap">
         <item name="android:layout_width">@dimen/dp_70</item>
         <item name="android:layout_height">wrap_content</item>
@@ -95,10 +97,19 @@
         <item name="android:textColor">@android:color/white</item>
         <item name="android:textSize">@dimen/sp_14</item>
     </style>
+
     <style name="img_menu">
         <item name="android:layout_width">@dimen/dp_80</item>
         <item name="android:layout_height">@dimen/dp_80</item>
         <item name="android:background">@drawable/menu_selector</item>
+    </style>
+
+    <style name="Transparent" parent="@android:style/Theme.NoTitleBar">
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:backgroundDimEnabled">false</item>
     </style>
 
 </resources>

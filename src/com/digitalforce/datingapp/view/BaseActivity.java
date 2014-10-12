@@ -40,6 +40,7 @@ import com.digitalforce.datingapp.BuildConfig;
 import com.digitalforce.datingapp.parser.BaseParser;
 import com.digitalforce.datingapp.persistance.DatingAppPreference;
 import com.digitalforce.datingapp.social.facebook.ProfileHelper;
+import com.digitalforce.datingapp.utils.ToastCustom;
 import com.farru.android.application.BaseApplication;
 import com.farru.android.network.ServiceResponse;
 import com.farru.android.network.VolleyGenericRequest;
@@ -498,9 +499,8 @@ public abstract class BaseActivity extends Activity implements IScreen,Response.
 		if (TextUtils.isEmpty(message)) {
 			message = "Something went wrong";
 		}
-		Toast.makeText(this, message, 3000).show();
+		ToastCustom.makeText(this, message, 3000);
 	}
-
 
 	@Override
 	public void onResponse(Object response) {

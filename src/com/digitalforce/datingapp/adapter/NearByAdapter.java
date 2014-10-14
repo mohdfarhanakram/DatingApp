@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 import com.digitalforce.datingapp.R;
 import com.digitalforce.datingapp.model.NearBy;
+import com.digitalforce.datingapp.widgets.RoundedImageView;
+
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -57,12 +59,13 @@ public class NearByAdapter extends BaseAdapter{
 		
 		TextView mmemberName = (TextView) convertView.findViewById(R.id.txt_nearby_member_name);
 		TextView mplace = (TextView) convertView.findViewById(R.id.txt_nearby_place);
-		ImageView mimgMember = (ImageView) convertView.findViewById(R.id.img_nearby_member);
+		RoundedImageView mimgMember = (RoundedImageView) convertView.findViewById(R.id.img_nearby_member);
 		
 		NearBy nearBy = getItem(position);
 		mmemberName.setText(nearBy.getFirstName());
 		mmemberName.setTag(nearBy.getUserId());
 		mplace.setText(nearBy.getDistance());
+		mimgMember.setImageResource(R.drawable.farhan);
 		
 		return convertView;
 	}

@@ -2,17 +2,16 @@ package com.digitalforce.datingapp.adapter;
 
 import java.util.ArrayList;
 
-import com.digitalforce.datingapp.R;
-import com.digitalforce.datingapp.model.NearBy;
-import com.digitalforce.datingapp.widgets.RoundedImageView;
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.digitalforce.datingapp.R;
+import com.digitalforce.datingapp.model.NearBy;
+import com.digitalforce.datingapp.widgets.RoundedImageView;
 
 public class NearByAdapter extends BaseAdapter{
 

@@ -1,8 +1,10 @@
 package com.digitalforce.datingapp.view;
 
 import com.digitalforce.datingapp.R;
+import com.digitalforce.datingapp.utils.ToastCustom;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -51,31 +53,42 @@ public class MenuActivity extends Activity implements OnClickListener{
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.img_menu_profile:
-
+					finish();
 			break;
 		case R.id.img_menu_members:
-
+				//ToastCustom.underDevelopment(this);
+				Intent intentMembers = new Intent(this, MembersActivity.class);
+				startActivity(intentMembers);
+				finish();
 			break;
 		case R.id.img_menu_chats:
-
+			ToastCustom.underDevelopment(this);
 			break;
 		case R.id.img_menu_match:
-
+			//ToastCustom.underDevelopment(this);
+			Intent intentMatch = new Intent(this, MatchActivity.class);
+			startActivity(intentMatch);
+			finish();
 			break;
 		case R.id.img_menu_pictures:
-
+			ToastCustom.underDevelopment(this);
 			break;
 		case R.id.img_menu_favourites:
-
+			//ToastCustom.underDevelopment(this);
+			Intent intentFovirite = new Intent(this, FavouriteActivity.class);
+			startActivity(intentFovirite);
+			finish();
 			break;
 		case R.id.img_menu_settings:
-
+			ToastCustom.underDevelopment(this);
 			break;
 		case R.id.img_menu_new_buzz:
-
+			Intent intentBuzz = new Intent(this, BuzzActivity.class);
+			startActivity(intentBuzz);
+			finish();
 			break;
 		case R.id.img_menu_logout:
-
+			ToastCustom.underDevelopment(this);
 			break;
 		case R.id.img_menu_expand:
 				finish();

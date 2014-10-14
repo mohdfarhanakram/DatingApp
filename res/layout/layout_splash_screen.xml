@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg" >
+    android:background="@drawable/splash" >
 
     <ImageView
         android:id="@+id/img_logo"
@@ -11,6 +11,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/dp_100"
         android:contentDescription="@null"
+        android:visibility="invisible"
         android:src="@drawable/app_title" />
 <LinearLayout 
     android:id="@+id/layout_bottom"

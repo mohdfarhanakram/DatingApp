@@ -4,12 +4,12 @@ import com.digitalforce.datingapp.R;
 import com.digitalforce.datingapp.fragments.AboutFragment;
 import com.digitalforce.datingapp.fragments.PhotosFragment;
 import com.digitalforce.datingapp.utils.ToastCustom;
+import com.farru.android.network.ServiceResponse;
 
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
@@ -17,7 +17,7 @@ import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class ProfileActivity extends FragmentActivity implements OnClickListener{
+public class ProfileActivity extends BaseActivity implements OnClickListener{
 
 	private TextView mtxtAbout, mtxtPhotos, mtxtInsight, mtxtage, mtxtWeight, mtxtheight, mtxtName, mtxtlocation,
 						mtxtSexRole, mtxtHivStatus, mtxtProfileTitle;
@@ -57,6 +57,7 @@ public class ProfileActivity extends FragmentActivity implements OnClickListener
 		mtxtPhotos.setOnClickListener(this);
 		mtxtInsight.setOnClickListener(this);
 		mimgMenu.setOnClickListener(this);
+		mimgChat.setOnClickListener(this);
 	}
 
 	@Override
@@ -80,7 +81,14 @@ public class ProfileActivity extends FragmentActivity implements OnClickListener
 			Intent intentMenu = new Intent(this, MenuActivity.class);
 			startActivity(intentMenu);
 			break;
-
+		case R.id.img_profile_chat:
+			ToastCustom.underDevelopment(this);
+			break;
+		case R.id.img_profile_favorite:
+			//ToastCustom.underDevelopment(this);
+			Intent intentFovirite = new Intent(this, FavouriteActivity.class);
+			startActivity(intentFovirite);
+			break;
 		default:
 			break;
 		}
@@ -96,5 +104,17 @@ public class ProfileActivity extends FragmentActivity implements OnClickListener
 		FragmentTransaction fragmentTransaction=fragmentmaneger.beginTransaction();
 		fragmentTransaction.add(R.id.fragment_profile, fragment);
 		fragmentTransaction.commit();
+	}
+
+	@Override
+	public void onEvent(int eventId, Object eventData) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	protected void updateUi(ServiceResponse serviceResponse) {
+		// TODO Auto-generated method stub
+		
 	}
 }

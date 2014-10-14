@@ -55,6 +55,15 @@
         <activity 
             android:name="com.digitalforce.datingapp.view.MembersActivity"
             android:screenOrientation="portrait"/>
+        <activity 
+            android:name="com.digitalforce.datingapp.view.FavouriteActivity"
+            android:screenOrientation="portrait"/>
+        <activity 
+            android:name="com.digitalforce.datingapp.view.BuzzActivity"
+            android:screenOrientation="portrait"/>
+        <activity 
+            android:name="com.digitalforce.datingapp.view.MatchActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

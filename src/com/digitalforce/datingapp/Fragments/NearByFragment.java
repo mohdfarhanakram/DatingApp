@@ -1,10 +1,11 @@
-package com.digitalforce.datingapp.Fragments;
+package com.digitalforce.datingapp.fragments;
 
 import java.util.ArrayList;
 
 import com.digitalforce.datingapp.R;
 import com.digitalforce.datingapp.adapter.NearByAdapter;
 import com.digitalforce.datingapp.model.NearBy;
+import com.farru.android.network.ServiceResponse;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -13,7 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridView;
 
-public class NearByFragment extends Fragment{
+public class NearByFragment extends BaseFragment{
 
 	private View mView;
 	private GridView mgridlistNearBy;
@@ -33,7 +34,7 @@ public class NearByFragment extends Fragment{
 		for(int i = 0; i<15; i++)
 		{
 			NearBy nearBy = new NearBy();
-			nearBy.setName("Farhan");
+			nearBy.setFirstName("Farhan");
 			nearBy.setUserId("1");
 			nearBy.setDistance("Lucknow");
 			mlistNearBy.add(nearBy);
@@ -42,5 +43,11 @@ public class NearByFragment extends Fragment{
 		mgridlistNearBy.setAdapter(mnearByAdapter);
 		
 		return mView;
+	}
+
+	@Override
+	protected void updateUi(ServiceResponse serviceResponse) {
+		// TODO Auto-generated method stub
+		
 	}
 }

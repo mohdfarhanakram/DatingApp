@@ -1,4 +1,4 @@
-package com.digitalforce.datingapp.Fragments;
+package com.digitalforce.datingapp.fragments;
 
 import com.digitalforce.datingapp.R;
 

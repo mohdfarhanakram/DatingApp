@@ -54,9 +54,20 @@ public class JsonParser {
 		if(jsonArray!=null){
 			for(int i=0; i<jsonArray.length(); i++){
 				JSONObject nearJObj = jsonArray.optJSONObject(i);
+				
 				NearBy nearBy = new NearBy();
 				nearBy.setUserId(nearJObj.optString("userId"));
-				nearBy.setName(nearJObj.optString("firstName"));
+				nearBy.setFirstName(nearJObj.optString("firstName"));
+				nearBy.setDistance(nearJObj.optString("distance"));
+				nearBy.setLastName(nearJObj.optString("lastname"));
+				nearBy.setEmail(nearJObj.optString("email"));
+				nearBy.setDob(nearJObj.optString("dob"));
+				nearBy.setGender(nearJObj.optString("gender"));
+				nearBy.setMobile(nearJObj.optString("mobile"));
+				nearBy.setCountry(nearJObj.optString("country"));
+				nearBy.setLatitude(nearJObj.optString("lat"));
+				nearBy.setLongitude(nearJObj.optString("long"));
+				nearBy.setStatus(nearJObj.optString("status"));
 				nearBy.setDistance(nearJObj.optString("distance"));
 				
 				nearByUserList.add(nearBy);

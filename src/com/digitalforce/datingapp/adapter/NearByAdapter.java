@@ -60,7 +60,7 @@ public class NearByAdapter extends BaseAdapter{
 		ImageView mimgMember = (ImageView) convertView.findViewById(R.id.img_nearby_member);
 		
 		NearBy nearBy = getItem(position);
-		mmemberName.setText(nearBy.getName());
+		mmemberName.setText(nearBy.getFirstName());
 		mmemberName.setTag(nearBy.getUserId());
 		mplace.setText(nearBy.getDistance());
 		

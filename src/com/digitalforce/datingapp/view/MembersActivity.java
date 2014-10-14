@@ -1,8 +1,8 @@
 package com.digitalforce.datingapp.view;
 
 import com.digitalforce.datingapp.R;
-import com.digitalforce.datingapp.Fragments.ExploreFragment;
-import com.digitalforce.datingapp.Fragments.NearByFragment;
+import com.digitalforce.datingapp.fragments.ExploreFragment;
+import com.digitalforce.datingapp.fragments.NearByFragment;
 import com.digitalforce.datingapp.utils.ToastCustom;
 import com.farru.android.network.ServiceResponse;
 

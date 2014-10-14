@@ -1,8 +1,8 @@
 package com.digitalforce.datingapp.view;
 
 import com.digitalforce.datingapp.R;
-import com.digitalforce.datingapp.Fragments.AboutFragment;
-import com.digitalforce.datingapp.Fragments.PhotosFragment;
+import com.digitalforce.datingapp.fragments.AboutFragment;
+import com.digitalforce.datingapp.fragments.PhotosFragment;
 import com.digitalforce.datingapp.utils.ToastCustom;
 
 import android.content.Intent;

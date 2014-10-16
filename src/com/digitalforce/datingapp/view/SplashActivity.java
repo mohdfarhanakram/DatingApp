@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.os.Handler;
 
 import com.digitalforce.datingapp.R;
+import com.digitalforce.datingapp.constants.DatingConstants;
 import com.digitalforce.datingapp.dialog.TermConditon;
 import com.farru.android.network.ServiceResponse;
 
@@ -26,6 +27,10 @@ public class SplashActivity extends BaseActivity{
 			public void run() {
 				// This method will be executed once the timer is over
 				
+				//new TermConditon(SplashActivity.this).show();
+				
+				// close this activity
+				//finish();
 				 handleNavigation();
 				
 			}
@@ -43,6 +48,15 @@ public class SplashActivity extends BaseActivity{
 		// TODO Auto-generated method stub
 		
 	}
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		// TODO Auto-generated method stub
+		super.onActivityResult(requestCode, resultCode, data);
+		if(requestCode == DatingConstants.TCACTION && resultCode == DatingConstants.TCACTION)
+		{
+			finish();
+		}
+	}
 	
 	
 	private void handleNavigation(){
@@ -56,7 +70,10 @@ public class SplashActivity extends BaseActivity{
 			startActivity(intent);
 			finish();
 		}else{
-			new TermConditon(SplashActivity.this).show();
+			//new TermConditon(SplashActivity.this).show();
+			
+			Intent intent = new Intent(SplashActivity.this, TermConditionActivity.class);
+			startActivityForResult(intent, DatingConstants.TCACTION);
 		}
 		
 	}

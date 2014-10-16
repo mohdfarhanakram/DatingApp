@@ -1,57 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@android:color/white"
+    android:layout_height="match_parent"
+    android:background="@drawable/splash"
+    android:padding="@dimen/dp_10"
     android:orientation="vertical" >
-    <TextView 
-        style="@style/txt_name"
+    <WebView 
+        android:id="@+id/web_tc"
         android:layout_width="match_parent"
-        android:padding="@dimen/dp_10"
-        android:singleLine="false"
-        android:text="@string/terms_conditions"
-        android:gravity="center"
-        android:textSize="@dimen/sp_18"
-        />
-    <View 
-        style="@style/view"/>
-    <TextView 
-        style="@style/txt_name"
-        android:layout_width="match_parent"
-        android:singleLine="false"
-        android:layout_margin="@dimen/dp_8"
-        android:text="@string/terms_conditions_msg"
-        android:gravity="center"
-        />
-    <View 
-        style="@style/view"/>
-    <LinearLayout 
+        android:layout_above="@+id/bottom"
+        android:layout_marginTop="@dimen/dp_120"
+        android:layout_marginBottom="@dimen/dp_10"
+        android:layout_height="match_parent"/>
+ 	 <LinearLayout 
+ 	     android:id="@+id/bottom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_alignParentBottom="true"
         android:orientation="horizontal">
         <Button
-            android:id="@+id/btn_dialog_tc_ok"
+            android:id="@+id/btn_tc_accept"
             android:layout_width="0dp"
             android:layout_weight=".5"
             android:layout_height="wrap_content"
             android:padding="@dimen/dp_10"
             android:textSize="@dimen/sp_14"
-            android:background="@android:color/transparent"
-            android:text="@string/ok"/>
+            android:background="@android:color/white"
+            android:textColor="#69A1De"
+            android:text="@string/accept"/>
         <View 
-            android:layout_width="@dimen/dp_1"
+            android:layout_width="@dimen/dp_10"
             android:layout_height="match_parent"
-            android:background="@color/btn_color"/>
+            android:background="@android:color/transparent"/>
         <Button
-            android:id="@+id/btn_dialog_tc_cancel"
+            android:id="@+id/btn_tc_cancel"
             android:layout_width="0dp"
             android:layout_weight=".5"
             android:padding="@dimen/dp_10"
             android:layout_height="wrap_content"
             android:textSize="@dimen/sp_14"
-            android:background="@android:color/transparent"
+            android:textColor="#69A1De"
+            android:background="@android:color/white"
             android:text="@string/cancel"/>
     </LinearLayout>
-    
-
-</LinearLayout>
+</RelativeLayout>

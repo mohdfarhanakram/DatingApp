@@ -31,7 +31,7 @@ public class TermConditon extends Dialog implements android.view.View.OnClickLis
 		super.onCreate(savedInstanceState);
 		this.setCanceledOnTouchOutside(false);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
-		setContentView(R.layout.layout_term_condition);
+		setContentView(R.layout.layout_dialog_term_condition);
 		
 		mbtnCancel = (Button) findViewById(R.id.btn_dialog_tc_cancel);
 		mbtnOk = (Button) findViewById(R.id.btn_dialog_tc_ok);

@@ -62,4 +62,7 @@
     	<string name="whos_viewed_u">WHO\'S VIEWED U</string>
     	<string name="match_msg">Are you really serious? I can\'t believe it!</string>
     	<string name="matchchat_time">07:43 AM</string>
+    	<string name="accept">Accept</string>
+    	<string name="tap_to_edit">Tap To Edit</string>
+    	
 </resources>

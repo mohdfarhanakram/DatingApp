@@ -78,11 +78,10 @@ public class LoginActivity extends BaseActivity implements OnClickListener,OnLog
 			if(checkValidation())
 			{
 
-				/*String postData = getRequestJson(medtCoolName.getText().toString(),medtPassword.getText().toString());
+				String postData = getRequestJson(medtCoolName.getText().toString(),medtPassword.getText().toString());
 				Log.e("Post Data", postData);
-				postData(DatingUrlConstants.LOGIN_URL, ApiEvent.LOGIN_EVENT, postData);*/
-				Intent intent = new Intent(this, MembersActivity.class);
-				startActivity(intent);
+				postData(DatingUrlConstants.LOGIN_URL, ApiEvent.LOGIN_EVENT, postData);
+				
 			}
 
 			break;
@@ -160,8 +159,8 @@ public class LoginActivity extends BaseActivity implements OnClickListener,OnLog
 		case ApiEvent.LOGIN_FB_GMAIL_EVENT:
 			UserInfo userInfo = (UserInfo)serviceResponse.getResponseObject();
 			if(userInfo!=null){
-				showCommonError(serviceResponse.getBaseModel().getSuccessMsg()+" UserId: "+userInfo.getUserId()); // its only for testing
-				navigateToHomeScreen();
+				showCommonError(serviceResponse.getBaseModel().getSuccessMsg()); 
+				navigateToHomeScreen(userInfo);
 			}else{
 				showCommonError(null);
 			}
@@ -278,7 +277,14 @@ public class LoginActivity extends BaseActivity implements OnClickListener,OnLog
 		return jsonObject.toString();
 	}
 	
-	private void navigateToHomeScreen(){
+	private void navigateToHomeScreen(UserInfo userInfo){
+		
+		DatingAppPreference.putString(DatingAppPreference.USER_ID, userInfo.getUserId(), this);
+		
+		Intent intent = new Intent(this, MembersActivity.class);
+		startActivity(intent);
+		
+		finish();
 		
 	}
 

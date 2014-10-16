@@ -1,11 +1,5 @@
 package com.digitalforce.datingapp.view;
 
-import com.digitalforce.datingapp.R;
-import com.digitalforce.datingapp.fragments.ExploreFragment;
-import com.digitalforce.datingapp.fragments.NearByFragment;
-import com.digitalforce.datingapp.utils.ToastCustom;
-import com.farru.android.network.ServiceResponse;
-
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -16,12 +10,32 @@ import android.view.View.OnClickListener;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.digitalforce.datingapp.R;
+import com.digitalforce.datingapp.fragments.BaseFragment;
+import com.digitalforce.datingapp.fragments.ExploreFragment;
+import com.digitalforce.datingapp.fragments.NearByFragment;
+import com.digitalforce.datingapp.persistance.DatingAppPreference;
+import com.digitalforce.datingapp.utils.ToastCustom;
+import com.farru.android.network.ServiceResponse;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 public class MembersActivity extends BaseActivity implements OnClickListener{
 
 	private ImageView mimgMenuOption;
 	private TextView mtxtTitle, mtxtNearBy, mtxtExplore;
 	private EditText medtSearch;
+	
+	private GoogleMap googleMap;
+	
+	private String EXPLORER_TAG = "explorer";
+	private String NEAR_BY_TAG = "near_by_tag";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +55,15 @@ public class MembersActivity extends BaseActivity implements OnClickListener{
 
 		selectFragment(new ExploreFragment());
 		mtxtTitle.setText(getResources().getString(R.string.member));
+		
+		
+	}
+	
+	@Override
+	protected void onPostCreate(Bundle savedInstanceState) {
+		super.onPostCreate(savedInstanceState);
+		
+		//initilizeMap();
 	}
 	
 	
@@ -82,8 +105,16 @@ public class MembersActivity extends BaseActivity implements OnClickListener{
 
 	@Override
 	protected void updateUi(ServiceResponse serviceResponse) {
-		// TODO Auto-generated method stub
-
+		
+		FragmentManager fragmentmaneger = getSupportFragmentManager();
+		for(int i=0; i<fragmentmaneger.getFragments().size(); i++){
+			if(fragmentmaneger.getFragments().get(i) instanceof BaseFragment){
+				BaseFragment fragment = (BaseFragment)fragmentmaneger.getFragments().get(i);
+				fragment.updateUi(serviceResponse);
+			}
+			
+		}
+		
 	}
 	/**
 	 * call fragment
@@ -95,6 +126,72 @@ public class MembersActivity extends BaseActivity implements OnClickListener{
 		FragmentTransaction fragmentTransaction=fragmentmaneger.beginTransaction();
 		fragmentTransaction.replace(R.id.fragment_member, fragment);
 		fragmentTransaction.commit();
+		
 	}
+	
+	/**
+	 * function to load map. If map is not created it will create it for you
+	 * */
+	private void initilizeMap() {
+
+			
+			FragmentManager fragmentmaneger = getSupportFragmentManager();
+			if(fragmentmaneger!=null && fragmentmaneger.getFragments()!=null){
+				for(int i=0; i<fragmentmaneger.getFragments().size(); i++){
+					if(fragmentmaneger.getFragments().get(i) instanceof SupportMapFragment){
+						SupportMapFragment fragment = (SupportMapFragment)fragmentmaneger.getFragments().get(i);
+						googleMap = fragment.getMap();
+					}
+					
+				}
+			}
+		  
+			
+			if (googleMap == null) {
+				Toast.makeText(getApplicationContext(),
+						"Sorry! unable to create maps", Toast.LENGTH_SHORT)
+						.show();
+			}
+			
+			if(googleMap!=null){
+				setUpMap();
+			}
+		
+	}
+	
+	private void setUpMap() {
+		// Hide the zoom controls as the button panel will cover it.
+		googleMap.getUiSettings().setZoomControlsEnabled(false); 
+
+		float latitude = Float.parseFloat(DatingAppPreference.getString(DatingAppPreference.USER_DEVICE_LATITUDE, "0.0", this));
+		float longitude = Float.parseFloat(DatingAppPreference.getString(DatingAppPreference.USER_DEVICE_LONGITUDE, "0.0", this));
+
+		final LatLng USER_CURRENT_LOCATION = new LatLng(latitude,longitude);
+
+		Marker hamburg = googleMap.addMarker(new MarkerOptions().position(USER_CURRENT_LOCATION)
+				.title("Dating App"));
+
+		// Move the camera instantly to hamburg with a zoom of 15.
+		googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(USER_CURRENT_LOCATION, 15));
+
+		// Zoom in, animating the camera.
+		googleMap.animateCamera(CameraUpdateFactory.zoomTo(10), 2000, null);
+	}
+
+	private boolean checkReady() {
+		if (googleMap == null) {
+			Toast.makeText(this, "Map is not ready", Toast.LENGTH_SHORT).show();
+			return false;
+		}
+		return true;
+	}
+	
+	/*@Override
+	protected void onResume() {
+		super.onResume();
+		initilizeMap();
+	}*/
+	
+	
 
 }

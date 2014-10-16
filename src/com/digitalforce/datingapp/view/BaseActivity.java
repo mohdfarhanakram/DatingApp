@@ -104,6 +104,8 @@ public abstract class BaseActivity extends FragmentActivity implements IScreen,R
 				DatingAppPreference.putString(DatingAppPreference.USER_DEVICE_LATITUDE, location.getLatitude()+"", this);
 				DatingAppPreference.putString(DatingAppPreference.USER_DEVICE_LONGITUDE, location.getLongitude()+"", this);
 			}
+		}else{
+			showCommonError("Unable to find your current location");
 		}
 
 
@@ -397,7 +399,13 @@ public abstract class BaseActivity extends FragmentActivity implements IScreen,R
 	}
 	
 	public void postData(String url, int eventType, String postData) {
-		showProgressDialog();
+		postData(url, eventType,postData, true);
+
+	}
+	
+	public void postData(String url, int eventType, String postData,boolean isLoaderRequired) {
+		if(isLoaderRequired)
+		   showProgressDialog();
 		postData(url, eventType, null, postData, VolleyGenericRequest.ContentType.JSON, null);
 
 	}
@@ -549,6 +557,16 @@ public abstract class BaseActivity extends FragmentActivity implements IScreen,R
 	    } catch (NoSuchAlgorithmException e) {
 
 	    }
+   }
+   
+   public boolean isUserLogin(){
+	   String uid = DatingAppPreference.getString(DatingAppPreference.USER_ID, "", this);
+	   return !StringUtils.isNullOrEmpty(uid);
+   }
+   
+   
+   public boolean isTcAccept(){
+	   return  DatingAppPreference.getBoolean(DatingAppPreference.USER_TC_ACCEPT, false, this);
    }
 
 

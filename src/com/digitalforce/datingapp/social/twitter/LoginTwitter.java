@@ -21,6 +21,7 @@ import android.widget.Toast;
 import com.digitalforce.datingapp.R;
 import com.digitalforce.datingapp.constants.DatingConstants;
 import com.digitalforce.datingapp.utils.ToastCustom;
+import com.digitalforce.datingapp.view.BaseActivity;
 import com.digitalforce.datingapp.view.LoginActivity;
 
 
@@ -50,10 +51,16 @@ public class LoginTwitter {
 	}
 
 	private class TokenGet extends AsyncTask<String, String, String> {
+		
+		@Override
+		protected void onPreExecute() {
+			super.onPreExecute();
+			((BaseActivity)context).showProgressDialog();
+		}
 
 		@Override
 		protected String doInBackground(String... args) {
-
+			
 			try {
 				requestToken = twitter.getOAuthRequestToken();
 				oauth_url = requestToken.getAuthorizationURL();
@@ -65,6 +72,7 @@ public class LoginTwitter {
 		}
 		@Override
 		protected void onPostExecute(String oauth_url) {
+			((BaseActivity)context).removeProgressDialog();
 			if(oauth_url != null){
 				Log.e("URL", oauth_url);
 				auth_dialog = new Dialog(context);
@@ -79,10 +87,12 @@ public class LoginTwitter {
 					@Override
 					public void onPageStarted(WebView view, String url, Bitmap favicon){
 						super.onPageStarted(view, url, favicon);
+						((BaseActivity)context).showProgressDialog();
 					}
 
 					@Override
 					public void onPageFinished(WebView view, String url) {
+						((BaseActivity)context).removeProgressDialog();
 						super.onPageFinished(view, url);
 						if (url.contains("oauth_verifier") && authComplete == false){
 							authComplete = true;
@@ -120,18 +130,13 @@ public class LoginTwitter {
 		@Override
 		protected void onPreExecute() {
 			super.onPreExecute();
-			progress = new ProgressDialog(context);
-			progress.setMessage("Fetching Data ...");
-			progress.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-			progress.setIndeterminate(true);
-			progress.show();
-
+			((BaseActivity)context).showProgressDialog();
 		}
 
 
 		@Override
 		protected User doInBackground(String... args) {
-
+			
 			User user = null;
 			try {
 
@@ -147,8 +152,8 @@ public class LoginTwitter {
 		}
 		@Override
 		protected void onPostExecute(User user) {
+			((BaseActivity)context).removeProgressDialog();
 
-			progress.hide();
 
 			if(user!=null){
 

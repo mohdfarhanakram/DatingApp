@@ -99,7 +99,8 @@ public class SignUpActivity extends BaseActivity implements OnClickListener{
 		case ApiEvent.SIGN_UP_EVENT:
 			UserInfo userInfo = (UserInfo)serviceResponse.getResponseObject();
 			if(userInfo!=null){
-				showCommonError(userInfo.getUserId()); // its only for testing
+				showCommonError(serviceResponse.getBaseModel().getSuccessMsg()); 
+				finish();
 			}
 			break;
 

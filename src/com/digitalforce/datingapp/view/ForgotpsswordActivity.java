@@ -89,7 +89,8 @@ public class ForgotpsswordActivity extends BaseActivity implements OnClickListen
 		case ApiEvent.FORGOT_PASSWORD_EVENT:
 			String msg = (String)serviceResponse.getResponseObject();
 			if(!StringUtils.isNullOrEmpty(msg)){
-				showCommonError(msg); 
+				showCommonError(msg);
+				finish();
 			}
 			break;
 

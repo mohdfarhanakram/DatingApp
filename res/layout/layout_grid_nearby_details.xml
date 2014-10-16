@@ -11,7 +11,7 @@
         android:layout_width="@dimen/dp_70"
         android:layout_height="@dimen/dp_70"
         android:contentDescription="@null"
-        android:src="@drawable/profile"
+        android:src="@drawable/farhan"
         app:border="true"
         app:border_color="@color/white"
         app:border_width="1dp"

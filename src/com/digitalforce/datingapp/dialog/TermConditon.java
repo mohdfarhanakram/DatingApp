@@ -10,6 +10,7 @@ import android.view.Window;
 import android.widget.Button;
 
 import com.digitalforce.datingapp.R;
+import com.digitalforce.datingapp.persistance.DatingAppPreference;
 import com.digitalforce.datingapp.view.BaseActivity;
 import com.digitalforce.datingapp.view.LoginActivity;
 
@@ -47,6 +48,7 @@ public class TermConditon extends Dialog implements android.view.View.OnClickLis
 			((BaseActivity) context).finish();
 			break;
 		case R.id.btn_dialog_tc_ok:
+			DatingAppPreference.putBoolean(DatingAppPreference.USER_TC_ACCEPT, true, context);
 			Intent i = new Intent(context, LoginActivity.class);
 			context.startActivity(i);
 			dismiss();

@@ -12,22 +12,23 @@ import android.widget.TextView;
 import com.digitalforce.datingapp.R;
 import com.digitalforce.datingapp.model.NearBy;
 import com.digitalforce.datingapp.widgets.RoundedImageView;
+import com.farru.android.utill.StringUtils;
 
 public class NearByAdapter extends BaseAdapter{
 
 	private Context context;
 	private ArrayList<NearBy> mlistNearby;
 	private LayoutInflater inflater;
-	
+
 	public NearByAdapter(Context context, ArrayList<NearBy> mlistNearby)
 	{
 		this.context = context;
 		this.mlistNearby = mlistNearby;
-		
+
 		inflater = (LayoutInflater) context
-		        .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 	}
-	
+
 	@Override
 	public int getCount() {
 		// TODO Auto-generated method stub
@@ -52,21 +53,45 @@ public class NearByAdapter extends BaseAdapter{
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
-		// TODO Auto-generated method stub
-		
-		convertView = inflater.inflate(R.layout.layout_grid_nearby_details, parent, false);
-		
-		TextView mmemberName = (TextView) convertView.findViewById(R.id.txt_nearby_member_name);
-		TextView mplace = (TextView) convertView.findViewById(R.id.txt_nearby_place);
-		RoundedImageView mimgMember = (RoundedImageView) convertView.findViewById(R.id.img_nearby_member);
-		
+		ViewHolder viewHolder;
 		NearBy nearBy = getItem(position);
-		mmemberName.setText(nearBy.getFirstName());
-		mmemberName.setTag(nearBy.getUserId());
-		mplace.setText(nearBy.getDistance());
-		mimgMember.setImageResource(R.drawable.farhan);
-		
+		if(convertView==null){
+			viewHolder = new ViewHolder();
+
+			convertView = inflater.inflate(R.layout.layout_grid_nearby_details, parent, false);
+
+			viewHolder.member = (TextView) convertView.findViewById(R.id.txt_nearby_member_name);
+			viewHolder.place = (TextView) convertView.findViewById(R.id.txt_nearby_place);
+			viewHolder.image = (RoundedImageView) convertView.findViewById(R.id.img_nearby_member);
+
+			convertView.setTag(viewHolder);
+
+		}else{
+			viewHolder = (ViewHolder)convertView.getTag();
+		}
+
+		if(!StringUtils.isNullOrEmpty(nearBy.getFirstName())){
+			viewHolder.member.setVisibility(View.VISIBLE);
+			viewHolder.member.setText(nearBy.getFirstName());
+
+		}else{
+			viewHolder.member.setText("Farhan");
+			viewHolder.member.setVisibility(View.VISIBLE);
+		}
+
+		if(!StringUtils.isNullOrEmpty(nearBy.getDistance())){
+			viewHolder.place.setVisibility(View.VISIBLE);
+			viewHolder.place.setText(nearBy.getDistance());
+		}else{
+			viewHolder.place.setVisibility(View.GONE);
+		}
 		return convertView;
+	}
+
+	public class ViewHolder{
+		public TextView member;
+		public TextView place;
+		public RoundedImageView image;
 	}
 
 }

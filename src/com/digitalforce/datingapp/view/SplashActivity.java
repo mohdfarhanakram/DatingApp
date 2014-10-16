@@ -1,6 +1,7 @@
 package com.digitalforce.datingapp.view;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
@@ -21,14 +22,12 @@ public class SplashActivity extends BaseActivity{
 
 		new Handler().postDelayed(new Runnable() {
 
-
 			@Override
 			public void run() {
 				// This method will be executed once the timer is over
 				
-				new TermConditon(SplashActivity.this).show();
-				// close this activity
-				//finish();
+				 handleNavigation();
+				
 			}
 		}, SPLASH_TIME_OUT);
 	}
@@ -42,6 +41,23 @@ public class SplashActivity extends BaseActivity{
 	@Override
 	protected void updateUi(ServiceResponse serviceResponse) {
 		// TODO Auto-generated method stub
+		
+	}
+	
+	
+	private void handleNavigation(){
+		
+		if(isTcAccept() && !isUserLogin()){
+			Intent i = new Intent(this,LoginActivity.class);
+			startActivity(i);
+			finish();
+		}else if(isTcAccept() && isUserLogin()){
+			Intent intent = new Intent(this, MembersActivity.class);
+			startActivity(intent);
+			finish();
+		}else{
+			new TermConditon(SplashActivity.this).show();
+		}
 		
 	}
 }

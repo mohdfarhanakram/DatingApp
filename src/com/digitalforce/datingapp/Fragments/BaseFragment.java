@@ -3,6 +3,9 @@
  */
 package com.digitalforce.datingapp.fragments;
 
+import com.digitalforce.datingapp.constants.ApiEvent;
+import com.digitalforce.datingapp.constants.DatingUrlConstants;
+import com.digitalforce.datingapp.view.BaseActivity;
 import com.farru.android.network.ServiceResponse;
 
 import android.os.Bundle;
@@ -23,5 +26,13 @@ public abstract class BaseFragment extends Fragment{
 		return super.onCreateView(inflater, container, savedInstanceState);
 	}
 	
-	protected abstract void updateUi(ServiceResponse serviceResponse);
+	public void postData(String url, int eventType, String postData) {
+		((BaseActivity)getActivity()).postData(url, eventType, postData,false);
+
+	}
+	
+	
+	public void updateUi(ServiceResponse serviceResponse){
+		
+	}
 }

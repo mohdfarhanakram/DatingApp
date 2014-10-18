@@ -6,39 +6,251 @@
     android:background="@drawable/bg"
     android:orientation="vertical" >
 
-    <include layout="@layout/layout_action_bar" />
-
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal" >
+        android:layout_height="wrap_content" >
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical" >
 
-            <com.digitalforce.datingapp.widgets.RoundedImageView
-                android:id="@+id/img_nearby_member"
-                android:layout_width="@dimen/dp_90"
-                android:layout_height="@dimen/dp_90"
-                android:contentDescription="@null"
-                android:src="@drawable/farhan"
-                app:border="true"
-                app:border_color="@color/white"
-                app:border_width="1dp"
-                app:shadow="true" />
+            <include layout="@layout/layout_action_bar" />
 
-            <TextView
-                android:id="@+id/txt_tap_to_edit"
-                style="@style/txt_name"
-                android:background="@android:color/white"
-                android:padding="@dimen/dp_5"
-                android:gravity="center"
-                android:text="@string/tap_to_edit"
-                android:textSize="@dimen/sp_12" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
 
+                <FrameLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" >
+
+                    <com.digitalforce.datingapp.widgets.RoundedImageView
+                        android:id="@+id/img_nearby_member"
+                        android:layout_width="@dimen/dp_90"
+                        android:layout_height="@dimen/dp_90"
+                        android:contentDescription="@null"
+                        android:src="@drawable/farhan"
+                        app:border="true"
+                        app:border_color="@color/white"
+                        app:border_width="1dp"
+                        app:shadow="true" />
+
+                    <TextView
+                        android:id="@+id/txt_update_profile_tap_to_edit"
+                        style="@style/txt_base"
+                        android:layout_width="@dimen/dp_90"
+                        android:layout_gravity="center|bottom"
+                        android:background="#aa000000"
+                        android:gravity="center"
+                        android:padding="@dimen/dp_5"
+                        android:text="@string/tap_to_edit" />
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/txt_update_profile_name"
+                    style="@style/txt_name"
+                    android:layout_gravity="bottom"
+                    android:background="@android:color/white"
+                    android:gravity="center|left"
+                    android:padding="@dimen/dp_10"
+                    android:text="@string/member_nmae"
+                    android:textSize="@dimen/sp_12" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_update_profile_headline"
+                style="@style/layout_profile" >
+
+                <TextView
+                    style="@style/txt_name"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="@string/headline"
+                    android:textSize="@dimen/sp_14" />
+
+                <TextView
+                    style="@style/txt_name"
+                    android:layout_width="wrap_content"
+                    android:text="@string/headline"
+                    android:textSize="@dimen/sp_12" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_update_profile_about_you"
+                style="@style/layout_profile" >
+
+                <TextView
+                    style="@style/txt_name"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="@string/about_you"
+                    android:textSize="@dimen/sp_14" />
+
+                <TextView
+                    style="@style/txt_name"
+                    android:layout_width="wrap_content"
+                    android:text="@string/about_you"
+                    android:textSize="@dimen/sp_12" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_update_profile_age"
+                style="@style/layout_profile" >
+
+                <TextView
+                    style="@style/txt_name"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="@string/age"
+                    android:textSize="@dimen/sp_14" />
+
+                <TextView
+                    style="@style/txt_name"
+                    android:layout_width="wrap_content"
+                    android:text="@string/age"
+                    android:textSize="@dimen/sp_12" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_update_profile_weight"
+                style="@style/layout_profile" >
+
+                <TextView
+                    style="@style/txt_name"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="@string/weight"
+                    android:textSize="@dimen/sp_14" />
+
+                <TextView
+                    style="@style/txt_name"
+                    android:layout_width="wrap_content"
+                    android:text="@string/weight"
+                    android:textSize="@dimen/sp_12" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_update_profile_ethencity"
+                style="@style/layout_profile" >
+
+                <TextView
+                    style="@style/txt_name"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="@string/ethencity"
+                    android:textSize="@dimen/sp_14" />
+
+                <TextView
+                    style="@style/txt_name"
+                    android:layout_width="wrap_content"
+                    android:text="@string/ethencity"
+                    android:textSize="@dimen/sp_12" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_update_profile_height"
+                style="@style/layout_profile" >
+
+                <TextView
+                    style="@style/txt_name"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="@string/height"
+                    android:textSize="@dimen/sp_14" />
+
+                <TextView
+                    style="@style/txt_name"
+                    android:layout_width="wrap_content"
+                    android:text="@string/height"
+                    android:textSize="@dimen/sp_12" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_update_profile_relationship"
+                style="@style/layout_profile" >
+
+                <TextView
+                    style="@style/txt_name"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="@string/relationship"
+                    android:textSize="@dimen/sp_14" />
+
+                <TextView
+                    style="@style/txt_name"
+                    android:layout_width="wrap_content"
+                    android:text="@string/relationship"
+                    android:textSize="@dimen/sp_12" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_update_profile_lokingFor"
+                style="@style/layout_profile" >
+
+                <TextView
+                    style="@style/txt_name"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="@string/loking_for"
+                    android:textSize="@dimen/sp_14" />
+
+                <TextView
+                    style="@style/txt_name"
+                    android:layout_width="wrap_content"
+                    android:text="@string/loking_for"
+                    android:textSize="@dimen/sp_12" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_update_profile_kys"
+                style="@style/layout_profile" >
+
+                <TextView
+                    style="@style/txt_name"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="@string/kys"
+                    android:textSize="@dimen/sp_14" />
+
+                <TextView
+                    style="@style/txt_name"
+                    android:layout_width="wrap_content"
+                    android:text="@string/kys"
+                    android:textSize="@dimen/sp_12" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/layout_update_profile_show_distance"
+                style="@style/layout_profile" >
+
+                <TextView
+                    style="@style/txt_name"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="@string/show_distance"
+                    android:textSize="@dimen/sp_14" />
+
+                <TextView
+                    style="@style/txt_name"
+                    android:layout_width="wrap_content"
+                    android:text="@string/show_distance"
+                    android:textSize="@dimen/sp_12" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_update_profile_update"
+                android:layout_width="@dimen/dp_100"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/dp_5"
+                android:background="@color/btn_color"
+                android:padding="@dimen/dp_10"
+                android:text="@string/update"
+                android:textColor="@android:color/white" />
         </LinearLayout>
-    </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>

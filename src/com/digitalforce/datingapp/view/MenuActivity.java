@@ -52,6 +52,8 @@ public class MenuActivity extends Activity implements OnClickListener{
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.img_menu_profile:
+			Intent intentProfile = new Intent(this, UpdateProfileActivity.class);
+			startActivity(intentProfile);
 					finish();
 			break;
 		case R.id.img_menu_members:

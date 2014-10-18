@@ -64,5 +64,14 @@
     	<string name="matchchat_time">07:43 AM</string>
     	<string name="accept">Accept</string>
     	<string name="tap_to_edit">Tap To Edit</string>
+    	<string name="about_you">About You</string>
+    	<string name="headline">Headline</string>
+    	<string name="ethencity">Ethencity</string>
+    	<string name="relationship">Relationship</string>
+    	<string name="loking_for">Loking For</string>
+    	<string name="kys">KYS</string>
+    	<string name="know_your_status">Know Your Status</string>
+    	<string name="show_distance">Shw Distance</string>
+    	<string name="update">Update</string>
     	
 </resources>

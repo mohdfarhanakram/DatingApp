@@ -18,5 +18,6 @@
     <color name="profile_tap_color">#374A75</color>
     <color name="profile_tap_seprator_color">#2D2F57</color>
     <color name="about_bg_color">#09B3fc</color>
+    <color name="view_color">#04061F</color>
 
 </resources>

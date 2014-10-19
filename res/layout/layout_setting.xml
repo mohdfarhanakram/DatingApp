@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    android:orientation="vertical" >
+
+    <include layout="@layout/layout_action_bar" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:id="@+id/layout_setting_more_something"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="@dimen/dp_10" >
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        style="@style/txt_base"
+                        android:layout_width="match_parent"
+                        android:text="@string/more_something"
+                        android:textSize="@dimen/sp_14" />
+
+                    <TextView
+                        style="@style/txt_base"
+                        android:layout_marginTop="@dimen/dp_3"
+                        android:singleLine="false"
+                        android:text="@string/common_msg"
+                        android:textSize="@dimen/sp_10" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="@dimen/dp_30"
+                    android:layout_height="@dimen/dp_30"
+                    android:layout_weight="0"
+                    android:contentDescription="@null"
+                    android:src="@drawable/next" />
+            </LinearLayout>
+
+            <View style="@style/view" />
+
+            <LinearLayout
+                android:id="@+id/layout_setting_just_another"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="@dimen/dp_10" >
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        style="@style/txt_base"
+                        android:layout_width="match_parent"
+                        android:text="@string/just_another_setting"
+                        android:textSize="@dimen/sp_14" />
+
+                    <TextView
+                        style="@style/txt_base"
+                        android:layout_marginTop="@dimen/dp_3"
+                        android:singleLine="false"
+                        android:text="@string/common_msg"
+                        android:textSize="@dimen/sp_10" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="@dimen/dp_30"
+                    android:layout_height="@dimen/dp_30"
+                    android:layout_weight="0"
+                    android:contentDescription="@null"
+                    android:src="@drawable/next" />
+            </LinearLayout>
+
+            <View style="@style/view" />
+
+            <LinearLayout
+                android:id="@+id/layout_setting_other"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="@dimen/dp_10" >
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        style="@style/txt_base"
+                        android:layout_width="match_parent"
+                        android:text="@string/other_setting"
+                        android:textSize="@dimen/sp_14" />
+
+                    <TextView
+                        style="@style/txt_base"
+                        android:layout_marginTop="@dimen/dp_3"
+                        android:singleLine="false"
+                        android:text="@string/common_msg"
+                        android:textSize="@dimen/sp_10" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="@dimen/dp_30"
+                    android:layout_height="@dimen/dp_30"
+                    android:layout_weight="0"
+                    android:contentDescription="@null"
+                    android:src="@drawable/next" />
+            </LinearLayout>
+
+            <View style="@style/view" />
+
+            <LinearLayout
+                android:id="@+id/layout_setting_profile"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="@dimen/dp_10" >
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        style="@style/txt_base"
+                        android:layout_width="match_parent"
+                        android:text="@string/profile"
+                        android:textSize="@dimen/sp_14" />
+
+                    <TextView
+                        style="@style/txt_base"
+                        android:layout_marginTop="@dimen/dp_3"
+                        android:singleLine="false"
+                        android:text="@string/common_msg"
+                        android:textSize="@dimen/sp_10" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="@dimen/dp_30"
+                    android:layout_height="@dimen/dp_30"
+                    android:layout_weight="0"
+                    android:contentDescription="@null"
+                    android:src="@drawable/next" />
+            </LinearLayout>
+
+            <View style="@style/view" />
+
+            <LinearLayout
+                android:id="@+id/layout_setting_filters"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="@dimen/dp_10" >
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        style="@style/txt_base"
+                        android:layout_width="match_parent"
+                        android:text="@string/filters"
+                        android:textSize="@dimen/sp_14" />
+
+                    <TextView
+                        style="@style/txt_base"
+                        android:layout_marginTop="@dimen/dp_3"
+                        android:singleLine="false"
+                        android:text="@string/common_msg"
+                        android:textSize="@dimen/sp_10" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="@dimen/dp_30"
+                    android:layout_height="@dimen/dp_30"
+                    android:layout_weight="0"
+                    android:contentDescription="@null"
+                    android:src="@drawable/next" />
+            </LinearLayout>
+
+            <View style="@style/view" />
+
+            <LinearLayout
+                android:id="@+id/layout_setting_premium_membership"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="@dimen/dp_10" >
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        style="@style/txt_base"
+                        android:layout_width="match_parent"
+                        android:text="@string/premium_membership"
+                        android:textSize="@dimen/sp_14" />
+
+                    <TextView
+                        style="@style/txt_base"
+                        android:layout_marginTop="@dimen/dp_3"
+                        android:singleLine="false"
+                        android:text="@string/common_msg"
+                        android:textSize="@dimen/sp_10" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="@dimen/dp_30"
+                    android:layout_height="@dimen/dp_30"
+                    android:layout_weight="0"
+                    android:contentDescription="@null"
+                    android:src="@drawable/next" />
+            </LinearLayout>
+
+            <View style="@style/view" />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

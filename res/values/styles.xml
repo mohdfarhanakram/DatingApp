@@ -47,7 +47,7 @@
     <style name="view">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">@dimen/dp_1</item>
-        <item name="android:background">@color/btn_color</item>
+        <item name="android:background">@color/view_color</item>
     </style>
 
     <style name="view_vetical">

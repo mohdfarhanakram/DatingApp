@@ -93,11 +93,16 @@ public class MenuActivity extends Activity implements OnClickListener{
 			finish();
 			break;
 		case R.id.img_menu_settings:
-			ToastCustom.underDevelopment(this);
+			//ToastCustom.underDevelopment(this);
+			Intent intentSetting = new Intent(this, BuzzActivity.class);
+			intentSetting.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+			startActivity(intentSetting);
+			finish();
 			break;
 		case R.id.img_menu_new_buzz:
+			ToastCustom.underDevelopment(this);
 			Intent intentBuzz = new Intent(this, BuzzActivity.class);
-			intentBuzz.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+			intentBuzz.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 			startActivity(intentBuzz);
 			finish();
 			break;

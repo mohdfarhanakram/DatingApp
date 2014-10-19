@@ -77,6 +77,7 @@ public class BaseParser implements IParser {
         case ApiEvent.ADD_TO_FAVOURITE:
         case ApiEvent.SHOW_FAVOURITED_BY:
         case ApiEvent.SHOW_MY_FAVOURITE:
+        case ApiEvent.UPDATE_PROFILE_EVENT:
         	response.setErrorMessages(jsonObject.optString("error", null));
         	break;
             default:

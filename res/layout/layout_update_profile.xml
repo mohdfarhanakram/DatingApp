@@ -6,8 +6,9 @@
     android:background="@drawable/bg"
     android:orientation="vertical" >
 
-            <include layout="@layout/layout_action_bar" />
-<ScrollView
+    <include layout="@layout/layout_action_bar" />
+
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
 
@@ -15,6 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical" >
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -27,8 +29,8 @@
 
                     <com.digitalforce.datingapp.widgets.RoundedImageView
                         android:id="@+id/img_nearby_member"
-                        android:layout_width="@dimen/dp_90"
-                        android:layout_height="@dimen/dp_90"
+                        android:layout_width="@dimen/dp_120"
+                        android:layout_height="@dimen/dp_120"
                         android:contentDescription="@null"
                         android:src="@drawable/farhan"
                         app:border="true"
@@ -37,9 +39,9 @@
                         app:shadow="true" />
 
                     <TextView
-                        android:id="@+id/txt_update_profile_tap_to_edit"
+                        android:id="@+id/txt_update_profile_photo"
                         style="@style/txt_base"
-                        android:layout_width="@dimen/dp_90"
+                        android:layout_width="@dimen/dp_120"
                         android:layout_gravity="center|bottom"
                         android:background="#aa000000"
                         android:gravity="center"
@@ -47,16 +49,30 @@
                         android:text="@string/tap_to_edit" />
                 </FrameLayout>
 
-                <EditText
-                    android:id="@+id/edt_update_profile_name"
-                    style="@style/edit_profile"
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/dp_50"
                     android:layout_gravity="bottom"
-                    android:text="@string/member_nmae"
-                    android:textSize="@dimen/sp_14" />
+                    android:orientation="vertical" >
+
+                    <EditText
+                        android:id="@+id/edt_update_profile_fname"
+                        style="@style/edit_profile"
+                        android:hint="@string/fname"
+                        android:textSize="@dimen/sp_14" />
+
+                    <EditText
+                        android:id="@+id/edt_update_profile_lname"
+                        style="@style/edit_profile"
+                        android:layout_marginTop="@dimen/dp_5"
+                        android:hint="@string/lname"
+                        android:textSize="@dimen/sp_14" />
+                </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/layout_update_profile_headline"
+                android:id="@+id/layout_update_profile_dob"
                 style="@style/layout_profile">
 
                 <TextView
@@ -64,33 +80,95 @@
                     android:layout_width="0dp"
                     android:padding="@dimen/dp_10"
                     android:layout_weight=".40"
-                    android:text="@string/headline"
+                    android:text="@string/dob"
                     android:textSize="@dimen/sp_14" />
 				<EditText
+				    android:id="@+id/edt_update_profile_dob"
                     style="@style/edit_profile"
                     android:layout_width="0dp"
                     android:layout_weight="1"
-                    android:text="@string/headline"/>
+                    android:hint="@string/dob"/>
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/layout_update_profile_about_you"
+                android:id="@+id/layout_update_profile_gender"
                 style="@style/layout_profile" >
 
                 <TextView
                     style="@style/txt_base"
                     android:layout_width="0dp"
-                    android:padding="@dimen/dp_5"
                     android:layout_weight=".40"
-                    android:text="@string/about_you"
+                    android:padding="@dimen/dp_5"
+                    android:text="@string/gender"
                     android:textSize="@dimen/sp_14" />
-				<EditText
+
+                <EditText
+                    android:id="@+id/edt_update_profile_gender"
                     style="@style/edit_profile"
                     android:layout_width="0dp"
                     android:layout_weight="1"
-                    android:text="@string/about_you"/>
+                    android:hint="@string/gender" />
             </LinearLayout>
+			<LinearLayout
+                android:id="@+id/layout_update_profile_country"
+                style="@style/layout_profile" >
 
+                <TextView
+                    style="@style/txt_base"
+                    android:layout_width="0dp"
+                    android:layout_weight=".40"
+                    android:padding="@dimen/dp_5"
+                    android:text="@string/country"
+                    android:textSize="@dimen/sp_14" />
+
+                <EditText
+                    android:id="@+id/edt_update_profile_country"
+                    style="@style/edit_profile"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:hint="@string/country" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/layout_update_profile_mobile"
+                style="@style/layout_profile" >
+
+                <TextView
+                    style="@style/txt_base"
+                    android:layout_width="0dp"
+                    android:layout_weight=".40"
+                    android:padding="@dimen/dp_5"
+                    android:text="@string/mobile"
+                    android:textSize="@dimen/sp_14" />
+
+                <EditText
+                    android:id="@+id/edt_update_profile_mobile"
+                    style="@style/edit_profile"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:inputType="number"
+                    android:hint="@string/mobile" />
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/layout_update_profile_about_me"
+                style="@style/layout_profile" >
+
+                <TextView
+                    style="@style/txt_base"
+                    android:layout_width="0dp"
+                    android:layout_weight=".40"
+                    android:padding="@dimen/dp_5"
+                    android:text="@string/about_me"
+                    android:textSize="@dimen/sp_14" />
+
+                <EditText
+                    android:id="@+id/edt_update_profile_about_me"
+                    style="@style/edit_profile"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:singleLine="false"
+                    android:maxLines="4"
+                    android:hint="@string/about_me" />
+            </LinearLayout>
             <LinearLayout
                 android:id="@+id/layout_update_profile_age"
                 style="@style/layout_profile" >
@@ -98,16 +176,20 @@
                 <TextView
                     style="@style/txt_base"
                     android:layout_width="0dp"
-                    android:padding="@dimen/dp_5"
                     android:layout_weight=".40"
+                    android:padding="@dimen/dp_5"
                     android:text="@string/age"
                     android:textSize="@dimen/sp_14" />
-				<EditText
+
+                <EditText
+                    android:id="@+id/edt_update_profile_age"
                     style="@style/edit_profile"
                     android:layout_width="0dp"
                     android:layout_weight="1"
-                    android:text="@string/age"/>
+                    android:inputType="number"
+                    android:hint="@string/age" />
             </LinearLayout>
+            
 
             <LinearLayout
                 android:id="@+id/layout_update_profile_weight"
@@ -116,34 +198,20 @@
                 <TextView
                     style="@style/txt_base"
                     android:layout_width="0dp"
-                    android:padding="@dimen/dp_5"
                     android:layout_weight=".40"
+                    android:padding="@dimen/dp_5"
                     android:text="@string/weight"
                     android:textSize="@dimen/sp_14" />
-				<EditText
+
+                <EditText
+                    android:id="@+id/edt_update_profile_weight"
                     style="@style/edit_profile"
                     android:layout_width="0dp"
                     android:layout_weight="1"
-                    android:text="@string/weight"/>
+                    android:hint="@string/weight" />
             </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/layout_update_profile_ethencity"
-                style="@style/layout_profile" >
-
-                <TextView
-                    style="@style/txt_base"
-                    android:layout_width="0dp"
-                    android:padding="@dimen/dp_5"
-                    android:layout_weight=".40"
-                    android:text="@string/ethencity"
-                    android:textSize="@dimen/sp_14" />
-				<EditText
-                    style="@style/edit_profile"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:text="@string/ethencity"/>
-            </LinearLayout>
+            
 
             <LinearLayout
                 android:id="@+id/layout_update_profile_height"
@@ -152,33 +220,37 @@
                 <TextView
                     style="@style/txt_base"
                     android:layout_width="0dp"
-                    android:padding="@dimen/dp_5"
                     android:layout_weight=".40"
+                    android:padding="@dimen/dp_5"
                     android:text="@string/height"
                     android:textSize="@dimen/sp_14" />
-				<EditText
+
+                <EditText
+                    android:id="@+id/edt_update_profile_height"
                     style="@style/edit_profile"
                     android:layout_width="0dp"
                     android:layout_weight="1"
-                    android:text="@string/height"/>
+                    android:hint="@string/height" />
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/layout_update_profile_relationship"
+                android:id="@+id/layout_update_profile_hiv_status"
                 style="@style/layout_profile" >
 
                 <TextView
                     style="@style/txt_base"
                     android:layout_width="0dp"
-                    android:padding="@dimen/dp_5"
                     android:layout_weight=".40"
-                    android:text="@string/relationship"
+                    android:padding="@dimen/dp_5"
+                    android:text="@string/hiv_status"
                     android:textSize="@dimen/sp_14" />
-				<EditText
+
+                <EditText
+                    android:id="@+id/edt_update_profile_hiv_status"
                     style="@style/edit_profile"
                     android:layout_width="0dp"
                     android:layout_weight="1"
-                    android:text="@string/relationship"/>
+                    android:hint="@string/hiv_status" />
             </LinearLayout>
 
             <LinearLayout
@@ -188,51 +260,61 @@
                 <TextView
                     style="@style/txt_base"
                     android:layout_width="0dp"
-                    android:padding="@dimen/dp_5"
                     android:layout_weight=".40"
+                    android:padding="@dimen/dp_5"
                     android:text="@string/loking_for"
                     android:textSize="@dimen/sp_14" />
-				<EditText
+
+                <EditText
+                    android:id="@+id/edt_update_profile_loking_for"
                     style="@style/edit_profile"
                     android:layout_width="0dp"
                     android:layout_weight="1"
-                    android:text="@string/loking_for"/>
+                    android:singleLine="false"
+                    android:maxLines="4"
+                    android:hint="@string/loking_for" />
             </LinearLayout>
 
+
             <LinearLayout
-                android:id="@+id/layout_update_profile_kys"
+                android:id="@+id/layout_update_profile_interest"
                 style="@style/layout_profile" >
 
                 <TextView
                     style="@style/txt_base"
                     android:layout_width="0dp"
-                    android:padding="@dimen/dp_5"
                     android:layout_weight=".40"
-                    android:text="@string/kys"
+                    android:padding="@dimen/dp_5"
+                    android:text="@string/interest"
                     android:textSize="@dimen/sp_14" />
-				<EditText
+
+                <EditText
+                    android:id="@+id/edt_update_profile_interest"
                     style="@style/edit_profile"
                     android:layout_width="0dp"
                     android:layout_weight="1"
-                    android:text="@string/know_your_status"/>
+                    android:singleLine="false"
+                    android:maxLines="4"
+                    android:hint="@string/interest" />
             </LinearLayout>
-
             <LinearLayout
-                android:id="@+id/layout_update_profile_show_distance"
+                android:id="@+id/layout_update_profile_sex_role"
                 style="@style/layout_profile" >
 
                 <TextView
                     style="@style/txt_base"
                     android:layout_width="0dp"
-                    android:padding="@dimen/dp_5"
                     android:layout_weight=".40"
-                    android:text="@string/show_distance"
+                    android:padding="@dimen/dp_5"
+                    android:text="@string/sex_role"
                     android:textSize="@dimen/sp_14" />
-				<EditText
+
+                <EditText
+                    android:id="@+id/edt_update_profile_sex_role"
                     style="@style/edit_profile"
                     android:layout_width="0dp"
                     android:layout_weight="1"
-                    android:text="@string/show_distance"/>
+                    android:hint="@string/sex_role" />
             </LinearLayout>
 
             <Button

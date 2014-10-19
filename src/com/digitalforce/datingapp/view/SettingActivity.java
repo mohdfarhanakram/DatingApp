@@ -3,6 +3,7 @@ package com.digitalforce.datingapp.view;
 import com.digitalforce.datingapp.R;
 import com.digitalforce.datingapp.utils.ToastCustom;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -28,7 +29,12 @@ public class SettingActivity extends BaseActivity implements OnClickListener{
 		mPremiumMembership = (LinearLayout) findViewById(R.id.layout_setting_premium_membership);
 
 		mtxtTitle.setText(getResources().getString(R.string.setting));
-
+		mMoreSetting.setOnClickListener(this);
+		mJustAnotherSetting.setOnClickListener(this);
+		mOtherSetting.setOnClickListener(this);
+		mProfile.setOnClickListener(this);
+		mfilters.setOnClickListener(this);
+		mPremiumMembership.setOnClickListener(this);
 	}
 
 	@Override
@@ -50,7 +56,9 @@ public class SettingActivity extends BaseActivity implements OnClickListener{
 			ToastCustom.underDevelopment(this);
 			break;
 		case R.id.layout_setting_profile:
-			ToastCustom.underDevelopment(this);
+			//ToastCustom.underDevelopment(this);
+			Intent intentProfile = new Intent(this, UpdateProfileActivity.class);
+			startActivity(intentProfile);
 			break;
 		case R.id.layout_setting_filters:
 			ToastCustom.underDevelopment(this);

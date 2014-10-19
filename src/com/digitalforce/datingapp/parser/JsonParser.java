@@ -87,8 +87,13 @@ public class JsonParser {
 		return nearByUserList;
 
 	}
-	
-	
+	/**
+	 * parse update profile data
+	 */
+	public static void parserUpdateProfileJson(JSONObject jsonObject)
+	{
+		
+	}
 	
 
 }

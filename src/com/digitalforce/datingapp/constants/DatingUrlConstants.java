@@ -17,5 +17,6 @@ public interface DatingUrlConstants {
 	public static final String SHOW_FAVOURITED_BY_URL = BASE_URL+"show_people_who_fav_me.php";
 	public static final String ADD_TO_FAVOURITE_URL = BASE_URL+"add_to_fav.php";
 	public static final String SHOW_PROFILE_URL= BASE_URL+"profile-show.php";
+	public static final String UPDATE_PROFILE_URL= BASE_URL+"profile.php";
 
 }

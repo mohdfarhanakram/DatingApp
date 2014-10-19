@@ -5,34 +5,40 @@
     android:background="@android:color/transparent"
     android:gravity="center"
     android:orientation="horizontal" >
-    <ImageView 
+
+    <ImageView
         android:id="@+id/img_profile_pre"
         style="@style/img_home"
         android:contentDescription="@null"
-        android:src="@drawable/previous"/>
-    <ImageView 
+        android:src="@drawable/previous"
+        android:visibility="gone" />
+
+    <ImageView
         android:id="@+id/img_profile_chat"
         style="@style/img_home"
         android:layout_margin="@dimen/dp_8"
         android:contentDescription="@null"
-        android:src="@drawable/chat"/>
-    <ImageView 
+        android:src="@drawable/chat" />
+
+    <ImageView
         android:id="@+id/img_profile"
         android:layout_width="@dimen/dp_90"
         android:layout_height="@dimen/dp_90"
         android:contentDescription="@null"
-        android:src="@drawable/profile"/>
-    <ImageView 
+        android:src="@drawable/profile" />
+
+    <ImageView
         android:id="@+id/img_profile_favorite"
         style="@style/img_home"
         android:layout_margin="@dimen/dp_8"
         android:contentDescription="@null"
-        android:src="@drawable/unfavourite"/>
-    
+        android:src="@drawable/unfavourite" />
 
-    <ImageView 
+    <ImageView
         android:id="@+id/img_profile_next"
         style="@style/img_home"
         android:contentDescription="@null"
-        android:src="@drawable/next"/>
+        android:src="@drawable/next"
+        android:visibility="gone" />
+
 </LinearLayout>

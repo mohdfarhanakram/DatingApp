@@ -72,6 +72,7 @@ public class BaseParser implements IParser {
         case ApiEvent.LOGIN_EVENT:
         case ApiEvent.SIGN_UP_EVENT:
         case ApiEvent.FORGOT_PASSWORD_EVENT:
+        case ApiEvent.USER_NEAR_BY_EVENT:
         	response.setErrorMessages(jsonObject.optString("error", null));
         	break;
             default:

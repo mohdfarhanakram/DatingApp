@@ -9,7 +9,6 @@ import java.util.HashMap;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import android.app.Activity;
 import android.app.Application;
 import android.app.Dialog;
 import android.app.ProgressDialog;
@@ -51,7 +50,14 @@ import com.farru.android.ui.IScreen;
 import com.farru.android.utill.LocationUtils;
 import com.farru.android.utill.StringUtils;
 import com.farru.android.utill.Utils;
+import com.farru.android.volley.AuthFailureError;
+import com.farru.android.volley.NetworkError;
+import com.farru.android.volley.NetworkResponse;
+import com.farru.android.volley.NoConnectionError;
+import com.farru.android.volley.ParseError;
 import com.farru.android.volley.Response;
+import com.farru.android.volley.ServerError;
+import com.farru.android.volley.TimeoutError;
 import com.farru.android.volley.VolleyError;
 
 /**
@@ -71,24 +77,37 @@ public abstract class BaseActivity extends FragmentActivity implements IScreen,R
 		if (BuildConfig.DEBUG) {
 			Log.i(LOG_TAG, "onCreate()");
 		}
-		
+
 		getHashKey();
 	}
-	
+
 	@Override
 	protected void onPostCreate(Bundle savedInstanceState) {
 		super.onPostCreate(savedInstanceState);
-		
+
 		View backBtn = findViewById(R.id.img_action_back);
 		if(backBtn!=null){
 			backBtn.setOnClickListener(new OnClickListener() {
-				
+
 				@Override
 				public void onClick(View arg0) {
 					finish();
-					
+
 				}
 			});
+		}
+		View menuBtn = findViewById(R.id.img_action_menu);
+		if(menuBtn!=null){
+			menuBtn.setOnClickListener(new OnClickListener() {
+
+				@Override
+				public void onClick(View arg0) {
+					Intent intentMenu = new Intent(BaseActivity.this, MenuActivity.class);
+					startActivity(intentMenu);
+
+				}
+			});
+			
 		}
 	}
 
@@ -391,21 +410,21 @@ public abstract class BaseActivity extends FragmentActivity implements IScreen,R
 	 * @param url       request url
 	 * @param eventType request event type
 	 * @param map       post body params as map
-	 * @param parser    parser object tobe used for response parsing
+	 * @param parser    parser object to be used for response parsing
 	 */
 	public void postData(String url, int eventType, HashMap<String, String> map, IParser parser) {
 		postData(url, eventType, map, null, VolleyGenericRequest.ContentType.FORM_ENCODED_DATA, parser);
 
 	}
-	
+
 	public void postData(String url, int eventType, String postData) {
 		postData(url, eventType,postData, true);
 
 	}
-	
+
 	public void postData(String url, int eventType, String postData,boolean isLoaderRequired) {
 		if(isLoaderRequired)
-		   showProgressDialog();
+			showProgressDialog();
 		postData(url, eventType, null, postData, VolleyGenericRequest.ContentType.JSON, null);
 
 	}
@@ -536,38 +555,66 @@ public abstract class BaseActivity extends FragmentActivity implements IScreen,R
 	@Override
 	public void onErrorResponse(VolleyError error) {
 		removeProgressDialog();
-		ServiceResponse response = new ServiceResponse();
-		response.setErrorMessages(error.getMessage());
-		updateUi(response);
+		ServiceResponse responseObj = new ServiceResponse();
+		
+		responseObj.setErrorCode(ServiceResponse.MESSAGE_ERROR);
+
+		/*int  statusCode = error.networkResponse.statusCode;
+		NetworkResponse response = error.networkResponse;
+
+		Log.d("testerror",""+statusCode+" "+response.data);*/
+		// Handle your error types accordingly.For Timeout & No connection error, you can show 'retry' button.
+		// For AuthFailure, you can re login with user credentials.
+		// For ClientError, 400 & 401, Errors happening on client side when sending api request.
+		// In this case you can check how client is forming the api and debug accordingly.
+		// For ServerError 5xx, you can do retry or handle accordingly.
+		if( error instanceof NetworkError) {
+			responseObj.setErrorMessages("Network Connection is not available.");
+		} else if( error instanceof ServerError) {
+			responseObj.setErrorMessages("Server Error");
+			
+		} else if( error instanceof AuthFailureError) {
+			responseObj.setErrorMessages("Auth Error");
+		} else if( error instanceof ParseError) {
+			responseObj.setErrorMessages("Parsing Error");
+		} else if( error instanceof NoConnectionError) {
+			
+			responseObj.setErrorMessages("No connection could be established.");
+			
+		} else if( error instanceof TimeoutError) {
+			responseObj.setErrorMessages("Network Connection Time out");
+		}
+		
+		updateUi(responseObj);
 	}
 
 
 
 
-   private void getHashKey(){
-	   try {
-	        PackageInfo info = getPackageManager().getPackageInfo("com.digitalforce.datingapp", PackageManager.GET_SIGNATURES);
-	        for (Signature signature : info.signatures) {
-	            MessageDigest md = MessageDigest.getInstance("SHA");
-	            md.update(signature.toByteArray());
-	            Log.d("KeyHash:", Base64.encodeToString(md.digest(), Base64.DEFAULT));
-	            }
-	    } catch (NameNotFoundException e) {
+	private void getHashKey(){
+		try {
+			PackageInfo info = getPackageManager().getPackageInfo("com.digitalforce.datingapp", PackageManager.GET_SIGNATURES);
+			for (Signature signature : info.signatures) {
+				MessageDigest md = MessageDigest.getInstance("SHA");
+				md.update(signature.toByteArray());
+				Log.d("KeyHash:", Base64.encodeToString(md.digest(), Base64.DEFAULT));
+			}
+		} catch (NameNotFoundException e) {
 
-	    } catch (NoSuchAlgorithmException e) {
+		} catch (NoSuchAlgorithmException e) {
 
-	    }
-   }
-   
-   public boolean isUserLogin(){
-	   String uid = DatingAppPreference.getString(DatingAppPreference.USER_ID, "", this);
-	   return !StringUtils.isNullOrEmpty(uid);
-   }
-   
-   
-   public boolean isTcAccept(){
-	   return  DatingAppPreference.getBoolean(DatingAppPreference.USER_TC_ACCEPT, false, this);
-   }
+		}
+	}
+
+	public boolean isUserLogin(){
+		String uid = DatingAppPreference.getString(DatingAppPreference.USER_ID, "", this);
+		return !StringUtils.isNullOrEmpty(uid);
+	}
+
+
+	public boolean isTcAccept(){
+		return  DatingAppPreference.getBoolean(DatingAppPreference.USER_TC_ACCEPT, false, this);
+	}
 
 
 }

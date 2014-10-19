@@ -9,8 +9,6 @@ package com.digitalforce.datingapp.model;
  */
 public class NearBy {
 	
-	 
-	
 	private String userId;
 	private String distance;
 	private String firstName;
@@ -23,6 +21,14 @@ public class NearBy {
 	private String latitude;
 	private String longitude;
 	private String status;
+	private String image;
+	
+	public String getImage() {
+		return image;
+	}
+	public void setImage(String image) {
+		this.image = image;
+	}
 	public String getUserId() {
 		return userId;
 	}

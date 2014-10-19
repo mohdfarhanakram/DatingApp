@@ -53,10 +53,9 @@ public class MembersActivity extends BaseActivity implements OnClickListener{
 		mtxtNearBy.setOnClickListener(this);
 		mtxtExplore.setOnClickListener(this);
 
-		selectFragment(new ExploreFragment());
+		selectFragment(new NearByFragment());
 		mtxtTitle.setText(getResources().getString(R.string.member));
-		
-		
+			
 	}
 	
 	@Override
@@ -106,6 +105,23 @@ public class MembersActivity extends BaseActivity implements OnClickListener{
 	@Override
 	protected void updateUi(ServiceResponse serviceResponse) {
 		
+		
+		if(serviceResponse!=null){
+			switch (serviceResponse.getErrorCode()) {
+			case ServiceResponse.SUCCESS:
+				break;
+			case ServiceResponse.MESSAGE_ERROR:
+				showCommonError(serviceResponse.getErrorMessages());
+				break;
+			default:
+				showCommonError(null);
+				break;
+			}
+		}else{
+			showCommonError(null);
+		}
+		
+		
 		FragmentManager fragmentmaneger = getSupportFragmentManager();
 		for(int i=0; i<fragmentmaneger.getFragments().size(); i++){
 			if(fragmentmaneger.getFragments().get(i) instanceof BaseFragment){
@@ -114,6 +130,9 @@ public class MembersActivity extends BaseActivity implements OnClickListener{
 			}
 			
 		}
+
+		
+		
 		
 	}
 	/**

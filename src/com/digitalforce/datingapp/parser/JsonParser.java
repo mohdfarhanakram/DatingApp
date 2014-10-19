@@ -69,7 +69,7 @@ public class JsonParser {
 				nearBy.setLongitude(nearJObj.optString("long"));
 				nearBy.setStatus(nearJObj.optString("status"));
 				nearBy.setDistance(nearJObj.optString("distance"));
-				
+				nearBy.setImage(nearJObj.optString("image"));
 				nearByUserList.add(nearBy);
 			}
 		}

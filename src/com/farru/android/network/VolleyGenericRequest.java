@@ -8,6 +8,7 @@ import org.apache.http.Header;
 import org.apache.http.auth.UsernamePasswordCredentials;
 import org.apache.http.impl.auth.BasicScheme;
 import org.apache.http.protocol.HTTP;
+import org.json.JSONException;
 
 import android.content.Context;
 import android.util.Log;
@@ -74,6 +75,7 @@ public class VolleyGenericRequest extends com.farru.android.volley.Request<Objec
                                 Response.ErrorListener errorListener, Context ctx) {
         super(Method.POST, url, errorListener);
         mListener = listener;
+        mErrorListener = errorListener;
         mContentType = contentType;
         mPostData = postData;
         mContext = ctx.getApplicationContext();
@@ -84,6 +86,7 @@ public class VolleyGenericRequest extends com.farru.android.volley.Request<Objec
                                 Response.ErrorListener errorListener, Context ctx) {
         super(Method.POST, url, errorListener);
         mListener = listener;
+        mErrorListener = errorListener;
         mContentType = contentType;
         mParams = paramsMap;
         mContext = ctx.getApplicationContext();
@@ -101,6 +104,7 @@ public class VolleyGenericRequest extends com.farru.android.volley.Request<Objec
                                 Response.ErrorListener errorListener, Context ctx) {
         super(Method.GET, url, errorListener);
         mListener = listener;
+        mErrorListener = errorListener;
         mContext = ctx.getApplicationContext();
     }
 
@@ -203,6 +207,18 @@ public class VolleyGenericRequest extends com.farru.android.volley.Request<Objec
             return Response.error(new ParseError(e));
         }
     }
+    
+   /* @Override
+    protected VolleyError parseNetworkError(VolleyError volleyError) {
+
+    	 if(volleyError.networkResponse != null && volleyError.networkResponse.data != null){
+             VolleyError error = new VolleyError(new String(volleyError.networkResponse.data));
+             volleyError = error;
+         }
+
+     return volleyError;
+    }*/
+    
 
 
     @Override
@@ -213,16 +229,16 @@ public class VolleyGenericRequest extends com.farru.android.volley.Request<Objec
        
     }
 
-    @Override
+   /* @Override
     public void deliverError(VolleyError error) {
         if (mRequestCompletionListener != null)
             mRequestCompletionListener.onRequestProcessed(false, this);
 
         VolleyReqError jVolleyError = new VolleyReqError(error);
         jVolleyError.setEventType(mEventType);
-        super.deliverError(jVolleyError);
+        mErrorListener.onErrorResponse(error);
 
-    }
+    }*/
 
     @Override
     public void cancel() {

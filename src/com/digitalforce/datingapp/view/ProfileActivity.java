@@ -76,11 +76,7 @@ public class ProfileActivity extends BaseActivity implements OnClickListener{
 		case R.id.txt_profile_insight:
 			ToastCustom.underDevelopment(this);
 			break;
-		case R.id.img_action_menu:
-			//ToastCustom.underDevelopment(this);
-			Intent intentMenu = new Intent(this, MenuActivity.class);
-			startActivity(intentMenu);
-			break;
+		
 		case R.id.img_profile_chat:
 			ToastCustom.underDevelopment(this);
 			break;

@@ -48,7 +48,7 @@ public class SplashActivity extends BaseActivity{
 		// TODO Auto-generated method stub
 		
 	}
-	@Override
+	/*@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		// TODO Auto-generated method stub
 		super.onActivityResult(requestCode, resultCode, data);
@@ -57,7 +57,7 @@ public class SplashActivity extends BaseActivity{
 			finish();
 		}
 	}
-	
+	*/
 	
 	private void handleNavigation(){
 		
@@ -74,6 +74,7 @@ public class SplashActivity extends BaseActivity{
 			
 			Intent intent = new Intent(SplashActivity.this, TermConditionActivity.class);
 			startActivityForResult(intent, DatingConstants.TCACTION);
+			finish();
 		}
 		
 	}

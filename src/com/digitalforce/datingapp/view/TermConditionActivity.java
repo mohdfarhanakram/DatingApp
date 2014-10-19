@@ -18,7 +18,9 @@ import android.webkit.WebView;
 import android.widget.Button;
 
 import com.digitalforce.datingapp.R;
+import com.digitalforce.datingapp.constants.AppConstants;
 import com.digitalforce.datingapp.constants.DatingConstants;
+import com.digitalforce.datingapp.persistance.DatingAppPreference;
 
 public class TermConditionActivity extends Activity implements OnClickListener{
 
@@ -37,10 +39,10 @@ public class TermConditionActivity extends Activity implements OnClickListener{
 		mbtnAccept = (Button) findViewById(R.id.btn_tc_accept);
 		
 		/*file=new File("file:///android_asset/google_privacy.pdf");
-		mwebViewTC.getSettings().setJavaScriptEnabled(true);
-		mwebViewTC.loadUrl("http://docs.google.com/gview?embedded=true&url="+ file);*/
+		mwebViewTC.getSettings().setJavaScriptEnabled(true);*/
+		mwebViewTC.loadUrl(AppConstants.TERM_AND_CONDITION_LINK);
 		
-		CopyReadAssets();
+		//CopyReadAssets();
 		
 		mbtnAccept.setOnClickListener(this);
 		mbtnCancel.setOnClickListener(this);
@@ -51,13 +53,12 @@ public class TermConditionActivity extends Activity implements OnClickListener{
 		// TODO Auto-generated method stub
 		switch (v.getId()) {
 		case R.id.btn_tc_accept:
+			DatingAppPreference.putBoolean(DatingAppPreference.USER_TC_ACCEPT, true, this);
 			Intent i = new Intent(this, LoginActivity.class);
 			startActivity(i);
-			setResult(DatingConstants.TCACTION);
 			finish();
 			break;
 		case R.id.btn_tc_cancel:
-			setResult(DatingConstants.TCACTION);
 			finish();
 			break;
 

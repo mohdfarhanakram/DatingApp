@@ -93,12 +93,12 @@
             android:src="@drawable/logout_icon" />
     </LinearLayout>
 </RelativeLayout>
-    <ImageView 
+   <!--  <ImageView 
         android:id="@+id/img_menu_expand"
         android:layout_width="@dimen/dp_50"
         android:layout_height="@dimen/dp_50"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:contentDescription="@null"
-        android:src="@drawable/expand"/>
+        android:src="@drawable/expand"/> -->
 </RelativeLayout>

@@ -18,7 +18,7 @@
     <string name="near_by">NEARBY</string>
     <string name="favourite">Favourite</string>
     <string name="chat">Chat</string>
-    <string name="cool_name">Cool Name</string>
+    <string name="cool_name">Cool Email Id</string>
     <string name="lets_go">Let\'s Go!</string>
     <string name="forgot_password">Forgot password?</string>
 	<string name="terms_conditions">Terms &amp; Conditions</string>
@@ -73,5 +73,8 @@
     	<string name="show_distance">Shw Distance</string>
     	<string name="update">Update</string>
     	<string name="match">Match</string>
+    	<string name="public_tab">Public Photo</string>
+    	<string name="private_tab">Private Photo</string>
+    	<string name="mypicyure">My Picture</string>
     	
 </resources>

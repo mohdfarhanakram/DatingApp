@@ -14,6 +14,7 @@
         android:visibility="invisible"
         android:src="@drawable/app_title" />
 <LinearLayout 
+    android:visibility="gone"
     android:id="@+id/layout_bottom"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"

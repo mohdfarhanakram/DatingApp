@@ -90,7 +90,7 @@
             android:name="com.digitalforce.datingapp.view.MatchActivity"
             android:screenOrientation="portrait"/>
         <activity 
-            android:name="com.digitalforce.datingapp.view.settingActivity"
+            android:name="com.digitalforce.datingapp.view.SettingActivity"
             android:screenOrientation="portrait"/>
         <activity 
             android:name="com.digitalforce.datingapp.view.MyPictureActivity"

@@ -83,7 +83,10 @@ public class MenuActivity extends Activity implements OnClickListener{
 
 			break;
 		case R.id.img_menu_pictures:
-			ToastCustom.underDevelopment(this);
+			Intent intentMyPicture = new Intent(this, MyPictureActivity.class);
+			intentMyPicture.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+			startActivity(intentMyPicture);
+			finish();
 			break;
 		case R.id.img_menu_favourites:
 			//ToastCustom.underDevelopment(this);

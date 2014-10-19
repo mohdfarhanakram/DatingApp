@@ -9,7 +9,7 @@ import android.view.View.OnClickListener;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-public class settingActivity extends BaseActivity implements OnClickListener{
+public class SettingActivity extends BaseActivity implements OnClickListener{
 
 	private LinearLayout mMoreSetting, mJustAnotherSetting, mOtherSetting, mProfile, mfilters, mPremiumMembership;
 	private TextView mtxtTitle;

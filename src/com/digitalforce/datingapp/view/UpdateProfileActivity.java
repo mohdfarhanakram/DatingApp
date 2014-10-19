@@ -189,6 +189,7 @@ public class UpdateProfileActivity extends BaseActivity implements OnClickListen
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		Log.e("Request", jsonObject.toString());
 		return jsonObject.toString();
 		
 	}

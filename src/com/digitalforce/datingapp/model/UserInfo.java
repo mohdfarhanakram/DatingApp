@@ -22,11 +22,19 @@ public class UserInfo extends NearBy{
 	private String interest;
 	private String sexRole;
 	
-	
+	private boolean favourite;
 	
 
 	public String getAboutMe() {
 		return aboutMe;
+	}
+
+	public boolean isFavourite() {
+		return favourite;
+	}
+
+	public void setFavourite(boolean favourite) {
+		this.favourite = favourite;
 	}
 
 	public void setAboutMe(String aboutMe) {

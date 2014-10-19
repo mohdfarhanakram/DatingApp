@@ -2,6 +2,7 @@ package com.digitalforce.datingapp.view;
 
 import com.digitalforce.datingapp.R;
 import com.digitalforce.datingapp.constants.AppConstants;
+import com.digitalforce.datingapp.persistance.DatingAppPreference;
 import com.digitalforce.datingapp.utils.ToastCustom;
 
 import android.app.Activity;
@@ -55,8 +56,9 @@ public class MenuActivity extends Activity implements OnClickListener{
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.img_menu_profile:
-			Intent intentProfile = new Intent(this, UpdateProfileActivity.class);
+			Intent intentProfile = new Intent(this, ProfileActivity.class);
 			intentProfile.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+			intentProfile.putExtra(AppConstants.SHOW_PROFILE_USER_ID, DatingAppPreference.getString(DatingAppPreference.USER_ID, "", this));
 			startActivity(intentProfile);
 			finish();
 			break;
@@ -103,7 +105,6 @@ public class MenuActivity extends Activity implements OnClickListener{
 			finish();
 			break;
 		case R.id.img_menu_new_buzz:
-			ToastCustom.underDevelopment(this);
 			Intent intentBuzz = new Intent(this, BuzzActivity.class);
 			intentBuzz.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 			startActivity(intentBuzz);

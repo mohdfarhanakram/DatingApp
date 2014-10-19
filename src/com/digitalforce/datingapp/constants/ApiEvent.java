@@ -20,5 +20,6 @@ public interface ApiEvent {
 	public static final int SHOW_FAVOURITED_BY     = 9;
 	public static final int ADD_TO_FAVOURITE       = 10;
 	public static final int UPDATE_PROFILE_EVENT   = 11;
+	public static final int REMOVE_TO_FAVOURITE    = 12;
 
 }

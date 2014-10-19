@@ -44,6 +44,8 @@ public class ProfileActivity extends BaseActivity implements OnClickListener{
 	private ImageView mimgBack, mimgMenu, mimgPrevious, mimgNext, mimgChat, mimgFavourite, mimgProfile, mimgOnlineStatus;
 	
 	private String calledUserProfileId;
+	
+	private UserInfo mUserInfo;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -111,7 +113,12 @@ public class ProfileActivity extends BaseActivity implements OnClickListener{
 			ToastCustom.underDevelopment(this);
 			break;
 		case R.id.img_profile_favorite:
-			requestForAddToFav();
+			if(mUserInfo!=null && mUserInfo.isFavourite()){
+				requestForRemoveToFav();
+			}else if(mUserInfo!=null && !mUserInfo.isFavourite()){
+				requestForAddToFav();
+			}
+			
 			break;
 		default:
 			break;
@@ -146,6 +153,11 @@ public class ProfileActivity extends BaseActivity implements OnClickListener{
 				switch (serviceResponse.getEventType()) {
 				case ApiEvent.ADD_TO_FAVOURITE:
 					showCommonError(serviceResponse.getBaseModel().getSuccessMsg());
+					updateFavImageUi(true);
+					break;
+				case ApiEvent.REMOVE_TO_FAVOURITE:
+					showCommonError(serviceResponse.getBaseModel().getSuccessMsg());
+					updateFavImageUi(false);
 					break;
 				case ApiEvent.SHOW_PROFILE_EVENT:
 					onSuccess(serviceResponse);
@@ -173,6 +185,12 @@ public class ProfileActivity extends BaseActivity implements OnClickListener{
 		postData(DatingUrlConstants.ADD_TO_FAVOURITE_URL, ApiEvent.ADD_TO_FAVOURITE, postData);
 
 	}
+	
+	private void requestForRemoveToFav(){
+		String postData =  getFavRequestJson();
+		Log.e("Post Data", postData);
+		postData(DatingUrlConstants.REMOVE_TO_FAVOURITE_URL, ApiEvent.REMOVE_TO_FAVOURITE, postData);
+	}
 
 
 	private String getFavRequestJson(){
@@ -191,11 +209,12 @@ public class ProfileActivity extends BaseActivity implements OnClickListener{
 	}
 
 	private String getShowProfileRequestJson(){
-		//{"userid":"12345"}
+		//{"userid":"12345","login_userid":"32"}
 		JSONObject jsonObject = new JSONObject();
 
 		try {
 			jsonObject.putOpt("userid", calledUserProfileId);
+			jsonObject.putOpt("login_userid", DatingAppPreference.getString(DatingAppPreference.USER_ID, "", this));
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -215,6 +234,7 @@ public class ProfileActivity extends BaseActivity implements OnClickListener{
 			userInfo = (ArrayList<UserInfo>) serviceResponse.getResponseObject();
 			for(int i=0; i<userInfo.size(); i++)
 			{
+				mUserInfo = userInfo.get(i);
 				mtxtName.setText(userInfo.get(i).getFirstName()+" "+userInfo.get(i).getLastName());
 				mtxtlocation.setText(userInfo.get(i).getDistance());
 				mtxtage.setText(userInfo.get(i).getAge());
@@ -226,13 +246,25 @@ public class ProfileActivity extends BaseActivity implements OnClickListener{
 				{
 					mimgOnlineStatus.setImageResource(R.drawable.online_staus);
 				}else{
-					mimgOnlineStatus.setImageResource(R.drawable.offline_status);
+					mimgOnlineStatus.setImageResource(R.drawable.offline);
 				}
+				
+				updateFavImageUi(mUserInfo.isFavourite());
 			}
 			
 			break;
 			default:
 				break;
 		}
+	}
+	
+	private void updateFavImageUi(boolean isFavAdded){
+		mUserInfo.setFavourite(isFavAdded);
+		if(isFavAdded){
+			((ImageView) findViewById(R.id.img_profile_favorite)).setImageResource(R.drawable.favourite);
+		}else{
+			((ImageView) findViewById(R.id.img_profile_favorite)).setImageResource(R.drawable.unfavourite);
+		}
+		
 	}
 }

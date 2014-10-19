@@ -66,7 +66,7 @@ public class FavoritedByFragment extends BaseFragment{
 		if(serviceResponse.getErrorCode()==ServiceResponse.SUCCESS){
 
 			switch (serviceResponse.getEventType()) {
-			case ApiEvent.SHOW_MY_FAVOURITE:
+			case ApiEvent.SHOW_FAVOURITED_BY:
 
 				mlistFav = (ArrayList<UserInfo>)serviceResponse.getResponseObject();
 

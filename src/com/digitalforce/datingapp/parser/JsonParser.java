@@ -80,6 +80,7 @@ public class JsonParser {
 				nearBy.setSexRole(nearJObj.optString("sex_role"));
 				nearBy.setAboutMe(nearJObj.optString("about_me"));
 				nearBy.setAge(nearJObj.optString("age"));
+				nearBy.setFavourite(nearJObj.optBoolean("fav_status"));
 				nearByUserList.add(nearBy);
 			}
 		}

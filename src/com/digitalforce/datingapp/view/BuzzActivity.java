@@ -1,6 +1,7 @@
 package com.digitalforce.datingapp.view;
 
 import com.digitalforce.datingapp.R;
+import com.digitalforce.datingapp.fragments.BaseFragment;
 import com.digitalforce.datingapp.fragments.NearByFragment;
 import com.digitalforce.datingapp.utils.ToastCustom;
 import com.farru.android.network.ServiceResponse;
@@ -90,6 +91,35 @@ public class BuzzActivity extends BaseActivity implements OnClickListener{
 	@Override
 	public void updateUi(ServiceResponse serviceResponse) {
 		super.updateUi(serviceResponse);
+		
+		
+		if(serviceResponse!=null){
+			switch (serviceResponse.getErrorCode()) {
+			case ServiceResponse.SUCCESS:
+				break;
+			case ServiceResponse.MESSAGE_ERROR:
+				showCommonError(serviceResponse.getErrorMessages());
+				break;
+			default:
+				showCommonError(null);
+				break;
+			}
+		}else{
+			showCommonError(null);
+		}
+		
+		
+		FragmentManager fragmentmaneger = getSupportFragmentManager();
+		for(int i=0; i<fragmentmaneger.getFragments().size(); i++){
+			if(fragmentmaneger.getFragments().get(i) instanceof BaseFragment){
+				BaseFragment fragment = (BaseFragment)fragmentmaneger.getFragments().get(i);
+				fragment.updateUi(serviceResponse);
+			}
+			
+		}
+
+		
+		
 		
 	}
 	/**

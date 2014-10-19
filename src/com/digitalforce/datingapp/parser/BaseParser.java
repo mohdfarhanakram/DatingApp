@@ -75,6 +75,7 @@ public class BaseParser implements IParser {
         case ApiEvent.USER_NEAR_BY_EVENT:
         case ApiEvent.SHOW_PROFILE_EVENT:
         case ApiEvent.ADD_TO_FAVOURITE:
+        case ApiEvent.REMOVE_TO_FAVOURITE:
         case ApiEvent.SHOW_FAVOURITED_BY:
         case ApiEvent.SHOW_MY_FAVOURITE:
         case ApiEvent.UPDATE_PROFILE_EVENT:

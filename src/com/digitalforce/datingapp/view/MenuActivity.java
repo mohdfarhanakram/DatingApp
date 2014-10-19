@@ -63,13 +63,17 @@ public class MenuActivity extends Activity implements OnClickListener{
 				finish();
 			break;
 		case R.id.img_menu_chats:
-			ToastCustom.underDevelopment(this);
+			//ToastCustom.underDevelopment(this);
+			Intent intentChat = new Intent(this, ChatActivity.class);
+			startActivity(intentChat);
+			finish();
 			break;
 		case R.id.img_menu_match:
 			//ToastCustom.underDevelopment(this);
 			Intent intentMatch = new Intent(this, MatchActivity.class);
 			startActivity(intentMatch);
 			finish();
+			
 			break;
 		case R.id.img_menu_pictures:
 			ToastCustom.underDevelopment(this);

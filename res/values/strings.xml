@@ -73,5 +73,6 @@
     	<string name="know_your_status">Know Your Status</string>
     	<string name="show_distance">Shw Distance</string>
     	<string name="update">Update</string>
+    	<string name="match">Match</string>
     	
 </resources>

@@ -44,8 +44,8 @@ public class SplashActivity extends BaseActivity{
 	}
 
 	@Override
-	protected void updateUi(ServiceResponse serviceResponse) {
-		// TODO Auto-generated method stub
+	public void updateUi(ServiceResponse serviceResponse) {
+		super.updateUi(serviceResponse);
 		
 	}
 	/*@Override

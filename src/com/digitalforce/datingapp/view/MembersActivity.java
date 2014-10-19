@@ -103,7 +103,8 @@ public class MembersActivity extends BaseActivity implements OnClickListener{
 	}
 
 	@Override
-	protected void updateUi(ServiceResponse serviceResponse) {
+	public void updateUi(ServiceResponse serviceResponse) {
+		super.updateUi(serviceResponse);
 		
 		
 		if(serviceResponse!=null){

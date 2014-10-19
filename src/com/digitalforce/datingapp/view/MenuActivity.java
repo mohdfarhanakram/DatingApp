@@ -1,6 +1,7 @@
 package com.digitalforce.datingapp.view;
 
 import com.digitalforce.datingapp.R;
+import com.digitalforce.datingapp.constants.AppConstants;
 import com.digitalforce.datingapp.utils.ToastCustom;
 
 import android.app.Activity;
@@ -16,7 +17,7 @@ public class MenuActivity extends Activity implements OnClickListener{
 	private ImageView mimgProfile, mimgMembers, mimgChats, mimgMatch, mimgPictures, mimgExpand,
 	mimgFavourites, mimgSetting, mimgNewBuzz, mimgLogout;
 	private RelativeLayout mlayoutContainer;
-	
+
 	private View mainContainer;
 
 	@Override
@@ -36,7 +37,7 @@ public class MenuActivity extends Activity implements OnClickListener{
 		mimgNewBuzz = (ImageView) findViewById(R.id.img_menu_new_buzz);
 		mimgLogout = (ImageView) findViewById(R.id.img_menu_logout);
 		mainContainer =  findViewById(R.id.container);
-		
+
 
 		mimgProfile.setOnClickListener(this);
 		mimgMembers.setOnClickListener(this);
@@ -57,14 +58,14 @@ public class MenuActivity extends Activity implements OnClickListener{
 			Intent intentProfile = new Intent(this, UpdateProfileActivity.class);
 			intentProfile.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 			startActivity(intentProfile);
-					finish();
+			finish();
 			break;
 		case R.id.img_menu_members:
-				//ToastCustom.underDevelopment(this);
-				Intent intentMembers = new Intent(this, MembersActivity.class);
-				intentMembers.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-				startActivity(intentMembers);
-				finish();
+			//ToastCustom.underDevelopment(this);
+			Intent intentMembers = new Intent(this, MembersActivity.class);
+			intentMembers.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+			startActivity(intentMembers);
+			finish();
 			break;
 		case R.id.img_menu_chats:
 			//ToastCustom.underDevelopment(this);
@@ -79,7 +80,7 @@ public class MenuActivity extends Activity implements OnClickListener{
 			intentMatch.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 			startActivity(intentMatch);
 			finish();
-			
+
 			break;
 		case R.id.img_menu_pictures:
 			ToastCustom.underDevelopment(this);
@@ -101,14 +102,12 @@ public class MenuActivity extends Activity implements OnClickListener{
 			finish();
 			break;
 		case R.id.img_menu_logout:
-			ToastCustom.underDevelopment(this);
+			setResult(AppConstants.RESULT_CODE_FOR_LOGOUT);
+			finish();
 			break;
 		case R.id.container:
-				finish();
+			finish();
 			break;
-			
-			
-
 		default:
 			break;
 		}

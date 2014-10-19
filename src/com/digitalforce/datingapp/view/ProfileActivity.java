@@ -109,8 +109,8 @@ public class ProfileActivity extends BaseActivity implements OnClickListener{
 	}
 
 	@Override
-	protected void updateUi(ServiceResponse serviceResponse) {
-		// TODO Auto-generated method stub
+	public void updateUi(ServiceResponse serviceResponse) {
+		super.updateUi(serviceResponse);
 		
 	}
 }

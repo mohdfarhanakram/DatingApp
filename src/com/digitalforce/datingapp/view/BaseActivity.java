@@ -9,6 +9,9 @@ import java.util.HashMap;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import android.app.Application;
 import android.app.Dialog;
 import android.app.ProgressDialog;
@@ -38,6 +41,9 @@ import android.widget.EditText;
 
 import com.digitalforce.datingapp.BuildConfig;
 import com.digitalforce.datingapp.R;
+import com.digitalforce.datingapp.constants.ApiEvent;
+import com.digitalforce.datingapp.constants.AppConstants;
+import com.digitalforce.datingapp.constants.DatingUrlConstants;
 import com.digitalforce.datingapp.parser.BaseParser;
 import com.digitalforce.datingapp.persistance.DatingAppPreference;
 import com.digitalforce.datingapp.utils.ToastCustom;
@@ -103,11 +109,11 @@ public abstract class BaseActivity extends FragmentActivity implements IScreen,R
 				@Override
 				public void onClick(View arg0) {
 					Intent intentMenu = new Intent(BaseActivity.this, MenuActivity.class);
-					startActivity(intentMenu);
+					startActivityForResult(intentMenu, AppConstants.REQUEST_CODE_FOR_MENU_SCREEN);
 
 				}
 			});
-			
+
 		}
 	}
 
@@ -222,7 +228,29 @@ public abstract class BaseActivity extends FragmentActivity implements IScreen,R
 	 * 
 	 * @param serviceResponse
 	 */
-	protected abstract void updateUi(ServiceResponse serviceResponse);
+	public void updateUi(ServiceResponse serviceResponse){
+		
+		if(serviceResponse!=null){
+			
+			switch (serviceResponse.getErrorCode()) {
+			case ServiceResponse.SUCCESS:
+				if(serviceResponse.getEventType()==ApiEvent.LOGOUT_EVENT){
+					showCommonError(serviceResponse.getBaseModel().getSuccessMsg());
+					logout();
+				}
+				break;
+			case ServiceResponse.MESSAGE_ERROR:
+				showCommonError(serviceResponse.getErrorMessages());
+				break;
+			default:
+				showCommonError(null);
+				break;
+			}
+		}else{
+			showCommonError(null);
+		}
+		
+	}
 
 	// ////////////////////////////// show and hide ProgressDialog
 
@@ -556,7 +584,7 @@ public abstract class BaseActivity extends FragmentActivity implements IScreen,R
 	public void onErrorResponse(VolleyError error) {
 		removeProgressDialog();
 		ServiceResponse responseObj = new ServiceResponse();
-		
+
 		responseObj.setErrorCode(ServiceResponse.MESSAGE_ERROR);
 
 		/*int  statusCode = error.networkResponse.statusCode;
@@ -572,19 +600,19 @@ public abstract class BaseActivity extends FragmentActivity implements IScreen,R
 			responseObj.setErrorMessages("Network Connection is not available.");
 		} else if( error instanceof ServerError) {
 			responseObj.setErrorMessages("Server Error");
-			
+
 		} else if( error instanceof AuthFailureError) {
 			responseObj.setErrorMessages("Auth Error");
 		} else if( error instanceof ParseError) {
 			responseObj.setErrorMessages("Parsing Error");
 		} else if( error instanceof NoConnectionError) {
-			
+
 			responseObj.setErrorMessages("No connection could be established.");
-			
+
 		} else if( error instanceof TimeoutError) {
 			responseObj.setErrorMessages("Network Connection Time out");
 		}
-		
+
 		updateUi(responseObj);
 	}
 
@@ -614,6 +642,54 @@ public abstract class BaseActivity extends FragmentActivity implements IScreen,R
 
 	public boolean isTcAccept(){
 		return  DatingAppPreference.getBoolean(DatingAppPreference.USER_TC_ACCEPT, false, this);
+	}
+
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent inent) {
+
+		super.onActivityResult(requestCode, resultCode, inent);
+		if(requestCode==AppConstants.REQUEST_CODE_FOR_MENU_SCREEN){
+
+			switch (resultCode) {
+			case AppConstants.RESULT_CODE_FOR_LOGOUT:
+				requestForLogout();
+				break;
+
+			default:
+				break;
+			}
+
+		}
+	}
+	
+	
+	private void requestForLogout(){
+		showProgressDialog();
+		postData(DatingUrlConstants.LOGOUT_URL, ApiEvent.LOGOUT_EVENT, getLogoutRequestJson());
+	}
+	
+	
+	private String getLogoutRequestJson(){
+
+		//{"userid" : "12345"}
+		
+		JSONObject jsonObject = new JSONObject();
+		try {
+			jsonObject.putOpt("userid", DatingAppPreference.getString(DatingAppPreference.USER_ID, "", this));
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		Log.e("Request", jsonObject.toString());
+		return jsonObject.toString();
+	}
+	
+	private void logout(){
+		DatingAppPreference.putString(DatingAppPreference.USER_ID, "", this);
+		Intent i = new Intent(this,LoginActivity.class);
+		i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+		startActivity(i);
 	}
 
 

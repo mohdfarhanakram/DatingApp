@@ -12,4 +12,5 @@ public interface DatingUrlConstants {
 	public static final String LOGOUT_URL = BASE_URL+"logout.php";
 	public static final String USER_NEAR_BY_URL = BASE_URL+"usernearby.php";
 	public static final String LOGIN_WITH_FB_GMAIL_URL = BASE_URL+"signupwithgmailandfb.php";
+
 }

@@ -14,5 +14,6 @@ public interface ApiEvent {
 	public static final int FORGOT_PASSWORD_EVENT  = 3;
 	public static final int USER_NEAR_BY_EVENT     = 4;
 	public static final int LOGIN_FB_GMAIL_EVENT   = 5;
+	public static final int LOGOUT_EVENT           = 6;
 
 }

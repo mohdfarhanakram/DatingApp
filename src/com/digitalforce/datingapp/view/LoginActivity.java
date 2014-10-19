@@ -132,7 +132,7 @@ public class LoginActivity extends BaseActivity implements OnClickListener,OnLog
 
 
 	@Override
-	protected void updateUi(ServiceResponse serviceResponse) {
+	public void updateUi(ServiceResponse serviceResponse) {
 		if(serviceResponse!=null){
 			switch (serviceResponse.getErrorCode()) {
 			case ServiceResponse.SUCCESS:

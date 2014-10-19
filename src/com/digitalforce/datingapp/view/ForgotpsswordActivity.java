@@ -63,7 +63,7 @@ public class ForgotpsswordActivity extends BaseActivity implements OnClickListen
 	
 	
 	@Override
-	protected void updateUi(ServiceResponse serviceResponse) {
+	public void updateUi(ServiceResponse serviceResponse) {
 		if(serviceResponse!=null){
 			switch (serviceResponse.getErrorCode()) {
 			case ServiceResponse.SUCCESS:

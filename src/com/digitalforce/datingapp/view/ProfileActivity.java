@@ -1,13 +1,17 @@
 package com.digitalforce.datingapp.view;
 
+import java.util.ArrayList;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.digitalforce.datingapp.R;
 import com.digitalforce.datingapp.constants.ApiEvent;
+import com.digitalforce.datingapp.constants.AppConstants;
 import com.digitalforce.datingapp.constants.DatingUrlConstants;
 import com.digitalforce.datingapp.fragments.AboutFragment;
 import com.digitalforce.datingapp.fragments.PhotosFragment;
+import com.digitalforce.datingapp.model.UserInfo;
 import com.digitalforce.datingapp.persistance.DatingAppPreference;
 import com.digitalforce.datingapp.utils.ToastCustom;
 import com.farru.android.network.ServiceResponse;
@@ -29,6 +33,8 @@ public class ProfileActivity extends BaseActivity implements OnClickListener{
 	private TextView mtxtAbout, mtxtPhotos, mtxtInsight, mtxtage, mtxtWeight, mtxtheight, mtxtName, mtxtlocation,
 	mtxtSexRole, mtxtHivStatus, mtxtProfileTitle;
 	private ImageView mimgBack, mimgMenu, mimgPrevious, mimgNext, mimgChat, mimgFavourite, mimgProfile, mimgOnlineStatus;
+	
+	private String calledUserProfileId;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +72,13 @@ public class ProfileActivity extends BaseActivity implements OnClickListener{
 		mimgMenu.setOnClickListener(this);
 		mimgChat.setOnClickListener(this);
 		mimgFavourite.setOnClickListener(this);
+		//to request for get profile data
+		
+		calledUserProfileId = getIntent().getStringExtra(AppConstants.SHOW_PROFILE_USER_ID);
+		
+		String postData = getShowProfileRequestJson();
+		Log.e("Post Data", postData);
+		postData(DatingUrlConstants.SHOW_PROFILE_URL, ApiEvent.SHOW_PROFILE_EVENT, postData);
 	}
 
 	@Override
@@ -117,7 +130,7 @@ public class ProfileActivity extends BaseActivity implements OnClickListener{
 	@Override
 	public void updateUi(ServiceResponse serviceResponse) {
 		super.updateUi(serviceResponse);
-		
+
 		if(serviceResponse!=null){
 			switch (serviceResponse.getErrorCode()) {
 			case ServiceResponse.SUCCESS:
@@ -125,7 +138,9 @@ public class ProfileActivity extends BaseActivity implements OnClickListener{
 				case ApiEvent.ADD_TO_FAVOURITE:
 					showCommonError(serviceResponse.getBaseModel().getSuccessMsg());
 					break;
-
+				case ApiEvent.SHOW_PROFILE_EVENT:
+					onSuccess(serviceResponse);
+					break;
 				default:
 					break;
 				}
@@ -140,9 +155,6 @@ public class ProfileActivity extends BaseActivity implements OnClickListener{
 		}else{
 			showCommonError(null);
 		}
-
-
-
 	}
 
 
@@ -159,7 +171,7 @@ public class ProfileActivity extends BaseActivity implements OnClickListener{
 		JSONObject jsonObject = new JSONObject();
 		try {
 			jsonObject.putOpt("userid", DatingAppPreference.getString(DatingAppPreference.USER_ID, "", this));
-			jsonObject.put("fav_user_id", 5);  //
+			jsonObject.put("fav_user_id", calledUserProfileId);  //
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -167,5 +179,51 @@ public class ProfileActivity extends BaseActivity implements OnClickListener{
 
 		Log.e("Request", jsonObject.toString());
 		return jsonObject.toString();
+	}
+
+	private String getShowProfileRequestJson(){
+		//{"userid":"12345"}
+		JSONObject jsonObject = new JSONObject();
+
+		try {
+			jsonObject.putOpt("userid", calledUserProfileId);
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		Log.e("Request", jsonObject.toString());
+		return jsonObject.toString();
+
+	}
+	
+	@SuppressWarnings("unchecked")
+	private void onSuccess(ServiceResponse serviceResponse)
+	{
+		switch (serviceResponse.getEventType()) {
+		
+		case ApiEvent.SHOW_PROFILE_EVENT:
+			ArrayList<UserInfo> userInfo;
+			userInfo = (ArrayList<UserInfo>) serviceResponse.getResponseObject();
+			for(int i=0; i<userInfo.size(); i++)
+			{
+				mtxtName.setText(userInfo.get(i).getFirstName()+" "+userInfo.get(i).getLastName());
+				mtxtlocation.setText(userInfo.get(i).getDistance());
+				mtxtage.setText(userInfo.get(i).getAge());
+				mtxtWeight.setText(userInfo.get(i).getWeight());
+				mtxtheight.setText(userInfo.get(i).getHeight());
+				mtxtSexRole.setText(userInfo.get(i).getSexRole());
+				mtxtHivStatus.setText(userInfo.get(i).getHivStatus());
+				if(userInfo.get(i).getStatus().equals("Online"))
+				{
+					mimgOnlineStatus.setImageResource(R.drawable.online_staus);
+				}else{
+					mimgOnlineStatus.setImageResource(R.drawable.offline_status);
+				}
+			}
+			
+			break;
+			default:
+				break;
+		}
 	}
 }

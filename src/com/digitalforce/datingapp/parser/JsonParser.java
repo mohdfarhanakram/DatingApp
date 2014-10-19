@@ -47,15 +47,15 @@ public class JsonParser {
 	/*
 	 *  Parse Near By user data
 	 */
-	public static ArrayList<NearBy> parseNearByUserJson(JSONObject jsonObject){
-		ArrayList<NearBy> nearByUserList = new ArrayList<NearBy>();
+	public static ArrayList<UserInfo> parseNearByUserJson(JSONObject jsonObject){
+		ArrayList<UserInfo> nearByUserList = new ArrayList<UserInfo>();
 		
 		JSONArray jsonArray = jsonObject.optJSONArray("Data");
 		if(jsonArray!=null){
 			for(int i=0; i<jsonArray.length(); i++){
 				JSONObject nearJObj = jsonArray.optJSONObject(i);
 				
-				NearBy nearBy = new NearBy();
+				UserInfo nearBy = new UserInfo();
 				nearBy.setUserId(nearJObj.optString("userId"));
 				nearBy.setFirstName(nearJObj.optString("firstName"));
 				nearBy.setDistance(nearJObj.optString("distance"));
@@ -70,6 +70,16 @@ public class JsonParser {
 				nearBy.setStatus(nearJObj.optString("status"));
 				nearBy.setDistance(nearJObj.optString("distance"));
 				nearBy.setImage(nearJObj.optString("image"));
+				nearBy.setVideo(nearJObj.optString("video"));
+				nearBy.setAudio(nearJObj.optString("audio"));
+				nearBy.setHeight(nearJObj.optString("height"));
+				nearBy.setWeight(nearJObj.optString("weight"));
+				nearBy.setHivStatus(nearJObj.optString("hiv_status"));
+				nearBy.setLookingFor(nearJObj.optString("looking_for"));
+				nearBy.setInterest(nearJObj.optString("interest"));
+				nearBy.setSexRole(nearJObj.optString("sex_role"));
+				nearBy.setAboutMe(nearJObj.optString("about_me"));
+				nearBy.setAge(nearJObj.optString("age"));
 				nearByUserList.add(nearBy);
 			}
 		}
@@ -77,5 +87,8 @@ public class JsonParser {
 		return nearByUserList;
 
 	}
+	
+	
+	
 
 }

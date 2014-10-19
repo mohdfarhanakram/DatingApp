@@ -33,7 +33,7 @@ public class NearByFragment extends BaseFragment{
 
 	private View mView;
 	private GridView mgridlistNearBy;
-	private ArrayList<NearBy> mlistNearBy = new ArrayList<NearBy>();
+	private ArrayList<UserInfo> mlistNearBy = new ArrayList<UserInfo>();
 	private NearByAdapter mnearByAdapter;
 
 	@Override
@@ -66,7 +66,7 @@ public class NearByFragment extends BaseFragment{
 			switch (serviceResponse.getEventType()) {
 			case ApiEvent.USER_NEAR_BY_EVENT:
 
-				mlistNearBy = (ArrayList<NearBy>)serviceResponse.getResponseObject();
+				mlistNearBy = (ArrayList<UserInfo>)serviceResponse.getResponseObject();
 
 				if(mlistNearBy.size()>0){
 

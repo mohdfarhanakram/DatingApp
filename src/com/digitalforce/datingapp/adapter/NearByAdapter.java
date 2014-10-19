@@ -11,16 +11,17 @@ import android.widget.TextView;
 
 import com.digitalforce.datingapp.R;
 import com.digitalforce.datingapp.model.NearBy;
+import com.digitalforce.datingapp.model.UserInfo;
 import com.digitalforce.datingapp.widgets.RoundedImageView;
 import com.farru.android.utill.StringUtils;
 
 public class NearByAdapter extends BaseAdapter{
 
 	private Context context;
-	private ArrayList<NearBy> mlistNearby;
+	private ArrayList<UserInfo> mlistNearby;
 	private LayoutInflater inflater;
 
-	public NearByAdapter(Context context, ArrayList<NearBy> mlistNearby)
+	public NearByAdapter(Context context, ArrayList<UserInfo> mlistNearby)
 	{
 		this.context = context;
 		this.mlistNearby = mlistNearby;

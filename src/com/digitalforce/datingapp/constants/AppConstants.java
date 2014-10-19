@@ -20,5 +20,7 @@ public class AppConstants {
 	
 	public static final int REQUEST_CODE_FOR_MENU_SCREEN = 10090;
 	public static final int RESULT_CODE_FOR_LOGOUT = 587;
+	
+	public static final String SHOW_PROFILE_USER_ID = "show_profile_user_id";
 
 }

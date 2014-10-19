@@ -1,3 +1,6 @@
+/**
+ * 
+ */
 package com.digitalforce.datingapp.fragments;
 
 import java.util.ArrayList;
@@ -10,48 +13,46 @@ import com.digitalforce.datingapp.adapter.NearByAdapter;
 import com.digitalforce.datingapp.constants.ApiEvent;
 import com.digitalforce.datingapp.constants.AppConstants;
 import com.digitalforce.datingapp.constants.DatingUrlConstants;
-import com.digitalforce.datingapp.model.NearBy;
-import com.digitalforce.datingapp.view.ProfileActivity;
 import com.digitalforce.datingapp.model.UserInfo;
 import com.digitalforce.datingapp.persistance.DatingAppPreference;
-import com.digitalforce.datingapp.view.BaseActivity;
+import com.digitalforce.datingapp.view.ProfileActivity;
 import com.farru.android.network.ServiceResponse;
-import com.farru.android.utill.Utils;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
+import android.widget.AdapterView.OnItemClickListener;
 
-public class NearByFragment extends BaseFragment{
-
+/**
+ * @author FARHAN
+ *
+ */
+public class FavoritedByFragment extends BaseFragment{
 	private View mView;
-	private GridView mgridlistNearBy;
-	private ArrayList<UserInfo> mlistNearBy = new ArrayList<UserInfo>();
+	private GridView mgridlistfAV;
+	private ArrayList<UserInfo> mlistFav = new ArrayList<UserInfo>();
 	private NearByAdapter mnearByAdapter;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
-		mView = inflater.inflate(R.layout.layout_fragment_nearby, container, false);
-		mgridlistNearBy = (GridView) mView.findViewById(R.id.grid_view_nearby);
-		postData(DatingUrlConstants.USER_NEAR_BY_URL, ApiEvent.USER_NEAR_BY_EVENT, getRequestJson());
+		mView = inflater.inflate(R.layout.layout_fragment_favourite, container, false);
+		mgridlistfAV = (GridView) mView.findViewById(R.id.grid_view_fav);
+		
+		postData(DatingUrlConstants.SHOW_FAVOURITED_BY_URL, ApiEvent.SHOW_FAVOURITED_BY, getRequestJson());
 
-		mgridlistNearBy.setOnItemClickListener(new OnItemClickListener() {
+		mgridlistfAV.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
-			public void onItemClick(AdapterView<?> parent, View v, int position,
-					long id) {
-				// TODO Auto-generated method stub
+			public void onItemClick(AdapterView<?> parent, View v, int position,long id) {
                 Intent i = new Intent(getActivity(), ProfileActivity.class);
-                i.putExtra(AppConstants.SHOW_PROFILE_USER_ID, mlistNearBy.get(position).getUserId());
+                i.putExtra(AppConstants.SHOW_PROFILE_USER_ID, mlistFav.get(position).getUserId());
                 startActivity(i);
 			}
         });
@@ -65,21 +66,21 @@ public class NearByFragment extends BaseFragment{
 		if(serviceResponse.getErrorCode()==ServiceResponse.SUCCESS){
 
 			switch (serviceResponse.getEventType()) {
-			case ApiEvent.USER_NEAR_BY_EVENT:
+			case ApiEvent.SHOW_MY_FAVOURITE:
 
-				mlistNearBy = (ArrayList<UserInfo>)serviceResponse.getResponseObject();
+				mlistFav = (ArrayList<UserInfo>)serviceResponse.getResponseObject();
 
-				if(mlistNearBy.size()>0){
+				if(mlistFav.size()>0){
 
-					mView.findViewById(R.id.grid_view_nearby).setVisibility(View.VISIBLE);
+					mView.findViewById(R.id.grid_view_fav).setVisibility(View.VISIBLE);
 					mView.findViewById(R.id.empty_view).setVisibility(View.GONE);
 
-					mnearByAdapter = new NearByAdapter(getActivity(), mlistNearBy);
-					mgridlistNearBy.setAdapter(mnearByAdapter);
+					mnearByAdapter = new NearByAdapter(getActivity(), mlistFav);
+					mgridlistfAV.setAdapter(mnearByAdapter);
 
 				}else{
 
-					mView.findViewById(R.id.grid_view_nearby).setVisibility(View.GONE);
+					mView.findViewById(R.id.grid_view_fav).setVisibility(View.GONE);
 					mView.findViewById(R.id.empty_view).setVisibility(View.VISIBLE);
 				}
 
@@ -98,14 +99,11 @@ public class NearByFragment extends BaseFragment{
 
 	private String getRequestJson(){
 
-		//{"userid":"5", "lat":"28.5470898", "long":"77.3051591", "distance":"10"}
+		//{"userid":"5"}
 
 		JSONObject jsonObject = new JSONObject();
 		try {
 			jsonObject.putOpt("userid", DatingAppPreference.getString(DatingAppPreference.USER_ID, "", getActivity()));
-			jsonObject.putOpt("lat", DatingAppPreference.getString(DatingAppPreference.USER_DEVICE_LATITUDE, "0.0", getActivity()));
-			jsonObject.putOpt("long", DatingAppPreference.getString(DatingAppPreference.USER_DEVICE_LONGITUDE, "0.0", getActivity()));
-			jsonObject.putOpt("distance", AppConstants.NEAR_BY_DISTANCE+"");
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

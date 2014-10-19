@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    android:orientation="vertical" >
+    <include 
+        layout="@layout/layout_action_bar"/>
+    <include
+        layout="@layout/layout_tap"/>"
+	<EditText 
+	    android:id="@+id/edt_member_search"
+	    style="@style/edit"
+	    android:hint="@string/search"
+	    android:textColor="@android:color/white"
+	    android:layout_marginLeft="@dimen/dp_10"
+	    android:layout_marginRight="@dimen/dp_10"
+	    android:layout_marginBottom="@dimen/dp_10"
+	    android:textSize="@dimen/sp_14"
+	    android:padding="@dimen/dp_10"
+	    android:background="@drawable/outline_search"
+	    />
+	<FrameLayout 
+	    android:id="@+id/fragment_fav"
+	    android:layout_width="match_parent"
+	    android:layout_height="0dp"
+	    android:layout_weight="1.0"/>
+	    
+</LinearLayout>

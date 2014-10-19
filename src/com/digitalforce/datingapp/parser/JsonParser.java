@@ -56,7 +56,7 @@ public class JsonParser {
 				JSONObject nearJObj = jsonArray.optJSONObject(i);
 				
 				UserInfo nearBy = new UserInfo();
-				nearBy.setUserId(nearJObj.optString("userId"));
+				nearBy.setUserId(nearJObj.optString("userid"));
 				nearBy.setFirstName(nearJObj.optString("firstName"));
 				nearBy.setDistance(nearJObj.optString("distance"));
 				nearBy.setLastName(nearJObj.optString("lastname"));

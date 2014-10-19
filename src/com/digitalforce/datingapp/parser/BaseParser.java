@@ -74,6 +74,9 @@ public class BaseParser implements IParser {
         case ApiEvent.FORGOT_PASSWORD_EVENT:
         case ApiEvent.USER_NEAR_BY_EVENT:
         case ApiEvent.SHOW_PROFILE_EVENT:
+        case ApiEvent.ADD_TO_FAVOURITE:
+        case ApiEvent.SHOW_FAVOURITED_BY:
+        case ApiEvent.SHOW_MY_FAVOURITE:
         	response.setErrorMessages(jsonObject.optString("error", null));
         	break;
             default:
@@ -97,6 +100,8 @@ public class BaseParser implements IParser {
         	response.setResponseObject(JsonParser.parseForgotPasswordJson(jsonObject));
         	break;
         case ApiEvent.USER_NEAR_BY_EVENT:
+        case ApiEvent.SHOW_FAVOURITED_BY:
+        case ApiEvent.SHOW_MY_FAVOURITE:
         	response.setResponseObject(JsonParser.parseNearByUserJson(jsonObject));
         	break;
         case ApiEvent.SHOW_PROFILE_EVENT:

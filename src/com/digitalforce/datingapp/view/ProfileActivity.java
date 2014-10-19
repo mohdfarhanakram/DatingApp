@@ -28,6 +28,15 @@ import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.digitalforce.datingapp.R;
+import com.digitalforce.datingapp.constants.ApiEvent;
+import com.digitalforce.datingapp.constants.DatingUrlConstants;
+import com.digitalforce.datingapp.fragments.AboutFragment;
+import com.digitalforce.datingapp.fragments.PhotosFragment;
+import com.digitalforce.datingapp.persistance.DatingAppPreference;
+import com.digitalforce.datingapp.utils.ToastCustom;
+import com.farru.android.network.ServiceResponse;
+
 public class ProfileActivity extends BaseActivity implements OnClickListener{
 
 	private TextView mtxtAbout, mtxtPhotos, mtxtInsight, mtxtage, mtxtWeight, mtxtheight, mtxtName, mtxtlocation,

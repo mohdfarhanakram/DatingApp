@@ -3,7 +3,6 @@
  */
 package com.digitalforce.datingapp.model;
 
-import com.google.gson.annotations.SerializedName;
 
 /**
  * @author FARHAN
@@ -18,12 +17,9 @@ public class UserInfo extends NearBy{
 	private String age;
 	private String height;
 	private String weight;
-	@SerializedName("hiv_status")
 	private String hivStatus;
-	@SerializedName("looking_for")
 	private String lookingFor;
 	private String interest;
-	@SerializedName("sex_role")
 	private String sexRole;
 	
 	

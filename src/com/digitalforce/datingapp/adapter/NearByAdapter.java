@@ -39,7 +39,7 @@ public class NearByAdapter extends BaseAdapter{
 	}
 
 	@Override
-	public NearBy getItem(int position) {
+	public UserInfo getItem(int position) {
 		// TODO Auto-generated method stub
 		if(mlistNearby != null && mlistNearby.size() > 0)
 			return mlistNearby.get(position);
@@ -55,7 +55,7 @@ public class NearByAdapter extends BaseAdapter{
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 		ViewHolder viewHolder;
-		NearBy nearBy = getItem(position);
+		UserInfo nearBy = getItem(position);
 		if(convertView==null){
 			viewHolder = new ViewHolder();
 

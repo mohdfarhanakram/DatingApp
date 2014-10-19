@@ -3,33 +3,32 @@
  */
 package com.digitalforce.datingapp.model;
 
-import com.google.gson.annotations.SerializedName;
 
 /**
  * @author FARHAN
  *
  */
 public class NearBy {
-	
+
 	private String userId;
 	private String distance;
-	@SerializedName("firstname")
+
 	private String firstName;
-	@SerializedName("lastname")
+
 	private String lastName;
 	private String email;
 	private String dob;
 	private String gender;
 	private String mobile;
 	private String country;
-	@SerializedName("lat")
+
 	private String latitude;
-	@SerializedName("long")
+
 	private String longitude;
 	private String status;
 	private String image;
-	
-	
+
+
 	public String getImage() {
 		return image;
 	}
@@ -108,9 +107,9 @@ public class NearBy {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	
-	
-	
-	
+
+
+
+
 
 }

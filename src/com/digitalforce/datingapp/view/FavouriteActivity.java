@@ -12,6 +12,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.digitalforce.datingapp.R;
+import com.digitalforce.datingapp.fragments.BaseFragment;
+import com.digitalforce.datingapp.fragments.FavoritedByFragment;
+import com.digitalforce.datingapp.fragments.MyFavoritesFragment;
 import com.digitalforce.datingapp.fragments.NearByFragment;
 import com.digitalforce.datingapp.utils.ToastCustom;
 import com.farru.android.network.ServiceResponse;
@@ -19,36 +22,36 @@ import com.farru.android.network.ServiceResponse;
 public class FavouriteActivity extends BaseActivity implements OnClickListener{
 
 	private ImageView mimgMenuOption;
-	private TextView mtxtTitle, mtxtNearBy, mtxtExplore;
+	private TextView mtxtTitle, mtxtMyFav, mtxtFavBy;
 	private EditText medtSearch;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.layout_member);
+		setContentView(R.layout.layout_favourite_activity);
 		
 		mimgMenuOption = (ImageView) findViewById(R.id.img_action_menu);
 		mtxtTitle = (TextView) findViewById(R.id.txt_screen_title);
-		mtxtNearBy = (TextView) findViewById(R.id.txt_member_nearby);
-		mtxtExplore = (TextView) findViewById(R.id.txt_member_explore);
+		mtxtMyFav = (TextView) findViewById(R.id.txt_member_nearby);
+		mtxtFavBy = (TextView) findViewById(R.id.txt_member_explore);
 		medtSearch = (EditText) findViewById(R.id.edt_member_search);
 
 		//manage text a/c to screen
-		mtxtNearBy.setText(getResources().getString(R.string._my_favorites));
-		mtxtExplore.setText(getResources().getString(R.string.favorited_by));
+		mtxtMyFav.setText(getResources().getString(R.string._my_favorites));
+		mtxtFavBy.setText(getResources().getString(R.string.favorited_by));
 		mtxtTitle.setText(getResources().getString(R.string.my_favorites));
 		medtSearch.setVisibility(View.GONE);
-		mtxtNearBy.setBackgroundResource(R.drawable.left_corner_round);
-		mtxtExplore.setBackgroundResource(Color.TRANSPARENT);
-		mtxtExplore.setTextColor(Color.WHITE);
-		mtxtNearBy.setTextColor(Color.BLACK);
-		selectFragment(new NearByFragment());
+		mtxtMyFav.setBackgroundResource(R.drawable.left_corner_round);
+		mtxtFavBy.setBackgroundResource(Color.TRANSPARENT);
+		mtxtFavBy.setTextColor(Color.WHITE);
+		mtxtMyFav.setTextColor(Color.BLACK);
+		selectFragment(new MyFavoritesFragment());
 		
 		
 		mimgMenuOption.setOnClickListener(this);
-		mtxtNearBy.setOnClickListener(this);
-		mtxtExplore.setOnClickListener(this);
+		mtxtFavBy.setOnClickListener(this);
+		mtxtMyFav.setOnClickListener(this);
 	}
 	
 	@Override
@@ -59,21 +62,21 @@ public class FavouriteActivity extends BaseActivity implements OnClickListener{
 			ToastCustom.underDevelopment(this);
 			break;
 		case R.id.txt_member_nearby:
-			selectFragment(new NearByFragment());
-			mtxtNearBy.setBackgroundResource(R.drawable.left_corner_round);
-			mtxtExplore.setBackgroundResource(Color.TRANSPARENT);
+			selectFragment(new MyFavoritesFragment());
+			mtxtMyFav.setBackgroundResource(R.drawable.left_corner_round);
+			mtxtFavBy.setBackgroundResource(Color.TRANSPARENT);
 			medtSearch.setVisibility(View.GONE);
-			mtxtExplore.setTextColor(Color.WHITE);
-			mtxtNearBy.setTextColor(Color.BLACK);
+			mtxtFavBy.setTextColor(Color.WHITE);
+			mtxtMyFav.setTextColor(Color.BLACK);
 			
 			break;
 		case R.id.txt_member_explore:
-			selectFragment(new NearByFragment());
-			mtxtExplore.setBackgroundResource(R.drawable.right_corner_round);
-			mtxtNearBy.setBackgroundResource(Color.TRANSPARENT);
+			selectFragment(new FavoritedByFragment());
+			mtxtFavBy.setBackgroundResource(R.drawable.right_corner_round);
+			mtxtMyFav.setBackgroundResource(Color.TRANSPARENT);
 			medtSearch.setVisibility(View.GONE);
-			mtxtExplore.setTextColor(Color.BLACK);
-			mtxtNearBy.setTextColor(Color.WHITE);
+			mtxtFavBy.setTextColor(Color.BLACK);
+			mtxtMyFav.setTextColor(Color.WHITE);
 			break;
 
 		default:
@@ -91,6 +94,35 @@ public class FavouriteActivity extends BaseActivity implements OnClickListener{
 	public void updateUi(ServiceResponse serviceResponse) {
 		super.updateUi(serviceResponse);
 		
+		
+		if(serviceResponse!=null){
+			switch (serviceResponse.getErrorCode()) {
+			case ServiceResponse.SUCCESS:
+				break;
+			case ServiceResponse.MESSAGE_ERROR:
+				showCommonError(serviceResponse.getErrorMessages());
+				break;
+			default:
+				showCommonError(null);
+				break;
+			}
+		}else{
+			showCommonError(null);
+		}
+		
+		
+		FragmentManager fragmentmaneger = getSupportFragmentManager();
+		for(int i=0; i<fragmentmaneger.getFragments().size(); i++){
+			if(fragmentmaneger.getFragments().get(i) instanceof BaseFragment){
+				BaseFragment fragment = (BaseFragment)fragmentmaneger.getFragments().get(i);
+				fragment.updateUi(serviceResponse);
+			}
+			
+		}
+
+		
+		
+		
 	}
 	/**
 	 * call fragment
@@ -100,7 +132,7 @@ public class FavouriteActivity extends BaseActivity implements OnClickListener{
 	{
 		FragmentManager fragmentmaneger = getSupportFragmentManager();
 		FragmentTransaction fragmentTransaction=fragmentmaneger.beginTransaction();
-		fragmentTransaction.replace(R.id.fragment_member, fragment);
+		fragmentTransaction.replace(R.id.fragment_fav, fragment);
 		fragmentTransaction.commit();
 	}
 

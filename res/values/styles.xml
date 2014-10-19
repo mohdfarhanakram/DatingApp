@@ -115,9 +115,17 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:gravity">center</item>
-        <item name="android:padding">@dimen/dp_10</item>
-        <item name="android:background">@android:color/white</item>
         <item name="android:orientation">horizontal</item>
         <item name="android:layout_marginTop">@dimen/dp_5</item>
     </style>
+    <style name="edit_profile">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center|right</item>
+        <item name="android:padding">@dimen/dp_10</item>
+        <item name="android:background">@drawable/outline_profile</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">@dimen/sp_12</item>
+        <item name="android:hint"></item>
+        </style>
 </resources>

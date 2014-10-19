@@ -6,7 +6,8 @@
     android:background="@drawable/bg"
     android:orientation="vertical" >
 
-    <ScrollView
+            <include layout="@layout/layout_action_bar" />
+<ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
 
@@ -14,9 +15,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical" >
-
-            <include layout="@layout/layout_action_bar" />
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -49,33 +47,30 @@
                         android:text="@string/tap_to_edit" />
                 </FrameLayout>
 
-                <TextView
-                    android:id="@+id/txt_update_profile_name"
-                    style="@style/txt_name"
+                <EditText
+                    android:id="@+id/edt_update_profile_name"
+                    style="@style/edit_profile"
                     android:layout_gravity="bottom"
-                    android:background="@android:color/white"
-                    android:gravity="center|left"
-                    android:padding="@dimen/dp_10"
                     android:text="@string/member_nmae"
-                    android:textSize="@dimen/sp_12" />
+                    android:textSize="@dimen/sp_14" />
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/layout_update_profile_headline"
-                style="@style/layout_profile" >
+                style="@style/layout_profile">
 
                 <TextView
-                    style="@style/txt_name"
+                    style="@style/txt_base"
                     android:layout_width="0dp"
-                    android:layout_weight="1"
+                    android:padding="@dimen/dp_10"
+                    android:layout_weight=".40"
                     android:text="@string/headline"
                     android:textSize="@dimen/sp_14" />
-
-                <TextView
-                    style="@style/txt_name"
-                    android:layout_width="wrap_content"
-                    android:text="@string/headline"
-                    android:textSize="@dimen/sp_12" />
+				<EditText
+                    style="@style/edit_profile"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="@string/headline"/>
             </LinearLayout>
 
             <LinearLayout
@@ -83,17 +78,17 @@
                 style="@style/layout_profile" >
 
                 <TextView
-                    style="@style/txt_name"
+                    style="@style/txt_base"
                     android:layout_width="0dp"
-                    android:layout_weight="1"
+                    android:padding="@dimen/dp_5"
+                    android:layout_weight=".40"
                     android:text="@string/about_you"
                     android:textSize="@dimen/sp_14" />
-
-                <TextView
-                    style="@style/txt_name"
-                    android:layout_width="wrap_content"
-                    android:text="@string/about_you"
-                    android:textSize="@dimen/sp_12" />
+				<EditText
+                    style="@style/edit_profile"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="@string/about_you"/>
             </LinearLayout>
 
             <LinearLayout
@@ -101,17 +96,17 @@
                 style="@style/layout_profile" >
 
                 <TextView
-                    style="@style/txt_name"
+                    style="@style/txt_base"
                     android:layout_width="0dp"
-                    android:layout_weight="1"
+                    android:padding="@dimen/dp_5"
+                    android:layout_weight=".40"
                     android:text="@string/age"
                     android:textSize="@dimen/sp_14" />
-
-                <TextView
-                    style="@style/txt_name"
-                    android:layout_width="wrap_content"
-                    android:text="@string/age"
-                    android:textSize="@dimen/sp_12" />
+				<EditText
+                    style="@style/edit_profile"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="@string/age"/>
             </LinearLayout>
 
             <LinearLayout
@@ -119,17 +114,17 @@
                 style="@style/layout_profile" >
 
                 <TextView
-                    style="@style/txt_name"
+                    style="@style/txt_base"
                     android:layout_width="0dp"
-                    android:layout_weight="1"
+                    android:padding="@dimen/dp_5"
+                    android:layout_weight=".40"
                     android:text="@string/weight"
                     android:textSize="@dimen/sp_14" />
-
-                <TextView
-                    style="@style/txt_name"
-                    android:layout_width="wrap_content"
-                    android:text="@string/weight"
-                    android:textSize="@dimen/sp_12" />
+				<EditText
+                    style="@style/edit_profile"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="@string/weight"/>
             </LinearLayout>
 
             <LinearLayout
@@ -137,17 +132,17 @@
                 style="@style/layout_profile" >
 
                 <TextView
-                    style="@style/txt_name"
+                    style="@style/txt_base"
                     android:layout_width="0dp"
-                    android:layout_weight="1"
+                    android:padding="@dimen/dp_5"
+                    android:layout_weight=".40"
                     android:text="@string/ethencity"
                     android:textSize="@dimen/sp_14" />
-
-                <TextView
-                    style="@style/txt_name"
-                    android:layout_width="wrap_content"
-                    android:text="@string/ethencity"
-                    android:textSize="@dimen/sp_12" />
+				<EditText
+                    style="@style/edit_profile"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="@string/ethencity"/>
             </LinearLayout>
 
             <LinearLayout
@@ -155,17 +150,17 @@
                 style="@style/layout_profile" >
 
                 <TextView
-                    style="@style/txt_name"
+                    style="@style/txt_base"
                     android:layout_width="0dp"
-                    android:layout_weight="1"
+                    android:padding="@dimen/dp_5"
+                    android:layout_weight=".40"
                     android:text="@string/height"
                     android:textSize="@dimen/sp_14" />
-
-                <TextView
-                    style="@style/txt_name"
-                    android:layout_width="wrap_content"
-                    android:text="@string/height"
-                    android:textSize="@dimen/sp_12" />
+				<EditText
+                    style="@style/edit_profile"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="@string/height"/>
             </LinearLayout>
 
             <LinearLayout
@@ -173,17 +168,17 @@
                 style="@style/layout_profile" >
 
                 <TextView
-                    style="@style/txt_name"
+                    style="@style/txt_base"
                     android:layout_width="0dp"
-                    android:layout_weight="1"
+                    android:padding="@dimen/dp_5"
+                    android:layout_weight=".40"
                     android:text="@string/relationship"
                     android:textSize="@dimen/sp_14" />
-
-                <TextView
-                    style="@style/txt_name"
-                    android:layout_width="wrap_content"
-                    android:text="@string/relationship"
-                    android:textSize="@dimen/sp_12" />
+				<EditText
+                    style="@style/edit_profile"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="@string/relationship"/>
             </LinearLayout>
 
             <LinearLayout
@@ -191,17 +186,17 @@
                 style="@style/layout_profile" >
 
                 <TextView
-                    style="@style/txt_name"
+                    style="@style/txt_base"
                     android:layout_width="0dp"
-                    android:layout_weight="1"
+                    android:padding="@dimen/dp_5"
+                    android:layout_weight=".40"
                     android:text="@string/loking_for"
                     android:textSize="@dimen/sp_14" />
-
-                <TextView
-                    style="@style/txt_name"
-                    android:layout_width="wrap_content"
-                    android:text="@string/loking_for"
-                    android:textSize="@dimen/sp_12" />
+				<EditText
+                    style="@style/edit_profile"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="@string/loking_for"/>
             </LinearLayout>
 
             <LinearLayout
@@ -209,17 +204,17 @@
                 style="@style/layout_profile" >
 
                 <TextView
-                    style="@style/txt_name"
+                    style="@style/txt_base"
                     android:layout_width="0dp"
-                    android:layout_weight="1"
+                    android:padding="@dimen/dp_5"
+                    android:layout_weight=".40"
                     android:text="@string/kys"
                     android:textSize="@dimen/sp_14" />
-
-                <TextView
-                    style="@style/txt_name"
-                    android:layout_width="wrap_content"
-                    android:text="@string/kys"
-                    android:textSize="@dimen/sp_12" />
+				<EditText
+                    style="@style/edit_profile"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="@string/know_your_status"/>
             </LinearLayout>
 
             <LinearLayout
@@ -227,17 +222,17 @@
                 style="@style/layout_profile" >
 
                 <TextView
-                    style="@style/txt_name"
+                    style="@style/txt_base"
                     android:layout_width="0dp"
-                    android:layout_weight="1"
+                    android:padding="@dimen/dp_5"
+                    android:layout_weight=".40"
                     android:text="@string/show_distance"
                     android:textSize="@dimen/sp_14" />
-
-                <TextView
-                    style="@style/txt_name"
-                    android:layout_width="wrap_content"
-                    android:text="@string/show_distance"
-                    android:textSize="@dimen/sp_12" />
+				<EditText
+                    style="@style/edit_profile"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:text="@string/show_distance"/>
             </LinearLayout>
 
             <Button
@@ -247,7 +242,7 @@
                 android:layout_gravity="center"
                 android:layout_margin="@dimen/dp_5"
                 android:background="@color/btn_color"
-                android:padding="@dimen/dp_10"
+                android:padding="@dimen/dp_8"
                 android:text="@string/update"
                 android:textColor="@android:color/white" />
         </LinearLayout>

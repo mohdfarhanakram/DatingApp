@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/bg"
+    android:orientation="vertical" >
+
+    <include layout="@layout/crop_action_bar" />
+    
+    <com.edmodo.cropper.CropImageView
+                android:layout_margin="10dp"
+                android:id="@+id/crop_image_view"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:src="@drawable/farhan"
+                android:visibility="visible" />
+
+   
+</LinearLayout>

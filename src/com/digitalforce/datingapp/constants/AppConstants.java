@@ -24,5 +24,9 @@ public class AppConstants {
 	public static final int REQUEST_CODE_FOR_GALLERY = 5;
 	
 	public static final String SHOW_PROFILE_USER_ID = "show_profile_user_id";
+	
+	public static final String IMAGE_PATH = "image_path";
+	public static final String ENCODED_IMAGE_STRING = "image_string_encoded";
+	public static final int REQUEST_CODE_FOR_CROP = 509;
 
 }

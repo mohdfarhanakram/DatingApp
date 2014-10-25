@@ -91,8 +91,32 @@ public class JsonParser {
 	/**
 	 * parse update profile data
 	 */
-	public static void parserUpdateProfileJson(JSONObject jsonObject)
+	public static String parseUploadImageJson(JSONObject jsonObject)
 	{
+		
+		return jsonObject.optString("userImage");
+		
+	}
+	
+	public static ArrayList<String> parseMyPicture(JSONObject jsonObject){
+		
+		ArrayList<String> pictureList = new ArrayList<String>();
+		try{
+			JSONArray jsonArray = jsonObject.optJSONArray("Data");
+			if(jsonArray!=null){
+				for(int i=0; i<jsonArray.length(); i++){
+					String url = jsonArray.optString(i, "");
+					pictureList.add(url);
+				}
+			}
+			
+			
+		}catch(Exception e){
+			
+		}
+		
+		
+		return pictureList;
 		
 	}
 	

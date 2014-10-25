@@ -45,6 +45,10 @@ public class BaseParser implements IParser {
             response.setJsonResponse(jsonObject);
             response.setBaseModel(baseModel);
             
+            if(eventType==ApiEvent.SHOW_PRIVATE_PICTURE_EVENT || eventType==ApiEvent.SHOW_PUBLIC_PICTURE_EVENT){
+            	baseModel.setMessageCode(100);
+            }
+            
             if(baseModel.getMessageCode()==100){
             	response.setErrorCode(ServiceResponse.SUCCESS);
             	parseJsonData(response);
@@ -80,6 +84,8 @@ public class BaseParser implements IParser {
         case ApiEvent.SHOW_MY_FAVOURITE:
         case ApiEvent.UPDATE_PROFILE_EVENT:
         case ApiEvent.UPLOAD_PROFILE_PIC_EVENT:
+        case ApiEvent.UPLOAD_PRIVATE_PICTURE_EVENT:
+        case ApiEvent.UPLOAD_PUBLIC_PICTURE_EVENT:
         	response.setErrorMessages(jsonObject.optString("error", null));
         	break;
             default:
@@ -109,6 +115,13 @@ public class BaseParser implements IParser {
         	break;
         case ApiEvent.SHOW_PROFILE_EVENT:
         	response.setResponseObject(JsonParser.parseNearByUserJson(jsonObject));
+        	break;
+        case ApiEvent.SHOW_PRIVATE_PICTURE_EVENT:
+        case ApiEvent.SHOW_PUBLIC_PICTURE_EVENT:
+        	response.setResponseObject(JsonParser.parseMyPicture(jsonObject));
+        	break;
+        case ApiEvent.UPLOAD_PROFILE_PIC_EVENT:
+        	response.setResponseObject(JsonParser.parseUploadImageJson(jsonObject));
         	break;
             default:
                 break;

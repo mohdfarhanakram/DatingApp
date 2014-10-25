@@ -12,7 +12,6 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.USE_CREDENTIALS" />
-    
 
     <permission
         android:name="com.javapapers.android.permission.C2D_MESSAGE"
@@ -80,21 +79,24 @@
         <activity
             android:name="com.digitalforce.datingapp.view.ChatActivity"
             android:screenOrientation="portrait" />
-        <activity 
+        <activity
             android:name="com.digitalforce.datingapp.view.TermConditionActivity"
-            android:screenOrientation="portrait"/>
-       <activity 
+            android:screenOrientation="portrait" />
+        <activity
             android:name="com.digitalforce.datingapp.view.UpdateProfileActivity"
-            android:screenOrientation="portrait"/>
-        <activity 
+            android:screenOrientation="portrait" />
+        <activity
             android:name="com.digitalforce.datingapp.view.MatchActivity"
-            android:screenOrientation="portrait"/>
-        <activity 
+            android:screenOrientation="portrait" />
+        <activity
             android:name="com.digitalforce.datingapp.view.SettingActivity"
-            android:screenOrientation="portrait"/>
-        <activity 
+            android:screenOrientation="portrait" />
+        <activity
             android:name="com.digitalforce.datingapp.view.MyPictureActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.digitalforce.datingapp.view.ImageCropActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

@@ -110,6 +110,7 @@ public class UpdateProfileActivity extends BaseActivity implements OnClickListen
 			
 			break;
 		case R.id.txt_update_profile_photo:
+			
 			selectImage();
 			break;
 			
@@ -165,8 +166,9 @@ public class UpdateProfileActivity extends BaseActivity implements OnClickListen
 	public void updateUi(ServiceResponse serviceResponse) {
 		super.updateUi(serviceResponse);
 		
-		if(mProfileBitmap!=null)
-		    mProfileImage.setImageBitmap(mProfileBitmap);
+		removeProgressDialog();
+		
+		
 
 		if(serviceResponse!=null){
 			switch (serviceResponse.getErrorCode()) {
@@ -177,8 +179,11 @@ public class UpdateProfileActivity extends BaseActivity implements OnClickListen
 					finish();
 					break;
 				case ApiEvent.UPLOAD_PROFILE_PIC_EVENT:	
-					mProfileImage.setImageBitmap(mProfileBitmap);
+
 					showCommonError(serviceResponse.getBaseModel().getSuccessMsg());
+					
+					String picUrl = (String)serviceResponse.getResponseObject();
+					picassoLoad(picUrl, mProfileImage);
 					break;
 				case ApiEvent.SHOW_PROFILE_EVENT:
 					ArrayList<UserInfo> userInfoList = (ArrayList<UserInfo>) serviceResponse.getResponseObject();
@@ -288,9 +293,13 @@ public class UpdateProfileActivity extends BaseActivity implements OnClickListen
                 try {
                     //final Bitmap bm;
                 	
+                	
+                	
                 	mImagPath = f.getAbsolutePath();
                 	
-                	encodeImagetoStringAndUploadImage();
+                	navigateToCropImage();
+                	
+                	//encodeImagetoStringAndUploadImage();
                 	
                   
                 } catch (Exception e) {
@@ -301,7 +310,15 @@ public class UpdateProfileActivity extends BaseActivity implements OnClickListen
  
                 mImagPath = Utils.getPath(selectedImageUri, this);
                 
-                encodeImagetoStringAndUploadImage();
+                navigateToCropImage();
+                
+                //encodeImagetoStringAndUploadImage();
+            }else if(requestCode == AppConstants.REQUEST_CODE_FOR_CROP){
+            	
+            	mBaseEncodedString = data.getStringExtra(AppConstants.ENCODED_IMAGE_STRING);
+            	showProgressDialog("Picture is being uploaded..");
+            	postData(DatingUrlConstants.UPLOAD_PROFILE_PIC_URL, ApiEvent.UPLOAD_PROFILE_PIC_EVENT, getUploadPicRequestJson(mBaseEncodedString),null);
+            	
             }
         }
     }
@@ -334,38 +351,6 @@ public class UpdateProfileActivity extends BaseActivity implements OnClickListen
 		
 		
 	}
-	
-	
-	public void encodeImagetoStringAndUploadImage() {
-        new AsyncTask<Void, Void, String>() {
- 
-            protected void onPreExecute() {
-            	showProgressDialog("Image is being updated..");
-            };
- 
-            @Override
-            protected String doInBackground(Void... params) {
-                BitmapFactory.Options options = null;
-                options = new BitmapFactory.Options();
-                options.inSampleSize = 3;
-                mProfileBitmap = BitmapFactory.decodeFile(mImagPath,options);
-                ByteArrayOutputStream stream = new ByteArrayOutputStream();
-                // Must compress the Image to reduce image size to make upload easy
-                mProfileBitmap.compress(Bitmap.CompressFormat.JPEG, 50, stream); 
-                byte[] byte_arr = stream.toByteArray();
-                // Encode Image to String
-                mBaseEncodedString = Base64.encodeToString(byte_arr, 0);
-                return "";
-            }
- 
-            @Override
-            protected void onPostExecute(String msg) {
-               
-		        postData(DatingUrlConstants.UPLOAD_PROFILE_PIC_URL, ApiEvent.UPLOAD_PROFILE_PIC_EVENT, getUploadPicRequestJson(mBaseEncodedString),null);
-            }
-        }.execute(null, null, null);
-    }
-	
 	
 	private void fetchUserProfileData(){
 		String postData = getShowProfileRequestJson();
@@ -414,6 +399,14 @@ public class UpdateProfileActivity extends BaseActivity implements OnClickListen
 		   picassoLoad(userInfo.getImage(), mProfileImage);
 		
 		
+	}
+	
+	
+	private void navigateToCropImage(){
+		
+		Intent i = new Intent(this,ImageCropActivity.class);
+		i.putExtra(AppConstants.IMAGE_PATH, mImagPath);
+		startActivityForResult(i, AppConstants.REQUEST_CODE_FOR_CROP);
 	}
 	
 	

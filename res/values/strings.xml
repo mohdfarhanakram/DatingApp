@@ -90,6 +90,8 @@
     	<string name="gender">Gender</string>
     	<string name="audio">Audio</string>
     	<string name="vedio">Video</string>
+    	<string name="crop_ok">OK</string>
+    	<string name="crop_cancel">Cancel</string>
     	<string name="_looking_for">LOOKING FOR:</string>
     	<string name="_interest">INTERSETS:</string>
     	<string name="_about_me">ABOUT ME:</string>

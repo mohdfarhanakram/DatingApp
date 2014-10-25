@@ -21,5 +21,9 @@ public interface DatingUrlConstants {
 	public static final String REMOVE_TO_FAVOURITE_URL		= BASE_URL+"remove_from_fav.php";
 	public static final String UPLOAD_PROFILE_PIC_URL		= BASE_URL+"edit_picture.php";
 	
+	public static final String SHOW_MY_PICTURE_URL			= BASE_URL+"show_images.php";
+	public static final String UPLOAD_MY_PICTURE_URL		= BASE_URL+"add_album_image.php";
+	
+	
 
 }

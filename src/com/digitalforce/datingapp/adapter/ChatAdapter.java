@@ -1,6 +1,7 @@
 package com.digitalforce.datingapp.adapter;
 
 import com.digitalforce.datingapp.R;
+import com.digitalforce.datingapp.utils.PicassoEx;
 import com.digitalforce.datingapp.widgets.RoundedImageView;
 
 import android.content.Context;
@@ -8,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class ChatAdapter extends BaseAdapter{
@@ -52,5 +54,9 @@ public class ChatAdapter extends BaseAdapter{
 		mimgMatcher.setImageResource(R.drawable.farhan);
 		return convertView;
 	}
+	
+	 public void picassoLoad(String url, ImageView imageView) {
+	        PicassoEx.getPicasso(context).load(url).error(R.drawable.farhan).placeholder(R.drawable.farhan).fit().into(imageView);
+	 }
 
 }

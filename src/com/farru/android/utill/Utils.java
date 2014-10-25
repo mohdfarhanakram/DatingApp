@@ -32,10 +32,12 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.database.Cursor;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import android.preference.PreferenceManager;
+import android.provider.MediaStore.MediaColumns;
 import android.telephony.TelephonyManager;
 import android.text.Html;
 import android.text.Spanned;
@@ -948,5 +950,16 @@ public class Utils {
         }
 
         return false;
+    }
+    
+    
+    
+    public static String getPath(Uri uri, Activity activity) {
+        String[] projection = { MediaColumns.DATA };
+        Cursor cursor = activity
+                .managedQuery(uri, projection, null, null, null);
+        int column_index = cursor.getColumnIndexOrThrow(MediaColumns.DATA);
+        cursor.moveToFirst();
+        return cursor.getString(column_index);
     }
 }

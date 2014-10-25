@@ -57,7 +57,7 @@ public class JsonParser {
 				
 				UserInfo nearBy = new UserInfo();
 				nearBy.setUserId(nearJObj.optString("userid"));
-				nearBy.setFirstName(nearJObj.optString("firstName"));
+				nearBy.setFirstName(nearJObj.optString("firstname"));   // it was earlier firstName
 				nearBy.setDistance(nearJObj.optString("distance"));
 				nearBy.setLastName(nearJObj.optString("lastname"));
 				nearBy.setEmail(nearJObj.optString("email"));
@@ -78,7 +78,7 @@ public class JsonParser {
 				nearBy.setLookingFor(nearJObj.optString("looking_for"));
 				nearBy.setInterest(nearJObj.optString("interest"));
 				nearBy.setSexRole(nearJObj.optString("sex_role"));
-				nearBy.setAboutMe(nearJObj.optString("about_me"));
+				nearBy.setAboutMe(nearJObj.optString("about_me"));  
 				nearBy.setAge(nearJObj.optString("age"));
 				nearBy.setFavourite(nearJObj.optBoolean("fav_status"));
 				nearByUserList.add(nearBy);

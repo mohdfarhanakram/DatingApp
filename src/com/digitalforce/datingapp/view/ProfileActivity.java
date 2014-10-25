@@ -36,6 +36,7 @@ import com.digitalforce.datingapp.fragments.PhotosFragment;
 import com.digitalforce.datingapp.persistance.DatingAppPreference;
 import com.digitalforce.datingapp.utils.ToastCustom;
 import com.farru.android.network.ServiceResponse;
+import com.farru.android.utill.StringUtils;
 
 public class ProfileActivity extends BaseActivity implements OnClickListener{
 
@@ -250,6 +251,9 @@ public class ProfileActivity extends BaseActivity implements OnClickListener{
 				}
 				
 				updateFavImageUi(mUserInfo.isFavourite());
+				
+				if(!StringUtils.isNullOrEmpty(userInfo.get(i).getImage()))
+				    picassoLoad(userInfo.get(i).getImage(), mimgProfile);
 			}
 			
 			break;

@@ -13,6 +13,7 @@ import android.view.View.OnClickListener;
 import android.widget.TextView;
 
 import com.digitalforce.datingapp.R;
+import com.digitalforce.datingapp.fragments.BaseFragment;
 import com.digitalforce.datingapp.fragments.PrivatePhotoFragment;
 import com.digitalforce.datingapp.fragments.PublicPhotoFragment;
 import com.farru.android.network.ServiceResponse;
@@ -45,6 +46,32 @@ public class MyPictureActivity extends BaseActivity implements OnClickListener{
 	@Override
 	public void updateUi(ServiceResponse serviceResponse) {
 		super.updateUi(serviceResponse);
+		
+		if(serviceResponse!=null){
+			switch (serviceResponse.getErrorCode()) {
+			case ServiceResponse.SUCCESS:
+				break;
+			case ServiceResponse.MESSAGE_ERROR:
+				showCommonError(serviceResponse.getErrorMessages());
+				break;
+			default:
+				showCommonError(null);
+				break;
+			}
+		}else{
+			showCommonError(null);
+		}
+		
+		
+		FragmentManager fragmentmaneger = getSupportFragmentManager();
+		for(int i=0; i<fragmentmaneger.getFragments().size(); i++){
+			if(fragmentmaneger.getFragments().get(i) instanceof BaseFragment){
+				BaseFragment fragment = (BaseFragment)fragmentmaneger.getFragments().get(i);
+				fragment.updateUi(serviceResponse);
+			}
+			
+		}
+
 	}
 	@Override
 	public void onEvent(int eventId, Object eventData) {

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import com.digitalforce.datingapp.R;
 import com.digitalforce.datingapp.model.NearBy;
+import com.digitalforce.datingapp.utils.PicassoEx;
 import com.digitalforce.datingapp.widgets.RoundedImageView;
 import com.farru.android.utill.StringUtils;
 
@@ -12,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class MatchAdapter extends BaseAdapter{
@@ -72,8 +74,14 @@ public class MatchAdapter extends BaseAdapter{
 			viewHolder.member.setVisibility(View.VISIBLE);
 			viewHolder.member.setText(nearBy.getFirstName());
 
+		}else if(!StringUtils.isNullOrEmpty(nearBy.getLastName())){
+			viewHolder.member.setText(nearBy.getLastName());
+			viewHolder.member.setVisibility(View.VISIBLE);
+		}else if(!StringUtils.isNullOrEmpty(nearBy.getEmail())){
+			viewHolder.member.setText(nearBy.getEmail());
+			viewHolder.member.setVisibility(View.VISIBLE);
 		}else{
-			viewHolder.member.setText("Farhan");
+			viewHolder.member.setText("Farhan");  // testing
 			viewHolder.member.setVisibility(View.VISIBLE);
 		}
 
@@ -83,6 +91,10 @@ public class MatchAdapter extends BaseAdapter{
 		}else{
 			viewHolder.place.setVisibility(View.GONE);
 		}
+		if(!StringUtils.isNullOrEmpty(nearBy.getImage())){
+			picassoLoad(nearBy.getImage(), viewHolder.image);
+		}
+		
 		return convertView;
 		
 		
@@ -94,4 +106,8 @@ public class MatchAdapter extends BaseAdapter{
 		public TextView place;
 		public RoundedImageView image;
 	}
+	
+	public void picassoLoad(String url, ImageView imageView) {
+        PicassoEx.getPicasso(context).load(url).error(R.drawable.farhan).placeholder(R.drawable.farhan).fit().into(imageView);
+ }
 }

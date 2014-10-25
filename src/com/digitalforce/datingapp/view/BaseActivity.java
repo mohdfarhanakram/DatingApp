@@ -39,6 +39,7 @@ import android.view.View.OnClickListener;
 import android.view.Window;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.ImageView;
 
 import com.digitalforce.datingapp.BuildConfig;
 import com.digitalforce.datingapp.R;
@@ -47,6 +48,7 @@ import com.digitalforce.datingapp.constants.AppConstants;
 import com.digitalforce.datingapp.constants.DatingUrlConstants;
 import com.digitalforce.datingapp.parser.BaseParser;
 import com.digitalforce.datingapp.persistance.DatingAppPreference;
+import com.digitalforce.datingapp.utils.PicassoEx;
 import com.digitalforce.datingapp.utils.ToastCustom;
 import com.farru.android.application.BaseApplication;
 import com.farru.android.network.ServiceResponse;
@@ -59,7 +61,6 @@ import com.farru.android.utill.StringUtils;
 import com.farru.android.utill.Utils;
 import com.farru.android.volley.AuthFailureError;
 import com.farru.android.volley.NetworkError;
-import com.farru.android.volley.NetworkResponse;
 import com.farru.android.volley.NoConnectionError;
 import com.farru.android.volley.ParseError;
 import com.farru.android.volley.Response;
@@ -413,7 +414,7 @@ public abstract class BaseActivity extends FragmentActivity implements IScreen,R
 			req.setParser(parser == null ? new BaseParser() : parser);
 
 			VolleyHelper.getInstance(this).addRequestInQueue(req);
-			//   Log.d("URL:  ", url);
+			Log.d("URL:  ", url);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -455,6 +456,11 @@ public abstract class BaseActivity extends FragmentActivity implements IScreen,R
 		if(isLoaderRequired)
 			showProgressDialog();
 		postData(url, eventType, null, postData, VolleyGenericRequest.ContentType.JSON, null);
+
+	}
+	
+	public void postData(String url, int eventType,String data, IParser parser) {
+		postData(url, eventType, null, data, VolleyGenericRequest.ContentType.JSON, parser);
 
 	}
 
@@ -695,6 +701,11 @@ public abstract class BaseActivity extends FragmentActivity implements IScreen,R
 	        i.addFlags(0x8000);
 		startActivity(i);
 	}
+	
+	
+	 public void picassoLoad(String url, ImageView imageView) {
+	        PicassoEx.getPicasso(this).load(url).error(R.drawable.farhan).placeholder(R.drawable.farhan).fit().into(imageView);
+	 }
 
 
 }

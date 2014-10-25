@@ -18,7 +18,7 @@ import android.view.View.MeasureSpec;
 /**
  * Utility class for Bitmap related methods.
  * 
- * @author sachin.gupta
+ * @author m.farhan
  */
 public abstract class BitmapUtils {
 

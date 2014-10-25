@@ -2,8 +2,48 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/red"
+    android:paddingLeft="@dimen/dp_5"
+    android:paddingRight="@dimen/dp_5"
+    android:background="@android:color/transparent"
     android:orientation="vertical" >
-    
+    <TextView 
+        style="@style/txt_base"
+        android:text="@string/_looking_for"
+        android:textSize="@dimen/sp_14"/>
+    <TextView 
+        android:id="@+id/txt_fragment_about_looking_for"
+        style="@style/txt_base"
+        android:layout_marginTop="@dimen/dp_5"
+        android:layout_marginBottom="@dimen/dp_5"
+        android:text="@string/looking_for_msg"
+        android:singleLine="false"/>
+    <View 
+        style="@style/view"
+        android:layout_margin="@dimen/dp_5"/>
+    <TextView 
+        style="@style/txt_base"
+        android:text="@string/_about_me"
+        android:textSize="@dimen/sp_14"/>
+    <TextView
+        android:id="@+id/txt_fragment_about_about_me" 
+        style="@style/txt_base"
+        android:layout_marginTop="@dimen/dp_5"
+        android:layout_marginBottom="@dimen/dp_5"
+        android:text="@string/common_msg"
+        android:singleLine="false"/>
+    <View 
+        style="@style/view"
+        android:layout_margin="@dimen/dp_5"/>
+    <TextView 
+        style="@style/txt_base"
+        android:text="@string/_interest"
+        android:textSize="@dimen/sp_14"/>
+    <TextView 
+        android:id="@+id/txt_fragment_about_interest"
+        style="@style/txt_base"
+        android:layout_marginTop="@dimen/dp_5"
+        android:layout_marginBottom="@dimen/dp_5"
+        android:text="@string/common_msg"
+        android:singleLine="false"/>
 
 </LinearLayout>

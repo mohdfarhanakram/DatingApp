@@ -10,7 +10,9 @@ import com.digitalforce.datingapp.constants.ApiEvent;
 import com.digitalforce.datingapp.constants.AppConstants;
 import com.digitalforce.datingapp.constants.DatingUrlConstants;
 import com.digitalforce.datingapp.fragments.AboutFragment;
+import com.digitalforce.datingapp.fragments.AudioFragment;
 import com.digitalforce.datingapp.fragments.PhotosFragment;
+import com.digitalforce.datingapp.fragments.VideoFragment;
 import com.digitalforce.datingapp.model.UserInfo;
 import com.digitalforce.datingapp.persistance.DatingAppPreference;
 import com.digitalforce.datingapp.utils.ToastCustom;
@@ -18,6 +20,7 @@ import com.farru.android.network.ServiceResponse;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.media.AudioFormat;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -41,12 +44,13 @@ import com.farru.android.utill.StringUtils;
 public class ProfileActivity extends BaseActivity implements OnClickListener{
 
 	private TextView mtxtAbout, mtxtPhotos, mtxtInsight, mtxtage, mtxtWeight, mtxtheight, mtxtName, mtxtlocation,
-	mtxtSexRole, mtxtHivStatus, mtxtProfileTitle;
+	mtxtSexRole, mtxtHivStatus, mtxtProfileTitle, mtxtVedio, mtxtAudio;
 	private ImageView mimgBack, mimgMenu, mimgPrevious, mimgNext, mimgChat, mimgFavourite, mimgProfile, mimgOnlineStatus;
 	
 	private String calledUserProfileId;
 	
 	private UserInfo mUserInfo;
+	private AboutFragment aboutFragment;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +62,8 @@ public class ProfileActivity extends BaseActivity implements OnClickListener{
 		mtxtAbout = (TextView) findViewById(R.id.txt_profile_about);
 		mtxtPhotos = (TextView) findViewById(R.id.txt_profile_photos);
 		mtxtInsight = (TextView) findViewById(R.id.txt_profile_insight);
+		mtxtVedio = (TextView) findViewById(R.id.txt_profile_vedio);
+		mtxtAudio = (TextView) findViewById(R.id.txt_profile_audio);
 		mtxtage = (TextView) findViewById(R.id.txt_profile_age);
 		mtxtWeight = (TextView) findViewById(R.id.txt_profile_weight);
 		mtxtheight = (TextView) findViewById(R.id.txt_profile_height);
@@ -76,11 +82,16 @@ public class ProfileActivity extends BaseActivity implements OnClickListener{
 		mimgOnlineStatus = (ImageView) findViewById(R.id.img_profile_online_status);
 
 		mtxtProfileTitle.setText(getResources().getString(R.string.profile));
-		selectFragment(new AboutFragment());
+		aboutFragment = new AboutFragment();
+		selectFragment(aboutFragment);
+	
 
 		mtxtAbout.setOnClickListener(this);
 		mtxtPhotos.setOnClickListener(this);
+		mtxtVedio.setOnClickListener(this);
+		mtxtAudio.setOnClickListener(this);
 		mtxtInsight.setOnClickListener(this);
+		mimgFavourite.setOnClickListener(this);
 		mimgMenu.setOnClickListener(this);
 		mimgChat.setOnClickListener(this);
 		mimgFavourite.setOnClickListener(this);
@@ -96,18 +107,48 @@ public class ProfileActivity extends BaseActivity implements OnClickListener{
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
+		case R.id.txt_profile_vedio:
+			selectFragment(new VideoFragment());
+			mtxtVedio.setBackgroundResource(R.color.about_bg_color);
+			mtxtPhotos.setBackgroundResource(Color.TRANSPARENT);
+			mtxtAudio.setBackgroundResource(Color.TRANSPARENT);
+			mtxtAbout.setBackgroundResource(Color.TRANSPARENT);
+			mtxtInsight.setBackgroundResource(Color.TRANSPARENT);
+			break;
+		case R.id.txt_profile_audio:
+			selectFragment(new AudioFragment());
+			mtxtAudio.setBackgroundResource(R.color.about_bg_color);
+			mtxtPhotos.setBackgroundResource(Color.TRANSPARENT);
+			mtxtVedio.setBackgroundResource(Color.TRANSPARENT);
+			mtxtAbout.setBackgroundResource(Color.TRANSPARENT);
+			mtxtInsight.setBackgroundResource(Color.TRANSPARENT);
+			break;
 		case R.id.txt_profile_about:
-			selectFragment(new AboutFragment());
+			AboutFragment aboutFragment = 	new AboutFragment();
+			aboutFragment.setUserInfo(mUserInfo);
+			selectFragment(aboutFragment);
 			mtxtAbout.setBackgroundResource(R.color.about_bg_color);
 			mtxtPhotos.setBackgroundResource(Color.TRANSPARENT);
+			mtxtVedio.setBackgroundResource(Color.TRANSPARENT);
+			mtxtAudio.setBackgroundResource(Color.TRANSPARENT);
+			mtxtInsight.setBackgroundResource(Color.TRANSPARENT);
+			
 			break;
 		case R.id.txt_profile_photos:
 			selectFragment(new PhotosFragment());
 			mtxtPhotos.setBackgroundResource(R.color.about_bg_color);
 			mtxtAbout.setBackgroundResource(Color.TRANSPARENT);
+			mtxtInsight.setBackgroundResource(Color.TRANSPARENT);
+			mtxtVedio.setBackgroundResource(Color.TRANSPARENT);
+			mtxtAudio.setBackgroundResource(Color.TRANSPARENT);
 			break;
 		case R.id.txt_profile_insight:
 			ToastCustom.underDevelopment(this);
+			mtxtInsight.setBackgroundResource(R.color.about_bg_color);
+			mtxtAbout.setBackgroundResource(Color.TRANSPARENT);
+			mtxtPhotos.setBackgroundResource(Color.TRANSPARENT);
+			mtxtVedio.setBackgroundResource(Color.TRANSPARENT);
+			mtxtAudio.setBackgroundResource(Color.TRANSPARENT);
 			break;
 
 		case R.id.img_profile_chat:
@@ -134,7 +175,7 @@ public class ProfileActivity extends BaseActivity implements OnClickListener{
 	{
 		FragmentManager fragmentmaneger = getSupportFragmentManager();
 		FragmentTransaction fragmentTransaction=fragmentmaneger.beginTransaction();
-		fragmentTransaction.add(R.id.fragment_profile, fragment);
+		fragmentTransaction.replace(R.id.fragment_profile, fragment);
 		fragmentTransaction.commit();
 	}
 
@@ -254,6 +295,9 @@ public class ProfileActivity extends BaseActivity implements OnClickListener{
 				
 				if(!StringUtils.isNullOrEmpty(userInfo.get(i).getImage()))
 				    picassoLoad(userInfo.get(i).getImage(), mimgProfile);
+				
+				aboutFragment.updateUi(mUserInfo);
+
 			}
 			
 			break;

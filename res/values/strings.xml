@@ -88,5 +88,12 @@
     	<string name="private_tab">Private Photo</string>
     	<string name="mypicyure">My Picture</string>
     	<string name="gender">Gender</string>
+    	<string name="audio">Audio</string>
+    	<string name="vedio">Video</string>
+    	<string name="_looking_for">LOOKING FOR:</string>
+    	<string name="_interest">INTERSETS:</string>
+    	<string name="_about_me">ABOUT ME:</string>
+    	<string name="looking_for_msg">RelationShip, Friends and Dates</string>
+    	<string name="under_development">Under Development</string>
     	
 </resources>

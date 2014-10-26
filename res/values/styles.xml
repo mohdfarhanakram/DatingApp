@@ -104,7 +104,7 @@
         <item name="android:background">@drawable/menu_selector</item>
     </style>
 
-    <style name="Transparent" parent="@android:style/Theme.NoTitleBar">
+    <style name="Transparent" parent="@android:style/Theme.DeviceDefault.Light.NoActionBar">
         <item name="android:windowContentOverlay">@null</item>
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowBackground">@android:color/transparent</item>

@@ -13,9 +13,12 @@ import com.digitalforce.datingapp.adapter.MyPictureAdapter;
 import com.digitalforce.datingapp.constants.ApiEvent;
 import com.digitalforce.datingapp.constants.DatingUrlConstants;
 import com.digitalforce.datingapp.persistance.DatingAppPreference;
+import com.digitalforce.datingapp.utils.ToastCustom;
 import com.digitalforce.datingapp.view.BaseActivity;
 import com.farru.android.network.ServiceResponse;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -48,10 +51,7 @@ public class PrivatePhotoFragment extends BaseFragment{
 
 			@Override
 			public void onItemClick(AdapterView<?> parent, View v, int position,long id) {
-				// TODO Auto-generated method stub
-				/* Intent i = new Intent(getActivity(), ProfileActivity.class);
-                i.putExtra(AppConstants.SHOW_PROFILE_USER_ID, mlistNearBy.get(position).getUserId());
-                startActivity(i);*/
+				selectImageOperation(mPictureList.get(position));
 			}
 		});
 
@@ -116,5 +116,29 @@ public class PrivatePhotoFragment extends BaseFragment{
 		Log.e("Request", jsonObject.toString());
 		return jsonObject.toString();
 	}
+	
+	
+	private void selectImageOperation(String imgUrl) {
+        final CharSequence[] items = { "Make Profile Photo", "Make Public",
+                "Delete" };
+ 
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        builder.setTitle("My Picture");
+        builder.setItems(items, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int item) {
+                if (item==0) {
+                   
+                } else if (item==1) {
+                    
+                } else if (item==2) {
+                    
+                }
+                ToastCustom.underDevelopment(getActivity());
+                dialog.dismiss();
+            }
+        });
+        builder.show();
+    }
 
 }

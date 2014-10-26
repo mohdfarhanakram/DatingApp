@@ -6,6 +6,8 @@ import com.digitalforce.datingapp.persistance.DatingAppPreference;
 import com.digitalforce.datingapp.utils.ToastCustom;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -13,7 +15,7 @@ import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
-public class MenuActivity extends Activity implements OnClickListener{
+public class MenuActivity extends BaseActivity implements OnClickListener{
 
 	private ImageView mimgProfile, mimgMembers, mimgChats, mimgMatch, mimgPictures, mimgExpand,
 	mimgFavourites, mimgSetting, mimgNewBuzz, mimgLogout;
@@ -111,8 +113,7 @@ public class MenuActivity extends Activity implements OnClickListener{
 			finish();
 			break;
 		case R.id.img_menu_logout:
-			setResult(AppConstants.RESULT_CODE_FOR_LOGOUT);
-			finish();
+			logoutOperation();
 			break;
 		case R.id.container:
 			finish();
@@ -121,5 +122,36 @@ public class MenuActivity extends Activity implements OnClickListener{
 			break;
 		}
 
+	}
+	
+	
+	private void logoutOperation() {
+        
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Logout");
+        builder.setMessage("Do you want to logout?");
+        
+        builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+            	dialog.dismiss();
+            	
+            	setResult(AppConstants.RESULT_CODE_FOR_LOGOUT);
+    			finish();
+              
+            }
+        });
+
+        builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+               dialog.dismiss();
+            }
+        });
+        builder.show();
+    }
+
+	@Override
+	public void onEvent(int eventId, Object eventData) {
+		// TODO Auto-generated method stub
+		
 	}
 }

@@ -5,6 +5,18 @@ import java.util.ArrayList;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.graphics.Color;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.TextView;
+
 import com.digitalforce.datingapp.R;
 import com.digitalforce.datingapp.constants.ApiEvent;
 import com.digitalforce.datingapp.constants.AppConstants;
@@ -17,35 +29,14 @@ import com.digitalforce.datingapp.model.UserInfo;
 import com.digitalforce.datingapp.persistance.DatingAppPreference;
 import com.digitalforce.datingapp.utils.ToastCustom;
 import com.farru.android.network.ServiceResponse;
-
-import android.content.Intent;
-import android.graphics.Color;
-import android.media.AudioFormat;
-import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
-import android.util.Log;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.widget.ImageView;
-import android.widget.TextView;
-
-import com.digitalforce.datingapp.R;
-import com.digitalforce.datingapp.constants.ApiEvent;
-import com.digitalforce.datingapp.constants.DatingUrlConstants;
-import com.digitalforce.datingapp.fragments.AboutFragment;
-import com.digitalforce.datingapp.fragments.PhotosFragment;
-import com.digitalforce.datingapp.persistance.DatingAppPreference;
-import com.digitalforce.datingapp.utils.ToastCustom;
-import com.farru.android.network.ServiceResponse;
 import com.farru.android.utill.StringUtils;
 
 public class ProfileActivity extends BaseActivity implements OnClickListener{
 
 	private TextView mtxtAbout, mtxtPhotos, mtxtInsight, mtxtage, mtxtWeight, mtxtheight, mtxtName, mtxtlocation,
 	mtxtSexRole, mtxtHivStatus, mtxtProfileTitle, mtxtVedio, mtxtAudio;
-	private ImageView mimgBack, mimgMenu, mimgPrevious, mimgNext, mimgChat, mimgFavourite, mimgProfile, mimgOnlineStatus;
+	private ImageView mimgBack, mimgMenu, mimgPrevious, mimgNext, mimgChat, mimgProfile, mimgOnlineStatus;
+	private ImageView mimgFavourite;
 	
 	private String calledUserProfileId;
 	
@@ -99,9 +90,19 @@ public class ProfileActivity extends BaseActivity implements OnClickListener{
 		
 		calledUserProfileId = getIntent().getStringExtra(AppConstants.SHOW_PROFILE_USER_ID);
 		
+		if(calledUserProfileId.equals(DatingAppPreference.getString(DatingAppPreference.USER_ID, "", this))){
+			mimgFavourite.setEnabled(false);
+			mimgFavourite.setClickable(false);
+		}else{
+			mimgFavourite.setEnabled(true);
+			mimgFavourite.setClickable(true);
+		}
+		
 		String postData = getShowProfileRequestJson();
 		Log.e("Post Data", postData);
 		postData(DatingUrlConstants.SHOW_PROFILE_URL, ApiEvent.SHOW_PROFILE_EVENT, postData);
+		
+		
 	}
 
 	@Override

@@ -4,23 +4,44 @@
     android:layout_height="wrap_content"
     android:gravity="center"
     android:orientation="horizontal" >
-    <ImageView 
+
+    <ImageView
         android:id="@+id/img_action_back"
         style="@style/img_home"
         android:contentDescription="@null"
-        android:src="@drawable/back"/>
-    <TextView 
+        android:src="@drawable/back"
+        android:visibility="invisible" />
+
+    <TextView
         android:id="@+id/txt_screen_title"
-        android:layout_width="0dp"
         style="@style/txt_base"
+        android:layout_width="0dp"
         android:layout_weight="1.0"
         android:gravity="center"
-        android:textSize="@dimen/sp_18"
-        android:text="@string/text"/>
-    <ImageView
-        android:id="@+id/img_action_menu" 
-        style="@style/img_home"
-        android:contentDescription="@null"
-        android:src="@drawable/navigation"/>
+        android:text="@string/text"
+        android:textSize="@dimen/sp_18" />
+
+    <LinearLayout
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1.0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:padding="10dp"
+            android:id="@+id/img_action_add"
+            style="@style/img_home"
+            
+            android:contentDescription="@null"
+            android:src="@drawable/add_photo" />
+
+        <ImageView
+            android:paddingLeft="10dp"
+            android:id="@+id/img_action_menu"
+            style="@style/img_home"
+            android:contentDescription="@null"
+            android:src="@drawable/navigation" />
+    </LinearLayout>
 
 </LinearLayout>

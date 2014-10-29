@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.digitalforce.datingapp.R;
@@ -63,6 +64,8 @@ public class NearByAdapter extends BaseAdapter{
 
 			convertView = inflater.inflate(R.layout.layout_grid_nearby_details, parent, false);
 
+			viewHolder.infoDistance = (LinearLayout)convertView.findViewById(R.id.info_distance);
+			viewHolder.infoLayout = (LinearLayout)convertView.findViewById(R.id.info_layout);
 			viewHolder.member = (TextView) convertView.findViewById(R.id.txt_nearby_member_name);
 			viewHolder.place = (TextView) convertView.findViewById(R.id.txt_nearby_place);
 			viewHolder.image = (RoundedImageView) convertView.findViewById(R.id.img_nearby_member);
@@ -72,31 +75,33 @@ public class NearByAdapter extends BaseAdapter{
 		}else{
 			viewHolder = (ViewHolder)convertView.getTag();
 		}
-		
-		
+
+
 		if(!StringUtils.isNullOrEmpty(nearBy.getFirstName())){
-			viewHolder.member.setVisibility(View.VISIBLE);
+			
+			viewHolder.infoLayout.setVisibility(View.VISIBLE);
 			viewHolder.member.setText(nearBy.getFirstName());
-
+			
 		}else if(!StringUtils.isNullOrEmpty(nearBy.getLastName())){
+			
+			viewHolder.infoLayout.setVisibility(View.VISIBLE);
 			viewHolder.member.setText(nearBy.getLastName());
-			viewHolder.member.setVisibility(View.VISIBLE);
-		}else if(!StringUtils.isNullOrEmpty(nearBy.getEmail())){
-			viewHolder.member.setText(nearBy.getEmail());
-			viewHolder.member.setVisibility(View.VISIBLE);
-		}else{
-			viewHolder.member.setText("Farhan");  // testing
-			viewHolder.member.setVisibility(View.VISIBLE);
-		}
 
+		}else{
+			viewHolder.infoLayout.setVisibility(View.INVISIBLE);
+			
+		}
 
 		if(!StringUtils.isNullOrEmpty(nearBy.getDistance())){
-			viewHolder.place.setVisibility(View.VISIBLE);
+			viewHolder.infoDistance.setVisibility(View.VISIBLE);
 			viewHolder.place.setText(nearBy.getDistance());
 		}else{
-			viewHolder.place.setVisibility(View.GONE);
+			viewHolder.infoDistance.setVisibility(View.INVISIBLE);
 		}
-		
+
+
+
+
 		if(!StringUtils.isNullOrEmpty(nearBy.getImage())){
 			picassoLoad(nearBy.getImage(), viewHolder.image);
 		}
@@ -107,10 +112,14 @@ public class NearByAdapter extends BaseAdapter{
 		public TextView member;
 		public TextView place;
 		public RoundedImageView image;
+		public LinearLayout infoLayout;
+		public LinearLayout infoDistance;
 	}
-	
+
 	public void picassoLoad(String url, ImageView imageView) {
-        PicassoEx.getPicasso(context).load(url).error(R.drawable.farhan).placeholder(R.drawable.farhan).fit().into(imageView);
- }
+		PicassoEx.getPicasso(context).load(url).error(R.drawable.farhan).placeholder(R.drawable.farhan).fit().into(imageView);
+	}
+
+
 
 }

@@ -79,8 +79,9 @@ public class MyPictureActivity extends BaseActivity implements OnClickListener{
 	protected void onPostCreate(Bundle savedInstanceState) {
 		super.onPostCreate(savedInstanceState);
 
-		((ImageView)findViewById(R.id.img_action_back)).setImageResource(R.drawable.add_photo);
-		((ImageView)findViewById(R.id.img_action_back)).setOnClickListener(this);
+		(findViewById(R.id.img_action_add)).setVisibility(View.VISIBLE);
+		((ImageView)findViewById(R.id.img_action_add)).setImageResource(R.drawable.add_photo);
+		((ImageView)findViewById(R.id.img_action_add)).setOnClickListener(this);
 	}
 
 
@@ -142,7 +143,7 @@ public class MyPictureActivity extends BaseActivity implements OnClickListener{
 			mtxtPublicPic.setTextColor(Color.WHITE);
 			isPublicSelected = false;
 			break;
-		case R.id.img_action_back:
+		case R.id.img_action_add:
 			selectImage();
 			break;
 		default:

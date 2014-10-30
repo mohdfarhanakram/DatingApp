@@ -11,7 +11,7 @@
         android:contentDescription="@null"
         android:src="@drawable/back"/>
     <TextView 
-        android:id="@+id/txt_screen_title"
+        android:id="@+id/title"
         android:layout_width="0dp"
         style="@style/txt_base"
         android:layout_weight="1.0"

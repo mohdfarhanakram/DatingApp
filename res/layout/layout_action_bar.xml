@@ -16,32 +16,17 @@
         android:id="@+id/txt_screen_title"
         style="@style/txt_base"
         android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_weight="1.0"
         android:gravity="center"
         android:text="@string/text"
         android:textSize="@dimen/sp_18" />
 
-    <LinearLayout
-        android:layout_gravity="center_vertical"
-        android:layout_weight="1.0"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal" >
-
-        <ImageView
-            android:padding="10dp"
-            android:id="@+id/img_action_add"
-            style="@style/img_home"
-            
-            android:contentDescription="@null"
-            android:src="@drawable/add_photo" />
-
-        <ImageView
-            android:paddingLeft="10dp"
-            android:id="@+id/img_action_menu"
-            style="@style/img_home"
-            android:contentDescription="@null"
-            android:src="@drawable/navigation" />
-    </LinearLayout>
+    <ImageView
+        android:id="@+id/img_action_menu"
+        style="@style/img_home"
+        android:contentDescription="@null"
+        android:paddingLeft="10dp"
+        android:src="@drawable/navigation" />
 
 </LinearLayout>

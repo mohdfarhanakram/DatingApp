@@ -5,7 +5,7 @@
     android:background="@drawable/bg"
     android:orientation="vertical" >
     <include 
-        layout="@layout/layout_action_bar"/>
+        layout="@layout/add_photo_actionbar"/>
     <include
         layout="@layout/layout_picture_tab"/>"
 	<FrameLayout 

@@ -6,14 +6,18 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.digitalforce.datingapp.persistance.DatingAppPreference;
+import com.digitalforce.datingapp.utils.ToastCustom;
+import com.farru.android.ui.widget.CustomAlert;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.GoogleMap.OnCameraChangeListener;
+import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class ExploreFragment extends SupportMapFragment{
+public class ExploreFragment extends SupportMapFragment implements OnCameraChangeListener{
 
 	private GoogleMap googleMap;
 	@Override
@@ -51,6 +55,16 @@ public class ExploreFragment extends SupportMapFragment{
 
 		// Zoom in, animating the camera.
 		googleMap.animateCamera(CameraUpdateFactory.zoomTo(10), 2000, null);
+		
+		googleMap.setOnCameraChangeListener(this);
+	}
+
+	@Override
+	public void onCameraChange(CameraPosition position) {
+		LatLng target = position.target;
+		
+		ToastCustom.makeText(getActivity(), "New Latitude "+target.latitude+" New Longitude "+target.longitude, 3000);
+		
 	}
 
 

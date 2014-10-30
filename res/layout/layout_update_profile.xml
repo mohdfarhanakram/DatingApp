@@ -52,8 +52,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="@dimen/dp_50"
                     android:layout_gravity="bottom"
+                    android:layout_marginLeft="@dimen/dp_50"
                     android:orientation="vertical" >
 
                     <EditText
@@ -73,21 +73,22 @@
 
             <LinearLayout
                 android:id="@+id/layout_update_profile_dob"
-                style="@style/layout_profile">
+                style="@style/layout_profile" >
 
                 <TextView
                     style="@style/txt_base"
                     android:layout_width="0dp"
-                    android:padding="@dimen/dp_10"
                     android:layout_weight=".40"
+                    android:padding="@dimen/dp_10"
                     android:text="@string/dob"
                     android:textSize="@dimen/sp_14" />
-				<EditText
-				    android:id="@+id/edt_update_profile_dob"
+
+                <EditText
+                    android:id="@+id/edt_update_profile_dob"
                     style="@style/edit_profile"
                     android:layout_width="0dp"
                     android:layout_weight="1"
-                    android:hint="@string/dob"/>
+                    android:hint="@string/dob" />
             </LinearLayout>
 
             <LinearLayout
@@ -109,7 +110,8 @@
                     android:layout_weight="1"
                     android:hint="@string/gender" />
             </LinearLayout>
-			<LinearLayout
+
+            <LinearLayout
                 android:id="@+id/layout_update_profile_country"
                 style="@style/layout_profile" >
 
@@ -128,6 +130,7 @@
                     android:layout_weight="1"
                     android:hint="@string/country" />
             </LinearLayout>
+
             <LinearLayout
                 android:id="@+id/layout_update_profile_mobile"
                 style="@style/layout_profile" >
@@ -145,9 +148,10 @@
                     style="@style/edit_profile"
                     android:layout_width="0dp"
                     android:layout_weight="1"
-                    android:inputType="number"
-                    android:hint="@string/mobile" />
+                    android:hint="@string/mobile"
+                    android:inputType="number" />
             </LinearLayout>
+
             <LinearLayout
                 android:id="@+id/layout_update_profile_about_me"
                 style="@style/layout_profile" >
@@ -165,10 +169,11 @@
                     style="@style/edit_profile"
                     android:layout_width="0dp"
                     android:layout_weight="1"
-                    android:singleLine="false"
+                    android:hint="@string/about_me"
                     android:maxLines="4"
-                    android:hint="@string/about_me" />
+                    android:singleLine="false" />
             </LinearLayout>
+
             <LinearLayout
                 android:id="@+id/layout_update_profile_age"
                 style="@style/layout_profile" >
@@ -186,10 +191,9 @@
                     style="@style/edit_profile"
                     android:layout_width="0dp"
                     android:layout_weight="1"
-                    android:inputType="number"
-                    android:hint="@string/age" />
+                    android:hint="@string/age"
+                    android:inputType="number" />
             </LinearLayout>
-            
 
             <LinearLayout
                 android:id="@+id/layout_update_profile_weight"
@@ -210,8 +214,6 @@
                     android:layout_weight="1"
                     android:hint="@string/weight" />
             </LinearLayout>
-
-            
 
             <LinearLayout
                 android:id="@+id/layout_update_profile_height"
@@ -270,11 +272,10 @@
                     style="@style/edit_profile"
                     android:layout_width="0dp"
                     android:layout_weight="1"
-                    android:singleLine="false"
+                    android:hint="@string/loking_for"
                     android:maxLines="4"
-                    android:hint="@string/loking_for" />
+                    android:singleLine="false" />
             </LinearLayout>
-
 
             <LinearLayout
                 android:id="@+id/layout_update_profile_interest"
@@ -293,10 +294,11 @@
                     style="@style/edit_profile"
                     android:layout_width="0dp"
                     android:layout_weight="1"
-                    android:singleLine="false"
+                    android:hint="@string/interest"
                     android:maxLines="4"
-                    android:hint="@string/interest" />
+                    android:singleLine="false" />
             </LinearLayout>
+
             <LinearLayout
                 android:id="@+id/layout_update_profile_sex_role"
                 style="@style/layout_profile" >
@@ -327,6 +329,43 @@
                 android:padding="@dimen/dp_8"
                 android:text="@string/update"
                 android:textColor="@android:color/white" />
+
+            <LinearLayout
+                android:visibility="gone"
+                android:id="@+id/bottom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:gravity="center"
+                android:orientation="horizontal" >
+
+                <Button
+                    android:id="@+id/btn_audio"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".5"
+                    android:background="@android:color/white"
+                    android:padding="@dimen/dp_10"
+                    android:text="Record Audio"
+                    android:textColor="#69A1De"
+                    android:textSize="@dimen/sp_14" />
+
+                <View
+                    android:layout_width="@dimen/dp_10"
+                    android:layout_height="match_parent"
+                    android:background="@android:color/transparent" />
+
+                <Button
+                    android:id="@+id/btn_video"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".5"
+                    android:background="@android:color/white"
+                    android:padding="@dimen/dp_10"
+                    android:text="Record Video"
+                    android:textColor="#69A1De"
+                    android:textSize="@dimen/sp_14" />
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 

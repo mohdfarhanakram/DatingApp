@@ -94,6 +94,9 @@ public class UpdateProfileActivity extends BaseActivity implements OnClickListen
 		
 		mProfileImage.setFocusable(true);
 		
+		findViewById(R.id.btn_audio).setOnClickListener(this);
+		findViewById(R.id.btn_video).setOnClickListener(this);
+		
 		fetchUserProfileData();
 	}
 
@@ -112,6 +115,13 @@ public class UpdateProfileActivity extends BaseActivity implements OnClickListen
 		case R.id.txt_update_profile_photo:
 			
 			selectImage();
+			break;
+			
+		case R.id.btn_audio:
+			Intent i = new Intent(this,AudioRecorderActivity.class);
+			startActivityForResult(i, AppConstants.REQUEST_CODE_FOR_AUDIO);
+			break;
+		case R.id.btn_video:
 			break;
 			
 		default:

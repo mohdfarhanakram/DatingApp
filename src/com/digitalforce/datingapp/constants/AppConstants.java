@@ -28,5 +28,8 @@ public class AppConstants {
 	public static final String IMAGE_PATH = "image_path";
 	public static final String ENCODED_IMAGE_STRING = "image_string_encoded";
 	public static final int REQUEST_CODE_FOR_CROP = 509;
+	
+	public static final int REQUEST_CODE_FOR_AUDIO = 5466;
+	public static final int REQUEST_CODE_FOR_VIDEO = 956;
 
 }

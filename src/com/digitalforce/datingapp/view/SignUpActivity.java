@@ -3,6 +3,7 @@ package com.digitalforce.datingapp.view;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -100,6 +101,13 @@ public class SignUpActivity extends BaseActivity implements OnClickListener{
 			UserInfo userInfo = (UserInfo)serviceResponse.getResponseObject();
 			if(userInfo!=null){
 				showCommonError(serviceResponse.getBaseModel().getSuccessMsg()); 
+				DatingAppPreference.putString(DatingAppPreference.USER_ID, userInfo.getUserId(), this);
+				
+				Intent intent = new Intent(this, MembersActivity.class);
+				intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+				startActivity(intent);
+				
+				//setResult(RESULT_OK);
 				finish();
 			}
 			break;

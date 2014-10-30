@@ -160,7 +160,7 @@ public class LoginActivity extends BaseActivity implements OnClickListener,OnLog
 			UserInfo userInfo = (UserInfo)serviceResponse.getResponseObject();
 			if(userInfo!=null){
 				showCommonError(serviceResponse.getBaseModel().getSuccessMsg()); 
-				navigateToHomeScreen(userInfo);
+				navigateToHomeScreen(userInfo.getUserId());
 			}else{
 				showCommonError(null);
 			}
@@ -246,7 +246,17 @@ public class LoginActivity extends BaseActivity implements OnClickListener,OnLog
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
 		
-		mSimpleFacebook.onActivityResult(this, requestCode, resultCode, data);
+		/*if(requestCode==AppConstants.REQUEST_CODE_FOR_SIGNUP){
+			
+			if(resultCode==RESULT_OK){
+				String userId = data.getStringExtra(AppConstants.SIGNUP_UID);
+				navigateToHomeScreen(userId);
+			}
+			
+		}else{*/
+			mSimpleFacebook.onActivityResult(this, requestCode, resultCode, data);
+		//}
+			
 	}
 	
 	public void doSocialLogin(String email){
@@ -277,9 +287,9 @@ public class LoginActivity extends BaseActivity implements OnClickListener,OnLog
 		return jsonObject.toString();
 	}
 	
-	private void navigateToHomeScreen(UserInfo userInfo){
+	private void navigateToHomeScreen(String userId){
 		
-		DatingAppPreference.putString(DatingAppPreference.USER_ID, userInfo.getUserId(), this);
+		DatingAppPreference.putString(DatingAppPreference.USER_ID, userId, this);
 		
 		Intent intent = new Intent(this, MembersActivity.class);
 		startActivity(intent);

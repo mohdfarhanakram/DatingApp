@@ -55,6 +55,8 @@ public class MembersActivity extends BaseActivity implements OnClickListener{
 
 		selectFragment(new NearByFragment());
 		mtxtTitle.setText(getResources().getString(R.string.member));
+		
+		medtSearch.setVisibility(View.VISIBLE);
 			
 	}
 	
@@ -77,7 +79,7 @@ public class MembersActivity extends BaseActivity implements OnClickListener{
 			selectFragment(new NearByFragment());
 			mtxtNearBy.setBackgroundResource(R.drawable.left_corner_round);
 			mtxtExplore.setBackgroundResource(Color.TRANSPARENT);
-			medtSearch.setVisibility(View.GONE);
+			medtSearch.setVisibility(View.VISIBLE);
 			mtxtExplore.setTextColor(Color.WHITE);
 			mtxtNearBy.setTextColor(Color.BLACK);
 			
@@ -86,7 +88,7 @@ public class MembersActivity extends BaseActivity implements OnClickListener{
 			selectFragment(new ExploreFragment());
 			mtxtExplore.setBackgroundResource(R.drawable.right_corner_round);
 			mtxtNearBy.setBackgroundResource(Color.TRANSPARENT);
-			medtSearch.setVisibility(View.VISIBLE);
+			medtSearch.setVisibility(View.GONE);
 			mtxtExplore.setTextColor(Color.BLACK);
 			mtxtNearBy.setTextColor(Color.WHITE);
 			break;

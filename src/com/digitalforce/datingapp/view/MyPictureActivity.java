@@ -59,9 +59,6 @@ public class MyPictureActivity extends BaseActivity implements OnClickListener{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.layout_my_picture);
 
-
-
-
 		mtxtTitle = (TextView) findViewById(R.id.screen_title);
 		mtxtPublicPic = (TextView) findViewById(R.id.txt_public_photo);
 		mtxtPrivatePic = (TextView) findViewById(R.id.txt_private_photo);

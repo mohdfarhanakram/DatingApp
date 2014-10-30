@@ -31,5 +31,8 @@ public class AppConstants {
 	
 	public static final int REQUEST_CODE_FOR_AUDIO = 5466;
 	public static final int REQUEST_CODE_FOR_VIDEO = 956;
+	
+	public static final int REQUEST_CODE_FOR_SIGNUP = 9721;
+	public static final String SIGNUP_UID = "signupuid";
 
 }

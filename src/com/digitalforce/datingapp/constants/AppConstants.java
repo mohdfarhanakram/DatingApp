@@ -34,5 +34,8 @@ public class AppConstants {
 	
 	public static final int REQUEST_CODE_FOR_SIGNUP = 9721;
 	public static final String SIGNUP_UID = "signupuid";
+	
+	public static final String IMAGE_URL = "image_url";
+	public static final String IS_COMING_FROM_PUBLIC_PHOTO = "coming_from_public";
 
 }

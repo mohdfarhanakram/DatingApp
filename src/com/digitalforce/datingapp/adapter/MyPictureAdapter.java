@@ -5,16 +5,19 @@ package com.digitalforce.datingapp.adapter;
 
 import java.util.ArrayList;
 
-import com.digitalforce.datingapp.R;
-import com.digitalforce.datingapp.utils.PicassoEx;
-import com.farru.android.utill.StringUtils;
-
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+
+import com.digitalforce.datingapp.R;
+import com.digitalforce.datingapp.utils.PicassoEx;
+import com.farru.android.utill.StringUtils;
 
 /**
  * @author FARHAN
@@ -25,10 +28,12 @@ public class MyPictureAdapter extends BaseAdapter{
 	private Context mContext;
 	private ArrayList<String> mPictureList;
 	private LayoutInflater mInflater;
+	private String mEncodedImage;
 
-	public MyPictureAdapter(Context context,ArrayList<String> pictureList){
+	public MyPictureAdapter(Context context,ArrayList<String> pictureList,String encodedImage){
 		mContext = context;
 		mPictureList = pictureList;
+		mEncodedImage = encodedImage;
 		mInflater = LayoutInflater.from(context);
 	}
 
@@ -63,10 +68,27 @@ public class MyPictureAdapter extends BaseAdapter{
 			viewHolder = (ViewHolder)convertView.getTag();
 		}
 		
-		if(!StringUtils.isNullOrEmpty(url)){
-			picassoLoad(url, viewHolder.myPicImageView);
+		if(position==0 && !StringUtils.isNullOrEmpty(mEncodedImage)){
+			try{
+				
+				byte[] imageAsBytes = Base64.decode(mEncodedImage.getBytes(),Base64.DEFAULT);
+				 Bitmap bitmap = BitmapFactory.decodeByteArray(imageAsBytes, 0, imageAsBytes.length);
+				 if(bitmap!=null){
+					 viewHolder.myPicImageView.setImageBitmap(bitmap);
+				 }else{
+					 if(!StringUtils.isNullOrEmpty(url)) picassoLoad(url, viewHolder.myPicImageView); 
+				 }
+				
+			}catch(Exception e){
+				if(!StringUtils.isNullOrEmpty(url)) picassoLoad(url, viewHolder.myPicImageView); 
+			}
+			 
+			 
+		}else{
+			if(!StringUtils.isNullOrEmpty(url)) picassoLoad(url, viewHolder.myPicImageView);
 		}
-
+		
+		
 		return convertView;
 	}
 

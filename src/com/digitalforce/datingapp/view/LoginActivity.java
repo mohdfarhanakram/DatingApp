@@ -78,7 +78,7 @@ public class LoginActivity extends BaseActivity implements OnClickListener,OnLog
 			if(checkValidation())
 			{
 
-				String postData = getRequestJson(medtCoolName.getText().toString(),medtPassword.getText().toString());
+				String postData = getRequestJson(null,null,medtCoolName.getText().toString(),medtPassword.getText().toString());
 				Log.e("Post Data", postData);
 				postData(DatingUrlConstants.LOGIN_URL, ApiEvent.LOGIN_EVENT, postData);
 				
@@ -227,7 +227,7 @@ public class LoginActivity extends BaseActivity implements OnClickListener,OnLog
 
 	public void onProfile(Profile profile) {
 		removeProgressDialog();
-		doSocialLogin(profile.getEmail());
+		doSocialLogin(profile.getFirstName(),profile.getLastName(),profile.getEmail());
 	}
 
 	public void onProfileFail(String reason) {
@@ -259,14 +259,14 @@ public class LoginActivity extends BaseActivity implements OnClickListener,OnLog
 			
 	}
 	
-	public void doSocialLogin(String email){
-		String postData = getRequestJson(email,null);
+	public void doSocialLogin(String fName,String lName,String email){
+		String postData = getRequestJson(fName,lName,email,null);
 		Log.e("Post Data", postData);
 		postData(DatingUrlConstants.LOGIN_WITH_FB_GMAIL_URL, ApiEvent.LOGIN_FB_GMAIL_EVENT, postData);
 	}
 	
 	
-	private String getRequestJson(String email,String password){
+	private String getRequestJson(String fName,String lName,String email,String password){
 
 		//{"email":"shaan@gmail.com", "password":"12345", "lat":"743872432", "long":"3749382", "device":"89748937432784937498hjjk38343"}
 		JSONObject jsonObject = new JSONObject();
@@ -274,6 +274,17 @@ public class LoginActivity extends BaseActivity implements OnClickListener,OnLog
 			jsonObject.putOpt("email", email);
 			if(password!=null)
 			   jsonObject.putOpt("password", password);
+			
+			if(fName!=null){
+				jsonObject.putOpt("fname", fName);
+			}
+			
+			if(lName!=null){
+				jsonObject.putOpt("lname", lName);
+			}
+			
+			
+			jsonObject.putOpt("device_type", "android");
 			
 			jsonObject.putOpt("lat", DatingAppPreference.getString(DatingAppPreference.USER_DEVICE_LATITUDE, "0.0", this));
 			jsonObject.putOpt("long", DatingAppPreference.getString(DatingAppPreference.USER_DEVICE_LONGITUDE, "0.0", this));

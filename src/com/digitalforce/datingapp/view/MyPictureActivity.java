@@ -320,5 +320,10 @@ public class MyPictureActivity extends BaseActivity implements OnClickListener{
 		i.putExtra(AppConstants.IMAGE_PATH, mImagePath);
 		startActivityForResult(i, AppConstants.REQUEST_CODE_FOR_CROP);
 	}
+	
+	
+	public String getImageEncodedData(){
+		return mBaseEncodedString;
+	}
 
 }

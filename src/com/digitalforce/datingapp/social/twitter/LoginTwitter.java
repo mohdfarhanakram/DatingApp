@@ -165,7 +165,7 @@ public class LoginTwitter {
 						"name = "+name+" "+"profile_url = "+profile_url+" "+"twitterId = "+twitterId+" "+"user_name = "+user_name, 
 						Toast.LENGTH_LONG);*/
 				
-				((LoginActivity)context).doSocialLogin(user_name);
+				((LoginActivity)context).doSocialLogin(null,null,user_name);
 				
 				
 			}

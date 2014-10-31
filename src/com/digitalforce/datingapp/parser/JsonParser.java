@@ -26,15 +26,15 @@ public class JsonParser {
 		return userInfo;
 	}
 
-    /*
-     *  Parse Sign up data
-     */
+	/*
+	 *  Parse Sign up data
+	 */
 	public static UserInfo parseSignUpJson(JSONObject jsonObject){
 		UserInfo userInfo = new UserInfo();
 		userInfo.setUserId(jsonObject.optString("userid"));
 		return userInfo;
 	}
-	
+
 	/*
 	 * Parse Forgot password response
 	 */
@@ -49,12 +49,12 @@ public class JsonParser {
 	 */
 	public static ArrayList<UserInfo> parseNearByUserJson(JSONObject jsonObject){
 		ArrayList<UserInfo> nearByUserList = new ArrayList<UserInfo>();
-		
+
 		JSONArray jsonArray = jsonObject.optJSONArray("Data");
 		if(jsonArray!=null){
 			for(int i=0; i<jsonArray.length(); i++){
 				JSONObject nearJObj = jsonArray.optJSONObject(i);
-				
+
 				UserInfo nearBy = new UserInfo();
 				nearBy.setUserId(nearJObj.optString("userid"));
 				nearBy.setFirstName(nearJObj.optString("firstname"));   // it was earlier firstName
@@ -93,13 +93,13 @@ public class JsonParser {
 	 */
 	public static String parseUploadImageJson(JSONObject jsonObject)
 	{
-		
+
 		return jsonObject.optString("userImage");
-		
+
 	}
-	
+
 	public static ArrayList<String> parseMyPicture(JSONObject jsonObject){
-		
+
 		ArrayList<String> pictureList = new ArrayList<String>();
 		try{
 			JSONArray jsonArray = jsonObject.optJSONArray("Data");
@@ -109,16 +109,32 @@ public class JsonParser {
 					pictureList.add(url);
 				}
 			}
-			
-			
+
+
 		}catch(Exception e){
-			
+
 		}
-		
-		
+
+
 		return pictureList;
-		
+
 	}
-	
+
+	public static String parseAddPrivatePublicPhotoJson(JSONObject jsonObject){
+
+		try{
+
+			return jsonObject.optString("pic");
+
+
+		}catch(Exception e){
+
+		}
+
+
+		return "";
+
+	}
+
 
 }

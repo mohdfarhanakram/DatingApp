@@ -3,39 +3,32 @@
  */
 package com.digitalforce.datingapp.fragments;
 
-import java.io.File;
 import java.util.ArrayList;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.GridView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.GridView;
 
 import com.digitalforce.datingapp.R;
 import com.digitalforce.datingapp.adapter.MyPictureAdapter;
-import com.digitalforce.datingapp.adapter.NearByAdapter;
 import com.digitalforce.datingapp.constants.ApiEvent;
 import com.digitalforce.datingapp.constants.AppConstants;
 import com.digitalforce.datingapp.constants.DatingUrlConstants;
-import com.digitalforce.datingapp.model.UserInfo;
 import com.digitalforce.datingapp.persistance.DatingAppPreference;
-import com.digitalforce.datingapp.utils.ToastCustom;
 import com.digitalforce.datingapp.view.BaseActivity;
+import com.digitalforce.datingapp.view.MyPictureActivity;
 import com.digitalforce.datingapp.view.PhotoDetailActivity;
-import com.digitalforce.datingapp.view.ProfileActivity;
 import com.farru.android.network.ServiceResponse;
+import com.farru.android.utill.StringUtils;
 
 /**
  * @author FARHAN
@@ -76,23 +69,19 @@ public class PublicPhotoFragment extends BaseFragment{
 			case ApiEvent.SHOW_PUBLIC_PICTURE_EVENT:
 
 				mPictureList = (ArrayList<String>)serviceResponse.getResponseObject();
-
-				if(mPictureList.size()>0){
-
-					mView.findViewById(R.id.grid_view_picture).setVisibility(View.VISIBLE);
-					mView.findViewById(R.id.empty_view).setVisibility(View.GONE);
-					mGridView.setAdapter(new MyPictureAdapter(getActivity(), mPictureList));
-
-				}else{
-
-					mView.findViewById(R.id.grid_view_picture).setVisibility(View.GONE);
-					mView.findViewById(R.id.empty_view).setVisibility(View.VISIBLE);
-				}
+				drawGridView(null);
 
 				break;
 				
 			case ApiEvent.UPLOAD_PUBLIC_PICTURE_EVENT:
 				((BaseActivity)getActivity()).showCommonError(serviceResponse.getBaseModel().getSuccessMsg());
+				
+				String imgUrl = (String)serviceResponse.getResponseObject();
+				
+				if(!StringUtils.isNullOrEmpty(imgUrl)){
+					mPictureList.add(0,imgUrl);
+					drawGridView(((MyPictureActivity)getActivity()).getImageEncodedData());
+				}
 				
 				break;
 				
@@ -105,6 +94,23 @@ public class PublicPhotoFragment extends BaseFragment{
 
 		}
 
+	}
+	
+	
+	private void drawGridView(String encodeImage){
+		
+
+		if(mPictureList.size()>0){
+
+			mView.findViewById(R.id.grid_view_picture).setVisibility(View.VISIBLE);
+			mView.findViewById(R.id.empty_view).setVisibility(View.GONE);
+			mGridView.setAdapter(new MyPictureAdapter(getActivity(), mPictureList,encodeImage));
+
+		}else{
+
+			mView.findViewById(R.id.grid_view_picture).setVisibility(View.GONE);
+			mView.findViewById(R.id.empty_view).setVisibility(View.VISIBLE);
+		}
 	}
 
 	
@@ -129,6 +135,8 @@ public class PublicPhotoFragment extends BaseFragment{
 	private void selectImageOperation(String imgUrl) {
 
 		Intent intent = new Intent(getActivity(),PhotoDetailActivity.class);
+		intent.putExtra(AppConstants.IMAGE_URL, imgUrl);
+		intent.putExtra(AppConstants.IS_COMING_FROM_PUBLIC_PHOTO, true);
 		startActivity(intent);
 		
         /*final CharSequence[] items = { "Make Profile Photo", "Make Private",

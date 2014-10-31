@@ -706,6 +706,10 @@ public abstract class BaseActivity extends FragmentActivity implements IScreen,R
 	 public void picassoLoad(String url, ImageView imageView) {
 	        PicassoEx.getPicasso(this).load(url).error(R.drawable.farhan).placeholder(R.drawable.farhan).fit().into(imageView);
 	 }
+	 
+	 public void picassoLoad(String imgUrl, ImageView imageView,int width,int height) {
+		 PicassoEx.getPicasso(this).load(imgUrl).error(R.drawable.farhan).placeholder(R.drawable.farhan).resize(width,height).into(imageView);
+	 }
 
 
 }

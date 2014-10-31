@@ -33,6 +33,7 @@ import com.digitalforce.datingapp.model.UserInfo;
 import com.digitalforce.datingapp.persistance.DatingAppPreference;
 import com.digitalforce.datingapp.utils.ToastCustom;
 import com.digitalforce.datingapp.view.BaseActivity;
+import com.digitalforce.datingapp.view.PhotoDetailActivity;
 import com.digitalforce.datingapp.view.ProfileActivity;
 import com.farru.android.network.ServiceResponse;
 
@@ -126,7 +127,11 @@ public class PublicPhotoFragment extends BaseFragment{
 	
 	
 	private void selectImageOperation(String imgUrl) {
-        final CharSequence[] items = { "Make Profile Photo", "Make Private",
+
+		Intent intent = new Intent(getActivity(),PhotoDetailActivity.class);
+		startActivity(intent);
+		
+        /*final CharSequence[] items = { "Make Profile Photo", "Make Private",
                 "Delete" };
  
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
@@ -145,7 +150,7 @@ public class PublicPhotoFragment extends BaseFragment{
                 dialog.dismiss();
             }
         });
-        builder.show();
+        builder.show();*/
     }
 
 }

@@ -642,6 +642,9 @@
 <dimen name="dp_318">318dp</dimen>
 <dimen name="dp_319">319dp</dimen>
 <dimen name="dp_320">320dp</dimen>
+
+<dimen name="txt_option_height">50dp</dimen>
+<dimen name="txt_option_text_size">16sp</dimen>
     
 
 </resources>

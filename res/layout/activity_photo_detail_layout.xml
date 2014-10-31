@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:background="@drawable/bg"
+              android:layout_height="match_parent">
+
+    <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp">
+
+    </LinearLayout>
+
+    <LinearLayout
+            android:padding="10dp"
+            android:orientation="vertical"
+            android:layout_weight="0"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp">
+        <View android:layout_width="fill_parent" android:layout_height="1dp" android:background="@color/white"></View>
+        <TextView
+                android:id="@+id/txtv_make_profile"
+                android:gravity="center_vertical"
+                android:text="Make Profile Photo"
+                android:textColor="@color/white"
+                android:textSize="@dimen/txt_option_text_size"
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/txt_option_height" />
+        <View android:layout_width="fill_parent" android:layout_height="1dp" android:background="@color/white"></View>
+        <TextView
+                android:id="@+id/txtv_make_profile"
+                android:gravity="center_vertical"
+                android:text="Make Profile Photo"
+                android:textColor="@color/white"
+                android:textSize="@dimen/txt_option_text_size"
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/txt_option_height" />
+        <View android:layout_width="fill_parent" android:layout_height="1dp" android:background="@color/white"></View>
+        <TextView
+                android:id="@+id/txtv_make_profile"
+                android:gravity="center_vertical"
+                android:text="Make Profile Photo"
+                android:textColor="@color/white"
+                android:textSize="@dimen/txt_option_text_size"
+                android:layout_width="fill_parent"
+                android:layout_height="@dimen/txt_option_height" />
+
+    </LinearLayout>
+
+</LinearLayout>

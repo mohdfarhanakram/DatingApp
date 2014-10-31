@@ -102,6 +102,9 @@
         <activity
             android:name="com.digitalforce.datingapp.view.AudioRecorderActivity"
             android:screenOrientation="portrait" />
+        <activity
+                android:name="com.digitalforce.datingapp.view.PhotoDetailActivity"
+                android:screenOrientation="portrait" />
     </application>
 
 </manifest>

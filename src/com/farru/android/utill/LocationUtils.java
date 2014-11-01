@@ -79,7 +79,7 @@ public class LocationUtils {
 	 * 
 	 * @param pContext
 	 */
-	@Deprecated
+	
 	public static Location getLastKnownLocation(Context pContext) {
 		Location mostRecentLocation = null;
 		try {

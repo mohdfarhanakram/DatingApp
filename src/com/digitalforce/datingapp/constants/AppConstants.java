@@ -37,5 +37,7 @@ public class AppConstants {
 	
 	public static final String IMAGE_URL = "image_url";
 	public static final String IS_COMING_FROM_PUBLIC_PHOTO = "coming_from_public";
+	
+	public static final int REQUEST_CODE_FOR_LOCATION = 9333;
 
 }

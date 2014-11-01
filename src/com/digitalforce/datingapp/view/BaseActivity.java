@@ -125,18 +125,7 @@ public abstract class BaseActivity extends FragmentActivity implements IScreen,R
 		if (BuildConfig.DEBUG) {
 			Log.i(LOG_TAG, "onResume()");
 		}
-		if(LocationUtils.isLocationEnabled(this)){
-			Location location = LocationUtils.getLastKnownLocation(this);
-			if(location!=null){
-				DatingAppPreference.putString(DatingAppPreference.USER_DEVICE_LATITUDE, location.getLatitude()+"", this);
-				DatingAppPreference.putString(DatingAppPreference.USER_DEVICE_LONGITUDE, location.getLongitude()+"", this);
-			}
-		}else{
-			showCommonError("Unable to find your current location");
-		}
-
-
-
+		
 		Application application = this.getApplication();
 		if (application instanceof BaseApplication) {
 			BaseApplication baseApplication = (BaseApplication) application;

@@ -129,6 +129,7 @@ public class SignUpActivity extends BaseActivity implements OnClickListener{
 			jsonObject.putOpt("lat", DatingAppPreference.getString(DatingAppPreference.USER_DEVICE_LATITUDE, "0.0", this));
 			jsonObject.putOpt("long", DatingAppPreference.getString(DatingAppPreference.USER_DEVICE_LONGITUDE, "0.0", this));
 			jsonObject.putOpt("device", Utils.getDeviceEMI(this));
+			jsonObject.putOpt("device_type", "android");
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

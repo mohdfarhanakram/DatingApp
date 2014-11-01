@@ -16,4 +16,8 @@ public class DatingAppPreference extends AppSharedPreference{
 	
 	public final static String USER_ID = "user_id";
 	public final static String USER_TC_ACCEPT = "user_tc_accept";
+	
+	public final static String MIN_AGE  = "min_age";
+	public final static String MAX_AGE  = "max_age";
+	public final static String SEX_ROLE = "sex_role";
 }

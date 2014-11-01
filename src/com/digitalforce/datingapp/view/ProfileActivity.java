@@ -136,7 +136,9 @@ public class ProfileActivity extends BaseActivity implements OnClickListener{
 			
 			break;
 		case R.id.txt_profile_photos:
-			selectFragment(new PhotosFragment());
+			PhotosFragment photoFragment = new PhotosFragment();
+			photoFragment.setPhoto(mUserInfo.getPhotos());
+			selectFragment(photoFragment);
 			mtxtPhotos.setBackgroundResource(R.color.about_bg_color);
 			mtxtAbout.setBackgroundResource(Color.TRANSPARENT);
 			mtxtInsight.setBackgroundResource(Color.TRANSPARENT);
@@ -277,6 +279,7 @@ public class ProfileActivity extends BaseActivity implements OnClickListener{
 			userInfo = (ArrayList<UserInfo>) serviceResponse.getResponseObject();
 			for(int i=0; i<userInfo.size(); i++)
 			{
+				findViewById(R.id.main_layout).setVisibility(View.VISIBLE);
 				mUserInfo = userInfo.get(i);
 				mtxtName.setText(userInfo.get(i).getFirstName()+" "+userInfo.get(i).getLastName());
 				mtxtlocation.setText(userInfo.get(i).getDistance());

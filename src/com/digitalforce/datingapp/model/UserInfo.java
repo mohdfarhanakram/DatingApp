@@ -3,6 +3,8 @@
  */
 package com.digitalforce.datingapp.model;
 
+import java.util.ArrayList;
+
 
 /**
  * @author FARHAN
@@ -24,6 +26,18 @@ public class UserInfo extends NearBy{
 	
 	private boolean favourite;
 	
+	private ArrayList<String> photos = new ArrayList<String>();
+	
+	
+	
+
+	public ArrayList<String> getPhotos() {
+		return photos;
+	}
+
+	public void setPhotos(ArrayList<String> photos) {
+		this.photos = photos;
+	}
 
 	public String getAboutMe() {
 		return aboutMe;

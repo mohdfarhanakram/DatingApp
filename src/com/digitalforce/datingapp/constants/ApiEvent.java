@@ -26,5 +26,6 @@ public interface ApiEvent {
 	public static final int SHOW_PRIVATE_PICTURE_EVENT  	= 15;
 	public static final int UPLOAD_PUBLIC_PICTURE_EVENT   	= 16;
 	public static final int UPLOAD_PRIVATE_PICTURE_EVENT  	= 17;
+	public static final int MATCH_FINDER_EVENT  	        = 18;
 
 }

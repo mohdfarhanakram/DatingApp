@@ -81,6 +81,14 @@ public class JsonParser {
 				nearBy.setAboutMe(nearJObj.optString("about_me"));  
 				nearBy.setAge(nearJObj.optString("age"));
 				nearBy.setFavourite(nearJObj.optBoolean("fav_status"));
+				
+				JSONArray photoJArray = nearJObj.optJSONArray("public_photos");
+				if(photoJArray!=null){
+					for(int index=0; index < photoJArray.length(); index++){
+						String url = photoJArray.optString(index);
+						nearBy.getPhotos().add(url);
+					}
+				}
 				nearByUserList.add(nearBy);
 			}
 		}

@@ -3,6 +3,8 @@ package com.digitalforce.datingapp.view;
 import com.digitalforce.datingapp.R;
 import com.digitalforce.datingapp.fragments.BaseFragment;
 import com.digitalforce.datingapp.fragments.NearByFragment;
+import com.digitalforce.datingapp.fragments.NewMemberFragment;
+import com.digitalforce.datingapp.fragments.WhosViewedUFragment;
 import com.digitalforce.datingapp.utils.ToastCustom;
 import com.farru.android.network.ServiceResponse;
 
@@ -44,7 +46,7 @@ public class BuzzActivity extends BaseActivity implements OnClickListener{
 		mtxtExplore.setBackgroundResource(Color.TRANSPARENT);
 		mtxtExplore.setTextColor(Color.WHITE);
 		mtxtNearBy.setTextColor(Color.BLACK);
-		selectFragment(new NearByFragment());
+		selectFragment(new NewMemberFragment());
 		
 		
 		mimgMenuOption.setOnClickListener(this);
@@ -60,7 +62,7 @@ public class BuzzActivity extends BaseActivity implements OnClickListener{
 			ToastCustom.underDevelopment(this);
 			break;
 		case R.id.txt_member_nearby:
-			selectFragment(new NearByFragment());
+			selectFragment(new NewMemberFragment());
 			mtxtNearBy.setBackgroundResource(R.drawable.left_corner_round);
 			mtxtExplore.setBackgroundResource(Color.TRANSPARENT);
 			medtSearch.setVisibility(View.GONE);
@@ -69,7 +71,7 @@ public class BuzzActivity extends BaseActivity implements OnClickListener{
 			
 			break;
 		case R.id.txt_member_explore:
-			selectFragment(new NearByFragment());
+			selectFragment(new WhosViewedUFragment());
 			mtxtExplore.setBackgroundResource(R.drawable.right_corner_round);
 			mtxtNearBy.setBackgroundResource(Color.TRANSPARENT);
 			medtSearch.setVisibility(View.GONE);

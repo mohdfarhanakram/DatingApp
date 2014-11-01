@@ -25,6 +25,8 @@ public interface DatingUrlConstants {
 	public static final String UPLOAD_MY_PICTURE_URL		= BASE_URL+"add_album_image.php";
 	
 	public static final String MATCH_FINDER_URL				= BASE_URL+"match_finder.php";
+	public static final String MY_BUZZ_URL					= BASE_URL+"buzz.php";
+	public static final String WHOS_VIEWED_BY_YOU_URL		= BASE_URL+"buzz.php";
 	
 		
 }

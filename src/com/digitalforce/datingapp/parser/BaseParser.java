@@ -87,6 +87,7 @@ public class BaseParser implements IParser {
 		case ApiEvent.UPLOAD_PRIVATE_PICTURE_EVENT:
 		case ApiEvent.UPLOAD_PUBLIC_PICTURE_EVENT:
 		case ApiEvent.MATCH_FINDER_EVENT:
+		case ApiEvent.My_BUZZ_EVENT:
 			response.setErrorMessages(jsonObject.optString("error", null));
 			break;
 		default:
@@ -113,6 +114,8 @@ public class BaseParser implements IParser {
 		case ApiEvent.SHOW_FAVOURITED_BY:
 		case ApiEvent.SHOW_MY_FAVOURITE:
 		case ApiEvent.MATCH_FINDER_EVENT:
+		case ApiEvent.My_BUZZ_EVENT:
+		case ApiEvent.WHOS_VIEWD_U_EVENT:
 			response.setResponseObject(JsonParser.parseNearByUserJson(jsonObject));
 			break;
 		case ApiEvent.SHOW_PROFILE_EVENT:

@@ -36,7 +36,7 @@ public class PhotosFragment extends BaseFragment{
 	@Override
 	public void onViewCreated(View view, Bundle savedInstanceState) {
 		super.onViewCreated(view, savedInstanceState);
-		if(mPhotoList.size()>0){
+		if(mPhotoList.size() > 0){
 			mView.findViewById(R.id.no_photo).setVisibility(View.GONE);
 			mView.findViewById(R.id.grid_view_picture).setVisibility(View.VISIBLE);
 			

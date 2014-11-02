@@ -149,9 +149,9 @@ public class UpdateProfileActivity extends BaseActivity implements OnClickListen
 		case R.id.btn_update_profile_update:
 			//if(checkValidation())
 			//{
-			if(medtFname.getText().toString().length()>0)
+			if(medtFname.getText().toString().trim().length()>0)
 			{
-				if(medtLname.getText().toString().length()>0)
+				if(medtLname.getText().toString().trim().length()>0)
 				{
 					String postData = getUpadteProfileRequestJson();
 					Log.e("Post Data", postData);

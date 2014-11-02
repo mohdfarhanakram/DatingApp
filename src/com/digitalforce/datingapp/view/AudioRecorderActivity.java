@@ -3,21 +3,14 @@
  */
 package com.digitalforce.datingapp.view;
 
-import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import android.content.Intent;
 import android.media.MediaPlayer;
 import android.media.MediaRecorder;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Environment;
-import android.util.Base64;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -25,7 +18,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.digitalforce.datingapp.R;
-import com.digitalforce.datingapp.constants.AppConstants;
 
 /**
  * @author FARHAN

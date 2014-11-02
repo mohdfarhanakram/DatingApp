@@ -107,6 +107,9 @@
         <activity
             android:name="com.digitalforce.datingapp.view.PhotoDetailActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name="com.digitalforce.datingapp.view.FilterActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

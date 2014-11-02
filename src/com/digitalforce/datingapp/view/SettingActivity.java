@@ -61,7 +61,8 @@ public class SettingActivity extends BaseActivity implements OnClickListener{
 			startActivity(intentProfile);
 			break;
 		case R.id.layout_setting_filters:
-			ToastCustom.underDevelopment(this);
+			Intent intentFilter = new Intent(this, FilterActivity.class);
+			startActivity(intentFilter);
 			break;
 		case R.id.layout_setting_premium_membership:
 			ToastCustom.underDevelopment(this);

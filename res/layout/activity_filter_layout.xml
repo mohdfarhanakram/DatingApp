@@ -24,7 +24,7 @@
         android:padding="5dp"
         android:singleLine="false"
         android:text="Masnage who and what you see in your match finder tiles"
-        android:textSize="@dimen/sp_18" />
+        android:textSize="16sp" />
 
     <LinearLayout
         android:id="@+id/min_age_layout"
@@ -41,7 +41,7 @@
             android:layout_weight="1"
             android:padding="5dp"
             android:text="Min Age"
-            android:textSize="@dimen/sp_18"
+            android:textSize="16sp"
             android:textStyle="bold" />
 
         <TextView
@@ -52,7 +52,7 @@
             android:layout_gravity="center_vertical"
             android:padding="5dp"
             android:text="No Min"
-            android:textSize="@dimen/sp_18"
+           android:textSize="16sp"
             android:textStyle="normal" />
     </LinearLayout>
 
@@ -76,7 +76,7 @@
             android:layout_weight="1"
             android:padding="5dp"
             android:text="Max Age"
-            android:textSize="@dimen/sp_18"
+            android:textSize="16sp"
             android:textStyle="bold" />
 
         <TextView
@@ -87,7 +87,7 @@
             android:layout_gravity="center_vertical"
             android:padding="5dp"
             android:text="No Max"
-            android:textSize="@dimen/sp_18"
+            android:textSize="16sp"
             android:textStyle="normal" />
     </LinearLayout>
 
@@ -111,7 +111,7 @@
             android:layout_weight="1"
             android:padding="5dp"
             android:text="Ethnicity"
-            android:textSize="@dimen/sp_18"
+            android:textSize="16sp"
             android:textStyle="bold" />
 
         <TextView
@@ -122,7 +122,7 @@
             android:layout_gravity="center_vertical"
             android:padding="5dp"
             android:text="All"
-            android:textSize="@dimen/sp_18"
+            android:textSize="16sp"
             android:textStyle="normal" />
     </LinearLayout>
 

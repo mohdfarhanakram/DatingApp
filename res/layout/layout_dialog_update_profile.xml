@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/dp_300"
+    android:layout_height="wrap_content"
+    android:background="@drawable/outline_profile"
+    android:orientation="vertical" >
+    <TextView 
+        android:id="@+id/txt_dialog_update_profile_title"
+        style="@style/txt_base"
+        android:layout_width="match_parent"
+        android:text="@string/text"
+        android:padding="@dimen/dp_10"
+        android:textSize="@dimen/sp_16"/>
+	<EditText
+	    android:id="@+id/edt_dailog_update_profile_" 
+	    style="@style/edit"
+	    android:singleLine="false"
+	    android:padding="@dimen/dp_7"
+	    android:layout_margin="@dimen/dp_1"
+	    android:background="@drawable/outline_dialog_update"/>
+	<LinearLayout 
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:padding="@dimen/dp_5"
+	    android:orientation="horizontal">
+	    <Button 
+	        android:id="@+id/btn_dialog_update_profile_ok"
+	        android:layout_width="0dp"
+	        android:layout_weight=".50"
+	        android:layout_marginRight="@dimen/dp_5"
+	        style="@style/btn"
+	        android:text="@string/ok"/>
+	    <Button 
+	        android:id="@+id/btn_dialog_update_profile_cancel"
+	        android:layout_width="0dp"
+	        android:layout_weight=".50"
+	        style="@style/btn"
+	        android:text="@string/cancel"/>
+	</LinearLayout>
+</LinearLayout>

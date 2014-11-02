@@ -59,6 +59,7 @@
                     <EditText
                         android:id="@+id/edt_update_profile_fname"
                         style="@style/edit_profile"
+                        android:focusableInTouchMode="false"
                         android:hint="@string/fname"
                         android:textSize="@dimen/sp_14" />
 
@@ -66,11 +67,13 @@
                         android:id="@+id/edt_update_profile_lname"
                         style="@style/edit_profile"
                         android:layout_marginTop="@dimen/dp_5"
+                        android:focusableInTouchMode="false"
                         android:hint="@string/lname"
                         android:textSize="@dimen/sp_14" />
                 </LinearLayout>
             </LinearLayout>
 
+            <!--
             <LinearLayout
                 android:id="@+id/layout_update_profile_dob"
                 style="@style/layout_profile" >
@@ -90,6 +93,7 @@
                     android:layout_weight="1"
                     android:hint="@string/dob" />
             </LinearLayout>
+            -->
 
             <LinearLayout
                 android:id="@+id/layout_update_profile_gender"
@@ -102,6 +106,12 @@
                     android:padding="@dimen/dp_5"
                     android:text="@string/gender"
                     android:textSize="@dimen/sp_14" />
+                <!--
+                     <Spinner 
+				    android:layout_width="match_parent"
+				    android:layout_height="wrap_content"
+				    android:spinnerMode="dialog"/>
+                -->
 
                 <EditText
                     android:id="@+id/edt_update_profile_gender"
@@ -128,6 +138,7 @@
                     style="@style/edit_profile"
                     android:layout_width="0dp"
                     android:layout_weight="1"
+                    android:focusableInTouchMode="false"
                     android:hint="@string/country" />
             </LinearLayout>
 
@@ -148,8 +159,9 @@
                     style="@style/edit_profile"
                     android:layout_width="0dp"
                     android:layout_weight="1"
+                    android:focusableInTouchMode="false"
                     android:hint="@string/mobile"
-                    android:inputType="number" />
+                    android:inputType="none" />
             </LinearLayout>
 
             <LinearLayout
@@ -169,9 +181,8 @@
                     style="@style/edit_profile"
                     android:layout_width="0dp"
                     android:layout_weight="1"
-                    android:hint="@string/about_me"
-                    android:maxLines="4"
-                    android:singleLine="false" />
+                    android:focusableInTouchMode="false"
+                    android:hint="@string/about_me" />
             </LinearLayout>
 
             <LinearLayout
@@ -191,8 +202,9 @@
                     style="@style/edit_profile"
                     android:layout_width="0dp"
                     android:layout_weight="1"
+                    android:focusableInTouchMode="false"
                     android:hint="@string/age"
-                    android:inputType="number" />
+                    android:inputType="none" />
             </LinearLayout>
 
             <LinearLayout
@@ -212,6 +224,7 @@
                     style="@style/edit_profile"
                     android:layout_width="0dp"
                     android:layout_weight="1"
+                    android:focusableInTouchMode="false"
                     android:hint="@string/weight" />
             </LinearLayout>
 
@@ -232,6 +245,7 @@
                     style="@style/edit_profile"
                     android:layout_width="0dp"
                     android:layout_weight="1"
+                    android:focusableInTouchMode="false"
                     android:hint="@string/height" />
             </LinearLayout>
 
@@ -252,6 +266,7 @@
                     style="@style/edit_profile"
                     android:layout_width="0dp"
                     android:layout_weight="1"
+                    android:focusableInTouchMode="false"
                     android:hint="@string/hiv_status" />
             </LinearLayout>
 
@@ -272,9 +287,8 @@
                     style="@style/edit_profile"
                     android:layout_width="0dp"
                     android:layout_weight="1"
-                    android:hint="@string/loking_for"
-                    android:maxLines="4"
-                    android:singleLine="false" />
+                    android:focusableInTouchMode="false"
+                    android:hint="@string/loking_for" />
             </LinearLayout>
 
             <LinearLayout
@@ -294,9 +308,8 @@
                     style="@style/edit_profile"
                     android:layout_width="0dp"
                     android:layout_weight="1"
-                    android:hint="@string/interest"
-                    android:maxLines="4"
-                    android:singleLine="false" />
+                    android:focusableInTouchMode="false"
+                    android:hint="@string/interest" />
             </LinearLayout>
 
             <LinearLayout
@@ -316,31 +329,21 @@
                     style="@style/edit_profile"
                     android:layout_width="0dp"
                     android:layout_weight="1"
+                    android:focusableInTouchMode="false"
                     android:hint="@string/sex_role" />
             </LinearLayout>
 
-            <Button
-                android:id="@+id/btn_update_profile_update"
-                android:layout_width="@dimen/dp_100"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="@dimen/dp_5"
-                android:background="@color/btn_color"
-                android:padding="@dimen/dp_8"
-                android:text="@string/update"
-                android:textColor="@android:color/white" />
-
             <LinearLayout
-                android:visibility="visible"
                 android:id="@+id/bottom"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
                 android:gravity="center"
-                android:orientation="horizontal" >
+                android:orientation="horizontal"
+                android:padding="@dimen/dp_5"
+                android:visibility="visible" >
 
                 <Button
-                    android:id="@+id/btn_audio"
+                    android:id="@+id/btn_update_profile_audio"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight=".5"
@@ -356,7 +359,7 @@
                     android:background="@android:color/transparent" />
 
                 <Button
-                    android:id="@+id/btn_video"
+                    android:id="@+id/btn_update_profile_video"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight=".5"
@@ -366,6 +369,17 @@
                     android:textColor="#69A1De"
                     android:textSize="@dimen/sp_14" />
             </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_update_profile_update"
+                android:layout_width="@dimen/dp_100"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/dp_5"
+                android:background="@color/btn_color"
+                android:padding="@dimen/dp_8"
+                android:text="@string/update"
+                android:textColor="@android:color/white" />
         </LinearLayout>
     </ScrollView>
 

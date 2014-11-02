@@ -32,6 +32,7 @@ import com.digitalforce.datingapp.R;
 import com.digitalforce.datingapp.constants.ApiEvent;
 import com.digitalforce.datingapp.constants.AppConstants;
 import com.digitalforce.datingapp.constants.DatingUrlConstants;
+import com.digitalforce.datingapp.dialog.DialogUpdateProfile;
 import com.digitalforce.datingapp.model.UserInfo;
 import com.digitalforce.datingapp.persistance.DatingAppPreference;
 import com.digitalforce.datingapp.utils.ToastCustom;
@@ -65,6 +66,26 @@ public class UpdateProfileActivity extends BaseActivity implements OnClickListen
 
 	private String mAudioEncodedString;
 	private String mAudioFilePath;
+	private String mGender[] = {"Male","Female"};
+	private String mHivStatus[] = {"Positive","Negative"};
+	private String country_list[] = {"Afghanistan","Albania","Algeria","Andorra","Angola","Anguilla","Antigua &amp; Barbuda","Argentina","Armenia","Aruba",
+			"Australia","Austria","Azerbaijan","Bahamas","Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bermuda","Bhutan","Bolivia",
+			"Bosnia &amp; Herzegovina","Botswana","Brazil","British Virgin Islands","Brunei","Bulgaria","Burkina Faso","Burundi","Cambodia","Cameroon","Cape Verde",
+			"Cayman Islands","Chad","Chile","China","Colombia","Congo","Cook Islands","Costa Rica","Cote D Ivoire","Croatia","Cruise Ship","Cuba","Cyprus","Czech Republic",
+			"Denmark","Djibouti","Dominica","Dominican Republic","Ecuador","Egypt","El Salvador","Equatorial Guinea","Estonia","Ethiopia","Falkland Islands","Faroe Islands",
+			"Fiji","Finland","France","French Polynesia","French West Indies","Gabon","Gambia","Georgia","Germany","Ghana","Gibraltar","Greece","Greenland","Grenada","Guam",
+			"Guatemala","Guernsey","Guinea","Guinea Bissau","Guyana","Haiti","Honduras","Hong Kong","Hungary","Iceland","India","Indonesia","Iran","Iraq","Ireland",
+			"Isle of Man","Israel","Italy","Jamaica","Japan","Jersey","Jordan","Kazakhstan","Kenya","Kuwait","Kyrgyz Republic","Laos","Latvia","Lebanon","Lesotho","Liberia",
+			"Libya","Liechtenstein","Lithuania","Luxembourg","Macau","Macedonia","Madagascar","Malawi","Malaysia","Maldives","Mali","Malta","Mauritania","Mauritius",
+			"Mexico","Moldova","Monaco","Mongolia","Montenegro","Montserrat","Morocco","Mozambique","Namibia","Nepal","Netherlands","Netherlands Antilles","New Caledonia",
+			"New Zealand","Nicaragua","Niger","Nigeria","Norway","Oman","Pakistan","Palestine","Panama","Papua New Guinea","Paraguay","Peru","Philippines","Poland",
+			"Portugal","Puerto Rico","Qatar","Reunion","Romania","Russia","Rwanda","Saint Pierre &amp; Miquelon","Samoa","San Marino","Satellite","Saudi Arabia","Senegal",
+			"Serbia","Seychelles","Sierra Leone","Singapore","Slovakia","Slovenia","South Africa","South Korea","Spain","Sri Lanka","St Kitts &amp; Nevis","St Lucia",
+			"St Vincent","St. Lucia","Sudan","Suriname","Swaziland","Sweden","Switzerland","Syria","Taiwan","Tajikistan","Tanzania","Thailand","Timor L'Este",
+			"Togo","Tonga","Trinidad &amp; Tobago","Tunisia","Turkey","Turkmenistan","Turks &amp; Caicos","Uganda","Ukraine","United Arab Emirates","United Kingdom",
+			"Uruguay","Uzbekistan","Venezuela","Vietnam","Virgin Islands (US)","Yemen","Zambia","Zimbabwe"};
+	
+	//private String[] mAge;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -77,7 +98,7 @@ public class UpdateProfileActivity extends BaseActivity implements OnClickListen
 		mtxtTitle = (TextView) findViewById(R.id.txt_screen_title);
 		medtFname = (EditText) findViewById(R.id.edt_update_profile_fname);
 		medtLname = (EditText) findViewById(R.id.edt_update_profile_lname);
-		medtDob = (EditText) findViewById(R.id.edt_update_profile_dob);
+		//medtDob = (EditText) findViewById(R.id.edt_update_profile_dob);
 		medtGender = (EditText) findViewById(R.id.edt_update_profile_gender);
 		medtCountry = (EditText) findViewById(R.id.edt_update_profile_country);
 		medtMobile = (EditText) findViewById(R.id.edt_update_profile_mobile);
@@ -93,17 +114,31 @@ public class UpdateProfileActivity extends BaseActivity implements OnClickListen
 		mtxtTap = (TextView) findViewById(R.id.txt_update_profile_photo);
 
 		mProfileImage = (RoundedImageView)findViewById(R.id.img_nearby_member);
+		
 
 		mimgback.setVisibility(View.INVISIBLE);
 		mimgMenu.setVisibility(View.INVISIBLE);
 		mtxtTitle.setText(getResources().getString(R.string.profile));
 		mbtnUpdate.setOnClickListener(this);
 		mtxtTap.setOnClickListener(this);
+		medtFname.setOnClickListener(this);
+		medtLname.setOnClickListener(this);
+		medtCountry.setOnClickListener(this);
+		medtMobile.setOnClickListener(this);
+		medtAboutMe.setOnClickListener(this);
+		medtLokingFor.setOnClickListener(this);
+		medtInterest.setOnClickListener(this);
+		medtSexRole.setOnClickListener(this);
+		medtAge.setOnClickListener(this);
+		medtGender.setOnClickListener(this);
+		medtWeight.setOnClickListener(this);
+		medtHeight.setOnClickListener(this);
+		medtHivStatus.setOnClickListener(this);
 
 		mProfileImage.setFocusable(true);
 
-		findViewById(R.id.btn_audio).setOnClickListener(this);
-		findViewById(R.id.btn_video).setOnClickListener(this);
+		findViewById(R.id.btn_update_profile_audio).setOnClickListener(this);
+		findViewById(R.id.btn_update_profile_video).setOnClickListener(this);
 
 		fetchUserProfileData();
 	}
@@ -112,12 +147,12 @@ public class UpdateProfileActivity extends BaseActivity implements OnClickListen
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.btn_update_profile_update:
-			if(checkValidation())
-			{
+			//if(checkValidation())
+			//{
 				String postData = getUpadteProfileRequestJson();
 				Log.e("Post Data", postData);
 				postData(DatingUrlConstants.UPDATE_PROFILE_URL, ApiEvent.UPDATE_PROFILE_EVENT, postData);
-			}
+			//}
 
 			break;
 		case R.id.txt_update_profile_photo:
@@ -125,14 +160,56 @@ public class UpdateProfileActivity extends BaseActivity implements OnClickListen
 			selectImage();
 			break;
 
-		case R.id.btn_audio:
+		case R.id.btn_update_profile_audio:
 			Intent i = new Intent(this,AudioRecorderActivity.class);
 			startActivityForResult(i, AppConstants.REQUEST_CODE_FOR_AUDIO);
 			break;
-		case R.id.btn_video:
+		case R.id.btn_update_profile_video:
 			videoRecording();
 			break;
-
+		case R.id.edt_update_profile_fname:
+			new DialogUpdateProfile(UpdateProfileActivity.this, medtFname, getResources().getString(R.string.fname), medtFname.getText().toString()).show();
+			break;
+		case R.id.edt_update_profile_lname:
+			new DialogUpdateProfile(UpdateProfileActivity.this, medtLname, getResources().getString(R.string.lname), medtLname.getText().toString()).show();
+			break;
+		/*case R.id.edt_update_profile_dob:
+			break;*/
+		case R.id.edt_update_profile_gender:
+			
+			showSingleSelectionDialog(medtGender, mGender, getResources().getString(R.string.gender));
+			break;
+		case R.id.edt_update_profile_country:
+			//new DialogUpdateProfile(UpdateProfileActivity.this, medtCountry, getResources().getString(R.string.country), medtCountry.getText().toString()).show();
+			showSingleSelectionDialog(medtCountry, country_list, getResources().getString(R.string.country));
+			break;
+		case R.id.edt_update_profile_mobile:
+			new DialogUpdateProfile(UpdateProfileActivity.this, medtMobile, getResources().getString(R.string.mobile), medtMobile.getText().toString()).show();
+			break;
+		case R.id.edt_update_profile_about_me:
+			new DialogUpdateProfile(UpdateProfileActivity.this, medtAboutMe, getResources().getString(R.string.about_me), medtAboutMe.getText().toString()).show();
+			break;
+		case R.id.edt_update_profile_age:
+			showSingleSelectionDialog(medtAge, getAgeArray(), getResources().getString(R.string.age));
+			break;
+		case R.id.edt_update_profile_weight:
+			showSingleSelectionDialog(medtWeight, getWeightArray(), getResources().getString(R.string.weight));
+			break;
+		case R.id.edt_update_profile_height:
+			showSingleSelectionDialog(medtHeight, getHeightArray(), getResources().getString(R.string.height));
+			break;
+		case R.id.edt_update_profile_hiv_status:
+			showSingleSelectionDialog(medtHivStatus, mHivStatus, getResources().getString(R.string.hiv_status));
+			break;
+		case R.id.edt_update_profile_loking_for:
+			new DialogUpdateProfile(UpdateProfileActivity.this, medtLokingFor, getResources().getString(R.string.loking_for), medtLokingFor.getText().toString()).show();
+			break;
+		case R.id.edt_update_profile_interest:
+			new DialogUpdateProfile(UpdateProfileActivity.this, medtInterest, getResources().getString(R.string.interest), medtInterest.getText().toString()).show();
+			break;
+		case R.id.edt_update_profile_sex_role:
+			new DialogUpdateProfile(UpdateProfileActivity.this, medtSexRole, getResources().getString(R.string.sex_role), medtSexRole.getText().toString()).show();
+			break;
 		default:
 			break;
 		}
@@ -246,7 +323,7 @@ public class UpdateProfileActivity extends BaseActivity implements OnClickListen
 			jsonObject.putOpt("userid", DatingAppPreference.getString(DatingAppPreference.USER_ID, "", this));
 			jsonObject.putOpt("fname", medtFname.getText().toString());
 			jsonObject.putOpt("lname", medtLname.getText().toString());
-			jsonObject.putOpt("dob", medtDob.getText().toString());
+			//jsonObject.putOpt("dob", medtDob.getText().toString());
 			jsonObject.putOpt("gender", medtGender.getText().toString());
 			jsonObject.putOpt("country", medtCountry.getText().toString());
 			jsonObject.putOpt("mobile", medtMobile.getText().toString());
@@ -441,7 +518,7 @@ public class UpdateProfileActivity extends BaseActivity implements OnClickListen
 	{
 		if(!StringUtils.isNullOrEmpty(userInfo.getFirstName())) medtFname.setText(userInfo.getFirstName());
 		if(!StringUtils.isNullOrEmpty(userInfo.getLastName())) medtLname.setText(userInfo.getLastName());
-		if(!StringUtils.isNullOrEmpty(userInfo.getDob())) medtDob.setText(userInfo.getDob());
+		//if(!StringUtils.isNullOrEmpty(userInfo.getDob())) medtDob.setText(userInfo.getDob());
 		if(!StringUtils.isNullOrEmpty(userInfo.getGender())) medtGender.setText(userInfo.getGender());
 		if(!StringUtils.isNullOrEmpty(userInfo.getCountry())) medtCountry.setText(userInfo.getCountry());
 		if(!StringUtils.isNullOrEmpty(userInfo.getMobile())) medtMobile.setText(userInfo.getMobile());
@@ -611,5 +688,100 @@ public class UpdateProfileActivity extends BaseActivity implements OnClickListen
 		Log.e("Request", jsonObject.toString());
 		return jsonObject.toString();
 	}
+	/**
+	 * show dialog for single selection
+	 * @param resId
+	 * @param options
+	 * @param title
+	 */
+	
+	private void showSingleSelectionDialog(final EditText resId,final String[] options,String title){
+		AlertDialog.Builder builder = new AlertDialog.Builder(this);
+		builder.setTitle(title);
+		int selectedIndex = getSelectedIndex(resId.getText().toString(), options);
+		builder.setSingleChoiceItems(options, selectedIndex, new DialogInterface.OnClickListener() {
+		//builder.setItems(options, new DialogInterface.OnClickListener() {
+			@Override
+			public void onClick(DialogInterface dialog, int item) {
+
+				//TextView textView = (TextView)findViewById(resId);
+				if(resId!=null){
+					resId.setText(options[item]);
+				}
+				dialog.dismiss();
+			}
+		});
+		builder.show();
+	}
+	/**
+	 * 
+	 * @return
+	 */
+	private String[] getAgeArray()
+	{
+			String[] age = new String[83];
+		
+		for(int i=0; i<83; i++){
+			age[i] = (i+18)+"";
+		}
+		
+		return age;
+	}
+	/**
+	 * 
+	 * @return
+	 */
+	private String[] getWeightArray()
+	{
+			String[] weight = new String[2202];
+		
+		for(int i=0; i<2202; i++){
+			weight[i] = (i+99)+" "+"lbs";
+		}
+		
+		return weight;
+	}
+	/**
+	 * 
+	 * @return
+	 */
+	private String[] getHeightArray()
+	{
+		String[] height = new String[84];
+			
+	    int index = 0;
+		
+		for(int i=0; i<7; i++)
+		{
+			for(int j=0; j<=11;j++)
+			{
+				
+				height[index] = (i+3)+" ft "+j+" in";
+				Log.e("KMD", "i="+i+" j="+j);
+				index++;
+			}
+		}
+		
+		return height;
+	}
+	
+	
+	private int getSelectedIndex(String selected,String[] options){
+		
+		int selectedIndex = -1;
+		for(int i=0; i<options.length; i++){
+			
+			if(options[i].equals(selected)){
+				selectedIndex = i;
+				break;
+			}
+			
+		}
+		
+		return selectedIndex;
+		
+	}
+	
+		
 
 }

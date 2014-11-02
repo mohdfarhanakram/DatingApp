@@ -70,7 +70,7 @@
     	<string name="country">Country</string>
     	<string name="mobile">Mobile</string>
     	<string name="relationship">Relationship</string>
-    	<string name="loking_for">Loking For</string>
+    	<string name="loking_for">Looking For</string>
     	<string name="kys">KYS</string>
     	<string name="know_your_status">Know Your Status</string>
     	<string name="show_distance">Show Distance</string>
@@ -97,5 +97,6 @@
     	<string name="_about_me">ABOUT ME:</string>
     	<string name="looking_for_msg">RelationShip, Friends and Dates</string>
     	<string name="under_development">Under Development</string>
+    	<string name="enter_text">Enter Text</string>
     	
 </resources>

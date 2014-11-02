@@ -1,14 +1,14 @@
-<resources>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
 
     <!--
         Base application theme, dependent on API level. This theme is replaced
-        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
     -->
     <style name="AppBaseTheme" parent="android:Theme.Light">
         <!--
             Theme customizations available in newer API levels can go in
             res/values-vXX/styles.xml, while customizations related to
-            backward-compatibility can go here.
+            backward-compatibility can go here.
         -->
     </style>
 
@@ -111,21 +111,26 @@
         <item name="android:windowNoTitle">true</item>
         <item name="android:backgroundDimEnabled">false</item>
     </style>
-<style name="layout_profile">
+
+    <style name="layout_profile">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:gravity">center</item>
         <item name="android:orientation">horizontal</item>
         <item name="android:layout_marginTop">@dimen/dp_5</item>
     </style>
+
     <style name="edit_profile">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:gravity">center|right</item>
         <item name="android:padding">@dimen/dp_10</item>
         <item name="android:singleLine">true</item>
+        <item name="android:editable">false</item>
         <item name="android:background">@drawable/outline_profile</item>
         <item name="android:textColor">@android:color/white</item>
         <item name="android:textSize">@dimen/sp_12</item>
-        </style>
+        <item name="android:focusableInTouchMode">false</item>
+    </style>
+
 </resources>

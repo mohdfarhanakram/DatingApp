@@ -89,6 +89,7 @@ public class BaseParser implements IParser {
 		case ApiEvent.MATCH_FINDER_EVENT:
 		case ApiEvent.My_BUZZ_EVENT:
 		case ApiEvent.UPLOAD_PROFILE_VIDEO_EVENT:
+		case ApiEvent.UPLOAD_PROFILE_AUDIO_EVENT:
 			response.setErrorMessages(jsonObject.optString("error", null));
 			break;
 		default:

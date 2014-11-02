@@ -3,18 +3,29 @@
  */
 package com.digitalforce.datingapp.view;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.Timer;
+import java.util.TimerTask;
 
-import android.content.Context;
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.media.MediaRecorder;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
+import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.digitalforce.datingapp.R;
+import com.digitalforce.datingapp.constants.AppConstants;
 
 /**
  * @author FARHAN
@@ -24,157 +35,241 @@ import android.widget.LinearLayout;
 
 public class AudioRecorderActivity extends BaseActivity
 {
-    private static final String LOG_TAG = "AudioRecorderActivity";
-    private static String mFileName = null;
+	private MediaRecorder myRecorder;
+	private MediaPlayer myPlayer;
+	private String outputFile = null;
+	private Button startBtn;
+	private Button stopBtn;
+	private Button playBtn;
+	private Button stopPlayBtn;
 
-    private RecordButton mRecordButton = null;
-    private MediaRecorder mRecorder = null;
+	private int time = 0;
 
-    private PlayButton   mPlayButton = null;
-    private MediaPlayer   mPlayer = null;
+	private TextView mTimeTv;
+	
+	private AudioTimerTask mAudioTimerTask;
+	private Timer mTimer;
+	
+	private String mEncodeString;
 
-    private void onRecord(boolean start) {
-        if (start) {
-            startRecording();
-        } else {
-            stopRecording();
-        }
-    }
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_audio_recorder);
 
-    private void onPlay(boolean start) {
-        if (start) {
-            startPlaying();
-        } else {
-            stopPlaying();
-        }
-    }
+		mTimeTv = (TextView)findViewById(R.id.timer_txtv);
 
-    private void startPlaying() {
-        mPlayer = new MediaPlayer();
-        try {
-            mPlayer.setDataSource(mFileName);
-            mPlayer.prepare();
-            mPlayer.start();
-        } catch (IOException e) {
-            Log.e(LOG_TAG, "prepare() failed");
-        }
-    }
 
-    private void stopPlaying() {
-        mPlayer.release();
-        mPlayer = null;
-    }
+		prepareMediaPlayer();
 
-    private void startRecording() {
-        mRecorder = new MediaRecorder();
-        mRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
-        mRecorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
-        mRecorder.setOutputFile(mFileName);
-        mRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
-        
-        mRecorder.setMaxDuration(60000);
+		startBtn = (Button)findViewById(R.id.start);
+		startBtn.setOnClickListener(new OnClickListener() {
 
-        try {
-            mRecorder.prepare();
-        } catch (IOException e) {
-            Log.e(LOG_TAG, "prepare() failed");
-        }
+			@Override
+			public void onClick(View v) {
+				startRecordingTimer();
+				start(v);
+			}
+		});
 
-        mRecorder.start();
-    }
+		stopBtn = (Button)findViewById(R.id.stop);
+		stopBtn.setOnClickListener(new OnClickListener() {
 
-    private void stopRecording() {
-        mRecorder.stop();
-        mRecorder.release();
-        mRecorder = null;
-    }
+			@Override
+			public void onClick(View v) {
+				stopTimer();
+				stop(v);
+				setResult(RESULT_OK);
+				finish();
+			}
+		});
 
-    class RecordButton extends Button {
-        boolean mStartRecording = true;
+		playBtn = (Button)findViewById(R.id.play);
+		playBtn.setOnClickListener(new OnClickListener() {
 
-        OnClickListener clicker = new OnClickListener() {
-            public void onClick(View v) {
-                onRecord(mStartRecording);
-                if (mStartRecording) {
-                    setText("Stop recording");
-                } else {
-                    setText("Start recording");
-                }
-                mStartRecording = !mStartRecording;
-            }
-        };
+			@Override
+			public void onClick(View v) {
+				play(v);	
+			}
+		});
 
-        public RecordButton(Context ctx) {
-            super(ctx);
-            setText("Start recording");
-            setOnClickListener(clicker);
-        }
-    }
+		stopPlayBtn = (Button)findViewById(R.id.stopPlay);
+		stopPlayBtn.setOnClickListener(new OnClickListener() {
 
-    class PlayButton extends Button {
-        boolean mStartPlaying = true;
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				stopPlay(v);
+				stopTimer();
+				
+			}
+		});
+	}
 
-        OnClickListener clicker = new OnClickListener() {
-            public void onClick(View v) {
-                onPlay(mStartPlaying);
-                if (mStartPlaying) {
-                    setText("Stop playing");
-                } else {
-                    setText("Start playing");
-                }
-                mStartPlaying = !mStartPlaying;
-            }
-        };
+	private void prepareMediaPlayer() {
+		time = 0;
+		if(myRecorder==null){
+			File f = new File(android.os.Environment.getExternalStorageDirectory(), "farhantemp.3gpp");
+			myRecorder = new MediaRecorder();
+			myRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
+			myRecorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
+			myRecorder.setAudioEncoder(MediaRecorder.OutputFormat.AMR_NB);
+			myRecorder.setOutputFile(f.getAbsolutePath());
+		}
 
-        public PlayButton(Context ctx) {
-            super(ctx);
-            setText("Start playing");
-            setOnClickListener(clicker);
-        }
-    }
+	}
 
-    public AudioRecorderActivity() {
-        mFileName = Environment.getExternalStorageDirectory().getAbsolutePath();
-        mFileName += "/audiorecordtest.3gp";
-    }
+	public void start(View view){
+		try {
 
-    @Override
-    public void onCreate(Bundle icicle) {
-        super.onCreate(icicle);
+			prepareMediaPlayer();
 
-        LinearLayout ll = new LinearLayout(this);
-        mRecordButton = new RecordButton(this);
-        ll.addView(mRecordButton,
-            new LinearLayout.LayoutParams(
-                ViewGroup.LayoutParams.WRAP_CONTENT,
-                ViewGroup.LayoutParams.WRAP_CONTENT,
-                0));
-        mPlayButton = new PlayButton(this);
-        ll.addView(mPlayButton,
-            new LinearLayout.LayoutParams(
-                ViewGroup.LayoutParams.WRAP_CONTENT,
-                ViewGroup.LayoutParams.WRAP_CONTENT,
-                0));
-        setContentView(ll);
-    }
+			myRecorder.prepare();
+			myRecorder.start();
+		} catch (IllegalStateException e) {
+			// start:it is called before prepare()
+			// prepare: it is called after start() or before setOutputFormat() 
+			e.printStackTrace();
+		} catch (IOException e) {
+			// prepare() fails
+			e.printStackTrace();
+		}
 
-    @Override
-    public void onPause() {
-        super.onPause();
-        if (mRecorder != null) {
-            mRecorder.release();
-            mRecorder = null;
-        }
+		startBtn.setEnabled(false);
+		stopBtn.setEnabled(true);
 
-        if (mPlayer != null) {
-            mPlayer.release();
-            mPlayer = null;
-        }
-    }
+		playBtn.setEnabled(false);
+		stopPlayBtn.setEnabled(true);
+
+		Toast.makeText(getApplicationContext(), "Start recording...", 
+				Toast.LENGTH_SHORT).show();
+	}
+
+	public void stop(View view){
+		try {
+			myRecorder.stop();
+			myRecorder.release();
+			myRecorder  = null;
+
+			stopBtn.setEnabled(false);
+			playBtn.setEnabled(true);
+
+			startBtn.setEnabled(true);
+
+			Toast.makeText(getApplicationContext(), "Stop recording...",
+					Toast.LENGTH_SHORT).show();
+		} catch (IllegalStateException e) {
+			//  it is called before start()
+			e.printStackTrace();
+		} catch (RuntimeException e) {
+			// no valid audio/video data has been received
+			e.printStackTrace();
+		}
+	}
+
+	public void play(View view) {
+		try{
+			myPlayer = new MediaPlayer();
+			myPlayer.setDataSource(outputFile);
+			myPlayer.prepare();
+			myPlayer.start();
+
+			playBtn.setEnabled(false);
+			stopPlayBtn.setEnabled(true);
+
+			Toast.makeText(getApplicationContext(), "Start play the recording...", 
+					Toast.LENGTH_SHORT).show();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	public void stopPlay(View view) {
+		try {
+			if (myPlayer != null) {
+				myPlayer.stop();
+				myPlayer.release();
+				myPlayer = null;
+				playBtn.setEnabled(true);
+				stopPlayBtn.setEnabled(false);
+
+				Toast.makeText(getApplicationContext(), "Stop playing the recording...", 
+						Toast.LENGTH_SHORT).show();
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 
 	@Override
 	public void onEvent(int eventId, Object eventData) {
 		// TODO Auto-generated method stub
-		
+
 	}
+
+
+	class AudioTimerTask extends TimerTask {
+
+		@Override
+		public void run() {
+			runOnUiThread(new Runnable(){
+
+				@Override
+				public void run() {
+					if(time<=59){
+						mTimeTv.setText(getTime(time));
+						time++;
+						
+					}else{
+						stopTimer();
+						setResult(RESULT_OK);
+						finish();
+					}
+					
+				}});
+		}
+
+	}
+
+
+	private String getTime(int time){
+
+		String timeString = time+"";
+		if(time<=9){
+			timeString = "0"+timeString;
+		}
+
+		timeString = "00:"+timeString+"/01:00";
+
+		return timeString;
+
+	}
+	
+	
+	private void startRecordingTimer(){
+		stopTimer();
+		mAudioTimerTask = new AudioTimerTask();
+		mTimer = new Timer();
+		mTimer.schedule(mAudioTimerTask, 1000, 1000);
+	}
+	
+	private void stopTimer(){
+		if(mTimer != null){
+			mTimer.cancel();
+		}
+	}
+	
+	
+	
+	
+	@Override
+	public void onBackPressed() {
+		setResult(RESULT_CANCELED);
+		finish();
+	}
+
+
 }
+

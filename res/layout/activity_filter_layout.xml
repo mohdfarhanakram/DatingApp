@@ -52,7 +52,7 @@
             android:layout_gravity="center_vertical"
             android:padding="5dp"
             android:text="No Min"
-           android:textSize="16sp"
+            android:textSize="16sp"
             android:textStyle="normal" />
     </LinearLayout>
 
@@ -130,5 +130,16 @@
         android:layout_width="fill_parent"
         android:layout_height="0.5dp"
         android:background="@color/white" />
+
+    <Button
+        android:id="@+id/btn_save_filter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="30dp"
+        android:background="@color/btn_color"
+        android:padding="@dimen/dp_8"
+        android:text="Apply Filter"
+        android:textColor="@android:color/white" />
 
 </LinearLayout>

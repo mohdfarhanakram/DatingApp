@@ -2,6 +2,7 @@ package com.digitalforce.datingapp.view;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
 import java.util.ArrayList;
 
 import org.json.JSONException;
@@ -36,6 +37,7 @@ import com.digitalforce.datingapp.persistance.DatingAppPreference;
 import com.digitalforce.datingapp.utils.ToastCustom;
 import com.digitalforce.datingapp.utils.Validation;
 import com.digitalforce.datingapp.widgets.RoundedImageView;
+import com.edmodo.cropper.CropImageView;
 import com.farru.android.network.ServiceResponse;
 import com.farru.android.utill.StringUtils;
 import com.farru.android.utill.Utils;
@@ -57,6 +59,9 @@ public class UpdateProfileActivity extends BaseActivity implements OnClickListen
 	
 	private String mImagPath;
 	private String mBaseEncodedString;
+	
+	private String mVideoEncodedString;
+	private String mVideoFilePath;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -122,6 +127,7 @@ public class UpdateProfileActivity extends BaseActivity implements OnClickListen
 			startActivityForResult(i, AppConstants.REQUEST_CODE_FOR_AUDIO);
 			break;
 		case R.id.btn_video:
+			videoRecording();
 			break;
 			
 		default:
@@ -200,7 +206,9 @@ public class UpdateProfileActivity extends BaseActivity implements OnClickListen
 					if(userInfoList.size()>0){
 						setUserProfileData(userInfoList.get(0));
 					}
-					
+					break;
+				case ApiEvent.UPLOAD_PROFILE_VIDEO_EVENT:
+					showCommonError(serviceResponse.getBaseModel().getSuccessMsg());
 					break;
 				default:
 					break;
@@ -267,8 +275,7 @@ public class UpdateProfileActivity extends BaseActivity implements OnClickListen
             public void onClick(DialogInterface dialog, int item) {
                 if (items[item].equals("Take Photo")) {
                     Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                    File f = new File(android.os.Environment
-                            .getExternalStorageDirectory(), "temp.jpg");
+                    File f = new File(android.os.Environment.getExternalStorageDirectory(), "temp.jpg");
                     intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(f));
                     startActivityForResult(intent,AppConstants.REQUEST_CODE_FOR_CAMERA );
                 } else if (items[item].equals("Choose from Gallery")) {
@@ -286,6 +293,20 @@ public class UpdateProfileActivity extends BaseActivity implements OnClickListen
         });
         builder.show();
     }
+	
+	
+	private void videoRecording(){
+		//create new Intent
+	    Intent intent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
+	    File f = new File(android.os.Environment.getExternalStorageDirectory(), "farhantemp.mp4");
+        intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(f));
+        //intent.putExtra(MediaStore.EXTRA_OUTPUT, getOutputMediaFileUri());
+	    intent.putExtra(MediaStore.EXTRA_VIDEO_QUALITY, 0);
+	    intent.putExtra(MediaStore.EXTRA_SIZE_LIMIT , 102400);  // 100kb
+	    intent.putExtra(MediaStore.EXTRA_DURATION_LIMIT , 60);
+	    
+	    startActivityForResult(intent, AppConstants.REQUEST_CODE_FOR_VIDEO);
+	}
 	
 	
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -329,6 +350,18 @@ public class UpdateProfileActivity extends BaseActivity implements OnClickListen
             	showProgressDialog("Picture is being uploaded..");
             	postData(DatingUrlConstants.UPLOAD_PROFILE_PIC_URL, ApiEvent.UPLOAD_PROFILE_PIC_EVENT, getUploadPicRequestJson(mBaseEncodedString),null);
             	
+            }else if(requestCode == AppConstants.REQUEST_CODE_FOR_VIDEO){
+            	File f = new File(Environment.getExternalStorageDirectory().toString());
+                for (File temp : f.listFiles()) {
+                    if (temp.getName().equals("farhantemp.mp4")) {
+                        f = temp;
+                        break;
+                    }
+                }
+                
+                mVideoFilePath = f.getAbsolutePath();
+            	Toast.makeText(this, f.getAbsolutePath() , Toast.LENGTH_LONG).show();
+            	saveAndEncodeVideo();
             }
         }
     }
@@ -420,5 +453,77 @@ public class UpdateProfileActivity extends BaseActivity implements OnClickListen
 	}
 	
 	
+	private void saveAndEncodeVideo() {
+        new AsyncTask<Void, Void, String>() {
+ 
+            protected void onPreExecute() {
+            	showProgressDialog("Video is being uploaded..");
+            };
+ 
+            @Override
+            protected String doInBackground(Void... params) {
+            	
+            	try{
+            		FileInputStream fis = new FileInputStream(mVideoFilePath);
+            		ByteArrayOutputStream objByteArrayOS = new ByteArrayOutputStream();
+                    byte[] byteBufferString = new byte[1024];
+                    
+                    for (int readNum; (readNum = fis.read(byteBufferString)) != -1;) 
+                    {
+                     objByteArrayOS.write(byteBufferString, 0, readNum);
+
+                    }
+                    
+                    byte[] byteBinaryData = Base64.encode((objByteArrayOS.toByteArray()), Base64.DEFAULT);
+                    
+                    mVideoEncodedString = new String(byteBinaryData);
+                    
+                    Log.e("video ", mVideoEncodedString);
+            		
+            	}catch(Exception e){
+            		 e.printStackTrace();
+            	}
+
+                return "";
+            }
+ 
+            @Override
+            protected void onPostExecute(String msg) {
+            	
+            	uploadVideoOnServer();
+		       
+            }
+        }.execute(null, null, null);
+    }
+	
+	
+	private void uploadVideoOnServer(){
+		
+    	postData(DatingUrlConstants.UPLOAD_PROFILE_VIDEO_URL, ApiEvent.UPLOAD_PROFILE_VIDEO_EVENT, getVideoJsonRequest(),null);
+	}
+	
+	private String getVideoJsonRequest(){
+		//{"userid" : "1","video":"base64encodeddata"}
+		
+		JSONObject jsonObject = new JSONObject();
+
+		try {
+			jsonObject.putOpt("userid", DatingAppPreference.getString(DatingAppPreference.USER_ID, "", this));
+			jsonObject.putOpt("video",mVideoEncodedString);
+			jsonObject.putOpt("device_type","android");
+			
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		Log.e("Request", jsonObject.toString());
+		return jsonObject.toString();
+	}
+	
+	@Override
+	public void onBackPressed() {
+		setResult(RESULT_CANCELED);
+		finish();
+	}
 	
 }

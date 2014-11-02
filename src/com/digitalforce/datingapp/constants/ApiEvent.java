@@ -29,5 +29,7 @@ public interface ApiEvent {
 	public static final int MATCH_FINDER_EVENT  	        = 18;
 	public static final int My_BUZZ_EVENT  	        		= 19;
 	public static final int WHOS_VIEWD_U_EVENT  	        = 20;
+	public static final int UPLOAD_PROFILE_VIDEO_EVENT   	= 21;
+	public static final int UPLOAD_PROFILE_AUDIO_EVENT   	= 22;
 
 }

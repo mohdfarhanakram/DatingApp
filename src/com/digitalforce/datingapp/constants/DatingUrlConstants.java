@@ -28,5 +28,8 @@ public interface DatingUrlConstants {
 	public static final String MY_BUZZ_URL					= BASE_URL+"buzz.php";
 	public static final String WHOS_VIEWED_BY_YOU_URL		= BASE_URL+"buzz.php";
 	
+	public static final String UPLOAD_PROFILE_VIDEO_URL		= BASE_URL+"edit_video.php";
+	public static final String UPLOAD_PROFILE_AUDIO_URL		= BASE_URL+"edit_audio.php";
+	
 		
 }

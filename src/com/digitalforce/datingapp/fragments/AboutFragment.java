@@ -27,8 +27,8 @@ public class AboutFragment  extends Fragment{
 		// TODO Auto-generated method stub
 		mView = inflater.inflate(R.layout.layout_fragment_about, container, false);
 		
-		mLookingFor = (TextView) mView.findViewById(R.id.txt_fragment_about_about_me);
-		mAboutMe = (TextView) mView.findViewById(R.id.txt_fragment_about_looking_for);
+		mAboutMe = (TextView) mView.findViewById(R.id.txt_fragment_about_about_me);
+		mLookingFor = (TextView) mView.findViewById(R.id.txt_fragment_about_looking_for);
 		mInterest = (TextView) mView.findViewById(R.id.txt_fragment_about_interest);
 		
 		return mView;

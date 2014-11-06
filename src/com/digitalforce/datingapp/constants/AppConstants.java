@@ -41,5 +41,7 @@ public class AppConstants {
 	public static final int REQUEST_CODE_FOR_LOCATION = 9333;
 	
 	public static final String ENCODED_AUDIO_STRING = "audio_string_encoded";
+	
+	public static final String TESTING_VIDEO_URL = "http://dfoutsourcingagency.com/dating/webservice/userData/23.mp4";
 
 }

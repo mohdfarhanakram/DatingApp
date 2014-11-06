@@ -2,6 +2,7 @@ package com.digitalforce.datingapp.view;
 
 import java.util.ArrayList;
 
+import android.content.Intent;
 import org.json.JSONException;
 import org.json.JSONObject;
 

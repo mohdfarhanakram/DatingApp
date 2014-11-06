@@ -286,8 +286,8 @@ public class LoginActivity extends BaseActivity implements OnClickListener,OnLog
 			
 			jsonObject.putOpt("device_type", "android");
 			
-			jsonObject.putOpt("lat", DatingAppPreference.getString(DatingAppPreference.USER_DEVICE_LATITUDE, "0.0", this));
-			jsonObject.putOpt("long", DatingAppPreference.getString(DatingAppPreference.USER_DEVICE_LONGITUDE, "0.0", this));
+			jsonObject.putOpt("latitude", DatingAppPreference.getString(DatingAppPreference.USER_DEVICE_LATITUDE, "0.0", this));
+			jsonObject.putOpt("longitude", DatingAppPreference.getString(DatingAppPreference.USER_DEVICE_LONGITUDE, "0.0", this));
 			jsonObject.putOpt("device", Utils.getDeviceEMI(this));
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block

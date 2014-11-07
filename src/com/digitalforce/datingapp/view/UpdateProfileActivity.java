@@ -67,7 +67,7 @@ public class UpdateProfileActivity extends BaseActivity implements OnClickListen
 	private String mAudioEncodedString;
 	private String mAudioFilePath;
 	private String mGender[] = {"Male","Female"};
-	private String mHivStatus[] = {"Positive","Negative"};
+	private String mHivStatus[] = {"POS","NEG"};
 	private String country_list[] = {"Afghanistan","Albania","Algeria","America","Andorra","Angola","Anguilla","Antigua &amp; Barbuda","Argentina","Armenia","Aruba",
 			"Australia","Austria","Azerbaijan","Bahamas","Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bermuda","Bhutan","Bolivia",
 			"Bosnia &amp; Herzegovina","Botswana","Brazil","British Virgin Islands","Brunei","Bulgaria","Burkina Faso","Burundi","Cambodia","Cameroon","Cape Verde",
@@ -149,9 +149,9 @@ public class UpdateProfileActivity extends BaseActivity implements OnClickListen
 		case R.id.btn_update_profile_update:
 			//if(checkValidation())
 			//{
-			if(medtFname.getText().toString().trim().length()>0)
+			if(medtFname.getText().toString().length()>0)
 			{
-				if(medtLname.getText().toString().trim().length()>0)
+				if(medtLname.getText().toString().length()>0)
 				{
 					String postData = getUpadteProfileRequestJson();
 					Log.e("Post Data", postData);

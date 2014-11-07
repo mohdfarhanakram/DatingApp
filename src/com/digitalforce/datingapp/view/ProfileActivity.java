@@ -111,7 +111,7 @@ public class ProfileActivity extends BaseActivity implements OnClickListener{
 		switch (v.getId()) {
 		case R.id.txt_profile_vedio:
 			selectFragment(new VideoFragment());
-			mtxtVedio.setBackgroundResource(R.color.about_bg_color);
+			mtxtVedio.setBackgroundResource(R.drawable.outline_profile_selected);
 			mtxtPhotos.setBackgroundResource(Color.TRANSPARENT);
 			mtxtAudio.setBackgroundResource(Color.TRANSPARENT);
 			mtxtAbout.setBackgroundResource(Color.TRANSPARENT);
@@ -119,7 +119,7 @@ public class ProfileActivity extends BaseActivity implements OnClickListener{
 			break;
 		case R.id.txt_profile_audio:
 			selectFragment(new AudioFragment());
-			mtxtAudio.setBackgroundResource(R.color.about_bg_color);
+			mtxtAudio.setBackgroundResource(R.drawable.outline_profile_selected);
 			mtxtPhotos.setBackgroundResource(Color.TRANSPARENT);
 			mtxtVedio.setBackgroundResource(Color.TRANSPARENT);
 			mtxtAbout.setBackgroundResource(Color.TRANSPARENT);
@@ -129,7 +129,7 @@ public class ProfileActivity extends BaseActivity implements OnClickListener{
 			AboutFragment aboutFragment = 	new AboutFragment();
 			aboutFragment.setUserInfo(mUserInfo);
 			selectFragment(aboutFragment);
-			mtxtAbout.setBackgroundResource(R.color.about_bg_color);
+			mtxtAbout.setBackgroundResource(R.drawable.outline_profile_selected);
 			mtxtPhotos.setBackgroundResource(Color.TRANSPARENT);
 			mtxtVedio.setBackgroundResource(Color.TRANSPARENT);
 			mtxtAudio.setBackgroundResource(Color.TRANSPARENT);
@@ -140,7 +140,7 @@ public class ProfileActivity extends BaseActivity implements OnClickListener{
 			PhotosFragment photoFragment = new PhotosFragment();
 			photoFragment.setPhoto(mUserInfo.getPhotos());
 			selectFragment(photoFragment);
-			mtxtPhotos.setBackgroundResource(R.color.about_bg_color);
+			mtxtPhotos.setBackgroundResource(R.drawable.outline_profile_selected);
 			mtxtAbout.setBackgroundResource(Color.TRANSPARENT);
 			mtxtInsight.setBackgroundResource(Color.TRANSPARENT);
 			mtxtVedio.setBackgroundResource(Color.TRANSPARENT);
@@ -148,7 +148,7 @@ public class ProfileActivity extends BaseActivity implements OnClickListener{
 			break;
 		case R.id.txt_profile_insight:
 			ToastCustom.underDevelopment(this);
-			mtxtInsight.setBackgroundResource(R.color.about_bg_color);
+			mtxtInsight.setBackgroundResource(R.drawable.outline_profile_selected);
 			mtxtAbout.setBackgroundResource(Color.TRANSPARENT);
 			mtxtPhotos.setBackgroundResource(Color.TRANSPARENT);
 			mtxtVedio.setBackgroundResource(Color.TRANSPARENT);

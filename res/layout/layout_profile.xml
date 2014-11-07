@@ -17,9 +17,9 @@
 
         <LinearLayout
             android:id="@+id/main_layout"
-            android:visibility="gone"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
+            android:visibility="invisible"
             android:paddingBottom="@dimen/dp_10"
             android:orientation="vertical" >
 
@@ -110,7 +110,7 @@
                         style="@style/txt_profile_below_tap"
                         android:layout_width="0dp"
                         android:layout_weight=".20"
-                        android:background="@color/about_bg_color"
+                        android:background="@drawable/outline_profile_selected"
                         android:text="@string/about" />
 
                     <TextView

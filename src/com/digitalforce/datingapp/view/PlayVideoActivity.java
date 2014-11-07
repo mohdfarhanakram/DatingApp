@@ -33,7 +33,7 @@ public class PlayVideoActivity extends BaseActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // Get the layout from video_main.xml
-        setContentView(R.layout.activity_play_video);
+        setContentView(R.layout.activity_play);
         // Find your VideoView in your video_main.xml layout
         videoview = (VideoView) findViewById(R.id.VideoView);
 

@@ -12,18 +12,19 @@
         layout="@layout/layout_action_bar" />
 
     <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" >
 
         <LinearLayout
             android:id="@+id/main_layout"
             android:visibility="gone"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
             android:paddingBottom="@dimen/dp_10"
             android:orientation="vertical" >
 
             <LinearLayout
+                android:layout_weight="0"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
@@ -127,11 +128,15 @@
                         android:text="@string/insight" />
                 </LinearLayout>
 
-                <FrameLayout
+                <RelativeLayout
+                    android:background="@color/black"
+                    android:layout_weight="1"
                     android:id="@+id/fragment_profile"
                     android:padding="@dimen/dp_5"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent" />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

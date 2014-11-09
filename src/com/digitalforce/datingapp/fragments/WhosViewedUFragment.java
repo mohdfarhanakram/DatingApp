@@ -5,6 +5,7 @@ package com.digitalforce.datingapp.fragments;
 
 import java.util.ArrayList;
 
+import com.digitalforce.datingapp.adapter.BuzzAdapter;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -39,7 +40,7 @@ public class WhosViewedUFragment extends BaseFragment{
 	private View mView;
 	private GridView mGridView;
 	private ArrayList<UserInfo> mUserInfos = new ArrayList<UserInfo>();
-	private NearByAdapter mnearByAdapter;
+	private BuzzAdapter mBuzzAdapter;
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -47,13 +48,12 @@ public class WhosViewedUFragment extends BaseFragment{
 		// TODO Auto-generated method stub
 		mView = inflater.inflate(R.layout.layout_fragment_viewed_u, container, false);
 		mGridView = (GridView) mView.findViewById(R.id.grid_view_viewed_you);
-		postData(DatingUrlConstants.MY_BUZZ_URL, ApiEvent.My_BUZZ_EVENT, getRequestJson());
+		postData(DatingUrlConstants.WHOS_VIEWED_BY_YOU_URL, ApiEvent.WHOS_VIEWD_U_EVENT, getRequestJson());
 
 		mGridView.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
-			public void onItemClick(AdapterView<?> parent, View v, int position,
-					long id) {
+			public void onItemClick(AdapterView<?> parent, View v, int position,long id) {
 				// TODO Auto-generated method stub
                 Intent i = new Intent(getActivity(), ProfileActivity.class);
                 i.putExtra(AppConstants.SHOW_PROFILE_USER_ID, mUserInfos.get(position).getUserId());
@@ -70,7 +70,7 @@ public class WhosViewedUFragment extends BaseFragment{
 		if(serviceResponse.getErrorCode()==ServiceResponse.SUCCESS){
 
 			switch (serviceResponse.getEventType()) {
-			case ApiEvent.My_BUZZ_EVENT:
+			case ApiEvent.WHOS_VIEWD_U_EVENT:
 
 				mUserInfos = (ArrayList<UserInfo>)serviceResponse.getResponseObject();
 
@@ -79,8 +79,8 @@ public class WhosViewedUFragment extends BaseFragment{
 					mView.findViewById(R.id.grid_view_viewed_you).setVisibility(View.VISIBLE);
 					mView.findViewById(R.id.empty_view).setVisibility(View.GONE);
 
-					mnearByAdapter = new NearByAdapter(getActivity(), mUserInfos);
-					mGridView.setAdapter(mnearByAdapter);
+					mBuzzAdapter = new BuzzAdapter(getActivity(), mUserInfos);
+					mGridView.setAdapter(mBuzzAdapter);
 
 				}else{
 

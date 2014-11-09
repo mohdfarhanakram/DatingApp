@@ -31,5 +31,9 @@ public interface ApiEvent {
 	public static final int WHOS_VIEWD_U_EVENT  	        = 20;
 	public static final int UPLOAD_PROFILE_VIDEO_EVENT   	= 21;
 	public static final int UPLOAD_PROFILE_AUDIO_EVENT   	= 22;
+    public static final int SEARCH_EVENT   	                = 23;
+    public static final int ON_LINE_USER   	                = 24;
+    public static final int CHAT_HISTORY_EVENT   	        = 25;
+    public static final int SEND_MSG_EVENT   	            = 26;
 
 }

@@ -4,6 +4,8 @@
 package com.digitalforce.datingapp.model;
 
 
+import com.farru.android.utill.StringUtils;
+
 /**
  * @author FARHAN
  *
@@ -90,12 +92,16 @@ public class NearBy {
 		this.country = country;
 	}
 	public String getLatitude() {
+        if(StringUtils.isNullOrEmpty(latitude))
+            return "0,0";
 		return latitude;
 	}
 	public void setLatitude(String latitude) {
 		this.latitude = latitude;
 	}
 	public String getLongitude() {
+        if(StringUtils.isNullOrEmpty(longitude))
+            return "0,0";
 		return longitude;
 	}
 	public void setLongitude(String longitude) {

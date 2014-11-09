@@ -23,8 +23,9 @@ public class UserInfo extends NearBy{
 	private String lookingFor;
 	private String interest;
 	private String sexRole;
-	
 	private boolean favourite;
+    private String latitude;
+    private String longitude;
 	
 	private ArrayList<String> photos = new ArrayList<String>();
 	

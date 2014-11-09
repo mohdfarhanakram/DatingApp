@@ -44,4 +44,7 @@ public class AppConstants {
 	
 	public static final String TESTING_VIDEO_URL = "http://dfoutsourcingagency.com/dating/webservice/userData/23.mp4";
 
+    public static final String CHAT_USER_ID   = "chat_user_id";
+    public static final String CHAT_USER_NAME = "chat_user_name";
+
 }

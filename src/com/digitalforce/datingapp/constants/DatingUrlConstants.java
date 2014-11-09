@@ -26,10 +26,14 @@ public interface DatingUrlConstants {
 	
 	public static final String MATCH_FINDER_URL				= BASE_URL+"match_finder.php";
 	public static final String MY_BUZZ_URL					= BASE_URL+"buzz.php";
-	public static final String WHOS_VIEWED_BY_YOU_URL		= BASE_URL+"buzz.php";
+	public static final String WHOS_VIEWED_BY_YOU_URL		= BASE_URL+"show_profile_viewers.php";
 	
 	public static final String UPLOAD_PROFILE_VIDEO_URL		= BASE_URL+"edit_video.php";
 	public static final String UPLOAD_PROFILE_AUDIO_URL		= BASE_URL+"edit_audio.php";
-	
-		
+
+    public static final String SEARCH_URL		            = BASE_URL+"search.php";
+    public static final String ON_LINE_USER_URL		        = BASE_URL+"online_users.php";
+
+    public static final String SHOW_CHAT_HISTORY_URL		= BASE_URL+"show-chat.php";
+    public static final String SEND_MSG_URL		            = BASE_URL+"chat.php";
 }

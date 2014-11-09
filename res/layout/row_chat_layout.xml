@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res/com.digitalforce.datingapp"
+              android:layout_width="match_parent"
+              android:padding="5dp"
+              android:layout_height="wrap_content"
+              android:orientation="horizontal" >
+
+    <com.digitalforce.datingapp.widgets.RoundedImageView
+            android:id="@+id/img_match"
+            android:layout_weight="0"
+            android:layout_width="@dimen/dp_50"
+            android:layout_height="@dimen/dp_50"
+            android:contentDescription="@null"
+            android:src="@drawable/profile"
+            android:layout_gravity="center_vertical"
+            app:border="true"
+            app:border_color="@color/white"
+            app:border_width="1dp"
+            app:shadow="true" />
+
+    <TextView
+            android:layout_weight="1"
+            android:id="@+id/txt_match_name"
+            style="@style/txt_base"
+            android:layout_gravity="center_vertical"
+            android:padding="@dimen/dp_3"
+            android:text="@string/member_nmae"
+            android:textSize="@dimen/sp_14" />
+
+    <ImageView
+            android:layout_width="@dimen/dp_10"
+            android:layout_gravity="center_vertical"
+            android:layout_height="@dimen/dp_10"
+            android:layout_marginLeft="@dimen/dp_3"
+            android:contentDescription="@null"
+            android:src="@drawable/online_staus" />
+
+
+</LinearLayout>

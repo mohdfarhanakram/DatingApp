@@ -12,6 +12,7 @@
 	    android:id="@+id/edt_member_search"
 	    style="@style/edit"
 	    android:hint="@string/search"
+        android:imeOptions="actionSearch"
 	    android:textColor="@android:color/white"
 	    android:layout_marginLeft="@dimen/dp_10"
 	    android:layout_marginRight="@dimen/dp_10"

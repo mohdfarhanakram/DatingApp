@@ -156,7 +156,18 @@ public class ProfileActivity extends BaseActivity implements OnClickListener{
 			break;
 
 		case R.id.img_profile_chat:
-			ToastCustom.underDevelopment(this);
+            if(calledUserProfileId.equals(DatingAppPreference.getString(DatingAppPreference.USER_ID, "", this))){
+                Intent intentChat = new Intent(this, ChatActivity.class);
+                intentChat.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intentChat);
+            }else{
+                Intent intentChat = new Intent(this, RudeChatActivity.class);
+                intentChat.putExtra(AppConstants.CHAT_USER_ID,mUserInfo.getUserId());
+                intentChat.putExtra(AppConstants.CHAT_USER_NAME,mUserInfo.getFirstName()+" "+mUserInfo.getLastName());
+                intentChat.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intentChat);
+            }
+
 			break;
 		case R.id.img_profile_favorite:
 			if(mUserInfo!=null && mUserInfo.isFavourite()){
@@ -255,20 +266,20 @@ public class ProfileActivity extends BaseActivity implements OnClickListener{
 	}
 
 	private String getShowProfileRequestJson(){
-		//{"userid":"12345","login_userid":"32"}
-		JSONObject jsonObject = new JSONObject();
+        //{"userid":"12345","login_userid":"32"}
+        JSONObject jsonObject = new JSONObject();
 
-		try {
-			jsonObject.putOpt("userid", calledUserProfileId);
-			jsonObject.putOpt("login_userid", DatingAppPreference.getString(DatingAppPreference.USER_ID, "", this));
-		} catch (JSONException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		Log.e("Request", jsonObject.toString());
-		return jsonObject.toString();
+        try {
+            jsonObject.putOpt("userid", calledUserProfileId);
+            jsonObject.putOpt("login_userid", DatingAppPreference.getString(DatingAppPreference.USER_ID, "", this));
+        } catch (JSONException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        Log.e("Request", jsonObject.toString());
+        return jsonObject.toString();
 
-	}
+    }
 	
 	@SuppressWarnings("unchecked")
 	private void onSuccess(ServiceResponse serviceResponse)

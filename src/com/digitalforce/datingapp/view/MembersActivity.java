@@ -5,8 +5,10 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -56,7 +58,18 @@ public class MembersActivity extends BaseActivity implements OnClickListener{
 		selectFragment(new NearByFragment());
 		mtxtTitle.setText(getResources().getString(R.string.member));
 		
-		medtSearch.setVisibility(View.VISIBLE);
+		medtSearch.setVisibility(View.GONE);
+
+        medtSearch.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+                    performSearch();
+                    return true;
+                }
+                return false;
+            }
+        });
 			
 	}
 	
@@ -79,7 +92,7 @@ public class MembersActivity extends BaseActivity implements OnClickListener{
 			selectFragment(new NearByFragment());
 			mtxtNearBy.setBackgroundResource(R.drawable.left_corner_round);
 			mtxtExplore.setBackgroundResource(Color.TRANSPARENT);
-			medtSearch.setVisibility(View.VISIBLE);
+			medtSearch.setVisibility(View.GONE);
 			mtxtExplore.setTextColor(Color.WHITE);
 			mtxtNearBy.setTextColor(Color.BLACK);
 			
@@ -88,7 +101,7 @@ public class MembersActivity extends BaseActivity implements OnClickListener{
 			selectFragment(new ExploreFragment());
 			mtxtExplore.setBackgroundResource(R.drawable.right_corner_round);
 			mtxtNearBy.setBackgroundResource(Color.TRANSPARENT);
-			medtSearch.setVisibility(View.GONE);
+			medtSearch.setVisibility(View.VISIBLE);
 			mtxtExplore.setTextColor(Color.BLACK);
 			mtxtNearBy.setTextColor(Color.WHITE);
 			break;
@@ -130,7 +143,10 @@ public class MembersActivity extends BaseActivity implements OnClickListener{
 			if(fragmentmaneger.getFragments().get(i) instanceof BaseFragment){
 				BaseFragment fragment = (BaseFragment)fragmentmaneger.getFragments().get(i);
 				fragment.updateUi(serviceResponse);
-			}
+			}else if(fragmentmaneger.getFragments().get(i) instanceof ExploreFragment){
+                ExploreFragment fragment = (ExploreFragment)fragmentmaneger.getFragments().get(i);
+                fragment.updateUi(serviceResponse);
+            }
 			
 		}
 
@@ -207,6 +223,11 @@ public class MembersActivity extends BaseActivity implements OnClickListener{
 		}
 		return true;
 	}
+
+
+    private void performSearch(){
+
+    }
 	
 	/*@Override
 	protected void onResume() {

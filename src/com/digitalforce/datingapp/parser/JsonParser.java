@@ -5,6 +5,8 @@ package com.digitalforce.datingapp.parser;
 
 import java.util.ArrayList;
 
+import com.digitalforce.datingapp.model.Chat;
+import com.digitalforce.datingapp.utils.AppUtil;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -143,6 +145,43 @@ public class JsonParser {
 		return "";
 
 	}
+
+
+    public static ArrayList<Chat> parseChatHistoryData(JSONObject jsonObject){
+
+        ArrayList<Chat> chats = new ArrayList<Chat>();
+        try {
+            JSONArray jsonArray = jsonObject.optJSONArray("Data");
+            for(int i=0; i<jsonArray.length(); i++){
+                JSONObject jObj = jsonArray.optJSONObject(i);
+                if(jObj!=null){
+                    Chat chat = new Chat();
+                    chat.setUserId(jObj.optString("userId"));
+                    chat.setText(jObj.optString("text"));
+                    chat.setChatImage(jObj.optString("chat_image"));
+                    chat.setByName(jObj.optString("by_name"));
+                    chat.setByPhoto(jObj.optString("by_photo"));
+                    chat.setType(jObj.optString("type"));
+                    chat.setTime(AppUtil.getFormatedDate(jObj.optString("time")));
+
+                    if(chats.indexOf(chat)== -1){
+                        chats.add(chat);
+                        chats.add(new Chat(chat));
+
+                    }else{
+                        chat.setTime("");
+                        chats.add(chat);
+                    }
+
+                }
+            }
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return chats;
+    }
 
 
 }

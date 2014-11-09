@@ -17,6 +17,7 @@
             android:orientation="vertical" >
 
             <LinearLayout
+                    android:visibility="gone"
                 android:id="@+id/layout_setting_more_something"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -52,9 +53,10 @@
                     android:src="@drawable/next" />
             </LinearLayout>
 
-            <View style="@style/view" />
+            <View android:visibility="gone" style="@style/view" />
 
             <LinearLayout
+                    android:visibility="gone"
                 android:id="@+id/layout_setting_just_another"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -90,9 +92,10 @@
                     android:src="@drawable/next" />
             </LinearLayout>
 
-            <View style="@style/view" />
+            <View android:visibility="gone" style="@style/view" />
 
             <LinearLayout
+                    android:visibility="gone"
                 android:id="@+id/layout_setting_other"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -128,7 +131,7 @@
                     android:src="@drawable/next" />
             </LinearLayout>
 
-            <View style="@style/view" />
+            <View android:visibility="gone" style="@style/view" />
 
             <LinearLayout
                 android:id="@+id/layout_setting_profile"

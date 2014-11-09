@@ -369,7 +369,7 @@ public abstract class BaseActivity extends FragmentActivity implements IScreen,R
 	/**
 	 * Utility function for displaying progress dialog
 	 *
-	 * @param bodyText message to be shown
+	 * @param message to be shown
 	 */
 
 	public void showProgressDialog() {
@@ -683,6 +683,8 @@ public abstract class BaseActivity extends FragmentActivity implements IScreen,R
 	
 	private void logout(){
 		DatingAppPreference.putString(DatingAppPreference.USER_ID, "", this);
+        DatingAppPreference.putString(DatingAppPreference.USER_NAME, "", this);
+        DatingAppPreference.putString(DatingAppPreference.USER_PROFILE_URL, "", this);
 		Intent i = new Intent(this,LoginActivity.class);
 		i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 	    i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

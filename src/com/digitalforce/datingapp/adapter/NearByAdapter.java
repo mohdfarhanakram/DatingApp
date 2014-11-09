@@ -70,6 +70,8 @@ public class NearByAdapter extends BaseAdapter{
 			viewHolder.place = (TextView) convertView.findViewById(R.id.txt_nearby_place);
 			viewHolder.image = (RoundedImageView) convertView.findViewById(R.id.img_nearby_member);
 
+            viewHolder.country = (TextView) convertView.findViewById(R.id.txt_country);
+
 			convertView.setTag(viewHolder);
 
 		}else{
@@ -92,6 +94,14 @@ public class NearByAdapter extends BaseAdapter{
 			
 		}
 
+        if(!StringUtils.isNullOrEmpty(nearBy.getCountry())){
+
+            viewHolder.country.setText(nearBy.getCountry());
+
+        }else{
+            viewHolder.country.setVisibility(View.INVISIBLE);
+        }
+
 		if(!StringUtils.isNullOrEmpty(nearBy.getDistance())){
 			viewHolder.infoDistance.setVisibility(View.VISIBLE);
 			viewHolder.place.setText(nearBy.getDistance());
@@ -111,6 +121,7 @@ public class NearByAdapter extends BaseAdapter{
 	public class ViewHolder{
 		public TextView member;
 		public TextView place;
+        public TextView country;
 		public RoundedImageView image;
 		public LinearLayout infoLayout;
 		public LinearLayout infoDistance;

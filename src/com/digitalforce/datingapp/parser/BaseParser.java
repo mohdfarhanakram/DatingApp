@@ -90,6 +90,10 @@ public class BaseParser implements IParser {
 		case ApiEvent.My_BUZZ_EVENT:
 		case ApiEvent.UPLOAD_PROFILE_VIDEO_EVENT:
 		case ApiEvent.UPLOAD_PROFILE_AUDIO_EVENT:
+        case ApiEvent.WHOS_VIEWD_U_EVENT:
+        case ApiEvent.ON_LINE_USER:
+        case ApiEvent.CHAT_HISTORY_EVENT:
+        case ApiEvent.SEND_MSG_EVENT:
 			response.setErrorMessages(jsonObject.optString("error", null));
 			break;
 		default:
@@ -118,6 +122,7 @@ public class BaseParser implements IParser {
 		case ApiEvent.MATCH_FINDER_EVENT:
 		case ApiEvent.My_BUZZ_EVENT:
 		case ApiEvent.WHOS_VIEWD_U_EVENT:
+        case ApiEvent.ON_LINE_USER:
 			response.setResponseObject(JsonParser.parseNearByUserJson(jsonObject));
 			break;
 		case ApiEvent.SHOW_PROFILE_EVENT:
@@ -134,6 +139,11 @@ public class BaseParser implements IParser {
 		case ApiEvent.UPLOAD_PUBLIC_PICTURE_EVENT:
 			response.setResponseObject(JsonParser.parseAddPrivatePublicPhotoJson(jsonObject));
 			break;
+        case ApiEvent.CHAT_HISTORY_EVENT:
+            response.setResponseObject(JsonParser.parseChatHistoryData(jsonObject));
+            break;
+        case ApiEvent.SEND_MSG_EVENT:
+                break;
 		default:
 			break;
 		}

@@ -5,6 +5,7 @@ package com.digitalforce.datingapp.fragments;
 
 import java.util.ArrayList;
 
+import com.digitalforce.datingapp.adapter.BuzzAdapter;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -37,7 +38,7 @@ public class NewMemberFragment extends BaseFragment{
 	private View mView;
 	private GridView mGridView;
 	private ArrayList<UserInfo> mUserInfos = new ArrayList<UserInfo>();
-	private NearByAdapter mnearByAdapter;
+	private BuzzAdapter mBuzzAdapter;
 	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -77,8 +78,8 @@ public class NewMemberFragment extends BaseFragment{
 					mView.findViewById(R.id.grid_view_new_member).setVisibility(View.VISIBLE);
 					mView.findViewById(R.id.empty_view).setVisibility(View.GONE);
 
-					mnearByAdapter = new NearByAdapter(getActivity(), mUserInfos);
-					mGridView.setAdapter(mnearByAdapter);
+                    mBuzzAdapter = new BuzzAdapter(getActivity(), mUserInfos);
+					mGridView.setAdapter(mBuzzAdapter);
 
 				}else{
 

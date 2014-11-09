@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:background="@drawable/bg"
+              android:layout_height="fill_parent">
+
+    <include
+            layout="@layout/layout_action_bar"/>
+
+    <LinearLayout android:layout_weight="1"
+                  android:layout_width="fill_parent"
+                  android:layout_height="0dp">
+
+        <ListView
+                android:id="@+id/chat_list_view"
+                android:divider="@null"
+                android:dividerHeight="0dp"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+        </ListView>
+
+    </LinearLayout>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:background="#69A1De" >
+
+
+        <EditText
+            android:layout_weight="1"
+            android:id="@+id/msg_edit"
+            android:hint="Type message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_alignBottom="@+id/send_btn"
+            android:layout_toLeftOf="@+id/send_btn" >
+
+        </EditText>
+
+        <Button
+                android:layout_marginLeft="5dp"
+                android:id="@+id/send_btn"
+                 android:textSize="@dimen/sp_14"
+                android:layout_width="wrap_content"
+                android:background="@drawable/round_corner_button"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:textColor="@android:color/white"
+                android:text="Send"/>
+    </LinearLayout>
+
+</LinearLayout>

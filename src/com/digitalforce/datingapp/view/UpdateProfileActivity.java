@@ -294,6 +294,7 @@ public class UpdateProfileActivity extends BaseActivity implements OnClickListen
 
 					String picUrl = (String)serviceResponse.getResponseObject();
 					picassoLoad(picUrl, mProfileImage);
+                    DatingAppPreference.putString(DatingAppPreference.USER_PROFILE_URL, picUrl, this);
 					break;
 				case ApiEvent.SHOW_PROFILE_EVENT:
 					ArrayList<UserInfo> userInfoList = (ArrayList<UserInfo>) serviceResponse.getResponseObject();

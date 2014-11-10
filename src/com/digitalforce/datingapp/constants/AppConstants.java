@@ -46,5 +46,8 @@ public class AppConstants {
 
     public static final String CHAT_USER_ID   = "chat_user_id";
     public static final String CHAT_USER_NAME = "chat_user_name";
+    public static final String INSIGHT_USER_NAME = "insight_user_name";
+    public static final String USER_VIDEO_URL  = "user_video_url";
+    public static final String USER_AUDIO_URL  = "user_audio_url";
 
 }

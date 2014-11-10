@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:ProgressWheel="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:background="@drawable/bg"
+              android:layout_height="match_parent">
+
+    <include
+            layout="@layout/layout_action_bar"/>
+
+    <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+
+            <TextView
+                    style="@style/txt_base"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/insight_header_shape"
+                    android:padding="5dp"
+                    android:singleLine="true"
+                    android:text="Age Distribution"
+                    android:textSize="16sp" />
+
+            <com.github.mikephil.charting.charts.BarChart
+                    android:id="@+id/chart"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp" />
+
+            <TextView
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/insight_age_des"
+                    android:layout_width="fill_parent"
+                     android:text=""
+                     android:padding="5dp"
+                     android:gravity="center"
+                     android:textColor="#e8e8eb"
+                     android:textSize="12sp"
+                    android:layout_height="wrap_content"/>
+
+            <TextView
+                    android:layout_marginTop="10dp"
+                    style="@style/txt_base"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:background="@drawable/insight_header_shape"
+                    android:padding="5dp"
+                    android:singleLine="true"
+                    android:text="More Insight"
+                    android:textSize="16sp" />
+
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+
+                <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_weight="1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                    <com.digitalforce.datingapp.widgets.ProgressWheel
+                            android:id="@+id/progressBarReply"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            ProgressWheel:text="55%"
+                            ProgressWheel:textColor="@color/white"
+                            ProgressWheel:textSize="14sp"
+                            ProgressWheel:rimColor="#A1ADDF"
+                            ProgressWheel:barLength="60dp"
+                            ProgressWheel:barColor="#00BAFF"
+                            ProgressWheel:barWidth="10dp"
+                            ProgressWheel:rimWidth="10dp"
+                            ProgressWheel:spinSpeed="3dp" />
+                    <TextView
+                            android:layout_gravity="center_horizontal"
+                            android:text="Reply Rate"
+                            android:textColor="@color/white"
+                            android:textSize="14sp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                </LinearLayout>
+                <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_weight="1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                    <com.digitalforce.datingapp.widgets.ProgressWheel
+                            android:id="@+id/progressBarHeight"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            ProgressWheel:text="55%"
+                            ProgressWheel:textColor="@color/white"
+                            ProgressWheel:textSize="14sp"
+                            ProgressWheel:rimColor="#A1ADDF"
+                            ProgressWheel:barLength="60dp"
+                            ProgressWheel:barColor="#1FB36B"
+                            ProgressWheel:barWidth="10dp"
+                            ProgressWheel:rimWidth="10dp"
+                            ProgressWheel:spinSpeed="3dp" />
+                    <TextView
+                            android:layout_gravity="center_horizontal"
+                            android:text="Avg. Height"
+                            android:textColor="@color/white"
+                            android:textSize="14sp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                </LinearLayout>
+                <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_weight="1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                    <com.digitalforce.datingapp.widgets.ProgressWheel
+                            android:id="@+id/progressBarWeight"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            ProgressWheel:text="55%"
+                            ProgressWheel:textColor="@color/white"
+                            ProgressWheel:textSize="14sp"
+                            ProgressWheel:rimColor="#A1ADDF"
+                            ProgressWheel:barLength="60dp"
+                            ProgressWheel:barColor="#Ec8375"
+                            ProgressWheel:barWidth="10dp"
+                            ProgressWheel:rimWidth="10dp"
+                            ProgressWheel:spinSpeed="3dp" />
+                    <TextView
+                            android:layout_gravity="center_horizontal"
+                            android:text="Avg. Weight"
+                            android:textColor="@color/white"
+                            android:textSize="14sp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/more_insight_age_des"
+                    android:layout_width="fill_parent"
+                    android:text=""
+                    android:padding="5dp"
+                    android:gravity="center"
+                    android:textColor="#e8e8eb"
+                    android:textSize="12sp"
+                    android:layout_height="wrap_content"/>
+
+
+            <TextView
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_width="fill_parent"
+                    android:text="Insight is updated weekly"
+                    android:padding="5dp"
+                    android:gravity="center"
+                    android:textColor="#7780af"
+                    android:textSize="12sp"
+                    android:layout_height="wrap_content"/>
+
+
+        </LinearLayout>
+
+     </ScrollView>
+
+
+
+</LinearLayout>

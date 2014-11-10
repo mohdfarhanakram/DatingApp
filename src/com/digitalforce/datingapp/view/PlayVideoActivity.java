@@ -13,6 +13,7 @@ import android.view.WindowManager;
 import android.widget.MediaController;
 import android.widget.VideoView;
 import com.digitalforce.datingapp.R;
+import com.digitalforce.datingapp.constants.AppConstants;
 
 /**
  * @author m.farhan
@@ -27,7 +28,9 @@ public class PlayVideoActivity extends BaseActivity{
     // Insert your Video URL
     //String VideoURL = "http://www.androidbegin.com/tutorial/AndroidCommercial.3gp";
 
-    String VideoURL = "http://dfoutsourcingagency.com/dating/webservice/userData/23.mp4";
+    //private String VideoURL = "http://dfoutsourcingagency.com/dating/webservice/userData/23.mp4";
+
+    private String VideoURL;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +39,8 @@ public class PlayVideoActivity extends BaseActivity{
         setContentView(R.layout.activity_play_video);
         // Find your VideoView in your video_main.xml layout
         videoview = (VideoView) findViewById(R.id.VideoView);
+
+        VideoURL  = getIntent().getStringExtra(AppConstants.USER_VIDEO_URL);
 
         getWindow().clearFlags(WindowManager
                 .LayoutParams.FLAG_FORCE_NOT_FULLSCREEN);

@@ -15,72 +15,50 @@ import android.widget.VideoView;
 
 import com.digitalforce.datingapp.R;
 import com.digitalforce.datingapp.constants.AppConstants;
+import com.digitalforce.datingapp.model.UserInfo;
 import com.digitalforce.datingapp.view.PlayVideoActivity;
+import com.farru.android.utill.StringUtils;
 
 public class VideoFragment extends Fragment{
 
 	private View mView;
 	private ProgressDialog pDialog;
 
+    private UserInfo mUserInfo;
+
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
 		mView = inflater.inflate(R.layout.layout_fragment_video, container, false);
+
 
         mView.findViewById(R.id.btn_play_video).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getActivity(),PlayVideoActivity.class);
+                i.putExtra(AppConstants.USER_VIDEO_URL,mUserInfo.getVideo());
                 startActivity(i);
             }
         });
 		return mView;
 	}
+
+
+
+    public void userInfoInstance(UserInfo userInfo){
+        mUserInfo = userInfo;
+    }
 	
 	@Override
 	public void onViewCreated(View view, Bundle savedInstanceState) {
 		super.onViewCreated(view, savedInstanceState);
-		
-		/*final VideoView videoview = (VideoView)mView.findViewById(R.id.profile_video);
+        if(mUserInfo!=null && !StringUtils.isNullOrEmpty(mUserInfo.getVideo())){
+            mView.findViewById(R.id.btn_play_video).setVisibility(View.VISIBLE);
+            mView.findViewById(R.id.video_txt_view).setVisibility(View.GONE);
+        }else{
+            mView.findViewById(R.id.btn_play_video).setVisibility(View.GONE);
+            mView.findViewById(R.id.video_txt_view).setVisibility(View.VISIBLE);
 
-
-				 // Create a progressbar
-		        pDialog = new ProgressDialog(getActivity());
-		        // Set progressbar title
-		        pDialog.setTitle("Video Streaming");
-		        // Set progressbar message
-		        pDialog.setMessage("Buffering...");
-		        pDialog.setIndeterminate(false);
-		        pDialog.setCancelable(false);
-		        // Show progressbar
-		        pDialog.show();
-
-        try {
-            // Start the MediaController
-            MediaController mediacontroller = new MediaController(getActivity());
-            mediacontroller.setAnchorView(videoview);
-            // Get the URL from String VideoURL
-            Uri video = Uri.parse(AppConstants.TESTING_VIDEO_URL);
-            videoview.setMediaController(mediacontroller);
-            videoview.setVideoURI(video);
-
-        } catch (Exception e) {
-            Log.e("Error", e.getMessage());
-            e.printStackTrace();
         }
-
-        videoview.requestFocus();
-        videoview.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
-            // Close the progress bar and play the video
-            public void onPrepared(MediaPlayer mp) {
-                pDialog.dismiss();
-                videoview.start();
-            }
-
-        });
-
-*/
-
-}
-				
+    }
 
 }

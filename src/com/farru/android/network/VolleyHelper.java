@@ -45,11 +45,11 @@ import com.farru.android.volley.toolbox.Volley;
  * Helper class for volley requests and response processing
  */
 public class VolleyHelper implements IRequestCompletionListener {
-    private static final int TIMEOUT_CONN = 120000;
-    private static final int TIMEOUT_SO = 120000;
-    private static final int MCC_TIMEOUT = 120000;
+    private static final int TIMEOUT_CONN = 5* 60* 1000;
+    private static final int TIMEOUT_SO = 5* 60* 1000;
+    private static final int MCC_TIMEOUT = 5* 60* 1000;
     
-    private static final int API_TIMEOUT = 2* 60* 1000;
+    private static final int API_TIMEOUT = 5* 60* 1000;
 
     private static VolleyHelper mInstance;
     private RequestQueue mQueue;

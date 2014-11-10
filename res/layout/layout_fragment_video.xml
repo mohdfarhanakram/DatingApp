@@ -15,12 +15,13 @@
             android:textColor="#69A1De"
             android:textSize="@dimen/sp_14" />
 
-
-    <!--<VideoView
-
-        android:id="@+id/profile_video"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_centerInParent="true" />-->
+    <TextView
+            android:id="@+id/video_txt_view"
+            android:text="No Video"
+            android:layout_centerInParent="true"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
 </RelativeLayout>

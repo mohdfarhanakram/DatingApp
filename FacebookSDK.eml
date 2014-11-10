@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component jdk="Android API 19 Platform" jdk_type="Android SDK">
+	<exclude-output/>
+	<contentEntry url="file://$MODULE_DIR$/other/facebook"/>
+	<lib name="bolts-android-1.1.2.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/other/facebook/libs/bolts-android-1.1.2.jar!/"/>
+	</lib>
+	<lib name="android-support-v4.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/libs/android-support-v4.jar!/"/>
+	</lib>
+</component>

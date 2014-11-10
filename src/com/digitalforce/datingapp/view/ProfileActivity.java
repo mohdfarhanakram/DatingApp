@@ -110,7 +110,9 @@ public class ProfileActivity extends BaseActivity implements OnClickListener{
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.txt_profile_vedio:
-			selectFragment(new VideoFragment());
+            VideoFragment videoFragment = new VideoFragment();
+            videoFragment.userInfoInstance(mUserInfo);
+			selectFragment(videoFragment);
 			mtxtVedio.setBackgroundResource(R.drawable.outline_profile_selected);
 			mtxtPhotos.setBackgroundResource(Color.TRANSPARENT);
 			mtxtAudio.setBackgroundResource(Color.TRANSPARENT);
@@ -118,7 +120,9 @@ public class ProfileActivity extends BaseActivity implements OnClickListener{
 			mtxtInsight.setBackgroundResource(Color.TRANSPARENT);
 			break;
 		case R.id.txt_profile_audio:
-			selectFragment(new AudioFragment());
+            AudioFragment audioFragment = new AudioFragment();
+            audioFragment.userInfoInstance(mUserInfo);
+			selectFragment(audioFragment);
 			mtxtAudio.setBackgroundResource(R.drawable.outline_profile_selected);
 			mtxtPhotos.setBackgroundResource(Color.TRANSPARENT);
 			mtxtVedio.setBackgroundResource(Color.TRANSPARENT);
@@ -147,12 +151,16 @@ public class ProfileActivity extends BaseActivity implements OnClickListener{
 			mtxtAudio.setBackgroundResource(Color.TRANSPARENT);
 			break;
 		case R.id.txt_profile_insight:
-			ToastCustom.underDevelopment(this);
-			mtxtInsight.setBackgroundResource(R.drawable.outline_profile_selected);
+			//ToastCustom.underDevelopment(this);
+            Intent i = new Intent(this,InsightActivity.class);
+            i.putExtra(AppConstants.INSIGHT_USER_NAME,mUserInfo.getFirstName());
+            startActivity(i);
+
+			/*mtxtInsight.setBackgroundResource(R.drawable.outline_profile_selected);
 			mtxtAbout.setBackgroundResource(Color.TRANSPARENT);
 			mtxtPhotos.setBackgroundResource(Color.TRANSPARENT);
 			mtxtVedio.setBackgroundResource(Color.TRANSPARENT);
-			mtxtAudio.setBackgroundResource(Color.TRANSPARENT);
+			mtxtAudio.setBackgroundResource(Color.TRANSPARENT);*/
 			break;
 
 		case R.id.img_profile_chat:

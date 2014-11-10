@@ -1,15 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@android:color/transparent"
-    android:orientation="vertical" >
-    <TextView 
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/under_development"
-        android:gravity="center"
-        android:textSize="@dimen/sp_14"
-        android:textColor="@android:color/white"/>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="200dp"
+                android:background="@android:color/transparent">
 
-</LinearLayout>
+    <Button
+            android:id="@+id/btn_play_audio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:layout_centerInParent="true"
+            android:padding="@dimen/dp_10"
+            android:text="Play Audio"
+            android:textColor="#69A1De"
+            android:textSize="@dimen/sp_14" />
+
+    <TextView
+            android:id="@+id/audio_txt_view"
+            android:text="No Audio"
+            android:layout_centerInParent="true"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+</RelativeLayout>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module classpath="eclipse" classpath-dir="$MODULE_DIR$/other/google-play-services_lib" type="JAVA_MODULE" version="4">
+  <component name="FacetManager">
+    <facet type="android" name="Android">
+      <configuration>
+        <option name="GEN_FOLDER_RELATIVE_PATH_APT" value="/other/google-play-services_lib/gen" />
+        <option name="GEN_FOLDER_RELATIVE_PATH_AIDL" value="/other/google-play-services_lib/gen" />
+        <option name="MANIFEST_FILE_RELATIVE_PATH" value="/other/google-play-services_lib/AndroidManifest.xml" />
+        <option name="RES_FOLDER_RELATIVE_PATH" value="/other/google-play-services_lib/res" />
+        <option name="ASSETS_FOLDER_RELATIVE_PATH" value="/other/google-play-services_lib/assets" />
+        <option name="LIBS_FOLDER_RELATIVE_PATH" value="/other/google-play-services_lib/libs" />
+        <option name="LIBRARY_PROJECT" value="true" />
+        <option name="PROGUARD_LOGS_FOLDER_RELATIVE_PATH" value="/other/google-play-services_lib/proguard_logs" />
+      </configuration>
+    </facet>
+  </component>
+</module>
+

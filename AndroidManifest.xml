@@ -125,6 +125,9 @@
         <activity
                 android:name="com.digitalforce.datingapp.view.RudeChatActivity"
                 android:screenOrientation="portrait" />
+        <activity
+                android:name="com.digitalforce.datingapp.view.InsightActivity"
+                android:screenOrientation="portrait" />
         <receiver
                 android:name="com.digitalforce.datingapp.gcm.GcmBroadcastReceiver"
                 android:permission="com.google.android.c2dm.permission.SEND" >

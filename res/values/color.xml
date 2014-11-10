@@ -21,4 +21,11 @@
     <color name="view_color">#04061F</color>
     <color name="profile_unselected_color">#a1addf</color>
 
+    <color name="bar_color_1">#fdac37</color>
+    <color name="bar_color_2">#00baff</color>
+    <color name="bar_color_3">#ec8375</color>
+    <color name="bar_color_4">#1fb36b</color>
+
+
+
 </resources>

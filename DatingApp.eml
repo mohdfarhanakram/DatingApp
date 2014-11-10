@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component jdk="Android API 19 Platform" jdk_type="Android SDK">
+	<exclude-output/>
+	<contentEntry url="file://$MODULE_DIR$"/>
+	<lib name="twitter4j-core-4.0.1.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/libs/twitter4j-core-4.0.1.jar!/"/>
+	</lib>
+	<lib name="android-support-v4.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/libs/android-support-v4.jar!/"/>
+	</lib>
+	<lib name="bolts-android-1.1.2.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/other/facebook/libs/bolts-android-1.1.2.jar!/"/>
+	</lib>
+	<lib name="google-play-services.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/other/google-play-services_lib/libs/google-play-services.jar!/"/>
+	</lib>
+	<lib name="F:\Project\DatingApp\DatingApp\other\MPChartLib\libs\nineoldandroids-2.4.0-2.jar" scope="COMPILE">
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/other/MPChartLib/libs/nineoldandroids-2.4.0-2.jar!/"/>
+	</lib>
+</component>

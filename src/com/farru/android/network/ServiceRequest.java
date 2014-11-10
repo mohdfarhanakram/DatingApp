@@ -15,7 +15,7 @@ public class ServiceRequest {
 	private int					httpMethod;
 	private HttpEntity			postData;
 	private boolean				isCompressed;
-	private int					requestTimeOut;
+	private int					requestTimeOut = 5*60*1000;
 	private String[]			headerNames;
 	private String[]			headerValues;
 	private boolean				isCancelled;

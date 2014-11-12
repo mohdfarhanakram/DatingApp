@@ -9,6 +9,7 @@ import java.util.HashMap;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import com.splunk.mint.Mint;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -85,6 +86,7 @@ public abstract class BaseActivity extends FragmentActivity implements IScreen,R
             restoreInstanceState(savedInstanceState);
         }
 		super.onCreate(savedInstanceState);
+        Mint.initAndStartSession(this, AppConstants.BUGSENSE_API_KEY);   //Bug Sense session
 		if (BuildConfig.DEBUG) {
 			Log.i(LOG_TAG, "onCreate()");
 		}

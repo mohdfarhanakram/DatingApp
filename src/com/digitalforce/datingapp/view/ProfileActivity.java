@@ -154,6 +154,7 @@ public class ProfileActivity extends BaseActivity implements OnClickListener{
 			//ToastCustom.underDevelopment(this);
             Intent i = new Intent(this,InsightActivity.class);
             i.putExtra(AppConstants.INSIGHT_USER_NAME,mUserInfo.getFirstName());
+            i.putExtra(AppConstants.USER_INSIGHT_INFO,mUserInfo.getInsight());
             startActivity(i);
 
 			/*mtxtInsight.setBackgroundResource(R.drawable.outline_profile_selected);

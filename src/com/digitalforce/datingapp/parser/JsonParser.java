@@ -6,6 +6,7 @@ package com.digitalforce.datingapp.parser;
 import java.util.ArrayList;
 
 import com.digitalforce.datingapp.model.Chat;
+import com.digitalforce.datingapp.model.Insight;
 import com.digitalforce.datingapp.utils.AppUtil;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -97,6 +98,22 @@ public class JsonParser {
 				nearByUserList.add(nearBy);
 			}
 		}
+
+        JSONObject jsonInsight = jsonObject.optJSONObject("insight");
+        if(jsonInsight!=null && nearByUserList.size()==1){
+            Insight insight = new Insight();
+            insight.setAgebetween18and19(jsonInsight.optString("agebetween18and19"));
+            insight.setAgebetween20and24(jsonInsight.optString("agebetween20and24"));
+            insight.setAgebetween25and29(jsonInsight.optString("agebetween25and29"));
+            insight.setHeight(jsonInsight.optString("height"));
+            insight.setReplyRate(jsonInsight.optString("reply_rate"));
+            insight.setWeight(jsonInsight.optString("weight"));
+
+            nearByUserList.get(0).setInsight(insight);
+
+        }
+
+
 
 		return nearByUserList;
 

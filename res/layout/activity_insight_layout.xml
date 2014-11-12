@@ -18,22 +18,119 @@
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent">
 
-            <TextView
-                    style="@style/txt_base"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:background="@drawable/insight_header_shape"
-                    android:padding="5dp"
-                    android:singleLine="true"
-                    android:text="Age Distribution"
-                    android:textSize="16sp" />
 
-            <com.github.mikephil.charting.charts.BarChart
-                    android:id="@+id/chart"
-                    android:layout_width="match_parent"
-                    android:layout_height="200dp" />
+            <LinearLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="5dp"
+                    android:orientation="horizontal"
+                    android:layout_width="fill_parent"
+                    android:background="@drawable/insight_header_shape"
+                    android:layout_height="@dimen/insight_header_height">
+
+                <View android:layout_width="5dp" android:background="@color/about_bg_color" android:layout_height="@dimen/insight_header_height"></View>
+                <TextView
+
+                        style="@style/txt_base"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:layout_gravity="center_vertical"
+                        android:singleLine="true"
+                        android:text="Age Distribution"
+                        android:textSize="16sp" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content">
+
+                <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_weight="1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                    <com.digitalforce.datingapp.widgets.ProgressWheel
+                            android:id="@+id/progressBar1819"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            ProgressWheel:text="55%"
+                            ProgressWheel:textColor="@color/white"
+                            ProgressWheel:textSize="14sp"
+                            ProgressWheel:rimColor="#A1ADDF"
+                            ProgressWheel:barLength="60dp"
+                            ProgressWheel:barColor="#00BAFF"
+                            ProgressWheel:barWidth="10dp"
+                            ProgressWheel:rimWidth="10dp"
+                            ProgressWheel:spinSpeed="3dp" />
+                    <TextView
+                            android:layout_gravity="center_horizontal"
+                            android:text="18-19"
+                            android:textColor="@color/white"
+                            android:textSize="14sp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                </LinearLayout>
+                <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_weight="1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                    <com.digitalforce.datingapp.widgets.ProgressWheel
+                            android:id="@+id/progressBar2024"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            ProgressWheel:text="55%"
+                            ProgressWheel:textColor="@color/white"
+                            ProgressWheel:textSize="14sp"
+                            ProgressWheel:rimColor="#A1ADDF"
+                            ProgressWheel:barLength="60dp"
+                            ProgressWheel:barColor="#1FB36B"
+                            ProgressWheel:barWidth="10dp"
+                            ProgressWheel:rimWidth="10dp"
+                            ProgressWheel:spinSpeed="3dp" />
+                    <TextView
+                            android:layout_gravity="center_horizontal"
+                            android:text="20-24"
+                            android:textColor="@color/white"
+                            android:textSize="14sp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                </LinearLayout>
+                <LinearLayout
+                        android:orientation="vertical"
+                        android:layout_weight="1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                    <com.digitalforce.datingapp.widgets.ProgressWheel
+                            android:id="@+id/progressBar2529"
+                            android:layout_gravity="center_horizontal"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            ProgressWheel:text="55%"
+                            ProgressWheel:textColor="@color/white"
+                            ProgressWheel:textSize="14sp"
+                            ProgressWheel:rimColor="#A1ADDF"
+                            ProgressWheel:barLength="60dp"
+                            ProgressWheel:barColor="#Ec8375"
+                            ProgressWheel:barWidth="10dp"
+                            ProgressWheel:rimWidth="10dp"
+                            ProgressWheel:spinSpeed="3dp" />
+                    <TextView
+                            android:layout_gravity="center_horizontal"
+                            android:text="25-29"
+                            android:textColor="@color/white"
+                            android:textSize="14sp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                </LinearLayout>
+            </LinearLayout>
+
+
 
             <TextView
                     android:layout_marginTop="10dp"
@@ -45,18 +142,30 @@
                      android:textColor="#e8e8eb"
                      android:textSize="12sp"
                     android:layout_height="wrap_content"/>
-
-            <TextView
+            
+            <LinearLayout
                     android:layout_marginTop="10dp"
-                    style="@style/txt_base"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
+                    android:orientation="horizontal"
+                    android:layout_width="fill_parent"
                     android:background="@drawable/insight_header_shape"
-                    android:padding="5dp"
-                    android:singleLine="true"
-                    android:text="More Insight"
-                    android:textSize="16sp" />
+                    android:layout_height="@dimen/insight_header_height">
+
+                <View android:layout_width="5dp" android:background="@color/about_bg_color" android:layout_height="@dimen/insight_header_height"></View>
+                <TextView
+
+                        style="@style/txt_base"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:layout_gravity="center_vertical"
+                        android:singleLine="true"
+                        android:text="More Insight"
+                        android:textSize="16sp" />
+
+            </LinearLayout>
+
+
 
             <LinearLayout
                     android:orientation="horizontal"

@@ -18,7 +18,7 @@ import android.widget.GridView;
 
 public class PhotosFragment extends BaseFragment{
 	
-	private ArrayList<String> mPhotoList;
+	private ArrayList<String> mPhotoList = new ArrayList<String>();
 	private View mView;
 
 	@Override

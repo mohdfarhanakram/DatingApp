@@ -24,10 +24,17 @@ public class UserInfo extends NearBy{
 	private String interest;
 	private String sexRole;
 	private boolean favourite;
-    private String latitude;
-    private String longitude;
-	
-	private ArrayList<String> photos = new ArrayList<String>();
+    private Insight insight;
+
+    public Insight getInsight() {
+        return insight;
+    }
+
+    public void setInsight(Insight insight) {
+        this.insight = insight;
+    }
+
+    private ArrayList<String> photos = new ArrayList<String>();
 	
 	
 	

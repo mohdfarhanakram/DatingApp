@@ -81,6 +81,9 @@ public abstract class BaseActivity extends FragmentActivity implements IScreen,R
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+        if(savedInstanceState!=null){
+            restoreInstanceState(savedInstanceState);
+        }
 		super.onCreate(savedInstanceState);
 		if (BuildConfig.DEBUG) {
 			Log.i(LOG_TAG, "onCreate()");
@@ -119,7 +122,23 @@ public abstract class BaseActivity extends FragmentActivity implements IScreen,R
 		}
 	}
 
-	@Override
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        saveInstanceState(outState);
+        super.onSaveInstanceState(outState);
+    }
+
+    protected void restoreInstanceState(Bundle savedInstanceState){};
+    protected void saveInstanceState(Bundle outState){
+
+    }
+
+    @Override
 	protected void onResume() {
 		super.onResume();
 		if (BuildConfig.DEBUG) {

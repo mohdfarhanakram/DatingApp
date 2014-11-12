@@ -102,20 +102,10 @@ public class SignUpActivity extends BaseActivity implements OnClickListener{
 		case ApiEvent.SIGN_UP_EVENT:
 			UserInfo userInfo = (UserInfo)serviceResponse.getResponseObject();
 			if(userInfo!=null){
-				//showCommonError(serviceResponse.getBaseModel().getSuccessMsg());
-                fetchUserProfile(userInfo.getUserId());
+				showCommonError(serviceResponse.getBaseModel().getSuccessMsg());
+                navigateToHomeScreen(userInfo);
 			}
 			break;
-           case ApiEvent.SHOW_PROFILE_EVENT:
-               ArrayList<UserInfo> userInfoArrayList;
-               userInfoArrayList = (ArrayList<UserInfo>) serviceResponse.getResponseObject();
-               if(userInfoArrayList!=null && userInfoArrayList.size()>0){
-                   //showCommonError(serviceResponse.getBaseModel().getSuccessMsg());
-                   navigateToHomeScreen(userInfoArrayList.get(0));
-               }else{
-                   showCommonError(null);
-               }
-               break;
 
 		default:
 			break;
@@ -123,29 +113,6 @@ public class SignUpActivity extends BaseActivity implements OnClickListener{
 	}
 
 
-    private void fetchUserProfile(String userId){
-        String postData = getShowProfileRequestJson(userId);
-        Log.e("Post Data", postData);
-        postData(DatingUrlConstants.SHOW_PROFILE_URL, ApiEvent.SHOW_PROFILE_EVENT, postData);
-    }
-
-    private String getShowProfileRequestJson(String userId){
-        //{"userid":"12345","login_userid":"32"}
-        JSONObject jsonObject = new JSONObject();
-
-        try {
-            jsonObject.putOpt("userid", userId);
-            jsonObject.putOpt("login_userid", userId);
-        } catch (JSONException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-        Log.e("Request", jsonObject.toString());
-        return jsonObject.toString();
-
-    }
-	
-	
 	private String getRequestJson(){
 
 		//{"email":"shaan@gmail.com", "password":"12345", "confirmpass":"12345", "lat":"743872432", "long":"3749382", "device":"89748937432784937498hjjk38343"}

@@ -66,13 +66,29 @@ public class MyPictureActivity extends BaseActivity implements OnClickListener{
 		mtxtPublicPic.setOnClickListener(this);
 		mtxtPrivatePic.setOnClickListener(this);
 
-		selectFragment(new PublicPhotoFragment());
+        if(isPublicSelected)
+		    selectFragment(new PublicPhotoFragment());
+        else
+            selectFragment(new PrivatePhotoFragment());
+
 		mtxtTitle.setText(getResources().getString(R.string.mypicyure));
 
 
 	}
 
-	@Override
+    @Override
+    protected void saveInstanceState(Bundle outState) {
+        super.saveInstanceState(outState);
+        outState.putBoolean("isPublicSelected",isPublicSelected);
+    }
+
+    @Override
+    protected void restoreInstanceState(Bundle savedInstanceState) {
+        super.restoreInstanceState(savedInstanceState);
+        isPublicSelected = savedInstanceState.getBoolean("isPublicSelected");
+    }
+
+    @Override
 	protected void onPostCreate(Bundle savedInstanceState) {
 		super.onPostCreate(savedInstanceState);
 

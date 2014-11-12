@@ -25,6 +25,9 @@ public class JsonParser {
 	public static UserInfo parseLoginJson(JSONObject jsonObject){
 		UserInfo userInfo = new UserInfo();
 		userInfo.setUserId(jsonObject.optString("userid"));
+        userInfo.setFirstName(jsonObject.optString("firstname"));   // it was earlier firstName
+        userInfo.setLastName(jsonObject.optString("lastname"));
+        userInfo.setImage(jsonObject.optString("image"));
 		return userInfo;
 	}
 

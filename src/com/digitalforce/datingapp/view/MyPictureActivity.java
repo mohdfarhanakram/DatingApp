@@ -66,13 +66,22 @@ public class MyPictureActivity extends BaseActivity implements OnClickListener{
 		mtxtPublicPic.setOnClickListener(this);
 		mtxtPrivatePic.setOnClickListener(this);
 
-		selectFragment(new PublicPhotoFragment());
+        drawFragment(isPublicSelected);
 		mtxtTitle.setText(getResources().getString(R.string.mypicyure));
-
 
 	}
 
-	@Override
+    @Override
+    protected void saveInstanceState(Bundle outState) {
+        outState.putBoolean("isPublicSelected",isPublicSelected);
+    }
+
+    @Override
+    protected void restoreInstanceState(Bundle savedInstanceState) {
+        isPublicSelected = savedInstanceState.getBoolean("isPublicSelected", true);
+    }
+
+    @Override
 	protected void onPostCreate(Bundle savedInstanceState) {
 		super.onPostCreate(savedInstanceState);
 
@@ -125,20 +134,10 @@ public class MyPictureActivity extends BaseActivity implements OnClickListener{
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.txt_public_photo:
-			selectFragment(new PublicPhotoFragment());
-			mtxtPublicPic.setBackgroundResource(R.drawable.left_corner_round);
-			mtxtPrivatePic.setBackgroundResource(Color.TRANSPARENT);
-			mtxtPrivatePic.setTextColor(Color.WHITE);
-			mtxtPublicPic.setTextColor(Color.BLACK);
-			isPublicSelected = true;
+            drawFragment(true);
 			break;
 		case R.id.txt_private_photo:
-			selectFragment(new PrivatePhotoFragment());
-			mtxtPrivatePic.setBackgroundResource(R.drawable.right_corner_round);
-			mtxtPublicPic.setBackgroundResource(Color.TRANSPARENT);
-			mtxtPrivatePic.setTextColor(Color.BLACK);
-			mtxtPublicPic.setTextColor(Color.WHITE);
-			isPublicSelected = false;
+            drawFragment(false);
 			break;
 		case R.id.img_action_add:
 			selectImage();
@@ -148,6 +147,25 @@ public class MyPictureActivity extends BaseActivity implements OnClickListener{
 		}
 
 	}
+
+
+    private void drawFragment(boolean fragmentType){
+        isPublicSelected = fragmentType;
+        if(fragmentType){
+            selectFragment(new PublicPhotoFragment());
+            mtxtPublicPic.setBackgroundResource(R.drawable.left_corner_round);
+            mtxtPrivatePic.setBackgroundResource(Color.TRANSPARENT);
+            mtxtPrivatePic.setTextColor(Color.WHITE);
+            mtxtPublicPic.setTextColor(Color.BLACK);
+        }else{
+            selectFragment(new PrivatePhotoFragment());
+            mtxtPrivatePic.setBackgroundResource(R.drawable.right_corner_round);
+            mtxtPublicPic.setBackgroundResource(Color.TRANSPARENT);
+            mtxtPrivatePic.setTextColor(Color.BLACK);
+            mtxtPublicPic.setTextColor(Color.WHITE);
+        }
+
+    }
 
 	private void selectFragment(Fragment fragment)
 	{

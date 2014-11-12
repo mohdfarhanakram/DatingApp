@@ -92,9 +92,7 @@ public class SignUpActivity extends BaseActivity implements OnClickListener{
 		}else{
 			showCommonError(null);
 		}
-		
-		
-		
+
 	}
 	
 	private void onSuccess(ServiceResponse serviceResponse){
@@ -102,20 +100,11 @@ public class SignUpActivity extends BaseActivity implements OnClickListener{
 		case ApiEvent.SIGN_UP_EVENT:
 			UserInfo userInfo = (UserInfo)serviceResponse.getResponseObject();
 			if(userInfo!=null){
-				//showCommonError(serviceResponse.getBaseModel().getSuccessMsg());
+				showCommonError(serviceResponse.getBaseModel().getSuccessMsg());
                 fetchUserProfile(userInfo.getUserId());
+                navigateToHomeScreen(userInfo);
 			}
 			break;
-           case ApiEvent.SHOW_PROFILE_EVENT:
-               ArrayList<UserInfo> userInfoArrayList;
-               userInfoArrayList = (ArrayList<UserInfo>) serviceResponse.getResponseObject();
-               if(userInfoArrayList!=null && userInfoArrayList.size()>0){
-                   //showCommonError(serviceResponse.getBaseModel().getSuccessMsg());
-                   navigateToHomeScreen(userInfoArrayList.get(0));
-               }else{
-                   showCommonError(null);
-               }
-               break;
 
 		default:
 			break;

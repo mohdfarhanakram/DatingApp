@@ -81,6 +81,9 @@ public abstract class BaseActivity extends FragmentActivity implements IScreen,R
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+        if(savedInstanceState!=null){
+            restoreInstanceState(savedInstanceState);
+        }
 		super.onCreate(savedInstanceState);
 		if (BuildConfig.DEBUG) {
 			Log.i(LOG_TAG, "onCreate()");
@@ -89,7 +92,28 @@ public abstract class BaseActivity extends FragmentActivity implements IScreen,R
 		getHashKey();
 	}
 
-	@Override
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        saveInstanceState(outState);
+        super.onSaveInstanceState(outState);
+    }
+
+    /*
+     * Save instance state
+     */
+    protected void saveInstanceState(Bundle outState){
+
+    }
+
+    /*
+     * Restore instance state.
+     */
+    protected void restoreInstanceState(Bundle savedInstanceState){
+
+    }
+
+
+    @Override
 	protected void onPostCreate(Bundle savedInstanceState) {
 		super.onPostCreate(savedInstanceState);
 

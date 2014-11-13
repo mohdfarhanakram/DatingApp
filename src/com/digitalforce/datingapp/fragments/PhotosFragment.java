@@ -2,9 +2,13 @@ package com.digitalforce.datingapp.fragments;
 
 import java.util.ArrayList;
 
+import android.content.Intent;
+import android.widget.AdapterView;
 import com.digitalforce.datingapp.R;
 import com.digitalforce.datingapp.adapter.MyPictureAdapter;
 import com.digitalforce.datingapp.adapter.ProfilePhotoAdapter;
+import com.digitalforce.datingapp.constants.AppConstants;
+import com.digitalforce.datingapp.view.PhotoDetailActivity;
 import com.farru.android.utill.Utils;
 
 
@@ -41,6 +45,13 @@ public class PhotosFragment extends BaseFragment{
 			mView.findViewById(R.id.grid_view_picture).setVisibility(View.VISIBLE);
 			
 			GridView gridView = (GridView)mView.findViewById(R.id.grid_view_picture);
+            gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+                @Override
+                public void onItemClick(AdapterView<?> parent, View v, int position,long id) {
+                    selectImageOperation(mPhotoList.get(position));
+                }
+            });
 			gridView.setAdapter(new ProfilePhotoAdapter(getActivity(), mPhotoList));
 			
 			Utils.setGridViewHeightBasedOnChildren(gridView, 4, Utils.dpToPx(2));
@@ -51,4 +62,11 @@ public class PhotosFragment extends BaseFragment{
 		
 
 	}
+
+    private void selectImageOperation(String imgUrl) {
+
+        Intent intent = new Intent(getActivity(),PhotoDetailActivity.class);
+        intent.putExtra(AppConstants.IMAGE_URL, imgUrl);
+        startActivity(intent);
+    }
 }

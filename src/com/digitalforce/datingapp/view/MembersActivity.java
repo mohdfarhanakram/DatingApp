@@ -80,7 +80,6 @@ public class MembersActivity extends BaseActivity implements OnClickListener{
 		//initilizeMap();
 	}
 	
-	
 
 	@Override
 	public void onClick(View v) {

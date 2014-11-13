@@ -35,5 +35,7 @@ public interface ApiEvent {
     public static final int ON_LINE_USER   	                = 24;
     public static final int CHAT_HISTORY_EVENT   	        = 25;
     public static final int SEND_MSG_EVENT   	            = 26;
+    public static final int MARK_INTERESTED_EVENT   	    = 27;
+    public static final int MARK_NOT_INTERESTED_EVENT   	= 28;
 
 }

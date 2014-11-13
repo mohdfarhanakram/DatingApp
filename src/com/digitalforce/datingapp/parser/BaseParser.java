@@ -94,6 +94,8 @@ public class BaseParser implements IParser {
         case ApiEvent.ON_LINE_USER:
         case ApiEvent.CHAT_HISTORY_EVENT:
         case ApiEvent.SEND_MSG_EVENT:
+        case ApiEvent.MARK_INTERESTED_EVENT:
+        case ApiEvent.MARK_NOT_INTERESTED_EVENT:
 			response.setErrorMessages(jsonObject.optString("error", null));
 			break;
 		default:
@@ -144,6 +146,9 @@ public class BaseParser implements IParser {
             break;
         case ApiEvent.SEND_MSG_EVENT:
                 break;
+       case ApiEvent.MARK_INTERESTED_EVENT:
+       case ApiEvent.MARK_NOT_INTERESTED_EVENT:
+           break;
 		default:
 			break;
 		}

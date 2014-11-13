@@ -51,7 +51,7 @@ public class UpdateProfileActivity extends BaseActivity implements OnClickListen
 	private TextView mtxtTitle, mtxtTap;
 	private EditText medtFname,medtLname,medtDob,medtGender,medtCountry,medtMobile,
 	medtAboutMe, medtAge,  medtHeight, medtWeight, medtLokingFor,
-	medtHivStatus,medtInterest,medtSexRole; 
+	medtHivStatus,medtInterest,medtSexRole,medtCity,medtBodyType,medtEthnicity;
 	private Button mbtnUpdate;
 
 	private RoundedImageView mProfileImage;
@@ -84,8 +84,15 @@ public class UpdateProfileActivity extends BaseActivity implements OnClickListen
 			"St Vincent","St. Lucia","Sudan","Suriname","Swaziland","Sweden","Switzerland","Syria","Taiwan","Tajikistan","Tanzania","Thailand","Timor L'Este",
 			"Togo","Tonga","Trinidad &amp; Tobago","Tunisia","Turkey","Turkmenistan","Turks &amp; Caicos","Uganda","Ukraine","United Arab Emirates","United Kingdom",
 			"Uruguay","USA","Uzbekistan","Venezuela","Vietnam","Virgin Islands (US)","Yemen","Zambia","Zimbabwe"};
-	
-	//private String[] mAge;
+
+    private String sex_roles[] = {"Top Versatile","Top (Vers Top)","Bottom(Vers Bottom)"};
+
+    private String looking_for[] = {"Sex","Relationship","Long Term Relationship","Dating","Fun","Flirt","Friends","Network","Sugar Daddy"};
+
+    private String booking_types[] = {"EctoMorph","Mesomorph","Endomorph"};
+
+
+    //private String[] mAge;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -100,6 +107,7 @@ public class UpdateProfileActivity extends BaseActivity implements OnClickListen
 		medtLname = (EditText) findViewById(R.id.edt_update_profile_lname);
 		//medtDob = (EditText) findViewById(R.id.edt_update_profile_dob);
 		medtGender = (EditText) findViewById(R.id.edt_update_profile_gender);
+        medtCity = (EditText) findViewById(R.id.edt_update_profile_city);
 		medtCountry = (EditText) findViewById(R.id.edt_update_profile_country);
 		medtMobile = (EditText) findViewById(R.id.edt_update_profile_mobile);
 		medtAboutMe = (EditText) findViewById(R.id.edt_update_profile_about_me);
@@ -112,6 +120,8 @@ public class UpdateProfileActivity extends BaseActivity implements OnClickListen
 		medtSexRole = (EditText) findViewById(R.id.edt_update_profile_sex_role);
 		mbtnUpdate = (Button) findViewById(R.id.btn_update_profile_update);
 		mtxtTap = (TextView) findViewById(R.id.txt_update_profile_photo);
+        medtBodyType = (EditText) findViewById(R.id.edt_update_profile_body_type);
+        medtEthnicity = (EditText) findViewById(R.id.edt_update_profile_ethnicity);
 
 		mProfileImage = (RoundedImageView)findViewById(R.id.img_nearby_member);
 		
@@ -134,6 +144,9 @@ public class UpdateProfileActivity extends BaseActivity implements OnClickListen
 		medtWeight.setOnClickListener(this);
 		medtHeight.setOnClickListener(this);
 		medtHivStatus.setOnClickListener(this);
+        medtCity.setOnClickListener(this);
+        medtBodyType.setOnClickListener(this);
+        medtEthnicity.setOnClickListener(this);
 
 		mProfileImage.setFocusable(true);
 
@@ -197,6 +210,9 @@ public class UpdateProfileActivity extends BaseActivity implements OnClickListen
 			//new DialogUpdateProfile(UpdateProfileActivity.this, medtCountry, getResources().getString(R.string.country), medtCountry.getText().toString()).show();
 			showSingleSelectionDialog(medtCountry, country_list, getResources().getString(R.string.country));
 			break;
+        case R.id.edt_update_profile_city:
+              new DialogUpdateProfile(UpdateProfileActivity.this, medtCity, getResources().getString(R.string.city), medtCity.getText().toString()).show();
+             break;
 		case R.id.edt_update_profile_mobile:
 			new DialogUpdateProfile(UpdateProfileActivity.this, medtMobile, getResources().getString(R.string.mobile), medtMobile.getText().toString()).show();
 			break;
@@ -216,14 +232,26 @@ public class UpdateProfileActivity extends BaseActivity implements OnClickListen
 			showSingleSelectionDialog(medtHivStatus, mHivStatus, getResources().getString(R.string.hiv_status));
 			break;
 		case R.id.edt_update_profile_loking_for:
-			new DialogUpdateProfile(UpdateProfileActivity.this, medtLokingFor, getResources().getString(R.string.loking_for), medtLokingFor.getText().toString()).show();
+			//new DialogUpdateProfile(UpdateProfileActivity.this, medtLokingFor, getResources().getString(R.string.loking_for), medtLokingFor.getText().toString()).show();
+            showSingleSelectionDialog(medtLokingFor, looking_for, "Looking For");
+
 			break;
 		case R.id.edt_update_profile_interest:
-			new DialogUpdateProfile(UpdateProfileActivity.this, medtInterest, getResources().getString(R.string.interest), medtInterest.getText().toString()).show();
-			break;
+                new DialogUpdateProfile(UpdateProfileActivity.this, medtInterest, getResources().getString(R.string.interest), medtInterest.getText().toString()).show();
+
+                break;
+            case R.id.edt_update_profile_ethnicity:
+                new DialogUpdateProfile(UpdateProfileActivity.this, medtEthnicity, "Ethnicity", medtEthnicity.getText().toString()).show();
+
+                break;
 		case R.id.edt_update_profile_sex_role:
-			new DialogUpdateProfile(UpdateProfileActivity.this, medtSexRole, getResources().getString(R.string.sex_role), medtSexRole.getText().toString()).show();
+			//new DialogUpdateProfile(UpdateProfileActivity.this, medtSexRole, getResources().getString(R.string.sex_role), medtSexRole.getText().toString()).show();
+            showSingleSelectionDialog(medtSexRole, sex_roles, "Sex Role");
 			break;
+        case R.id.edt_update_profile_body_type:
+                //new DialogUpdateProfile(UpdateProfileActivity.this, medtSexRole, getResources().getString(R.string.sex_role), medtSexRole.getText().toString()).show();
+           showSingleSelectionDialog(medtBodyType,booking_types, "Body Type");
+           break;
 		default:
 			break;
 		}
@@ -338,18 +366,23 @@ public class UpdateProfileActivity extends BaseActivity implements OnClickListen
 			jsonObject.putOpt("userid", DatingAppPreference.getString(DatingAppPreference.USER_ID, "", this));
 			jsonObject.putOpt("fname", medtFname.getText().toString());
 			jsonObject.putOpt("lname", medtLname.getText().toString());
-			//jsonObject.putOpt("dob", medtDob.getText().toString());
+			jsonObject.putOpt("city", medtCity.getText().toString());
 			jsonObject.putOpt("gender", medtGender.getText().toString());
 			jsonObject.putOpt("country", medtCountry.getText().toString());
 			jsonObject.putOpt("mobile", medtMobile.getText().toString());
 			jsonObject.putOpt("about_me", medtAboutMe.getText().toString());
 			jsonObject.putOpt("age", medtAge.getText().toString());
+            jsonObject.putOpt("dob", "");
 			jsonObject.putOpt("height", medtHeight.getText().toString());
 			jsonObject.putOpt("weight", medtWeight.getText().toString());
 			jsonObject.putOpt("hiv_status", medtHivStatus.getText().toString());
 			jsonObject.putOpt("looking_for", medtLokingFor.getText().toString());
 			jsonObject.putOpt("interest", medtInterest.getText().toString());
+
 			jsonObject.putOpt("sex_role", medtSexRole.getText().toString());
+            jsonObject.putOpt("body_type", medtBodyType.getText().toString());
+            jsonObject.putOpt("ethnicity", medtEthnicity.getText().toString());
+
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

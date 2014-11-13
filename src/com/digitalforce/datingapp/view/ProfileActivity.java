@@ -98,10 +98,15 @@ public class ProfileActivity extends BaseActivity implements OnClickListener{
 			mimgFavourite.setEnabled(true);
 			mimgFavourite.setClickable(true);
 		}
+
+        findViewById(R.id.txt_interested).setOnClickListener(this);
+        findViewById(R.id.txt_not_interested).setOnClickListener(this);
 		
 		String postData = getShowProfileRequestJson();
 		Log.e("Post Data", postData);
 		postData(DatingUrlConstants.SHOW_PROFILE_URL, ApiEvent.SHOW_PROFILE_EVENT, postData);
+
+
 		
 		
 	}
@@ -186,6 +191,16 @@ public class ProfileActivity extends BaseActivity implements OnClickListener{
 			}
 			
 			break;
+            case R.id.txt_interested:
+                if(!(Boolean)v.getTag()){
+                    markInterested(true);
+                }
+                break;
+            case R.id.txt_not_interested:
+                if(!(Boolean)v.getTag()){
+                    markInterested(false);
+                }
+                break;
 		default:
 			break;
 		}
@@ -228,6 +243,14 @@ public class ProfileActivity extends BaseActivity implements OnClickListener{
 				case ApiEvent.SHOW_PROFILE_EVENT:
 					onSuccess(serviceResponse);
 					break;
+                case ApiEvent.MARK_INTERESTED_EVENT:
+                    showCommonError(serviceResponse.getBaseModel().getSuccessMsg());
+                    updateInterestButton(true);
+                    break;
+                case ApiEvent.MARK_NOT_INTERESTED_EVENT:
+                    showCommonError(serviceResponse.getBaseModel().getSuccessMsg());
+                    updateInterestButton(false);
+                    break;
 				default:
 					break;
 				}
@@ -317,6 +340,8 @@ public class ProfileActivity extends BaseActivity implements OnClickListener{
 				}
 				
 				updateFavImageUi(mUserInfo.isFavourite());
+
+                updateInterestButton(mUserInfo.isInterestStatus());
 				
 				if(!StringUtils.isNullOrEmpty(userInfo.get(i).getImage()))
 				    picassoLoad(userInfo.get(i).getImage(), mimgProfile);
@@ -340,4 +365,62 @@ public class ProfileActivity extends BaseActivity implements OnClickListener{
 		}
 		
 	}
+
+
+    private void updateInterestButton(boolean isInterested){
+
+        if(isInterested){
+
+            findViewById(R.id.txt_interested).setBackgroundResource(R.drawable.left_corner_round);
+            findViewById(R.id.txt_not_interested).setBackgroundResource(Color.TRANSPARENT);
+            ((TextView)findViewById(R.id.txt_not_interested)).setTextColor(Color.WHITE);
+            ((TextView)findViewById(R.id.txt_interested)).setTextColor(Color.BLACK);
+
+            findViewById(R.id.txt_interested).setTag(true);
+            findViewById(R.id.txt_not_interested).setTag(false);
+
+        }else{
+            findViewById(R.id.txt_not_interested).setBackgroundResource(R.drawable.right_corner_round);
+            findViewById(R.id.txt_interested).setBackgroundResource(Color.TRANSPARENT);
+            ((TextView)findViewById(R.id.txt_not_interested)).setTextColor(Color.BLACK);
+            ((TextView)findViewById(R.id.txt_interested)).setTextColor(Color.WHITE);
+
+            findViewById(R.id.txt_interested).setTag(false);
+            findViewById(R.id.txt_not_interested).setTag(true);
+        }
+
+    }
+
+   private void markInterested(boolean markInterested){
+       int event;
+       String url;
+
+       if(markInterested){
+           event = ApiEvent.MARK_INTERESTED_EVENT;
+           url = DatingUrlConstants.MARK_INTERESTED_URL;
+       }else{
+           event = ApiEvent.MARK_NOT_INTERESTED_EVENT;
+           url = DatingUrlConstants.MARK_NOT_INTERESTED_URL;
+       }
+
+       postData(url,event,getInterestedJsonResponse());
+
+   }
+
+
+   private String getInterestedJsonResponse(){
+       //{"userid":"1","interest_user_id":"7"}
+       JSONObject jsonObject = new JSONObject();
+       try {
+           jsonObject.putOpt("userid", DatingAppPreference.getString(DatingAppPreference.USER_ID, "", this));
+           jsonObject.put("interest_user_id", calledUserProfileId);  //
+       } catch (JSONException e) {
+           // TODO Auto-generated catch block
+           e.printStackTrace();
+       }
+
+       Log.e("Request", jsonObject.toString());
+       return jsonObject.toString();
+   }
+
 }

@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.digitalforce.datingapp.R;
 import com.digitalforce.datingapp.constants.AppConstants;
+import com.digitalforce.datingapp.utils.PicassoEx;
 import com.digitalforce.datingapp.utils.ToastCustom;
 import com.farru.android.utill.Utils;
 
@@ -102,5 +103,9 @@ public class PhotoDetailActivity extends BaseActivity implements OnClickListener
 	        mHeight = height;
 
 	    }
+
+    public void picassoLoad(String imgUrl, ImageView imageView,int width,int height) {
+        PicassoEx.getPicasso(this).load(imgUrl).resize(width,height).into(imageView);
+    }
 
 }

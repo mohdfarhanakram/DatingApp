@@ -25,6 +25,24 @@ public class UserInfo extends NearBy{
 	private String sexRole;
 	private boolean favourite;
     private Insight insight;
+    private boolean interestStatus;
+    private String bodyType;
+
+    public String getBodyType() {
+        return bodyType;
+    }
+
+    public void setBodyType(String bodyType) {
+        this.bodyType = bodyType;
+    }
+
+    public boolean isInterestStatus() {
+        return interestStatus;
+    }
+
+    public void setInterestStatus(boolean interestStatus) {
+        this.interestStatus = interestStatus;
+    }
 
     public Insight getInsight() {
         return insight;

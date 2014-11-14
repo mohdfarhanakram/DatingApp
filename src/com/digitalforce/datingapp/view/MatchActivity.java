@@ -90,16 +90,27 @@ public class MatchActivity extends BaseActivity{
 	
 	private String getRequestJson(){
 
-		//{"userId" : "1","min_age":"20","max_age":"60","sex_role":"top","latitude":"28","longitude":"77"}
+		//{"userId":"2","max_age":"50","min_age":"20","sex_role":"","latitude":"27","longitude":"77",
+		// "height_start":"","height_end":"","weight_start":"","weight_end":"","body_type":"",
+		// "looking_for":"","relationship_status":"","":"ethnicity"}
 
-		JSONObject jsonObject = new JSONObject();
+        JSONObject jsonObject = new JSONObject();
 		try {
 			jsonObject.putOpt("userId", DatingAppPreference.getString(DatingAppPreference.USER_ID, "", this));
 			jsonObject.putOpt("latitude", DatingAppPreference.getString(DatingAppPreference.USER_DEVICE_LATITUDE, "0.0", this));
 			jsonObject.putOpt("longitude", DatingAppPreference.getString(DatingAppPreference.USER_DEVICE_LONGITUDE, "0.0", this));
 			jsonObject.putOpt("min_age", DatingAppPreference.getString(DatingAppPreference.MIN_AGE, "20", this));
 			jsonObject.putOpt("max_age", DatingAppPreference.getString(DatingAppPreference.MAX_AGE, "60", this));
-			jsonObject.putOpt("sex_role", DatingAppPreference.getString(DatingAppPreference.MAX_AGE, "top", this));
+			jsonObject.putOpt("sex_role", DatingAppPreference.getString(DatingAppPreference.SEX_ROLE, "", this));
+
+            jsonObject.putOpt("height_start", DatingAppPreference.getString(DatingAppPreference.MIN_HEIGHT, "3 ft 0 in", this));
+            jsonObject.putOpt("height_end", DatingAppPreference.getString(DatingAppPreference.MAX_HEIGHT, "9 ft 11 in", this));
+            jsonObject.putOpt("weight_start", DatingAppPreference.getString(DatingAppPreference.MIN_WEIGHT, "99 lbs", this));
+            jsonObject.putOpt("weight_end", DatingAppPreference.getString(DatingAppPreference.MAX_WEIGHT, "2300 lbs", this));
+            jsonObject.putOpt("body_type", DatingAppPreference.getString(DatingAppPreference.BODY_TYPE, "", this));
+            jsonObject.putOpt("looking_for", DatingAppPreference.getString(DatingAppPreference.LOOKING_FOR, "", this));
+            jsonObject.putOpt("relationship_status", DatingAppPreference.getString(DatingAppPreference.RELATION_SHIP, "", this));
+            jsonObject.putOpt("ethnicity", DatingAppPreference.getString(DatingAppPreference.SEX_ROLE, "Top Versatile", this));
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

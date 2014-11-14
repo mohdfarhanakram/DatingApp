@@ -66,16 +66,16 @@ public class InsightActivity extends BaseActivity{
 
         if(mInsight!=null){
 
-            mProgressWheel18_19.setProgress(0);  // give value in angle
+            mProgressWheel18_19.setProgress(360);  // give value in angle
             mProgressWheel18_19.setText(mInsight.getAgebetween18and19());
 
-            mProgressWheel20_24.setProgress(0);  // give value in angle
+            mProgressWheel20_24.setProgress(360);  // give value in angle
             mProgressWheel20_24.setText(mInsight.getAgebetween20and24());
 
-            mProgressWheel25_29.setProgress(0);  // give value in angle
+            mProgressWheel25_29.setProgress(360);  // give value in angle
             mProgressWheel25_29.setText(mInsight.getAgebetween25and29());
 
-            mProgressWheelReply.setProgress(0);  // give value in angle
+            mProgressWheelReply.setProgress(360);  // give value in angle
             mProgressWheelReply.setText(mInsight.getReplyRate());
 
             mProgressWheelHeight.setProgress(0);  // give value in angle

@@ -89,7 +89,9 @@ public class UpdateProfileActivity extends BaseActivity implements OnClickListen
 
     private String looking_for[] = {"Sex","Relationship","Long Term Relationship","Dating","Fun","Flirt","Friends","Network","Sugar Daddy"};
 
-    private String booking_types[] = {"EctoMorph","Mesomorph","Endomorph"};
+    private String body_types[] = {"Slim","Average","Athletic","Heavy"};
+
+    String[] ethnicity = {"Asian","Black","Latino","Mixed","White","Other"};
 
 
     //private String[] mAge;
@@ -241,8 +243,8 @@ public class UpdateProfileActivity extends BaseActivity implements OnClickListen
 
                 break;
             case R.id.edt_update_profile_ethnicity:
-                new DialogUpdateProfile(UpdateProfileActivity.this, medtEthnicity, "Ethnicity", medtEthnicity.getText().toString()).show();
-
+                //new DialogUpdateProfile(UpdateProfileActivity.this, medtEthnicity, "Ethnicity", medtEthnicity.getText().toString()).show();
+                showSingleSelectionDialog(medtEthnicity, ethnicity, "Ethnicity");
                 break;
 		case R.id.edt_update_profile_sex_role:
 			//new DialogUpdateProfile(UpdateProfileActivity.this, medtSexRole, getResources().getString(R.string.sex_role), medtSexRole.getText().toString()).show();
@@ -250,7 +252,7 @@ public class UpdateProfileActivity extends BaseActivity implements OnClickListen
 			break;
         case R.id.edt_update_profile_body_type:
                 //new DialogUpdateProfile(UpdateProfileActivity.this, medtSexRole, getResources().getString(R.string.sex_role), medtSexRole.getText().toString()).show();
-           showSingleSelectionDialog(medtBodyType,booking_types, "Body Type");
+           showSingleSelectionDialog(medtBodyType,body_types, "Body Type");
            break;
 		default:
 			break;

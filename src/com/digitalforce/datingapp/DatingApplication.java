@@ -7,6 +7,8 @@ import com.sromku.simple.fb.SimpleFacebook;
 import com.sromku.simple.fb.SimpleFacebookConfiguration;
 
 public class DatingApplication extends BaseApplication{
+
+
 	
 	@Override
 	public void onCreate() {

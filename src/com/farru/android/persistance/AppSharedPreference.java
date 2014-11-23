@@ -12,9 +12,7 @@ public class AppSharedPreference {
 
 	private static final String PREF_NAME 		     = "dating_pref_com";
 	
-	 /** GCM **/
-    public static final String GCM_REGISTRATION_ID = "gcm_registration_id";
-    public static final String GCM_VERSION_ID = "gcm_version_id";
+
     
 
 	public static int getInt(String key, int defValue,Context context)

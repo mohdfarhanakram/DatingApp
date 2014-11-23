@@ -110,7 +110,6 @@ public class SignUpActivity extends BaseActivity implements OnClickListener{
 		}
 	}
 
-
 	private String getRequestJson(){
 
 		//{"email":"shaan@gmail.com", "password":"12345", "confirmpass":"12345", "lat":"743872432", "long":"3749382", "device":"89748937432784937498hjjk38343"}
@@ -121,7 +120,7 @@ public class SignUpActivity extends BaseActivity implements OnClickListener{
 			jsonObject.putOpt("confirmpass", medtConfirmPassword.getText().toString());
 			jsonObject.putOpt("latitude", DatingAppPreference.getString(DatingAppPreference.USER_DEVICE_LATITUDE, "0.0", this));
 			jsonObject.putOpt("longitude", DatingAppPreference.getString(DatingAppPreference.USER_DEVICE_LONGITUDE, "0.0", this));
-			jsonObject.putOpt("device", Utils.getDeviceEMI(this));
+			jsonObject.putOpt("device", DatingAppPreference.getString(DatingAppPreference.GCM_REGISTRATION_ID,"",this));
 			jsonObject.putOpt("device_type", "android");
 		} catch (JSONException e) {
 			// TODO Auto-generated catch block

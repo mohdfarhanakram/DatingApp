@@ -52,4 +52,8 @@ public class AppConstants {
     public static final String USER_VIDEO_URL  = "user_video_url";
     public static final String USER_AUDIO_URL  = "user_audio_url";
 
+    public static final int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
+    public static final String SENDER_ID = "754623190416";
+
+
 }

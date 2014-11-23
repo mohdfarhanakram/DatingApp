@@ -3,13 +3,18 @@
  */
 package com.digitalforce.datingapp.view;
 
+import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import com.splunk.mint.Mint;
+//import com.splunk.mint.Mint;
+import android.os.AsyncTask;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GooglePlayServicesUtil;
+import com.google.android.gms.gcm.GoogleCloudMessaging;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -79,21 +84,124 @@ import com.farru.android.volley.VolleyError;
 public abstract class BaseActivity extends FragmentActivity implements IScreen,Response.Listener, Response.ErrorListener {
 
 	private String	LOG_TAG	= getClass().getSimpleName();
+    private GoogleCloudMessaging gcm;
+    private String regId;
 
-	@Override
+
+    @Override
 	protected void onCreate(Bundle savedInstanceState) {
         if(savedInstanceState!=null){
             restoreInstanceState(savedInstanceState);
         }
 		super.onCreate(savedInstanceState);
-        Mint.initAndStartSession(this, AppConstants.BUGSENSE_API_KEY);   //Bug Sense session
+        //Mint.initAndStartSession(this, AppConstants.BUGSENSE_API_KEY);   //Bug Sense session
 		if (BuildConfig.DEBUG) {
 			Log.i(LOG_TAG, "onCreate()");
 		}
 
 		getHashKey();
+
+        if(checkPlayServices()){
+
+            gcm = GoogleCloudMessaging.getInstance(this);
+            regId = getRegistrationId(this);
+
+            if(StringUtils.isNullOrEmpty(regId)){
+                registerInBackground();
+            }
+        }
 	}
 
+    /**
+     * Registers the application with GCM servers asynchronously.
+     * <p>
+     * Stores the registration ID and app versionCode in the application's
+     * shared preferences.
+     */
+    private void registerInBackground() {
+
+        new AsyncTask<Void,Void,Void>() {
+            @Override
+            protected Void doInBackground(Void... params) {
+                String msg = "";
+                try {
+                    if (gcm == null) {
+                        gcm = GoogleCloudMessaging.getInstance(BaseActivity.this);
+                    }
+                    regId = gcm.register(AppConstants.SENDER_ID);
+                    msg = "Device registered, registration ID=" + regId;
+
+                    DatingAppPreference.putString(DatingAppPreference.GCM_REGISTRATION_ID,regId,BaseActivity.this);
+                    DatingAppPreference.putInt(DatingAppPreference.GCM_VERSION_ID, getAppVersion(BaseActivity.this), BaseActivity.this);
+
+                } catch (IOException ex) {
+                    msg = "Error :" + ex.getMessage();
+                    // If there is an error, don't just keep trying to register.
+                    // Require the user to click a button again, or perform
+                    // exponential back-off.
+                }
+                Log.e(LOG_TAG,"GCM Id+ "+regId);
+                return null;
+            }
+
+            @Override
+            protected void onPostExecute(Void msg) {
+
+            }
+        }.execute(null, null, null);
+
+    }
+
+
+    private String getRegistrationId(Context context) {
+
+        String gcmRegId = DatingAppPreference.getString(DatingAppPreference.GCM_REGISTRATION_ID,"",context);
+        if(StringUtils.isNullOrEmpty(gcmRegId)){
+            return "";
+        }
+
+        int registeredVersion = DatingAppPreference.getInt(DatingAppPreference.GCM_VERSION_ID, Integer.MIN_VALUE, context);
+
+        int currentVersion = getAppVersion(context);
+        if (registeredVersion != currentVersion) {
+            return "";
+        }
+        return gcmRegId;
+
+    }
+
+    /**
+     * @return Application's version code from the {@code PackageManager}.
+     */
+    private static int getAppVersion(Context context) {
+        try {
+            PackageInfo packageInfo = context.getPackageManager()
+                    .getPackageInfo(context.getPackageName(), 0);
+            return packageInfo.versionCode;
+        } catch (NameNotFoundException e) {
+            // should never happen
+            throw new RuntimeException("Could not get package name: " + e);
+        }
+    }
+
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        saveInstanceState(outState);
+        super.onSaveInstanceState(outState);
+    }
+
+
+
+    /*
+     * Restore instance state.
+     */
+    protected void restoreInstanceState(Bundle savedInstanceState){
+
+    }
+
+
+    @Override
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         saveInstanceState(outState);
@@ -150,13 +258,13 @@ public abstract class BaseActivity extends FragmentActivity implements IScreen,R
         super.onRestoreInstanceState(savedInstanceState);
     }
 
-    @Override
+    /*@Override
     protected void onSaveInstanceState(Bundle outState) {
         saveInstanceState(outState);
         super.onSaveInstanceState(outState);
-    }
+    }*/
 
-    protected void restoreInstanceState(Bundle savedInstanceState){};
+
     protected void saveInstanceState(Bundle outState){
 
     }
@@ -176,7 +284,11 @@ public abstract class BaseActivity extends FragmentActivity implements IScreen,R
 			}
 			baseApplication.onActivityResumed();
 		}
+
+
 	}
+
+
 
 	/**
 	 * This callback will be called after onResume if application is being
@@ -411,7 +523,7 @@ public abstract class BaseActivity extends FragmentActivity implements IScreen,R
 	/**
 	 * Utility function for displaying progress dialog
 	 *
-	 * @param message to be shown
+	 * @param to be shown
 	 */
 
 	public void showProgressDialog() {
@@ -727,6 +839,7 @@ public abstract class BaseActivity extends FragmentActivity implements IScreen,R
 		DatingAppPreference.putString(DatingAppPreference.USER_ID, "", this);
         DatingAppPreference.putString(DatingAppPreference.USER_NAME, "", this);
         DatingAppPreference.putString(DatingAppPreference.USER_PROFILE_URL, "", this);
+        DatingAppPreference.putString(DatingAppPreference.GCM_REGISTRATION_ID,"",BaseActivity.this);
 		Intent i = new Intent(this,LoginActivity.class);
 		i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 	    i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -743,6 +856,31 @@ public abstract class BaseActivity extends FragmentActivity implements IScreen,R
 	 public void picassoLoad(String imgUrl, ImageView imageView,int width,int height) {
 		 PicassoEx.getPicasso(this).load(imgUrl).error(R.drawable.farhan).placeholder(R.drawable.farhan).resize(width,height).into(imageView);
 	 }
+
+
+
+    /**
+     * Check the device to make sure it has the Google Play Services APK. If
+     * it doesn't, display a dialog that allows users to download the APK from
+     * the Google Play Store or enable it in the device's system settings.
+     */
+    private boolean checkPlayServices() {
+        int resultCode = GooglePlayServicesUtil.isGooglePlayServicesAvailable(this);
+        if (resultCode != ConnectionResult.SUCCESS) {
+            if (GooglePlayServicesUtil.isUserRecoverableError(resultCode)) {
+                GooglePlayServicesUtil.getErrorDialog(resultCode, this,AppConstants.PLAY_SERVICES_RESOLUTION_REQUEST).show();
+            } else {
+                Log.i("RudeBoy", "This device is not supported.");
+                finish();
+            }
+            return false;
+        }
+        return true;
+    }
+
+
+
+
 
 
 }

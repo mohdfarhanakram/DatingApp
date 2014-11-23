@@ -10,11 +10,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.digitalforce.datingapp.R;
-import com.digitalforce.datingapp.adapter.NearByAdapter;
 import com.digitalforce.datingapp.constants.ApiEvent;
 import com.digitalforce.datingapp.constants.AppConstants;
 import com.digitalforce.datingapp.constants.DatingUrlConstants;
-import com.digitalforce.datingapp.model.NearBy;
 import com.digitalforce.datingapp.model.UserInfo;
 import com.digitalforce.datingapp.persistance.DatingAppPreference;
 import com.digitalforce.datingapp.view.ProfileActivity;

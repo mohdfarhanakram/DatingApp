@@ -28,8 +28,6 @@
                 android:protectionLevel="signature" />
     <uses-permission android:name="com.digitalforce.datingapp.permission.C2D_MESSAGE" />
 
-
-
     <uses-sdk
         android:minSdkVersion="11"
         android:targetSdkVersion="19" />
@@ -50,6 +48,12 @@
         <!--<meta-data
             android:name="com.google.android.maps.v2.API_KEY"
             android:value="AIzaSyDEXiG6vKr6HucJ8R7_WIlPdms4Yz46y_8" />-->
+
+
+        <!--<meta-data
+                android:name="com.google.android.maps.v2.API_KEY"
+                android:value="AIzaSyDRjhGXa3f-1hKZi2X0FNP0963jw2YAQjk" />-->
+
 
         <meta-data
                 android:name="com.google.android.maps.v2.API_KEY"

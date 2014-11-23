@@ -3,26 +3,35 @@ package com.digitalforce.datingapp.gcm;
 import android.app.Activity;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
-import android.content.BroadcastReceiver;
-import android.content.ContentValues;
-import android.content.Context;
-import android.content.Intent;
+import android.content.*;
 import android.net.Uri;
 import android.os.PowerManager;
 import android.os.PowerManager.WakeLock;
 import android.support.v4.app.NotificationCompat;
+import android.support.v4.content.WakefulBroadcastReceiver;
 import android.text.TextUtils;
 
 
 import com.digitalforce.datingapp.R;
 import com.google.android.gms.gcm.GoogleCloudMessaging;
 
-public class GcmBroadcastReceiver extends BroadcastReceiver {
+public class GcmBroadcastReceiver extends WakefulBroadcastReceiver {
 	
 	private static final String TAG = "GcmBroadcastReceiver";
-	private Context ctx;	
+	private Context ctx;
 
-	@Override
+    @Override
+    public void onReceive(Context context, Intent intent) {
+        // Explicitly specify that GcmIntentService will handle the intent.
+        ComponentName comp = new ComponentName(context.getPackageName(),
+                GcmIntentService.class.getName());
+        // Start the service, keeping the device awake while it is launching.
+        startWakefulService(context, (intent.setComponent(comp)));
+        setResultCode(Activity.RESULT_OK);
+    }
+
+
+	/*@Override
 	public void onReceive(Context context, Intent intent) {
 		ctx = context;
 		PowerManager mPowerManager = (PowerManager) context.getSystemService(Context.POWER_SERVICE);
@@ -36,7 +45,7 @@ public class GcmBroadcastReceiver extends BroadcastReceiver {
 			} else if (GoogleCloudMessaging.MESSAGE_TYPE_DELETED.equals(messageType)) {
 				sendNotification("Deleted messages on server", false);
 			} else {
-				/*String msg = intent.getStringExtra(DataProvider.COL_MESSAGE);
+				*//*String msg = intent.getStringExtra(DataProvider.COL_MESSAGE);
 				String senderEmail = intent.getStringExtra(DataProvider.COL_SENDER_EMAIL);
 				String receiverEmail = intent.getStringExtra(DataProvider.COL_RECEIVER_EMAIL);
 				ContentValues values = new ContentValues(2);
@@ -44,11 +53,11 @@ public class GcmBroadcastReceiver extends BroadcastReceiver {
 				values.put(DataProvider.COL_MESSAGE, msg);
 				values.put(DataProvider.COL_SENDER_EMAIL, senderEmail);
 				values.put(DataProvider.COL_RECEIVER_EMAIL, receiverEmail);
-				context.getContentResolver().insert(DataProvider.CONTENT_URI_MESSAGES, values);*/
+				context.getContentResolver().insert(DataProvider.CONTENT_URI_MESSAGES, values);*//*
 				
-				/*if (Common.isNotify()) {
+				*//*if (Common.isNotify()) {
 					sendNotification("New message", true);
-				}*/
+				}*//*
 			}
 			setResultCode(Activity.RESULT_OK);
 		} finally {
@@ -63,7 +72,7 @@ public class GcmBroadcastReceiver extends BroadcastReceiver {
 		notification.setContentText(text);
 		notification.setAutoCancel(true);
 		notification.setSmallIcon(R.drawable.ic_launcher);
-		/*if (!TextUtils.isEmpty(Common.getRingtone())) {
+		*//*if (!TextUtils.isEmpty(Common.getRingtone())) {
 			notification.setSound(Uri.parse(Common.getRingtone()));
 		}
 		
@@ -72,8 +81,8 @@ public class GcmBroadcastReceiver extends BroadcastReceiver {
 			intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_SINGLE_TOP);
 			PendingIntent pi = PendingIntent.getActivity(ctx, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 			notification.setContentIntent(pi);
-		}*/
+		}*//*
 	
 		mNotificationManager.notify(1, notification.build());
-	}
+	}*/
 }

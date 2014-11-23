@@ -29,4 +29,9 @@ public class DatingAppPreference extends AppSharedPreference{
     public final static String SEX_ROLE = "sex_role";
     public final static String RELATION_SHIP = "relation_ship";
     public final static String LOOKING_FOR = "looking_for";
+
+    public static final String PROPERTY_REG_ID = "registration_id";
+    /** GCM **/
+    public static final String GCM_REGISTRATION_ID = "gcm_registration_id";
+    public static final String GCM_VERSION_ID = "gcm_version_id";
 }

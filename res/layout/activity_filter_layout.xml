@@ -6,140 +6,434 @@
     android:orientation="vertical" >
 
     <TextView
-        style="@style/txt_base"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:padding="5dp"
-        android:text="Filter"
-        android:textSize="@dimen/sp_18" />
+            style="@style/txt_base"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="5dp"
+            android:text="Filter"
+            android:textSize="@dimen/sp_18" />
 
     <TextView
-        style="@style/txt_base"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:background="@drawable/outline_search"
-        android:gravity="center"
-        android:padding="5dp"
-        android:singleLine="false"
-        android:text="Manage who and what you see in your match finder tiles"
-        android:textSize="16sp" />
-
-    <LinearLayout
-        android:id="@+id/min_age_layout"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="8dp" >
-
-        <TextView
             style="@style/txt_base"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_weight="1"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/outline_search"
+            android:gravity="center"
             android:padding="5dp"
-            android:text="Min Age"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:singleLine="false"
+            android:text="Manage who and what you see in your match finder tiles"
+            android:textSize="16sp" />
 
-        <TextView
-            android:id="@+id/txtv_min_age"
-            style="@style/txt_base"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:padding="5dp"
-            android:text="No Min"
-            android:textSize="16sp"
-            android:textStyle="normal" />
-    </LinearLayout>
+    <ScrollView android:scrollbars="none" android:layout_width="fill_parent" android:layout_height="fill_parent">
 
-    <View
-        android:layout_width="fill_parent"
-        android:layout_height="0.5dp"
-        android:background="@color/white" />
+        <LinearLayout  android:paddingTop="5dp" android:paddingBottom="5dp" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
 
-    <LinearLayout
-        android:id="@+id/max_age_layout"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="8dp" >
 
-        <TextView
-            style="@style/txt_base"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_weight="1"
-            android:padding="5dp"
-            android:text="Max Age"
-            android:textSize="16sp"
-            android:textStyle="bold" />
 
-        <TextView
-            android:id="@+id/txtv_max_age"
-            style="@style/txt_base"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:padding="5dp"
-            android:text="No Max"
-            android:textSize="16sp"
-            android:textStyle="normal" />
-    </LinearLayout>
 
-    <View
-        android:layout_width="fill_parent"
-        android:layout_height="0.5dp"
-        android:background="@color/white" />
+            <LinearLayout
+                    android:id="@+id/min_age_layout"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="8dp" >
 
-    <LinearLayout
-        android:id="@+id/ethnicity_layout"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="8dp" >
+                <TextView
+                        style="@style/txt_base"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:padding="5dp"
+                        android:text="Min Age"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
 
-        <TextView
-            style="@style/txt_base"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_weight="1"
-            android:padding="5dp"
-            android:text="Ethnicity"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+                <TextView
+                        android:id="@+id/txtv_min_age"
+                        style="@style/txt_base"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:padding="5dp"
+                        android:text="No Min"
+                        android:textSize="16sp"
+                        android:textStyle="normal" />
+            </LinearLayout>
 
-        <TextView
-            android:id="@+id/txtv_ethnicity"
-            style="@style/txt_base"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:padding="5dp"
-            android:text="All"
-            android:textSize="16sp"
-            android:textStyle="normal" />
-    </LinearLayout>
+            <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/white" />
 
-    <View
-        android:layout_width="fill_parent"
-        android:layout_height="0.5dp"
-        android:background="@color/white" />
+            <LinearLayout
+                    android:id="@+id/max_age_layout"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="8dp" >
 
-    <Button
-        android:id="@+id/btn_save_filter"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="30dp"
-        android:background="@color/btn_color"
-        android:padding="@dimen/dp_8"
-        android:text="Apply Filter"
-        android:textColor="@android:color/white" />
+                <TextView
+                        style="@style/txt_base"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:padding="5dp"
+                        android:text="Max Age"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                <TextView
+                        android:id="@+id/txtv_max_age"
+                        style="@style/txt_base"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:padding="5dp"
+                        android:text="No Max"
+                        android:textSize="16sp"
+                        android:textStyle="normal" />
+            </LinearLayout>
+
+            <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/white" />
+
+            <LinearLayout
+                    android:id="@+id/ethnicity_layout"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="8dp" >
+
+                <TextView
+                        style="@style/txt_base"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:padding="5dp"
+                        android:text="Ethnicity"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                <TextView
+                        android:id="@+id/txtv_ethnicity"
+                        style="@style/txt_base"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:padding="5dp"
+                        android:text="All"
+                        android:textSize="16sp"
+                        android:textStyle="normal" />
+            </LinearLayout>
+
+            <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/white" />
+
+            <LinearLayout
+                    android:id="@+id/min_weight_layout"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="8dp" >
+
+                <TextView
+                        style="@style/txt_base"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:padding="5dp"
+                        android:text="Min Weight"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                <TextView
+                        android:id="@+id/txtv_min_weight"
+                        style="@style/txt_base"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:padding="5dp"
+                        android:text="All"
+                        android:textSize="16sp"
+                        android:textStyle="normal" />
+            </LinearLayout>
+
+            <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/white" />
+
+            <LinearLayout
+                    android:id="@+id/max_weight_layout"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="8dp" >
+
+                <TextView
+                        style="@style/txt_base"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:padding="5dp"
+                        android:text="Max Weight"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                <TextView
+                        android:id="@+id/txtv_max_weight"
+                        style="@style/txt_base"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:padding="5dp"
+                        android:text="Weight"
+                        android:textSize="16sp"
+                        android:textStyle="normal" />
+            </LinearLayout>
+
+            <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/white" />
+
+            <LinearLayout
+                    android:id="@+id/min_height_layout"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="8dp" >
+
+                <TextView
+                        style="@style/txt_base"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:padding="5dp"
+                        android:text="Min Height"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                <TextView
+                        android:id="@+id/txtv_min_height"
+                        style="@style/txt_base"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:padding="5dp"
+                        android:text="Height"
+                        android:textSize="16sp"
+                        android:textStyle="normal" />
+            </LinearLayout>
+
+            <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/white" />
+            <LinearLayout
+                    android:id="@+id/max_height_layout"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="8dp" >
+
+                <TextView
+                        style="@style/txt_base"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:padding="5dp"
+                        android:text="Max Height"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                <TextView
+                        android:id="@+id/txtv_max_height"
+                        style="@style/txt_base"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:padding="5dp"
+                        android:text="Height"
+                        android:textSize="16sp"
+                        android:textStyle="normal" />
+            </LinearLayout>
+
+            <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/white" />
+
+            <LinearLayout
+                    android:id="@+id/body_type_layout"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="8dp" >
+
+                <TextView
+                        style="@style/txt_base"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:padding="5dp"
+                        android:text="Body Type"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                <TextView
+                        android:id="@+id/txtv_body_type"
+                        style="@style/txt_base"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:padding="5dp"
+                        android:text="Body Type"
+                        android:textSize="16sp"
+                        android:textStyle="normal" />
+            </LinearLayout>
+
+            <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/white" />
+
+            <LinearLayout
+                    android:id="@+id/looking_for_layout"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="8dp" >
+
+                <TextView
+                        style="@style/txt_base"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:padding="5dp"
+                        android:text="Looking For"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                <TextView
+                        android:id="@+id/txtv_looking_for"
+                        style="@style/txt_base"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:padding="5dp"
+                        android:text="Looking For"
+                        android:textSize="16sp"
+                        android:textStyle="normal" />
+            </LinearLayout>
+
+            <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/white" />
+
+            <LinearLayout
+                    android:id="@+id/relationship_status_layout"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="8dp" >
+
+                <TextView
+                        style="@style/txt_base"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:padding="5dp"
+                        android:text="Relationship"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                <TextView
+                        android:id="@+id/txtv_relationship"
+                        style="@style/txt_base"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:padding="5dp"
+                        android:text="Relationship"
+                        android:textSize="16sp"
+                        android:textStyle="normal" />
+            </LinearLayout>
+
+            <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/white" />
+
+
+            <LinearLayout
+                    android:id="@+id/sexual_role_layout"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="8dp" >
+
+                <TextView
+                        style="@style/txt_base"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_weight="1"
+                        android:padding="5dp"
+                        android:text="Sexual Role"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                <TextView
+                        android:id="@+id/txtv_sexual_role"
+                        style="@style/txt_base"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:padding="5dp"
+                        android:text="Sexual Role"
+                        android:textSize="16sp"
+                        android:textStyle="normal" />
+            </LinearLayout>
+
+            <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/white" />
+
+
+            <Button
+                    android:id="@+id/btn_save_filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="30dp"
+                    android:background="@color/btn_color"
+                    android:padding="@dimen/dp_8"
+                    android:text="Apply Filter"
+                    android:textColor="@android:color/white" />
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
 
 </LinearLayout>

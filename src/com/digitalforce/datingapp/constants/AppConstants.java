@@ -11,6 +11,7 @@ public class AppConstants {
 	
 	public static final String LOG_TAG        = "datingapp";
 	public static final String FB_APP_ID      = "804602229562570";  //Testing - 808631839159609  //Live - 804602229562570
+    public static final String BUGSENSE_API_KEY = "b55d72ab";
 	
 	public static final String APP_NAME_SPACE = "com.digitalforce.datingapp";
 	
@@ -47,6 +48,7 @@ public class AppConstants {
     public static final String CHAT_USER_ID   = "chat_user_id";
     public static final String CHAT_USER_NAME = "chat_user_name";
     public static final String INSIGHT_USER_NAME = "insight_user_name";
+    public static final String USER_INSIGHT_INFO  = "user_insight_info";
     public static final String USER_VIDEO_URL  = "user_video_url";
     public static final String USER_AUDIO_URL  = "user_audio_url";
 

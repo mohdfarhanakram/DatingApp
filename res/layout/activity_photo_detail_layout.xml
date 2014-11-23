@@ -7,19 +7,22 @@
 
     <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="fill_parent"
         android:padding="@dimen/img_detail_padding"
         android:layout_weight="1" >
         
 
         <ImageView
+            android:scaleType="centerInside"
+            android:adjustViewBounds="true"
             android:layout_gravity="center"
             android:id="@+id/image_view_detail"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
     </LinearLayout>
 
     <LinearLayout
+            android:visibility="gone"
         android:id="@+id/option_layout"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"

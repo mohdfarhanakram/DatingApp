@@ -35,5 +35,11 @@ public interface DatingUrlConstants {
     public static final String ON_LINE_USER_URL		        = BASE_URL+"online_users.php";
 
     public static final String SHOW_CHAT_HISTORY_URL		= BASE_URL+"show-chat.php";
-    public static final String SEND_MSG_URL		            = BASE_URL+"chat.php";
+    public static final String SEND_MSG_URL                 = BASE_URL+"chat.php";
+
+    public static final String MARK_INTERESTED_URL		    = BASE_URL+"interested.php";
+    public static final String MARK_NOT_INTERESTED_URL		= BASE_URL+"remove_from_interest.php";
+
+
+
 }

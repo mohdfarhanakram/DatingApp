@@ -136,6 +136,32 @@
                     android:layout_gravity="center"
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent" />
+
+                <LinearLayout
+                        android:orientation="vertical"
+                        android:paddingTop="15dp"
+                        android:paddingBottom="15dp"
+                        android:background="@drawable/insight_header_shape"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content">
+
+                    <include
+                            layout="@layout/intrest_tab_layout"/>"
+
+                    <TextView
+
+                            style="@style/txt_base"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="5dp"
+                            android:gravity="center"
+                            android:singleLine="false"
+                            android:layout_gravity="center_vertical"
+                            android:text="If both of you interested in each other, We will let you know other wise he would bot be notified of your choice."
+                            android:textSize="12sp" />
+
+                </LinearLayout>
+
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

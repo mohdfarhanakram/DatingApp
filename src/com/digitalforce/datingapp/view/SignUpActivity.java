@@ -92,9 +92,7 @@ public class SignUpActivity extends BaseActivity implements OnClickListener{
 		}else{
 			showCommonError(null);
 		}
-		
-		
-		
+
 	}
 	
 	private void onSuccess(ServiceResponse serviceResponse){

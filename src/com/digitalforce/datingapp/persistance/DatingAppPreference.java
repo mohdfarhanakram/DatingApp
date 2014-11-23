@@ -18,8 +18,15 @@ public class DatingAppPreference extends AppSharedPreference{
     public final static String USER_NAME = "user_name";
     public final static String USER_PROFILE_URL  = "user_profile_url";
 	public final static String USER_TC_ACCEPT  = "user_tc_accept";
-	
 	public final static String MIN_AGE  = "min_age";
 	public final static String MAX_AGE  = "max_age";
-	public final static String SEX_ROLE = "sex_role";
+	public final static String ETHNICITY = "ethnicity";
+    public final static String MIN_HEIGHT = "min_height";
+    public final static String MAX_HEIGHT = "max_height";
+    public final static String MIN_WEIGHT = "min_weight";
+    public final static String MAX_WEIGHT = "max_weight";
+    public final static String BODY_TYPE = "body_type";
+    public final static String SEX_ROLE = "sex_role";
+    public final static String RELATION_SHIP = "relation_ship";
+    public final static String LOOKING_FOR = "looking_for";
 }

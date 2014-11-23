@@ -24,10 +24,35 @@ public class UserInfo extends NearBy{
 	private String interest;
 	private String sexRole;
 	private boolean favourite;
-    private String latitude;
-    private String longitude;
-	
-	private ArrayList<String> photos = new ArrayList<String>();
+    private Insight insight;
+    private boolean interestStatus;
+    private String bodyType;
+
+    public String getBodyType() {
+        return bodyType;
+    }
+
+    public void setBodyType(String bodyType) {
+        this.bodyType = bodyType;
+    }
+
+    public boolean isInterestStatus() {
+        return interestStatus;
+    }
+
+    public void setInterestStatus(boolean interestStatus) {
+        this.interestStatus = interestStatus;
+    }
+
+    public Insight getInsight() {
+        return insight;
+    }
+
+    public void setInsight(Insight insight) {
+        this.insight = insight;
+    }
+
+    private ArrayList<String> photos = new ArrayList<String>();
 	
 	
 	

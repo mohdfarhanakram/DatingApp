@@ -97,5 +97,6 @@
     	<string name="_about_me">ABOUT ME:</string>
     	<string name="looking_for_msg">RelationShip, Friends and Dates</string>
     	<string name="enter_text">Enter Text</string>
+        <string name="city">City</string>
     	
 </resources>

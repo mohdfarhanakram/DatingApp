@@ -122,6 +122,27 @@
             </LinearLayout>
 
             <LinearLayout
+                    android:id="@+id/layout_update_profile_city"
+                    style="@style/layout_profile" >
+
+                <TextView
+                        style="@style/txt_base"
+                        android:layout_width="0dp"
+                        android:layout_weight=".40"
+                        android:padding="@dimen/dp_5"
+                        android:text="City"
+                        android:textSize="@dimen/sp_14" />
+
+                <EditText
+                        android:id="@+id/edt_update_profile_city"
+                        style="@style/edit_profile"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:focusableInTouchMode="false"
+                        android:hint="City" />
+            </LinearLayout>
+
+            <LinearLayout
                 android:id="@+id/layout_update_profile_country"
                 style="@style/layout_profile" >
 
@@ -331,6 +352,48 @@
                     android:layout_weight="1"
                     android:focusableInTouchMode="false"
                     android:hint="@string/sex_role" />
+            </LinearLayout>
+
+            <LinearLayout
+                    android:id="@+id/layout_update_profile_body_type"
+                    style="@style/layout_profile" >
+
+                <TextView
+                        style="@style/txt_base"
+                        android:layout_width="0dp"
+                        android:layout_weight=".40"
+                        android:padding="@dimen/dp_5"
+                        android:text="Body Type"
+                        android:textSize="@dimen/sp_14" />
+
+                <EditText
+                        android:id="@+id/edt_update_profile_body_type"
+                        style="@style/edit_profile"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:focusableInTouchMode="false"
+                        android:hint="Body Type" />
+            </LinearLayout>
+
+            <LinearLayout
+                    android:id="@+id/layout_update_profile_ethnicity"
+                    style="@style/layout_profile" >
+
+                <TextView
+                        style="@style/txt_base"
+                        android:layout_width="0dp"
+                        android:layout_weight=".40"
+                        android:padding="@dimen/dp_5"
+                        android:text="Ethnicity"
+                        android:textSize="@dimen/sp_14" />
+
+                <EditText
+                        android:id="@+id/edt_update_profile_ethnicity"
+                        style="@style/edit_profile"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:focusableInTouchMode="false"
+                        android:hint="Ethnicity" />
             </LinearLayout>
 
             <LinearLayout

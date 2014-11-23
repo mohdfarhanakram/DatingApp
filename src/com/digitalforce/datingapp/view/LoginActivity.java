@@ -246,9 +246,13 @@ public class LoginActivity extends BaseActivity implements OnClickListener,OnLog
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
-        if(mSimpleFacebook!=null){
-            mSimpleFacebook.onActivityResult(this, requestCode, resultCode, data);
+
+        if(mSimpleFacebook==null){
+            mSimpleFacebook = SimpleFacebook.getInstance(this);
+            mSimpleFacebook.getSessionManager().getSessionStatusCallback().setOnLoginListener(this);
+            showProgressDialog();
         }
+      mSimpleFacebook.onActivityResult(this, requestCode, resultCode, data);
 
 	}
 	

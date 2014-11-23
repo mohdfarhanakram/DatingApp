@@ -146,7 +146,7 @@ public class ExploreFragment extends SupportMapFragment implements UpdateMapAfte
 
                 marker = googleMap.addMarker(new MarkerOptions()
                         .position(pos)
-                        .title(mlistNearBy.get(i).getFirstName())
+                        .title(mlistNearBy.get(i).getFirstName().trim())
                         .snippet(mlistNearBy.get(i).getDistance()));
 
             haspMap.put(marker.getId(), mlistNearBy.get(i));
@@ -263,6 +263,7 @@ public class ExploreFragment extends SupportMapFragment implements UpdateMapAfte
         if(serviceResponse.getErrorCode()==ServiceResponse.SUCCESS){
 
             switch (serviceResponse.getEventType()) {
+                case ApiEvent.SEARCH_EVENT:
                 case ApiEvent.USER_NEAR_BY_EVENT:
 
                     mlistNearBy = (ArrayList<UserInfo>)serviceResponse.getResponseObject();
@@ -272,6 +273,7 @@ public class ExploreFragment extends SupportMapFragment implements UpdateMapAfte
                        //ToastCustom.makeText(getActivity(),mlistNearBy.size()+"",3000);
 
                         if(googleMap!=null){
+                            googleMap.clear();
                             setUpMap();
                             addMarkers();
                         }
@@ -282,6 +284,8 @@ public class ExploreFragment extends SupportMapFragment implements UpdateMapAfte
                     }
 
                     break;
+
+
 
                 default:
                     break;

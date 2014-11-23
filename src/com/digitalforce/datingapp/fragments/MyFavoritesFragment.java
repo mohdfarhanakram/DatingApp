@@ -5,6 +5,7 @@ package com.digitalforce.datingapp.fragments;
 
 import java.util.ArrayList;
 
+import com.digitalforce.datingapp.adapter.MyFavoritesAdapter;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -38,7 +39,7 @@ public class MyFavoritesFragment extends BaseFragment{
 	private View mView;
 	private GridView mgridlistfAV;
 	private ArrayList<UserInfo> mlistFav = new ArrayList<UserInfo>();
-	private NearByAdapter mnearByAdapter;
+	private MyFavoritesAdapter mMyFavoritesAdapter;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -77,8 +78,8 @@ public class MyFavoritesFragment extends BaseFragment{
 					mView.findViewById(R.id.grid_view_fav).setVisibility(View.VISIBLE);
 					mView.findViewById(R.id.empty_view).setVisibility(View.GONE);
 
-					mnearByAdapter = new NearByAdapter(getActivity(), mlistFav);
-					mgridlistfAV.setAdapter(mnearByAdapter);
+                    mMyFavoritesAdapter = new MyFavoritesAdapter(getActivity(), mlistFav);
+					mgridlistfAV.setAdapter(mMyFavoritesAdapter);
 
 				}else{
 

@@ -9,6 +9,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import com.digitalforce.datingapp.R;
 import com.digitalforce.datingapp.constants.AppConstants;
+import com.digitalforce.datingapp.model.Insight;
 import com.digitalforce.datingapp.widgets.ProgressWheel;
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.PieChart;
@@ -25,11 +26,18 @@ import java.util.ArrayList;
  */
 public class InsightActivity extends BaseActivity{
 
-    private BarChart mBarChart;
+    //private BarChart mBarChart;
+
+    private ProgressWheel mProgressWheel18_19;
+    private ProgressWheel mProgressWheel20_24;
+    private ProgressWheel mProgressWheel25_29;
+
     private ProgressWheel mProgressWheelReply;
     private ProgressWheel mProgressWheelHeight;
     private ProgressWheel mProgressWheelWeight;
     private Typeface mTf;
+
+    private Insight mInsight;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +45,8 @@ public class InsightActivity extends BaseActivity{
         /*getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);*/
         setContentView(R.layout.activity_insight_layout);
+
+        mInsight = getIntent().getParcelableExtra(AppConstants.USER_INSIGHT_INFO);
 
         String userName = getIntent().getStringExtra(AppConstants.INSIGHT_USER_NAME);
         ((TextView) findViewById(R.id.txt_screen_title)).setText(userName+" Insight");
@@ -47,20 +57,57 @@ public class InsightActivity extends BaseActivity{
 
         mTf = Typeface.createFromAsset(getAssets(), "OpenSans-Regular.ttf");
 
-        mBarChart = (BarChart)findViewById(R.id.chart);
-        drawBarChart();
-
+        mProgressWheel18_19 = (ProgressWheel)findViewById(R.id.progressBar1819);
+        mProgressWheel20_24 = (ProgressWheel)findViewById(R.id.progressBar2024);
+        mProgressWheel25_29 = (ProgressWheel)findViewById(R.id.progressBar2529);
         mProgressWheelReply = (ProgressWheel)findViewById(R.id.progressBarReply);
-        mProgressWheelReply.setProgress(250);  // give value in angle
-        mProgressWheelReply.setText("78%");
-
         mProgressWheelHeight = (ProgressWheel)findViewById(R.id.progressBarHeight);
-        mProgressWheelHeight.setProgress(180);  // give value in angle
-        mProgressWheelHeight.setText("5'11");
-
         mProgressWheelWeight = (ProgressWheel)findViewById(R.id.progressBarWeight);
-        mProgressWheelWeight.setProgress(85);  // give value in angle
-        mProgressWheelWeight.setText("154lbs");
+
+        if(mInsight!=null){
+
+            mProgressWheel18_19.setProgress(360);  // give value in angle
+            mProgressWheel18_19.setText(mInsight.getAgebetween18and19());
+
+            mProgressWheel20_24.setProgress(360);  // give value in angle
+            mProgressWheel20_24.setText(mInsight.getAgebetween20and24());
+
+            mProgressWheel25_29.setProgress(360);  // give value in angle
+            mProgressWheel25_29.setText(mInsight.getAgebetween25and29());
+
+            mProgressWheelReply.setProgress(360);  // give value in angle
+            mProgressWheelReply.setText(mInsight.getReplyRate());
+
+            mProgressWheelHeight.setProgress(0);  // give value in angle
+            mProgressWheelHeight.setText(mInsight.getHeight());
+
+            mProgressWheelWeight.setProgress(0);  // give value in angle
+            mProgressWheelWeight.setText(mInsight.getWeight());
+
+        }else{
+
+            mProgressWheel18_19.setProgress(0);  // give value in angle
+            mProgressWheel18_19.setText("0%");
+
+            mProgressWheel20_24.setProgress(0);  // give value in angle
+            mProgressWheel20_24.setText("0%");
+
+            mProgressWheel25_29.setProgress(0);  // give value in angle
+            mProgressWheel25_29.setText("0%");
+
+            mProgressWheelReply.setProgress(0);  // give value in angle
+            mProgressWheelReply.setText("0%");
+
+            mProgressWheelHeight.setProgress(0);  // give value in angle
+            mProgressWheelHeight.setText("0'00");
+
+            mProgressWheelWeight.setProgress(0);  // give value in angle
+            mProgressWheelWeight.setText("far");
+
+        }
+
+
+
 
         ((TextView) findViewById(R.id.more_insight_age_des)).setText("Reply rate is based on "+userName+"'s use of Messages. Other metrics is based on Match Finder & Favorites.");
 
@@ -121,6 +168,33 @@ public class InsightActivity extends BaseActivity{
 
     }
 
+    private int getPieChartDegree(String percentage){
+        return getDetDegree(getPercentage(percentage));
+    }
+
+
+    private int getDetDegree(int percentage){
+        return (percentage*18)/5;
+    }
+
+    private int getPercentage(String percentage){
+        int val = 0;
+        try{
+            int index = percentage.indexOf("%");
+            if(index>0){
+                String s  = percentage.substring(0,index);
+                return Integer.parseInt(s);
+
+            }
+
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+
+        return val;
+
+    }
+
     /*private void setData(int count, float range) {
 
         float mult = range;
@@ -177,7 +251,7 @@ public class InsightActivity extends BaseActivity{
 
 
 
-    private void drawBarChart(){
+    /*private void drawBarChart(){
         // apply styling
         mBarChart.setValueTypeface(mTf);
         mBarChart.setDescription("");
@@ -206,7 +280,7 @@ public class InsightActivity extends BaseActivity{
 //            holder.chart.invalidate();
         mBarChart.animateY(700);
 
-    }
+    }*/
 
     /*private void drawPieChart(){
         mPieChartReply = setPieChartStyle(mPieChartReply);

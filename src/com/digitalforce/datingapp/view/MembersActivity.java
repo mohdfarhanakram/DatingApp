@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -15,6 +16,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.digitalforce.datingapp.R;
+import com.digitalforce.datingapp.constants.ApiEvent;
+import com.digitalforce.datingapp.constants.DatingUrlConstants;
 import com.digitalforce.datingapp.fragments.BaseFragment;
 import com.digitalforce.datingapp.fragments.ExploreFragment;
 import com.digitalforce.datingapp.fragments.NearByFragment;
@@ -27,6 +30,8 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class MembersActivity extends BaseActivity implements OnClickListener{
 
@@ -64,7 +69,7 @@ public class MembersActivity extends BaseActivity implements OnClickListener{
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                 if (actionId == EditorInfo.IME_ACTION_SEARCH) {
-                    performSearch();
+                    performSearch(v.getText().toString());
                     return true;
                 }
                 return false;
@@ -79,7 +84,6 @@ public class MembersActivity extends BaseActivity implements OnClickListener{
 		
 		//initilizeMap();
 	}
-	
 	
 
 	@Override
@@ -225,8 +229,25 @@ public class MembersActivity extends BaseActivity implements OnClickListener{
 	}
 
 
-    private void performSearch(){
+    private void performSearch(String searchKey){
+        postData(DatingUrlConstants.SEARCH_URL, ApiEvent.SEARCH_EVENT,getSearchRequestJsonString(searchKey));
+        medtSearch.setText("");
+    }
 
+
+    private String getSearchRequestJsonString(String searchKey){
+        // {"userId" : "2","search":"india"}
+        JSONObject jsonObject = new JSONObject();
+        try {
+            jsonObject.putOpt("userId", DatingAppPreference.getString(DatingAppPreference.USER_ID, "", this));
+            jsonObject.put("search", searchKey);  //
+        } catch (JSONException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+        Log.e("Request", jsonObject.toString());
+        return jsonObject.toString();
     }
 	
 	/*@Override

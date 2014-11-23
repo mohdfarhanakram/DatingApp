@@ -14,7 +14,7 @@
 	<lib name="google-play-services.jar" scope="COMPILE">
 		<relative-module-cls project-related="jar://$PROJECT_DIR$/other/google-play-services_lib/libs/google-play-services.jar!/"/>
 	</lib>
-	<lib name="F:\Project\DatingApp\DatingApp\other\MPChartLib\libs\nineoldandroids-2.4.0-2.jar" scope="COMPILE">
+	<lib name="nineoldandroids-2.4.0-2.jar" scope="COMPILE">
 		<relative-module-cls project-related="jar://$PROJECT_DIR$/other/MPChartLib/libs/nineoldandroids-2.4.0-2.jar!/"/>
 	</lib>
 </component>

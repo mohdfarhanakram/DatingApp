@@ -88,6 +88,7 @@ public class JsonParser {
 				nearBy.setAge(nearJObj.optString("age"));
 				nearBy.setFavourite(nearJObj.optBoolean("fav_status"));
                 nearBy.setInterestStatus(nearJObj.optBoolean("interest_status"));
+                nearBy.setCity(nearJObj.optString("city"));
 				
 				JSONArray photoJArray = nearJObj.optJSONArray("public_photos");
 				if(photoJArray!=null){

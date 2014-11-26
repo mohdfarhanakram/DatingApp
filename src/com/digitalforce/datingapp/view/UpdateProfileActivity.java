@@ -580,6 +580,7 @@ public class UpdateProfileActivity extends BaseActivity implements OnClickListen
 		if(!StringUtils.isNullOrEmpty(userInfo.getHivStatus())) medtHivStatus.setText(userInfo.getHivStatus());
 		if(!StringUtils.isNullOrEmpty(userInfo.getInterest())) medtInterest.setText(userInfo.getInterest());
 		if(!StringUtils.isNullOrEmpty(userInfo.getSexRole())) medtSexRole.setText(userInfo.getSexRole());
+        if(!StringUtils.isNullOrEmpty(userInfo.getCity())) medtCity.setText(userInfo.getCity());
 
 
 		if(!StringUtils.isNullOrEmpty(userInfo.getImage()))

@@ -3,6 +3,8 @@
  */
 package com.digitalforce.datingapp.model;
 
+import com.farru.android.utill.StringUtils;
+
 import java.util.ArrayList;
 
 
@@ -27,6 +29,15 @@ public class UserInfo extends NearBy{
     private Insight insight;
     private boolean interestStatus;
     private String bodyType;
+    private String city;
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
 
     public String getBodyType() {
         return bodyType;
@@ -106,6 +117,8 @@ public class UserInfo extends NearBy{
 	}
 
 	public String getHeight() {
+        if(StringUtils.isNullOrEmpty(height.trim()))
+            return "0'00";
 		return height;
 	}
 
@@ -114,6 +127,9 @@ public class UserInfo extends NearBy{
 	}
 
 	public String getWeight() {
+        if(StringUtils.isNullOrEmpty(weight.trim()))
+            return "0 lbs";
+
 		return weight;
 	}
 

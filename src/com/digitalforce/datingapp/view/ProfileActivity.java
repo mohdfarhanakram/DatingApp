@@ -35,7 +35,7 @@ import com.farru.android.utill.StringUtils;
 public class ProfileActivity extends BaseActivity implements OnClickListener{
 
 	private TextView mtxtAbout, mtxtPhotos, mtxtInsight, mtxtage, mtxtWeight, mtxtheight, mtxtName, mtxtlocation,
-	mtxtSexRole, mtxtHivStatus, mtxtProfileTitle, mtxtVedio, mtxtAudio;
+	mtxtSexRole, mtxtHivStatus, mtxtProfileTitle, mtxtVedio, mtxtAudio,mDistance;
 	private ImageView mimgBack, mimgMenu, mimgPrevious, mimgNext, mimgChat, mimgProfile, mimgOnlineStatus;
 	private ImageView mimgFavourite;
 	
@@ -63,6 +63,7 @@ public class ProfileActivity extends BaseActivity implements OnClickListener{
 		mtxtHivStatus = (TextView) findViewById(R.id.txt_profile_hiv_status);
 		mtxtName = (TextView) findViewById(R.id.txt_profile_name);
 		mtxtlocation = (TextView) findViewById(R.id.txt_profile_location);
+        mDistance = (TextView)findViewById(R.id.txt_profile_distance);
 
 		mimgBack = (ImageView) findViewById(R.id.img_action_back);
 		mimgMenu = (ImageView) findViewById(R.id.img_action_menu);
@@ -94,10 +95,18 @@ public class ProfileActivity extends BaseActivity implements OnClickListener{
 		if(calledUserProfileId.equals(DatingAppPreference.getString(DatingAppPreference.USER_ID, "", this))){
 			mimgFavourite.setEnabled(false);
 			mimgFavourite.setClickable(false);
+
 		}else{
 			mimgFavourite.setEnabled(true);
 			mimgFavourite.setClickable(true);
 		}
+
+
+        if(getIntent().getBooleanExtra(AppConstants.IS_COMING_FROM_MATCH_FINDER,false)){
+            findViewById(R.id.intrest_layout).setVisibility(View.VISIBLE);
+        }else{
+            findViewById(R.id.intrest_layout).setVisibility(View.GONE);
+        }
 
         findViewById(R.id.txt_interested).setOnClickListener(this);
         findViewById(R.id.txt_not_interested).setOnClickListener(this);
@@ -326,7 +335,9 @@ public class ProfileActivity extends BaseActivity implements OnClickListener{
 				findViewById(R.id.main_layout).setVisibility(View.VISIBLE);
 				mUserInfo = userInfo.get(i);
 				mtxtName.setText(userInfo.get(i).getFirstName()+" "+userInfo.get(i).getLastName());
-				mtxtlocation.setText(userInfo.get(i).getDistance());
+                if(!StringUtils.isNullOrEmpty(userInfo.get(i).getCountry()))
+				    mtxtlocation.setText(userInfo.get(i).getCountry());
+                mDistance.setText(userInfo.get(i).getDistance());
 				mtxtage.setText(userInfo.get(i).getAge());
 				mtxtWeight.setText(userInfo.get(i).getWeight());
 				mtxtheight.setText(userInfo.get(i).getHeight());

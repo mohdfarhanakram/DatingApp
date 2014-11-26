@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.digitalforce.datingapp.R;
@@ -24,35 +25,37 @@ import com.farru.android.ui.widget.CustomAlert;
 public class FilterActivity extends BaseActivity implements OnClickListener{
 
 
-    private String sex_roles[] = {"Top Versatile","Top (Vers Top)","Bottom(Vers Bottom)"};
+    private String sex_roles[] = {"Top Versatile","Top (Vers Top)","Bottom(Vers Bottom)","Don't Apply"};
 
-    private String looking_for[] = {"Sex","Relationship","Long Term Relationship","Dating","Fun","Flirt","Friends","Network","Sugar Daddy"};
+    private String looking_for[] = {"All","Sex","Relationship","Long Term Relationship","Dating","Fun","Flirt","Friends","Network","Sugar Daddy","Don't Apply"};
 
-    private String body_types[] = {"Slim","Average","Athletic","Heavy"};
+    private String body_types[] = {"Slim","Average","Athletic","Heavy","Don't Apply"};
 
-    private String relation_ship_status[] = {"Single","Married"};
+    private String relation_ship_status[] = {"Single","Married","Don't Apply"};
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_filter_layout);
+
+        ((TextView) findViewById(R.id.txt_screen_title)).setText("Filter");
 		
 		setData();
 
-		findViewById(R.id.min_age_layout).setOnClickListener(this);
-		findViewById(R.id.max_age_layout).setOnClickListener(this);
-		findViewById(R.id.ethnicity_layout).setOnClickListener(this);
+		findViewById(R.id.edtv_min_age).setOnClickListener(this);
+		findViewById(R.id.edtv_max_age).setOnClickListener(this);
+		findViewById(R.id.edtv_ethnicity).setOnClickListener(this);
 
-        findViewById(R.id.min_weight_layout).setOnClickListener(this);
-        findViewById(R.id.max_weight_layout).setOnClickListener(this);
+        findViewById(R.id.edtv_min_weight).setOnClickListener(this);
+        findViewById(R.id.edtv_max_weight).setOnClickListener(this);
 
-        findViewById(R.id.min_height_layout).setOnClickListener(this);
-        findViewById(R.id.max_height_layout).setOnClickListener(this);
+        findViewById(R.id.edtv_min_height).setOnClickListener(this);
+        findViewById(R.id.edtv_max_height).setOnClickListener(this);
 
-        findViewById(R.id.body_type_layout).setOnClickListener(this);
-        findViewById(R.id.looking_for_layout).setOnClickListener(this);
-        findViewById(R.id.relationship_status_layout).setOnClickListener(this);
-        findViewById(R.id.sexual_role_layout).setOnClickListener(this);
+        findViewById(R.id.edtv_body_type).setOnClickListener(this);
+        findViewById(R.id.edtv_looking_for).setOnClickListener(this);
+        findViewById(R.id.edtv_relationship).setOnClickListener(this);
+        findViewById(R.id.edtv_sexual_role).setOnClickListener(this);
 
         findViewById(R.id.btn_save_filter).setOnClickListener(this);
 	}
@@ -65,38 +68,38 @@ public class FilterActivity extends BaseActivity implements OnClickListener{
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
-		case R.id.min_age_layout:
-			showSingleSelectionDialog(R.id.txtv_min_age,getAgeArray(),"Select Min Age");
+		case R.id.edtv_min_age:
+			showSingleSelectionDialog(R.id.edtv_min_age,getAgeArray(),"Select Min Age");
 			break;
-		case R.id.max_age_layout:
-			showSingleSelectionDialog(R.id.txtv_max_age,getAgeArray(),"Select Max Age");
+		case R.id.edtv_max_age:
+			showSingleSelectionDialog(R.id.edtv_max_age,getAgeArray(),"Select Max Age");
 			break;
-		case R.id.ethnicity_layout:
-			showSingleSelectionDialog(R.id.txtv_ethnicity,getEthnicity(),"Select Ethnicity");
+		case R.id.edtv_ethnicity:
+			showSingleSelectionDialog(R.id.edtv_ethnicity,getEthnicity(),"Select Ethnicity");
 			break;
-            case R.id.min_height_layout:
-                showSingleSelectionDialog(R.id.txtv_min_height,getHeightArray(),"Min Height");
+            case R.id.edtv_min_height:
+                showSingleSelectionDialog(R.id.edtv_min_height,getHeightArray(),"Min Height");
                 break;
-            case R.id.max_height_layout:
-                showSingleSelectionDialog(R.id.txtv_max_height,getHeightArray(),"Max Height");
+            case R.id.edtv_max_height:
+                showSingleSelectionDialog(R.id.edtv_max_height,getHeightArray(),"Max Height");
                 break;
-            case R.id.min_weight_layout:
-                showSingleSelectionDialog(R.id.txtv_min_weight,getWeightArray(),"Min Weight");
+            case R.id.edtv_min_weight:
+                showSingleSelectionDialog(R.id.edtv_min_weight,getWeightArray(),"Min Weight");
                 break;
-            case R.id.max_weight_layout:
-                showSingleSelectionDialog(R.id.txtv_max_weight,getWeightArray(),"Max Weight");
+            case R.id.edtv_max_weight:
+                showSingleSelectionDialog(R.id.edtv_max_weight,getWeightArray(),"Max Weight");
                 break;
-            case R.id.body_type_layout:
-                showSingleSelectionDialog(R.id.txtv_body_type,body_types,"Body Type");
+            case R.id.edtv_body_type:
+                showSingleSelectionDialog(R.id.edtv_body_type,body_types,"Body Type");
                 break;
-            case R.id.sexual_role_layout:
-                showSingleSelectionDialog(R.id.txtv_sexual_role,sex_roles,"Sexual Role");
+            case R.id.edtv_sexual_role:
+                showSingleSelectionDialog(R.id.edtv_sexual_role,sex_roles,"Sexual Role");
                 break;
-            case R.id.relationship_status_layout:
-                showSingleSelectionDialog(R.id.txtv_relationship,relation_ship_status,"Relationship Status");
+            case R.id.edtv_relationship:
+                showSingleSelectionDialog(R.id.edtv_relationship,relation_ship_status,"Relationship Status");
                 break;
-            case R.id.looking_for_layout:
-                showSingleSelectionDialog(R.id.txtv_looking_for,looking_for,"Looking For");
+            case R.id.edtv_looking_for:
+                showSingleSelectionDialog(R.id.edtv_looking_for,looking_for,"Looking For");
                 break;
 		case R.id.btn_save_filter:
 			
@@ -206,18 +209,18 @@ public class FilterActivity extends BaseActivity implements OnClickListener{
 
 	private void saveFilterData(){
 
-		String minAge = ((TextView)findViewById(R.id.txtv_min_age)).getText().toString();
-		String maxAge = ((TextView)findViewById(R.id.txtv_max_age)).getText().toString();
-		String ethinicity = ((TextView)findViewById(R.id.txtv_ethnicity)).getText().toString();
+		String minAge = ((EditText)findViewById(R.id.edtv_min_age)).getText().toString();
+		String maxAge = ((EditText)findViewById(R.id.edtv_max_age)).getText().toString();
+		String ethinicity = ((EditText)findViewById(R.id.edtv_ethnicity)).getText().toString();
 
-        String minHeight = ((TextView)findViewById(R.id.txtv_min_height)).getText().toString();
-        String maxHeight = ((TextView)findViewById(R.id.txtv_max_height)).getText().toString();
-        String minWeight = ((TextView)findViewById(R.id.txtv_min_weight)).getText().toString();
-        String maxWeight = ((TextView)findViewById(R.id.txtv_max_weight)).getText().toString();
-        String sexRole = ((TextView)findViewById(R.id.txtv_sexual_role)).getText().toString();
-        String relationShip = ((TextView)findViewById(R.id.txtv_relationship)).getText().toString();
-        String bodyType = ((TextView)findViewById(R.id.txtv_body_type)).getText().toString();
-        String lookingFor = ((TextView)findViewById(R.id.txtv_looking_for)).getText().toString();
+        String minHeight = ((EditText)findViewById(R.id.edtv_min_height)).getText().toString();
+        String maxHeight = ((EditText)findViewById(R.id.edtv_max_height)).getText().toString();
+        String minWeight = ((EditText)findViewById(R.id.edtv_min_weight)).getText().toString();
+        String maxWeight = ((EditText)findViewById(R.id.edtv_max_weight)).getText().toString();
+        String sexRole = ((EditText)findViewById(R.id.edtv_sexual_role)).getText().toString();
+        String relationShip = ((EditText)findViewById(R.id.edtv_relationship)).getText().toString();
+        String bodyType = ((EditText)findViewById(R.id.edtv_body_type)).getText().toString();
+        String lookingFor = ((EditText)findViewById(R.id.edtv_looking_for)).getText().toString();
 
 
 		DatingAppPreference.putString(DatingAppPreference.MIN_AGE, minAge, this);
@@ -257,18 +260,18 @@ public class FilterActivity extends BaseActivity implements OnClickListener{
         String bodyType = DatingAppPreference.getString(DatingAppPreference.BODY_TYPE, "", this);
         String lookingFor = DatingAppPreference.getString(DatingAppPreference.LOOKING_FOR, "", this);
 
-        ((TextView)findViewById(R.id.txtv_min_age)).setText(minAge);
-        ((TextView)findViewById(R.id.txtv_max_age)).setText(maxAge);
-        ((TextView)findViewById(R.id.txtv_ethnicity)).setText(ethinicity);
+        ((EditText)findViewById(R.id.edtv_min_age)).setText(minAge);
+        ((EditText)findViewById(R.id.edtv_max_age)).setText(maxAge);
+        ((EditText)findViewById(R.id.edtv_ethnicity)).setText(ethinicity);
 
-        ((TextView)findViewById(R.id.txtv_min_height)).setText(minHeight);
-        ((TextView)findViewById(R.id.txtv_max_height)).setText(maxHeight);
-        ((TextView)findViewById(R.id.txtv_min_weight)).setText(minWeight);
-        ((TextView)findViewById(R.id.txtv_max_weight)).setText(maxWeight);
-        ((TextView)findViewById(R.id.txtv_sexual_role)).setText(sexRole);
-        ((TextView)findViewById(R.id.txtv_relationship)).setText(relationShip);
-        ((TextView)findViewById(R.id.txtv_body_type)).setText(bodyType);
-        ((TextView)findViewById(R.id.txtv_looking_for)).setText(lookingFor);
+        ((EditText)findViewById(R.id.edtv_min_height)).setText(minHeight);
+        ((EditText)findViewById(R.id.edtv_max_height)).setText(maxHeight);
+        ((EditText)findViewById(R.id.edtv_min_weight)).setText(minWeight);
+        ((EditText)findViewById(R.id.edtv_max_weight)).setText(maxWeight);
+        ((EditText)findViewById(R.id.edtv_sexual_role)).setText(sexRole);
+        ((EditText)findViewById(R.id.edtv_relationship)).setText(relationShip);
+        ((EditText)findViewById(R.id.edtv_body_type)).setText(bodyType);
+        ((EditText)findViewById(R.id.edtv_looking_for)).setText(lookingFor);
 		
 
 	}

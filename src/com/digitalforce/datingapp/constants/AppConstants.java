@@ -55,5 +55,7 @@ public class AppConstants {
     public static final int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
     public static final String SENDER_ID = "754623190416";
 
+    public static final String IS_COMING_FROM_MATCH_FINDER = "is_coming_from_match_finder";
+
 
 }

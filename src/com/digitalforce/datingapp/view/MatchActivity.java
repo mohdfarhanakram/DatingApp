@@ -41,7 +41,7 @@ public class MatchActivity extends BaseActivity{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.layout_match);
 		mtxtTitle = (TextView) findViewById(R.id.txt_screen_title);
-		mtxtTitle.setText(getResources().getString(R.string.match));
+		mtxtTitle.setText("Match Finder");
 		
 		mgridVeiw = (GridView) findViewById(R.id.grid_view_match);
 		
@@ -53,6 +53,7 @@ public class MatchActivity extends BaseActivity{
 				// TODO Auto-generated method stub
                 Intent i = new Intent(MatchActivity.this, ProfileActivity.class);
                 i.putExtra(AppConstants.SHOW_PROFILE_USER_ID,mUserInfos.get(position).getUserId());
+                i.putExtra(AppConstants.IS_COMING_FROM_MATCH_FINDER,true);
                 startActivity(i);
 			}
         });

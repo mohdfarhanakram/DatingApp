@@ -191,23 +191,6 @@ public abstract class BaseActivity extends FragmentActivity implements IScreen,R
         super.onSaveInstanceState(outState);
     }
 
-
-
-    /*
-     * Restore instance state.
-     */
-    protected void restoreInstanceState(Bundle savedInstanceState){
-
-    }
-
-
-    @Override
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        saveInstanceState(outState);
-        super.onSaveInstanceState(outState);
-    }
-
     /*
      * Save instance state
      */
@@ -265,9 +248,6 @@ public abstract class BaseActivity extends FragmentActivity implements IScreen,R
     }*/
 
 
-    protected void saveInstanceState(Bundle outState){
-
-    }
 
     @Override
 	protected void onResume() {

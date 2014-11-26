@@ -1,18 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:mySwitch="http://schemas.android.com/apk/res-auto"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="@drawable/bg"
     android:orientation="vertical" >
 
-    <TextView
-            style="@style/txt_base"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:padding="5dp"
-            android:text="Filter"
-            android:textSize="@dimen/sp_18" />
+    <include
+            layout="@layout/layout_action_bar"/>
 
     <TextView
             style="@style/txt_base"
@@ -30,393 +25,278 @@
 
         <LinearLayout  android:paddingTop="5dp" android:paddingBottom="5dp" android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent">
 
-
-
-
-            <LinearLayout
-                    android:id="@+id/min_age_layout"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="8dp" >
+           <!-- <LinearLayout
+                    style="@style/layout_profile" >
 
                 <TextView
                         style="@style/txt_base"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
+                        android:layout_width="0dp"
                         android:layout_weight="1"
-                        android:padding="5dp"
+                        android:padding="@dimen/dp_5"
+                        android:text="Enable/Disable Filter"
+                        android:textSize="@dimen/sp_14" />
+                <com.digitalforce.datingapp.widgets.CustomSwitch
+                        android:layout_weight="1"
+                        android:id="@+id/switch21"
+                        style="@style/mySwitchStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginBottom="2dp"
+                        android:layout_marginRight="4dp"
+                        android:layout_marginTop="4dp"
+                        android:gravity="right"
+                        mySwitch:orientation="horizontal"
+                        mySwitch:textOff="Disable"
+                        mySwitch:textOn="Enable"
+                        mySwitch:textOnThumb="false"
+                        mySwitch:thumb="@drawable/gold1"
+                        mySwitch:track="@drawable/switch_track" />
+
+            </LinearLayout>-->
+
+            <LinearLayout
+                    style="@style/layout_profile" >
+
+                <TextView
+                        style="@style/txt_base"
+                        android:layout_width="0dp"
+                        android:layout_weight=".40"
+                        android:padding="@dimen/dp_5"
                         android:text="Min Age"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
+                        android:textSize="@dimen/sp_14" />
+                <EditText
+                        android:id="@+id/edtv_min_age"
+                        style="@style/edit_profile"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:focusableInTouchMode="false"
+                        android:hint="Min Age" />
 
-                <TextView
-                        android:id="@+id/txtv_min_age"
-                        style="@style/txt_base"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:padding="5dp"
-                        android:text="No Min"
-                        android:textSize="16sp"
-                        android:textStyle="normal" />
             </LinearLayout>
 
-            <View
-                    android:layout_width="fill_parent"
-                    android:layout_height="0.5dp"
-                    android:background="@color/white" />
+
 
             <LinearLayout
-                    android:id="@+id/max_age_layout"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="8dp" >
+                    style="@style/layout_profile" >
 
                 <TextView
                         style="@style/txt_base"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_weight="1"
-                        android:padding="5dp"
+                        android:layout_width="0dp"
+                        android:layout_weight=".40"
+                        android:padding="@dimen/dp_5"
                         android:text="Max Age"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
+                        android:textSize="@dimen/sp_14" />
+                <EditText
+                        android:id="@+id/edtv_max_age"
+                        style="@style/edit_profile"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:focusableInTouchMode="false"
+                        android:hint="Max Age" />
 
-                <TextView
-                        android:id="@+id/txtv_max_age"
-                        style="@style/txt_base"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:padding="5dp"
-                        android:text="No Max"
-                        android:textSize="16sp"
-                        android:textStyle="normal" />
+
             </LinearLayout>
 
-            <View
-                    android:layout_width="fill_parent"
-                    android:layout_height="0.5dp"
-                    android:background="@color/white" />
 
             <LinearLayout
-                    android:id="@+id/ethnicity_layout"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="8dp" >
+                    style="@style/layout_profile" >
 
                 <TextView
                         style="@style/txt_base"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_weight="1"
-                        android:padding="5dp"
+                        android:layout_width="0dp"
+                        android:layout_weight=".40"
+                        android:padding="@dimen/dp_5"
                         android:text="Ethnicity"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
+                        android:textSize="@dimen/sp_14" />
 
-                <TextView
-                        android:id="@+id/txtv_ethnicity"
-                        style="@style/txt_base"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:padding="5dp"
-                        android:text="All"
-                        android:textSize="16sp"
-                        android:textStyle="normal" />
+                <EditText
+                        android:id="@+id/edtv_ethnicity"
+                        style="@style/edit_profile"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:focusableInTouchMode="false"
+                        android:hint="Ethnicity" />
+
+
             </LinearLayout>
 
-            <View
-                    android:layout_width="fill_parent"
-                    android:layout_height="0.5dp"
-                    android:background="@color/white" />
+
 
             <LinearLayout
-                    android:id="@+id/min_weight_layout"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="8dp" >
+                    style="@style/layout_profile" >
 
                 <TextView
                         style="@style/txt_base"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_weight="1"
-                        android:padding="5dp"
+                        android:layout_width="0dp"
+                        android:layout_weight=".40"
+                        android:padding="@dimen/dp_5"
                         android:text="Min Weight"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
+                        android:textSize="@dimen/sp_14" />
 
-                <TextView
-                        android:id="@+id/txtv_min_weight"
-                        style="@style/txt_base"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:padding="5dp"
-                        android:text="All"
-                        android:textSize="16sp"
-                        android:textStyle="normal" />
+                <EditText
+                        android:id="@+id/edtv_min_weight"
+                        style="@style/edit_profile"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:focusableInTouchMode="false"
+                        android:hint="Min Weight" />
+
+
             </LinearLayout>
 
-            <View
-                    android:layout_width="fill_parent"
-                    android:layout_height="0.5dp"
-                    android:background="@color/white" />
+
 
             <LinearLayout
-                    android:id="@+id/max_weight_layout"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="8dp" >
-
+                    style="@style/layout_profile" >
                 <TextView
                         style="@style/txt_base"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_weight="1"
-                        android:padding="5dp"
+                        android:layout_width="0dp"
+                        android:layout_weight=".40"
+                        android:padding="@dimen/dp_5"
                         android:text="Max Weight"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
+                        android:textSize="@dimen/sp_14" />
+                <EditText
+                        android:id="@+id/edtv_max_weight"
+                        style="@style/edit_profile"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:focusableInTouchMode="false"
+                        android:hint="Max Weight" />
 
-                <TextView
-                        android:id="@+id/txtv_max_weight"
-                        style="@style/txt_base"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:padding="5dp"
-                        android:text="Weight"
-                        android:textSize="16sp"
-                        android:textStyle="normal" />
+
             </LinearLayout>
 
-            <View
-                    android:layout_width="fill_parent"
-                    android:layout_height="0.5dp"
-                    android:background="@color/white" />
 
             <LinearLayout
-                    android:id="@+id/min_height_layout"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="8dp" >
+                    style="@style/layout_profile" >
 
                 <TextView
                         style="@style/txt_base"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_weight="1"
-                        android:padding="5dp"
+                        android:layout_width="0dp"
+                        android:layout_weight=".40"
+                        android:padding="@dimen/dp_5"
                         android:text="Min Height"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
+                        android:textSize="@dimen/sp_14" />
+                <EditText
+                        android:id="@+id/edtv_min_height"
+                        style="@style/edit_profile"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:focusableInTouchMode="false"
+                        android:hint="Min Height" />
 
-                <TextView
-                        android:id="@+id/txtv_min_height"
-                        style="@style/txt_base"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:padding="5dp"
-                        android:text="Height"
-                        android:textSize="16sp"
-                        android:textStyle="normal" />
             </LinearLayout>
 
-            <View
-                    android:layout_width="fill_parent"
-                    android:layout_height="0.5dp"
-                    android:background="@color/white" />
-            <LinearLayout
-                    android:id="@+id/max_height_layout"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="8dp" >
 
+            <LinearLayout
+                    style="@style/layout_profile" >
                 <TextView
                         style="@style/txt_base"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_weight="1"
-                        android:padding="5dp"
+                        android:layout_width="0dp"
+                        android:layout_weight=".40"
+                        android:padding="@dimen/dp_5"
                         android:text="Max Height"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
+                        android:textSize="@dimen/sp_14" />
+                <EditText
+                        android:id="@+id/edtv_max_height"
+                        style="@style/edit_profile"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:focusableInTouchMode="false"
+                        android:hint="Max Height" />
 
-                <TextView
-                        android:id="@+id/txtv_max_height"
-                        style="@style/txt_base"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:padding="5dp"
-                        android:text="Height"
-                        android:textSize="16sp"
-                        android:textStyle="normal" />
             </LinearLayout>
 
-            <View
-                    android:layout_width="fill_parent"
-                    android:layout_height="0.5dp"
-                    android:background="@color/white" />
+
 
             <LinearLayout
-                    android:id="@+id/body_type_layout"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="8dp" >
+                    style="@style/layout_profile" >
 
                 <TextView
                         style="@style/txt_base"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_weight="1"
-                        android:padding="5dp"
+                        android:layout_width="0dp"
+                        android:layout_weight=".40"
+                        android:padding="@dimen/dp_5"
                         android:text="Body Type"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
+                        android:textSize="@dimen/sp_14" />
+                <EditText
+                        android:id="@+id/edtv_body_type"
+                        style="@style/edit_profile"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:focusableInTouchMode="false"
+                        android:hint="Body Type" />
 
-                <TextView
-                        android:id="@+id/txtv_body_type"
-                        style="@style/txt_base"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:padding="5dp"
-                        android:text="Body Type"
-                        android:textSize="16sp"
-                        android:textStyle="normal" />
             </LinearLayout>
 
-            <View
-                    android:layout_width="fill_parent"
-                    android:layout_height="0.5dp"
-                    android:background="@color/white" />
+
 
             <LinearLayout
-                    android:id="@+id/looking_for_layout"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="8dp" >
+                    style="@style/layout_profile" >
 
                 <TextView
                         style="@style/txt_base"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:layout_weight="1"
-                        android:padding="5dp"
+                        android:layout_width="0dp"
+                        android:layout_weight=".40"
+                        android:padding="@dimen/dp_5"
                         android:text="Looking For"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
-
-                <TextView
-                        android:id="@+id/txtv_looking_for"
-                        style="@style/txt_base"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:padding="5dp"
-                        android:text="Looking For"
-                        android:textSize="16sp"
-                        android:textStyle="normal" />
-            </LinearLayout>
-
-            <View
-                    android:layout_width="fill_parent"
-                    android:layout_height="0.5dp"
-                    android:background="@color/white" />
-
-            <LinearLayout
-                    android:id="@+id/relationship_status_layout"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="8dp" >
-
-                <TextView
-                        style="@style/txt_base"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
+                        android:textSize="@dimen/sp_14" />
+                <EditText
+                        android:id="@+id/edtv_looking_for"
+                        style="@style/edit_profile"
+                        android:layout_width="0dp"
                         android:layout_weight="1"
-                        android:padding="5dp"
-                        android:text="Relationship"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
+                        android:focusableInTouchMode="false"
+                        android:hint="Looking For" />
 
-                <TextView
-                        android:id="@+id/txtv_relationship"
-                        style="@style/txt_base"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:padding="5dp"
-                        android:text="Relationship"
-                        android:textSize="16sp"
-                        android:textStyle="normal" />
+
             </LinearLayout>
-
-            <View
-                    android:layout_width="fill_parent"
-                    android:layout_height="0.5dp"
-                    android:background="@color/white" />
 
 
             <LinearLayout
-                    android:id="@+id/sexual_role_layout"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:padding="8dp" >
+                    style="@style/layout_profile" >
 
                 <TextView
                         style="@style/txt_base"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
+                        android:layout_width="0dp"
+                        android:layout_weight=".40"
+                        android:padding="@dimen/dp_5"
+                        android:text="Relationship"
+                        android:textSize="@dimen/sp_14" />
+                <EditText
+                        android:id="@+id/edtv_relationship"
+                        style="@style/edit_profile"
+                        android:layout_width="0dp"
                         android:layout_weight="1"
-                        android:padding="5dp"
-                        android:text="Sexual Role"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
+                        android:focusableInTouchMode="false"
+                        android:hint="Relationship" />
 
-                <TextView
-                        android:id="@+id/txtv_sexual_role"
-                        style="@style/txt_base"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:padding="5dp"
-                        android:text="Sexual Role"
-                        android:textSize="16sp"
-                        android:textStyle="normal" />
+
             </LinearLayout>
 
-            <View
-                    android:layout_width="fill_parent"
-                    android:layout_height="0.5dp"
-                    android:background="@color/white" />
+
+
+
+            <LinearLayout
+                    style="@style/layout_profile" >
+
+                <TextView
+                        style="@style/txt_base"
+                        android:layout_width="0dp"
+                        android:layout_weight=".40"
+                        android:padding="@dimen/dp_5"
+                        android:text="Sexual Role"
+                        android:textSize="@dimen/sp_14" />
+                <EditText
+                        android:id="@+id/edtv_sexual_role"
+                        style="@style/edit_profile"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:focusableInTouchMode="false"
+                        android:hint="Sexual Role" />
+
+            </LinearLayout>
 
 
             <Button

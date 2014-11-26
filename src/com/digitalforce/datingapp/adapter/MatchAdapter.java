@@ -65,7 +65,7 @@ public class MatchAdapter extends BaseAdapter {
 
             convertView = inflater.inflate(R.layout.layout_grid_nearby_details, parent, false);
 
-            viewHolder.infoDistance = (LinearLayout)convertView.findViewById(R.id.info_distance);
+            //viewHolder.infoDistance = (LinearLayout)convertView.findViewById(R.id.info_distance);
             viewHolder.infoLayout = (LinearLayout)convertView.findViewById(R.id.info_layout);
             viewHolder.member = (TextView) convertView.findViewById(R.id.txt_nearby_member_name);
             viewHolder.place = (TextView) convertView.findViewById(R.id.txt_nearby_place);
@@ -78,7 +78,7 @@ public class MatchAdapter extends BaseAdapter {
             viewHolder = (ViewHolder)convertView.getTag();
         }
 
-        viewHolder.infoDistance.setVisibility(View.GONE);
+        viewHolder.place.setVisibility(View.GONE);
 
         if(!StringUtils.isNullOrEmpty(nearBy.getFirstName())){
 
@@ -95,11 +95,10 @@ public class MatchAdapter extends BaseAdapter {
 
         }
 
-        if(!StringUtils.isNullOrEmpty(nearBy.getCountry())){
-            viewHolder.country.setVisibility(View.VISIBLE);
+        if(!StringUtils.isNullOrEmpty(nearBy.getCountry().trim())){
             viewHolder.country.setText(nearBy.getCountry());
         }else{
-            viewHolder.country.setVisibility(View.INVISIBLE);
+            viewHolder.country.setText("N/A");
         }
 
 
@@ -117,7 +116,7 @@ public class MatchAdapter extends BaseAdapter {
         public TextView country;
         public RoundedImageView image;
         public LinearLayout infoLayout;
-        public LinearLayout infoDistance;
+        //public LinearLayout infoDistance;
     }
 
     public void picassoLoad(String url, ImageView imageView) {

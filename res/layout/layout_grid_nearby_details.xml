@@ -33,35 +33,37 @@
             android:text="@string/member_nmae"
             android:textSize="@dimen/sp_14" />
 
-
-        <LinearLayout
-            android:id="@+id/info_distance"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-             android:layout_gravity="center_horizontal"
-            android:orientation="horizontal"
-            android:padding="@dimen/dp_2" >
-
-            <ImageView
-                android:visibility="gone"
-                android:layout_width="@dimen/dp_15"
-                android:layout_height="@dimen/dp_15"
-                android:contentDescription="@null"
-                android:src="@drawable/location" />
-
             <TextView
                 android:id="@+id/txt_nearby_place"
                 style="@style/txt_base"
+                android:layout_gravity="center_horizontal"
                 android:text="@string/place"
                 android:textSize="@dimen/sp_10" />
+
+
+        <LinearLayout
+                android:id="@+id/info_distance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:padding="@dimen/dp_2" >
+            <ImageView
+                    android:visibility="visible"
+                    android:layout_width="@dimen/dp_15"
+                    android:layout_height="@dimen/dp_15"
+                    android:contentDescription="@null"
+                    android:src="@drawable/location" />
+
+            <TextView
+                    android:id="@+id/txt_country"
+                    android:layout_gravity="center_horizontal"
+                    style="@style/txt_base"
+                    android:text="N/A"
+                    android:textSize="@dimen/sp_10" />
         </LinearLayout>
 
-        <TextView
-                android:id="@+id/txt_country"
-                android:layout_gravity="center_horizontal"
-                style="@style/txt_base"
-                android:text="@string/place"
-                android:textSize="@dimen/sp_10" />
+
 
     </LinearLayout>
 

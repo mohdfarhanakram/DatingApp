@@ -168,16 +168,16 @@ public class FilterActivity extends BaseActivity implements OnClickListener{
      */
     private String[] getHeightArray()
     {
-        String[] height = new String[84];
+        String[] height = new String[60];
 
         int index = 0;
 
-        for(int i=0; i<7; i++)
+        for(int i=0; i<5; i++)
         {
             for(int j=0; j<=11;j++)
             {
 
-                height[index] = (i+3)+" ft "+j+" in";
+                height[index] = (i+4)+" ft "+j+" in";
                 Log.e("KMD", "i=" + i + " j=" + j);
                 index++;
             }

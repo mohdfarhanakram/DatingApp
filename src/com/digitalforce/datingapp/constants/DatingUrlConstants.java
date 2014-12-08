@@ -3,7 +3,8 @@ package com.digitalforce.datingapp.constants;
 
 public interface DatingUrlConstants {
 	
-	public static final String BASE_URL = "http://dfoutsourcingagency.com/dating/webservice/";
+	//public static final String BASE_URL = "http://dfoutsourcingagency.com/dating/webservice/";
+    public static final String BASE_URL = "http://n2him.mobi/webservice/";
 
 	public static final String LOGIN_URL 					= BASE_URL+"login.php";
 	public static final String SIGN_UP_URL 					= BASE_URL+"signup.php";
@@ -39,6 +40,8 @@ public interface DatingUrlConstants {
 
     public static final String MARK_INTERESTED_URL		    = BASE_URL+"interested.php";
     public static final String MARK_NOT_INTERESTED_URL		= BASE_URL+"remove_from_interest.php";
+
+    public static final String LIKE_URL = BASE_URL+"like.php";
 
 
 

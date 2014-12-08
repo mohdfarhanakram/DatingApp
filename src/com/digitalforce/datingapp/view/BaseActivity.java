@@ -458,13 +458,13 @@ public abstract class BaseActivity extends FragmentActivity implements IScreen,R
 	 * hides the soft key pad
 	 */
 	public void hideSoftKeypad(View view) {
-		InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-		try {
-			imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
-		} catch (Exception e) {
-			Log.e(LOG_TAG, "hideSoftKeypad()", e);
-		}
-	}
+        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        try {
+            imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        } catch (Exception e) {
+            Log.e(LOG_TAG, "hideSoftKeypad()", e);
+        }
+    }
 
 	@Override
 	public boolean dispatchTouchEvent(MotionEvent event) {

@@ -97,6 +97,7 @@ public class BaseParser implements IParser {
         case ApiEvent.MARK_INTERESTED_EVENT:
         case ApiEvent.MARK_NOT_INTERESTED_EVENT:
         case ApiEvent.SEARCH_EVENT:
+        case ApiEvent.LIKE_EVENT:
 			response.setErrorMessages(jsonObject.optString("error", null));
 			break;
 		default:
@@ -150,6 +151,7 @@ public class BaseParser implements IParser {
                 break;
        case ApiEvent.MARK_INTERESTED_EVENT:
        case ApiEvent.MARK_NOT_INTERESTED_EVENT:
+       case ApiEvent.LIKE_EVENT:
            break;
 		default:
 			break;

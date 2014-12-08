@@ -11,6 +11,7 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.Handler;
 
+import android.widget.EditText;
 import com.digitalforce.datingapp.R;
 import com.digitalforce.datingapp.constants.AppConstants;
 import com.digitalforce.datingapp.constants.DatingConstants;
@@ -29,31 +30,24 @@ public class SplashActivity extends BaseActivity implements LocationListener{
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.layout_splash_screen);
-
-		
-
 	}
 	
 	@Override
 	protected void onPostCreate(Bundle savedInstanceState) {
 		super.onPostCreate(savedInstanceState);
-		
 		executeLocationController();
 	}
 
 	@Override
 	public void onEvent(int eventId, Object eventData) {
 		// TODO Auto-generated method stub
-
 	}
 
 	@Override
 	public void updateUi(ServiceResponse serviceResponse) {
 		super.updateUi(serviceResponse);
-
 	}
 	/*@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {

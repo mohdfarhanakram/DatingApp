@@ -116,7 +116,7 @@ public class ProfileActivity extends BaseActivity implements OnClickListener{
 		postData(DatingUrlConstants.SHOW_PROFILE_URL, ApiEvent.SHOW_PROFILE_EVENT, postData);
 
 
-		
+		findViewById(R.id.heart_button).setOnClickListener(this);
 		
 	}
 
@@ -209,6 +209,9 @@ public class ProfileActivity extends BaseActivity implements OnClickListener{
                 if(!(Boolean)v.getTag()){
                     markInterested(false);
                 }
+                break;
+            case R.id.heart_button:
+                requestForLike();
                 break;
 		default:
 			break;
@@ -433,5 +436,26 @@ public class ProfileActivity extends BaseActivity implements OnClickListener{
        Log.e("Request", jsonObject.toString());
        return jsonObject.toString();
    }
+
+    private void requestForLike(){
+        String postData =  getLikeJsonRequest();
+        Log.e("Post Data", postData);
+        postData(DatingUrlConstants.LIKE_URL, ApiEvent.LIKE_EVENT, postData);
+    }
+
+  private String getLikeJsonRequest(){
+      //{"userid":"47","user_id_to_like":"1"}
+      JSONObject jsonObject = new JSONObject();
+      try {
+          jsonObject.putOpt("userid", DatingAppPreference.getString(DatingAppPreference.USER_ID, "", this));
+          jsonObject.put("user_id_to_like", calledUserProfileId);  //
+      } catch (JSONException e) {
+          // TODO Auto-generated catch block
+          e.printStackTrace();
+      }
+
+      Log.e("Request", jsonObject.toString());
+      return jsonObject.toString();
+  }
 
 }

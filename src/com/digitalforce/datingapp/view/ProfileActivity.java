@@ -47,6 +47,7 @@ public class ProfileActivity extends BaseActivity implements OnClickListener{
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
+
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.layout_profile);
 
@@ -95,17 +96,19 @@ public class ProfileActivity extends BaseActivity implements OnClickListener{
 		if(calledUserProfileId.equals(DatingAppPreference.getString(DatingAppPreference.USER_ID, "", this))){
 			mimgFavourite.setEnabled(false);
 			mimgFavourite.setClickable(false);
+            findViewById(R.id.heart_button).setEnabled(false);
 
 		}else{
 			mimgFavourite.setEnabled(true);
 			mimgFavourite.setClickable(true);
+            findViewById(R.id.heart_button).setEnabled(true);
 		}
 
 
-        if(getIntent().getBooleanExtra(AppConstants.IS_COMING_FROM_MATCH_FINDER,false)){
-            findViewById(R.id.intrest_layout).setVisibility(View.VISIBLE);
-        }else{
+        if(calledUserProfileId.equals(DatingAppPreference.getString(DatingAppPreference.USER_ID, "", this))){
             findViewById(R.id.intrest_layout).setVisibility(View.GONE);
+        }else{
+            findViewById(R.id.intrest_layout).setVisibility(View.VISIBLE);
         }
 
         findViewById(R.id.txt_interested).setOnClickListener(this);
@@ -117,6 +120,7 @@ public class ProfileActivity extends BaseActivity implements OnClickListener{
 
 
 		findViewById(R.id.heart_button).setOnClickListener(this);
+        findViewById(R.id.point_pin).setOnClickListener(this);
 		
 	}
 
@@ -212,6 +216,9 @@ public class ProfileActivity extends BaseActivity implements OnClickListener{
                 break;
             case R.id.heart_button:
                 requestForLike();
+                break;
+            case R.id.point_pin:
+                openUserLocation();
                 break;
 		default:
 			break;
@@ -340,7 +347,7 @@ public class ProfileActivity extends BaseActivity implements OnClickListener{
 				mtxtName.setText(userInfo.get(i).getFirstName()+" "+userInfo.get(i).getLastName());
                 if(!StringUtils.isNullOrEmpty(userInfo.get(i).getCountry()))
 				    mtxtlocation.setText(userInfo.get(i).getCountry());
-                mDistance.setText(userInfo.get(i).getDistance());
+                mDistance.setText("Approx. "+userInfo.get(i).getDistance()+" Away");
 				mtxtage.setText(userInfo.get(i).getAge());
 				mtxtWeight.setText(userInfo.get(i).getWeight());
 				mtxtheight.setText(userInfo.get(i).getHeight());
@@ -456,6 +463,19 @@ public class ProfileActivity extends BaseActivity implements OnClickListener{
 
       Log.e("Request", jsonObject.toString());
       return jsonObject.toString();
+  }
+
+
+  private void openUserLocation(){
+      if(((TextView)findViewById(R.id.txt_profile_location)).getText().toString().equalsIgnoreCase("N/A")){
+          return;
+      }
+      Intent i =new Intent(this,UserLocationActivity.class);
+      i.putExtra(AppConstants.MAP_LATITUDE,mUserInfo.getLatitude());
+      i.putExtra(AppConstants.MAP_LONGITUDE,mUserInfo.getLongitude());
+      i.putExtra(AppConstants.MAP_USER_NAME,mUserInfo.getFirstName());
+      startActivity(i);
+
   }
 
 }

@@ -6,6 +6,8 @@
     -->
     <style name="AppBaseTheme" parent="android:Theme.Holo.Light">
         <!-- API 11 theme customizations can go here. -->
+        <item name="switchStyle">@style/switch_dark</item>
+        <item name="textAppearance">@style/TextAppearance</item>
     </style>
 
 </resources>

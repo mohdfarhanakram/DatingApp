@@ -770,9 +770,9 @@ public class UpdateProfileActivity extends BaseActivity implements OnClickListen
 	 */
 	private String[] getAgeArray()
 	{
-			String[] age = new String[83];
+		String[] age = new String[82];
 		
-		for(int i=0; i<83; i++){
+		for(int i=0; i<82; i++){
 			age[i] = (i+18)+"";
 		}
 		
@@ -782,39 +782,39 @@ public class UpdateProfileActivity extends BaseActivity implements OnClickListen
 	 * 
 	 * @return
 	 */
-	private String[] getWeightArray()
-	{
-			String[] weight = new String[2202];
-		
-		for(int i=0; i<2202; i++){
-			weight[i] = (i+99)+" "+"lbs";
-		}
-		
-		return weight;
-	}
+    private String[] getWeightArray()
+    {
+        String[] weight = new String[166];
+
+        for(int i=0; i<166; i++){
+            weight[i] = (i+99)+" "+"lbs";
+        }
+
+        return weight;
+    }
 	/**
 	 * 
 	 * @return
 	 */
-	private String[] getHeightArray()
-	{
-		String[] height = new String[84];
-			
-	    int index = 0;
-		
-		for(int i=0; i<7; i++)
-		{
-			for(int j=0; j<=11;j++)
-			{
-				
-				height[index] = (i+3)+" ft "+j+" in";
-				Log.e("KMD", "i="+i+" j="+j);
-				index++;
-			}
-		}
-		
-		return height;
-	}
+    private String[] getHeightArray()
+    {
+        String[] height = new String[48];
+
+        int index = 0;
+
+        for(int i=0; i<4; i++)
+        {
+            for(int j=0; j<=11;j++)
+            {
+
+                height[index] = (i+4)+" ft "+j+" in";
+                Log.e("KMD", "i=" + i + " j=" + j);
+                index++;
+            }
+        }
+
+        return height;
+    }
 	
 	
 	private int getSelectedIndex(String selected,String[] options){

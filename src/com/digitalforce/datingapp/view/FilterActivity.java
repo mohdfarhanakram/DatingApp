@@ -17,6 +17,7 @@ import com.digitalforce.datingapp.R;
 import com.digitalforce.datingapp.persistance.DatingAppPreference;
 import com.digitalforce.datingapp.utils.ToastCustom;
 import com.farru.android.ui.widget.CustomAlert;
+import de.ankri.views.Switch;
 
 /**
  * @author FARHAN
@@ -25,20 +26,25 @@ import com.farru.android.ui.widget.CustomAlert;
 public class FilterActivity extends BaseActivity implements OnClickListener{
 
 
-    private String sex_roles[] = {"Top Versatile","Top (Vers Top)","Bottom(Vers Bottom)","Don't Apply"};
+    private String sex_roles[] = {"All","Top Versatile","Top (Vers Top)","Bottom(Vers Bottom)"};
 
-    private String looking_for[] = {"All","Sex","Relationship","Long Term Relationship","Dating","Fun","Flirt","Friends","Network","Sugar Daddy","Don't Apply"};
+    private String looking_for[] = {"All","Sex","Relationship","Long Term Relationship","Dating","Fun","Flirt","Friends","Network","Sugar Daddy"};
 
-    private String body_types[] = {"Slim","Average","Athletic","Heavy","Don't Apply"};
+    private String body_types[] = {"All","Slim","Average","Athletic","Heavy"};
 
-    private String relation_ship_status[] = {"Single","Married","Don't Apply"};
+    private String relation_ship_status[] = {"All","Single","Married"};
+
+    private Switch mSwitch;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+        //setTheme(R.style.AppBaseTheme);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_filter_layout);
 
         ((TextView) findViewById(R.id.txt_screen_title)).setText("Filter");
+
+        mSwitch = (Switch)findViewById(R.id.btn_enable_disable);
 		
 		setData();
 
@@ -58,6 +64,7 @@ public class FilterActivity extends BaseActivity implements OnClickListener{
         findViewById(R.id.edtv_sexual_role).setOnClickListener(this);
 
         findViewById(R.id.btn_save_filter).setOnClickListener(this);
+
 	}
 
 	@Override
@@ -113,6 +120,10 @@ public class FilterActivity extends BaseActivity implements OnClickListener{
 
 	private void showSingleSelectionDialog(final int resId,final String[] items,String title){
 
+        if(!mSwitch.isChecked()){
+            return;
+        }
+
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
 		builder.setTitle(title);
 		String selectedString = "";
@@ -138,15 +149,16 @@ public class FilterActivity extends BaseActivity implements OnClickListener{
 		builder.create().show();
 	}
 
-	private String[] getAgeArray(){
-		String[] age = new String[83];
+    private String[] getAgeArray()
+    {
+        String[] age = new String[82];
 
-		for(int i=0; i<83; i++){
-			age[i] = (i+18)+"";
-		}
+        for(int i=0; i<82; i++){
+            age[i] = (i+18)+"";
+        }
 
-		return age;
-	}
+        return age;
+    }
 
     /**
      *
@@ -154,9 +166,9 @@ public class FilterActivity extends BaseActivity implements OnClickListener{
      */
     private String[] getWeightArray()
     {
-        String[] weight = new String[2202];
+        String[] weight = new String[166];
 
-        for(int i=0; i<2202; i++){
+        for(int i=0; i<166; i++){
             weight[i] = (i+99)+" "+"lbs";
         }
 
@@ -168,11 +180,11 @@ public class FilterActivity extends BaseActivity implements OnClickListener{
      */
     private String[] getHeightArray()
     {
-        String[] height = new String[60];
+        String[] height = new String[48];
 
         int index = 0;
 
-        for(int i=0; i<5; i++)
+        for(int i=0; i<4; i++)
         {
             for(int j=0; j<=11;j++)
             {
@@ -188,7 +200,7 @@ public class FilterActivity extends BaseActivity implements OnClickListener{
 
 	private String[] getEthnicity(){
 
-		String[] ethnicity = {"Asian","Black","Latino","Mixed","White","Other"};
+		String[] ethnicity = {"All","Asian","Black","Latino","Mixed","White","Other"};
 
 		return ethnicity;
 	}
@@ -236,6 +248,8 @@ public class FilterActivity extends BaseActivity implements OnClickListener{
         DatingAppPreference.putString(DatingAppPreference.RELATION_SHIP, relationShip, this);
         DatingAppPreference.putString(DatingAppPreference.LOOKING_FOR, lookingFor, this);
 
+        DatingAppPreference.putBoolean(DatingAppPreference.FILTER_ENABLE, mSwitch.isChecked(), this);
+
 		
 		ToastCustom.makeText(this, "Filter data is saved successfully.", 3000);
 		
@@ -248,17 +262,18 @@ public class FilterActivity extends BaseActivity implements OnClickListener{
 	private void setData(){
 
 		String minAge = DatingAppPreference.getString(DatingAppPreference.MIN_AGE, "18", this);
-		String maxAge = DatingAppPreference.getString(DatingAppPreference.MAX_AGE, "100", this);
-		String ethinicity = DatingAppPreference.getString(DatingAppPreference.ETHNICITY, "Asian", this);
+		String maxAge = DatingAppPreference.getString(DatingAppPreference.MAX_AGE, "99", this);
+		String ethinicity = DatingAppPreference.getString(DatingAppPreference.ETHNICITY, "All", this);
 
-        String minHeight = DatingAppPreference.getString(DatingAppPreference.MIN_HEIGHT, "3 ft 0 in", this);
-        String maxHeight = DatingAppPreference.getString(DatingAppPreference.MAX_HEIGHT, "9 ft 11 in", this);
+        String minHeight = DatingAppPreference.getString(DatingAppPreference.MIN_HEIGHT, "4 ft 5 in", this);
+        String maxHeight = DatingAppPreference.getString(DatingAppPreference.MAX_HEIGHT, "7 ft 11 in", this);
         String minWeight = DatingAppPreference.getString(DatingAppPreference.MIN_WEIGHT, "99 lbs", this);
-        String maxWeight = DatingAppPreference.getString(DatingAppPreference.MAX_WEIGHT, "2300 lbs", this);
-        String sexRole = DatingAppPreference.getString(DatingAppPreference.SEX_ROLE, "Top Versatile", this);
+        String maxWeight = DatingAppPreference.getString(DatingAppPreference.MAX_WEIGHT, "264 lbs", this);
+        String sexRole = DatingAppPreference.getString(DatingAppPreference.SEX_ROLE, "All", this);
         String relationShip = DatingAppPreference.getString(DatingAppPreference.RELATION_SHIP, "", this);
         String bodyType = DatingAppPreference.getString(DatingAppPreference.BODY_TYPE, "", this);
         String lookingFor = DatingAppPreference.getString(DatingAppPreference.LOOKING_FOR, "", this);
+        boolean isEnable = DatingAppPreference.getBoolean(DatingAppPreference.FILTER_ENABLE, true, this);
 
         ((EditText)findViewById(R.id.edtv_min_age)).setText(minAge);
         ((EditText)findViewById(R.id.edtv_max_age)).setText(maxAge);
@@ -272,10 +287,8 @@ public class FilterActivity extends BaseActivity implements OnClickListener{
         ((EditText)findViewById(R.id.edtv_relationship)).setText(relationShip);
         ((EditText)findViewById(R.id.edtv_body_type)).setText(bodyType);
         ((EditText)findViewById(R.id.edtv_looking_for)).setText(lookingFor);
-		
+        mSwitch.setChecked(isEnable);
 
 	}
-
-
 
 }

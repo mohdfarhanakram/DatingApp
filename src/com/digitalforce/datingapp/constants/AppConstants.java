@@ -53,9 +53,16 @@ public class AppConstants {
     public static final String USER_AUDIO_URL  = "user_audio_url";
 
     public static final int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
-    public static final String SENDER_ID = "754623190416";
+    public static final String SENDER_ID = "353969469643";    //754623190416
 
     public static final String IS_COMING_FROM_MATCH_FINDER = "is_coming_from_match_finder";
 
+
+    public static final String MAP_LATITUDE    = "map_latitude";
+    public static final String MAP_LONGITUDE   = "map_longitude";
+    public static final String MAP_USER_NAME   = "map_user_name";
+
+    public static String PDF_URL        ="http://www.stagecoachbus.com/PdfUploads/Timetable_28768_5.pdf";
+    public static String LOCAL_PDF_URL        = "file:///android_asset/rental_application.pdf";
 
 }

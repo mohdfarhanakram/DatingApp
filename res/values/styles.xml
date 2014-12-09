@@ -138,9 +138,18 @@
         <item name="android:textSize">@dimen/sp_12</item>
         <item name="android:focusableInTouchMode">false</item>
     </style>
+    <style name="switch_dark">
+        <item name="track">@drawable/switch_track_holo_dark</item>
+        <item name="thumb">@drawable/switch_inner_holo_dark</item>
+        <item name="textOn">ON</item>
+        <item name="textOff">OFF</item>
+        <item name="thumbTextPadding">12dip</item>
+        <item name="switchMinWidth">96dip</item>
+        <item name="switchPadding">16dip</item>
+        <item name="switchTextAppearance">@style/TextAppearance</item>
+    </style>
 
-
-    <style name="mySwitchStyle">
+    <!--<style name="mySwitchStyle">
         <item name="track">@drawable/switch_track_green</item>
         <item name="thumb">@drawable/background_fenced</item>
         <item name="switchTextAppearanceAttrib">@style/mySwitchTextAppearance</item>
@@ -154,15 +163,15 @@
         <item name="switchMinWidth">69dp</item>
         <item name="switchMinHeight">36dp</item>
         <item name="switchPadding">6dp</item>
-    </style>
+    </style>-->
 
-    <style name="mySwitchTextAppearance">
+    <!--<style name="mySwitchTextAppearance">
         <item name="textColor">#ffffff</item>
         <item name="textColorHighlight">#FFeeFFee</item>
         <item name="textColorHint">#FFeeFFee</item>
         <item name="textColorLink">#FFeeFFee</item>
         <item name="textSize">16sp</item>
         <item name="textStyle">normal</item>
-    </style>
+    </style>-->
 
 </resources>

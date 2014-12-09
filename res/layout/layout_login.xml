@@ -11,7 +11,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/dp_100"
         android:contentDescription="@null"
-        android:src="@drawable/app_title" />
+        android:src="@drawable/app_tit" />
 
     <LinearLayout
         android:id="@+id/layout_edt"

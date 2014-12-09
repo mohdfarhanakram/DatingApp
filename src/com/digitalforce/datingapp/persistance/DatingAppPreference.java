@@ -34,4 +34,6 @@ public class DatingAppPreference extends AppSharedPreference{
     /** GCM **/
     public static final String GCM_REGISTRATION_ID = "gcm_registration_id";
     public static final String GCM_VERSION_ID = "gcm_version_id";
+
+    public static final String FILTER_ENABLE = "filter_enable";
 }

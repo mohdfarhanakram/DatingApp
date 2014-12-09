@@ -37,8 +37,8 @@
 
     <declare-styleable name="ProgressWheel">
         <attr name="text" format="string" />
-        <attr name="textColor" format="color" />
-        <attr name="textSize" format="dimension" />
+        <attr name="ptextColor" format="color" />
+        <attr name="ptextSize" format="dimension" />
         <attr name="barColor" format="color" />
         <attr name="rimColor" format="color" />
         <attr name="rimWidth" format="dimension" />
@@ -52,88 +52,88 @@
         <attr name="contourSize" format="dimension"/>
     </declare-styleable>
 
-    <declare-styleable name="MySwitch">
-        <!-- Drawable to use as the "thumb" that switches back and forth. -->
+   <!-- <declare-styleable name="MySwitch">
+        &lt;!&ndash; Drawable to use as the "thumb" that switches back and forth. &ndash;&gt;
         <attr name="thumb"  format="reference"/>
-        <!-- Drawable to use as the "track" that the switch thumb slides within. -->
+        &lt;!&ndash; Drawable to use as the "track" that the switch thumb slides within. &ndash;&gt;
         <attr name="track" format="reference" />
-        <!-- Text to use when the switch is in the checked/"on" state. -->
+        &lt;!&ndash; Text to use when the switch is in the checked/"on" state. &ndash;&gt;
         <attr name="textOn" format="reference|string" />
-        <!-- Text to use when the switch is in the unchecked/"off" state. -->
+        &lt;!&ndash; Text to use when the switch is in the unchecked/"off" state. &ndash;&gt;
         <attr name="textOff" format="reference|string" />
 
-        <!-- drawablw to use when the switch is in the checked/"on" state. -->
+        &lt;!&ndash; drawablw to use when the switch is in the checked/"on" state. &ndash;&gt;
         <attr name="drawableOn" format="reference" />
-        <!-- drawablw to use when the switch is in the unchecked/"off" state. -->
+        &lt;!&ndash; drawablw to use when the switch is in the unchecked/"off" state. &ndash;&gt;
         <attr name="drawableOff" format="reference" />
 
-        <!-- if the switch should operate like iOS UISwitch -->
+        &lt;!&ndash; if the switch should operate like iOS UISwitch &ndash;&gt;
         <attr name="pushStyle" format="boolean" />
-        <!-- if text should be drawn on the Thumb or On the track. -->
+        &lt;!&ndash; if text should be drawn on the Thumb or On the track. &ndash;&gt;
         <attr name="textOnThumb" format="boolean" />
-        <!-- if the thumb should be allowed to move more beyond the switch boundaries -->
+        &lt;!&ndash; if the thumb should be allowed to move more beyond the switch boundaries &ndash;&gt;
         <attr name="thumbExtraMovement" format="dimension" />
-        <!-- Amount of padding on either side of text within the switch thumb. -->
+        &lt;!&ndash; Amount of padding on either side of text within the switch thumb. &ndash;&gt;
         <attr name="thumbTextPadding" format="dimension" />
-        <!-- Amount of padding on either side of text within the switch track. -->
+        &lt;!&ndash; Amount of padding on either side of text within the switch track. &ndash;&gt;
         <attr name="trackTextPadding" format="dimension" />
-        <!-- TextAppearance style for text displayed on the switch thumb. -->
+        &lt;!&ndash; TextAppearance style for text displayed on the switch thumb. &ndash;&gt;
         <attr name="switchTextAppearanceAttrib" format="reference" />
-        <!-- Minimum width for the switch component -->
+        &lt;!&ndash; Minimum width for the switch component &ndash;&gt;
         <attr name="switchMinWidth" format="dimension" />
-        <!-- Minimum height for the switch component -->
+        &lt;!&ndash; Minimum height for the switch component &ndash;&gt;
         <attr name="switchMinHeight" format="dimension" />
-        <!-- Minimum space between the switch and caption text -->
+        &lt;!&ndash; Minimum space between the switch and caption text &ndash;&gt;
         <attr name="switchPadding" format="dimension" />
 
         <attr name="orientation" >
-            <!-- the switch moves only on the x-axis(horizontally) -->
+            &lt;!&ndash; the switch moves only on the x-axis(horizontally) &ndash;&gt;
             <enum name="horizontal" value="1" />
-            <!-- the switch moves only on the y-axis(vertically) -->
+            &lt;!&ndash; the switch moves only on the y-axis(vertically) &ndash;&gt;
             <enum name="vertical" value="0" />
         </attr>
 
-        <!-- the track drawable will be drawn on top of these background. So if
-             these back grounds were to be visible, the track has to have transparency -->
-        <!-- The background when left side of the switch is visible -->
+        &lt;!&ndash; the track drawable will be drawn on top of these background. So if
+             these back grounds were to be visible, the track has to have transparency &ndash;&gt;
+        &lt;!&ndash; The background when left side of the switch is visible &ndash;&gt;
         <attr name="leftBackground" format="reference"/>
 
-        <!-- The background when right side of the switch is visible -->
+        &lt;!&ndash; The background when right side of the switch is visible &ndash;&gt;
         <attr name="rightBackground" format="reference"/>
 
-        <!-- We need a mask drawable to mask the background, then draw the track -->
+        &lt;!&ndash; We need a mask drawable to mask the background, then draw the track &ndash;&gt;
         <attr name="backgroundMask" format="reference"/>
     </declare-styleable>
-
-    <declare-styleable name="mySwitchTextAppearanceAttrib">
-        <!-- Text color. -->
+-->
+   <!-- <declare-styleable name="mySwitchTextAppearanceAttrib">
+        &lt;!&ndash; Text color. &ndash;&gt;
         <attr name="switchtextColor" format="color" />
-        <!-- Size of the text. Recommended dimension type for text is "sp" for scaled-pixels (example: 15sp). -->
+        &lt;!&ndash; Size of the text. Recommended dimension type for text is "sp" for scaled-pixels (example: 15sp). &ndash;&gt;
         <attr name="switchtextSize"  format="dimension" />
-        <!-- Style (bold, italic, bolditalic) for the text. -->
+        &lt;!&ndash; Style (bold, italic, bolditalic) for the text. &ndash;&gt;
         <attr name="textStyle" >
             <flag name="normal" value="0" />
             <flag name="bold" value="1" />
             <flag name="italic" value="2" />
         </attr>
 
-        <!-- Typeface (normal, sans, serif, monospace) for the text. -->
+        &lt;!&ndash; Typeface (normal, sans, serif, monospace) for the text. &ndash;&gt;
         <attr name="typeface" format="reference">
             <enum name="normal" value="0" />
             <enum name="sans" value="1" />
             <enum name="serif" value="2" />
             <enum name="monospace" value="3" />
         </attr>
-        <!-- Color of the text selection highlight. -->
+        &lt;!&ndash; Color of the text selection highlight. &ndash;&gt;
         <attr name="textColorHighlight" format="color" />
-        <!-- Color of the hint text. -->
+        &lt;!&ndash; Color of the hint text. &ndash;&gt;
         <attr name="textColorHint" format="color" />
-        <!-- Color of the links. -->
+        &lt;!&ndash; Color of the links. &ndash;&gt;
         <attr name="textColorLink" format="color" />
-        <!-- Present the text in ALL CAPS. This may use a small-caps form when available. -->
+        &lt;!&ndash; Present the text in ALL CAPS. This may use a small-caps form when available. &ndash;&gt;
         <attr name="textAllCaps" format="boolean" />
     </declare-styleable>
-    <!-- Default style for the Switch widget. -->
+    &lt;!&ndash; Default style for the Switch widget. &ndash;&gt;
     <attr name="mySwitchStyleAttr" format="reference" />
-
+-->
 </resources>

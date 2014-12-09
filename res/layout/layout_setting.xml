@@ -39,6 +39,7 @@
 
                     <TextView
                         style="@style/txt_base"
+                        android:visibility="gone"
                         android:layout_marginTop="@dimen/dp_3"
                         android:singleLine="false"
                         android:text="@string/common_msg"
@@ -155,6 +156,7 @@
 
                     <TextView
                         style="@style/txt_base"
+                        android:visibility="gone"
                         android:layout_marginTop="@dimen/dp_3"
                         android:singleLine="false"
                         android:text="@string/common_msg"
@@ -195,6 +197,7 @@
                         style="@style/txt_base"
                         android:layout_marginTop="@dimen/dp_3"
                         android:singleLine="false"
+                        android:visibility="gone"
                         android:text="@string/common_msg"
                         android:textSize="@dimen/sp_10" />
                 </LinearLayout>
@@ -233,6 +236,7 @@
                         style="@style/txt_base"
                         android:layout_marginTop="@dimen/dp_3"
                         android:singleLine="false"
+                        android:visibility="gone"
                         android:text="@string/common_msg"
                         android:textSize="@dimen/sp_10" />
                 </LinearLayout>

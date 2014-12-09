@@ -37,11 +37,12 @@ public class TermConditionActivity extends Activity implements OnClickListener{
 		mwebViewTC = (WebView) findViewById(R.id.web_tc);
 		mbtnCancel = (Button) findViewById(R.id.btn_tc_cancel);
 		mbtnAccept = (Button) findViewById(R.id.btn_tc_accept);
-		
+        mwebViewTC.getSettings().setJavaScriptEnabled(true);
+        //mwebViewTC.getSettings().setPluginsEnabled(true);
 		/*file=new File("file:///android_asset/google_privacy.pdf");
 		mwebViewTC.getSettings().setJavaScriptEnabled(true);*/
 		mwebViewTC.loadUrl(AppConstants.TERM_AND_CONDITION_LINK);
-		
+       // mwebViewTC.loadUrl("https://docs.google.com/gview?embedded=true&url="+ AppConstants.PDF_URL);
 		//CopyReadAssets();
 		
 		mbtnAccept.setOnClickListener(this);

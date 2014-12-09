@@ -130,7 +130,7 @@ public class ExploreFragment extends SupportMapFragment implements UpdateMapAfte
 
 
     private void setCurrentLocation(LatLng currentLocation){
-        Marker marker = googleMap.addMarker(new MarkerOptions().position(currentLocation).title("Rude Boy"));
+        Marker marker = googleMap.addMarker(new MarkerOptions().position(currentLocation).title("N2HIM"));
         marker.setVisible(true);
         //googleMap.setMyLocationEnabled(true);
     }

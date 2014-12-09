@@ -3,6 +3,7 @@ package com.digitalforce.datingapp.adapter;
 import java.util.ArrayList;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,9 +13,11 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.digitalforce.datingapp.R;
+import com.digitalforce.datingapp.constants.AppConstants;
 import com.digitalforce.datingapp.model.NearBy;
 import com.digitalforce.datingapp.model.UserInfo;
 import com.digitalforce.datingapp.utils.PicassoEx;
+import com.digitalforce.datingapp.view.UserLocationActivity;
 import com.digitalforce.datingapp.widgets.RoundedImageView;
 import com.farru.android.utill.StringUtils;
 
@@ -69,7 +72,7 @@ public class NearByAdapter extends BaseAdapter{
 			viewHolder.member = (TextView) convertView.findViewById(R.id.txt_nearby_member_name);
 			viewHolder.place = (TextView) convertView.findViewById(R.id.txt_nearby_place);
 			viewHolder.image = (RoundedImageView) convertView.findViewById(R.id.img_nearby_member);
-
+            viewHolder.infoDistance = (LinearLayout)convertView.findViewById(R.id.info_distance);
             viewHolder.country = (TextView) convertView.findViewById(R.id.txt_country);
 
 			convertView.setTag(viewHolder);
@@ -78,6 +81,21 @@ public class NearByAdapter extends BaseAdapter{
 			viewHolder = (ViewHolder)convertView.getTag();
 		}
 
+        viewHolder.infoDistance.setTag(nearBy);
+        viewHolder.infoDistance.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                NearBy nObj = (NearBy)v.getTag();
+                if(StringUtils.isNullOrEmpty(nObj.getCountry()) || nObj.getCountry().equalsIgnoreCase("N/A")){
+                    return;
+                }
+                Intent i =new Intent(context,UserLocationActivity.class);
+                i.putExtra(AppConstants.MAP_LATITUDE,nObj.getLatitude());
+                i.putExtra(AppConstants.MAP_LONGITUDE,nObj.getLongitude());
+                i.putExtra(AppConstants.MAP_USER_NAME,nObj.getFirstName());
+                context.startActivity(i);
+            }
+        });
 
 		if(!StringUtils.isNullOrEmpty(nearBy.getFirstName())){
 			
@@ -121,7 +139,7 @@ public class NearByAdapter extends BaseAdapter{
         public TextView country;
 		public RoundedImageView image;
 		public LinearLayout infoLayout;
-		//public LinearLayout infoDistance;
+		public LinearLayout infoDistance;
 	}
 
 	public void picassoLoad(String url, ImageView imageView) {

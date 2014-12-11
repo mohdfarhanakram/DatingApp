@@ -31,6 +31,25 @@ public class UserInfo extends NearBy{
     private String bodyType;
     private String city;
 
+    private String chatMessageTime;
+    private String chatMessage;
+
+    public String getChatMessage() {
+        return chatMessage;
+    }
+
+    public void setChatMessage(String chatMessage) {
+        this.chatMessage = chatMessage;
+    }
+
+    public String getChatMessageTime() {
+        return chatMessageTime;
+    }
+
+    public void setChatMessageTime(String chatMessageTime) {
+        this.chatMessageTime = chatMessageTime;
+    }
+
     public String getCity() {
         return city;
     }

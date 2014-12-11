@@ -89,7 +89,9 @@ public class JsonParser {
 				nearBy.setFavourite(nearJObj.optBoolean("fav_status"));
                 nearBy.setInterestStatus(nearJObj.optBoolean("interest_status"));
                 nearBy.setCity(nearJObj.optString("city"));
-				
+                nearBy.setChatMessageTime(nearJObj.optString("chat_message_time"));
+				nearBy.setChatMessage(nearJObj.optString("chat_message"));
+
 				JSONArray photoJArray = nearJObj.optJSONArray("public_photos");
 				if(photoJArray!=null){
 					for(int index=0; index < photoJArray.length(); index++){

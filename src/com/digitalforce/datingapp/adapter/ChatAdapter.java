@@ -59,6 +59,9 @@ public class ChatAdapter extends BaseAdapter{
             convertView = inflater.inflate(R.layout.row_chat_layout, parent, false);
             viewHolder.imageView = (RoundedImageView) convertView.findViewById(R.id.img_match);
             viewHolder.name = (TextView) convertView.findViewById(R.id.txt_match_name);
+            viewHolder.chatMsg = (TextView) convertView.findViewById(R.id.txt_last_msg);
+            viewHolder.imageViewStatus = (ImageView)convertView.findViewById(R.id.online_status);
+            viewHolder.lastChatTime = (TextView)convertView.findViewById(R.id.txt_last_chat_time);
             convertView.setTag(viewHolder);
         }else{
             viewHolder = (ViewHolder)convertView.getTag();
@@ -71,6 +74,28 @@ public class ChatAdapter extends BaseAdapter{
         }else{
             viewHolder.name.setVisibility(View.INVISIBLE);
         }
+
+        if(!StringUtils.isNullOrEmpty(userInfo.getChatMessage())){
+            viewHolder.chatMsg.setText(userInfo.getChatMessage());
+            viewHolder.chatMsg.setVisibility(View.VISIBLE);
+        }else{
+            viewHolder.chatMsg.setVisibility(View.GONE);
+        }
+
+        if(!StringUtils.isNullOrEmpty(userInfo.getChatMessageTime())){
+            viewHolder.lastChatTime.setText(userInfo.getChatMessageTime());
+            viewHolder.lastChatTime.setVisibility(View.VISIBLE);
+        }else{
+            viewHolder.lastChatTime.setVisibility(View.GONE);
+        }
+
+        if(userInfo.getStatus().equals("Online"))
+        {
+            viewHolder.imageViewStatus.setImageResource(R.drawable.online_staus);
+        }else{
+            viewHolder.imageViewStatus.setImageResource(R.drawable.offline);
+        }
+
 
         if(!StringUtils.isNullOrEmpty(userInfo.getImage()))
              picassoLoad(userInfo.getImage(),viewHolder.imageView);
@@ -93,6 +118,9 @@ public class ChatAdapter extends BaseAdapter{
     public class ViewHolder{
         public TextView name;
         public ImageView imageView;
+        public ImageView imageViewStatus;
+        public TextView chatMsg;
+        public TextView lastChatTime;
     }
 
 }

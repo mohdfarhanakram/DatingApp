@@ -10,7 +10,8 @@
         android:id="@+id/list_match"
         android:scrollbars="none"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="@dimen/dp_5"/>
+        android:dividerHeight="0.5dp"
+        android:divider="@color/white"
+        android:layout_height="match_parent"/>
 
 </LinearLayout>

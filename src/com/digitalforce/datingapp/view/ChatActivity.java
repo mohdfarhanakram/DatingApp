@@ -85,7 +85,7 @@ public class ChatActivity extends BaseActivity{
     @Override
     public void updateUi(ServiceResponse serviceResponse) {
         super.updateUi(serviceResponse);
-
+        removeProgressDialog();
         if(serviceResponse!=null){
             switch (serviceResponse.getErrorCode()) {
                 case ServiceResponse.SUCCESS:

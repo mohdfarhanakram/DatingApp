@@ -11,6 +11,7 @@ import com.digitalforce.datingapp.R;
 import com.digitalforce.datingapp.model.Chat;
 import com.digitalforce.datingapp.persistance.DatingAppPreference;
 import com.digitalforce.datingapp.utils.PicassoEx;
+import com.farru.android.utill.StringUtils;
 
 import java.util.ArrayList;
 
@@ -114,7 +115,8 @@ public class RudeChatAdapter extends BaseAdapter{
 
 
     public void picassoLoad(String url, ImageView imageView) {
-        PicassoEx.getPicasso(mContext).load(url).error(R.drawable.farhan).placeholder(R.drawable.farhan).fit().into(imageView);
+        if(!StringUtils.isNullOrEmpty(url))
+           PicassoEx.getPicasso(mContext).load(url).error(R.drawable.farhan).placeholder(R.drawable.farhan).fit().into(imageView);
     }
 
 

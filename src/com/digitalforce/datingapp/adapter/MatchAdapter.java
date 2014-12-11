@@ -95,6 +95,7 @@ public class MatchAdapter extends BaseAdapter {
                 i.putExtra(AppConstants.MAP_LATITUDE,nObj.getLatitude());
                 i.putExtra(AppConstants.MAP_LONGITUDE,nObj.getLongitude());
                 i.putExtra(AppConstants.MAP_USER_NAME,nObj.getFirstName());
+                i.putExtra(AppConstants.MAP_USER_ID,nObj.getUserId());
                 context.startActivity(i);
             }
         });

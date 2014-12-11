@@ -265,6 +265,7 @@
 
 
             <LinearLayout
+                    android:visibility="gone"
                     style="@style/layout_profile" >
 
                 <TextView

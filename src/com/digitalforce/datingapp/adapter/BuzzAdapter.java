@@ -1,6 +1,7 @@
 package com.digitalforce.datingapp.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,8 +10,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.digitalforce.datingapp.R;
+import com.digitalforce.datingapp.constants.AppConstants;
 import com.digitalforce.datingapp.model.UserInfo;
 import com.digitalforce.datingapp.utils.PicassoEx;
+import com.digitalforce.datingapp.view.UserLocationActivity;
 import com.digitalforce.datingapp.widgets.RoundedImageView;
 import com.farru.android.utill.StringUtils;
 
@@ -79,7 +82,7 @@ public class BuzzAdapter extends BaseAdapter {
             viewHolder = (ViewHolder)convertView.getTag();
         }
 
-        viewHolder.infoDistance.setVisibility(View.GONE);
+        viewHolder.place.setVisibility(View.GONE);
 
         if(!StringUtils.isNullOrEmpty(nearBy.getFirstName())){
 
@@ -100,10 +103,25 @@ public class BuzzAdapter extends BaseAdapter {
             viewHolder.country.setVisibility(View.VISIBLE);
             viewHolder.country.setText(nearBy.getCountry());
         }else{
-            viewHolder.country.setVisibility(View.INVISIBLE);
+            viewHolder.country.setVisibility(View.VISIBLE);
         }
 
-
+        viewHolder.infoDistance.setTag(nearBy);
+        viewHolder.infoDistance.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                UserInfo nObj = (UserInfo)v.getTag();
+                if(StringUtils.isNullOrEmpty(nObj.getCountry()) || nObj.getCountry().equalsIgnoreCase("N/A")){
+                    return;
+                }
+                Intent i =new Intent(context,UserLocationActivity.class);
+                i.putExtra(AppConstants.MAP_LATITUDE,nObj.getLatitude());
+                i.putExtra(AppConstants.MAP_LONGITUDE,nObj.getLongitude());
+                i.putExtra(AppConstants.MAP_USER_NAME,nObj.getFirstName());
+                i.putExtra(AppConstants.MAP_USER_ID,nObj.getUserId());
+                context.startActivity(i);
+            }
+        });
 
 
         if(!StringUtils.isNullOrEmpty(nearBy.getImage())){

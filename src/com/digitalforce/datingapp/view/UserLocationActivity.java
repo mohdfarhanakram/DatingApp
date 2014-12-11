@@ -1,13 +1,16 @@
 package com.digitalforce.datingapp.view;
 
+import android.content.Intent;
 import android.os.Bundle;
 import com.digitalforce.datingapp.R;
 import com.digitalforce.datingapp.constants.AppConstants;
+import com.digitalforce.datingapp.model.UserInfo;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 /**
@@ -20,6 +23,7 @@ public class UserLocationActivity extends BaseActivity{
     private String mLatitude="0";
     private String mLongitude="0";
     private String userName;
+    private String userId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +33,7 @@ public class UserLocationActivity extends BaseActivity{
         mLatitude = getIntent().getStringExtra(AppConstants.MAP_LATITUDE);
         mLongitude = getIntent().getStringExtra(AppConstants.MAP_LONGITUDE);
         userName = getIntent().getStringExtra(AppConstants.MAP_USER_NAME);
+        userId = getIntent().getStringExtra(AppConstants.MAP_USER_ID);
 
         setUpMapIfNeeded();
     }
@@ -41,11 +46,9 @@ public class UserLocationActivity extends BaseActivity{
             // Try to obtain the map from the SupportMapFragment.
             mMap = ((SupportMapFragment) getSupportFragmentManager()
                     .findFragmentById(R.id.map)).getMap();
-
             // Check if we were successful in obtaining the map.
             if (mMap != null) {
                 setUpMap();
-
             }
         }
     }
@@ -58,6 +61,22 @@ public class UserLocationActivity extends BaseActivity{
                       .title(userName));
 
               mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(pos, 13));
+
+              mMap.setOnInfoWindowClickListener(new GoogleMap.OnInfoWindowClickListener() {
+
+
+                  @Override
+
+                  public void onInfoWindowClick(Marker marker) {
+
+                          Intent i = new Intent(UserLocationActivity.this, ProfileActivity.class);
+                          i.putExtra(AppConstants.SHOW_PROFILE_USER_ID, userId);
+                          startActivity(i);
+
+
+                  }
+
+              });
 
           }catch(Exception e){}
 

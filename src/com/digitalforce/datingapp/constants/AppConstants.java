@@ -61,6 +61,7 @@ public class AppConstants {
     public static final String MAP_LATITUDE    = "map_latitude";
     public static final String MAP_LONGITUDE   = "map_longitude";
     public static final String MAP_USER_NAME   = "map_user_name";
+    public static final String MAP_USER_ID     = "map_user_id";
 
     public static String PDF_URL        ="http://www.stagecoachbus.com/PdfUploads/Timetable_28768_5.pdf";
     public static String LOCAL_PDF_URL        = "file:///android_asset/rental_application.pdf";

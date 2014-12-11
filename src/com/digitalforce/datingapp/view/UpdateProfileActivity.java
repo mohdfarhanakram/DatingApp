@@ -787,10 +787,14 @@ public class UpdateProfileActivity extends BaseActivity implements OnClickListen
         String[] weight = new String[166];
 
         for(int i=0; i<166; i++){
-            weight[i] = (i+99)+" "+"lbs";
+            weight[i] = (i+99)+" "+"lbs " + "("+getConvertKg((i+99))+" kg)";
         }
 
         return weight;
+    }
+
+    private int getConvertKg(int lbs){
+        return (int)(lbs / 2.20462262185);
     }
 	/**
 	 * 
@@ -806,18 +810,27 @@ public class UpdateProfileActivity extends BaseActivity implements OnClickListen
         {
             for(int j=0; j<=11;j++)
             {
-
-                height[index] = (i+4)+" ft "+j+" in";
+                height[index] = (i+4)+"'"+j+"\"" +" ("+convertInCM((i+4),j)+" cm)";
                 Log.e("KMD", "i=" + i + " j=" + j);
                 index++;
+
+               /* height[index] = (i+4)+" ft "+j+" in";
+                Log.e("KMD", "i=" + i + " j=" + j);
+                index++;*/
             }
         }
 
         return height;
     }
-	
-	
-	private int getSelectedIndex(String selected,String[] options){
+
+    private int convertInCM(int ft,int cm){
+        int a = (12*ft)+ cm;
+        return (int)(a * 2.54);
+    }
+
+
+
+    private int getSelectedIndex(String selected,String[] options){
 		
 		int selectedIndex = -1;
 		for(int i=0; i<options.length; i++){

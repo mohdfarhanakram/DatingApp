@@ -98,5 +98,8 @@
     	<string name="looking_for_msg">RelationShip, Friends and Dates</string>
     	<string name="enter_text">Enter Text</string>
         <string name="city">City</string>
-    	
+
+
+        <string name="tc_header_text">Terms and Conditions of Service</string>
+
 </resources>

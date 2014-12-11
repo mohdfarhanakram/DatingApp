@@ -8,7 +8,7 @@
         layout="@layout/layout_action_bar"/>
     <include
         layout="@layout/layout_tap"/>"
-	<EditText 
+	<EditText
 	    android:id="@+id/edt_member_search"
 	    style="@style/edit"
 	    android:hint="@string/search"
@@ -21,6 +21,7 @@
 	    android:textSize="@dimen/sp_14"
 	    android:padding="@dimen/dp_10"
         android:cursorVisible="true"
+        android:textCursorDrawable="@null"
 	    android:background="@drawable/outline_search"
 	    />
 	<FrameLayout 

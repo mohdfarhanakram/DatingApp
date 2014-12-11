@@ -169,10 +169,14 @@ public class FilterActivity extends BaseActivity implements OnClickListener{
         String[] weight = new String[166];
 
         for(int i=0; i<166; i++){
-            weight[i] = (i+99)+" "+"lbs";
+            weight[i] = (i+99)+" "+"lbs " + "("+getConvertKg((i+99))+" kg)";
         }
 
         return weight;
+    }
+
+    private int getConvertKg(int lbs){
+        return (int)(lbs / 2.20462262185);
     }
     /**
      *
@@ -188,14 +192,22 @@ public class FilterActivity extends BaseActivity implements OnClickListener{
         {
             for(int j=0; j<=11;j++)
             {
-
-                height[index] = (i+4)+" ft "+j+" in";
+                height[index] = (i+4)+"'"+j+"\"" +" ("+convertInCM((i+4),j)+" cm)";
                 Log.e("KMD", "i=" + i + " j=" + j);
                 index++;
+
+               /* height[index] = (i+4)+" ft "+j+" in";
+                Log.e("KMD", "i=" + i + " j=" + j);
+                index++;*/
             }
         }
 
         return height;
+    }
+
+    private int convertInCM(int ft,int cm){
+        int a = (12*ft)+ cm;
+        return (int)(a * 2.54);
     }
 
 	private String[] getEthnicity(){
@@ -265,10 +277,10 @@ public class FilterActivity extends BaseActivity implements OnClickListener{
 		String maxAge = DatingAppPreference.getString(DatingAppPreference.MAX_AGE, "99", this);
 		String ethinicity = DatingAppPreference.getString(DatingAppPreference.ETHNICITY, "All", this);
 
-        String minHeight = DatingAppPreference.getString(DatingAppPreference.MIN_HEIGHT, "4 ft 5 in", this);
+        String minHeight = DatingAppPreference.getString(DatingAppPreference.MIN_HEIGHT, "4'0\""+"(121 cm)", this);
         String maxHeight = DatingAppPreference.getString(DatingAppPreference.MAX_HEIGHT, "7 ft 11 in", this);
-        String minWeight = DatingAppPreference.getString(DatingAppPreference.MIN_WEIGHT, "99 lbs", this);
-        String maxWeight = DatingAppPreference.getString(DatingAppPreference.MAX_WEIGHT, "264 lbs", this);
+        String minWeight = DatingAppPreference.getString(DatingAppPreference.MIN_WEIGHT, "99 lbs (44 kg)", this);
+        String maxWeight = DatingAppPreference.getString(DatingAppPreference.MAX_WEIGHT, "264 lbs (119 kg)", this);
         String sexRole = DatingAppPreference.getString(DatingAppPreference.SEX_ROLE, "All", this);
         String relationShip = DatingAppPreference.getString(DatingAppPreference.RELATION_SHIP, "", this);
         String bodyType = DatingAppPreference.getString(DatingAppPreference.BODY_TYPE, "", this);

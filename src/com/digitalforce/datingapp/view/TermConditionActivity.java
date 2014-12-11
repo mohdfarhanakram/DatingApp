@@ -17,6 +17,7 @@ import android.view.View.OnClickListener;
 import android.webkit.WebView;
 import android.widget.Button;
 
+import android.widget.TextView;
 import com.digitalforce.datingapp.R;
 import com.digitalforce.datingapp.constants.AppConstants;
 import com.digitalforce.datingapp.constants.DatingConstants;
@@ -47,6 +48,8 @@ public class TermConditionActivity extends Activity implements OnClickListener{
 		
 		mbtnAccept.setOnClickListener(this);
 		mbtnCancel.setOnClickListener(this);
+
+        setTCData();
 	}
 
 	@Override
@@ -109,4 +112,80 @@ public class TermConditionActivity extends Activity implements OnClickListener{
         }
     }
 
+    private void setTCData(){
+        ((TextView)findViewById(R.id.tc_text_1)).setText(DatingConstants.HEADER_TEXT_1);
+        ((TextView)findViewById(R.id.tc_text_2)).setText(DatingConstants.HEADER_TEXT_2);
+        ((TextView)findViewById(R.id.tc_text_3)).setText(DatingConstants.HEADER_TEXT_3);
+
+        ((TextView)findViewById(R.id.tc_text_4)).setText(DatingConstants.ELIGIBILITY_TEXT_1);
+        ((TextView)findViewById(R.id.tc_text_5)).setText(DatingConstants.ELIGIBILITY_TEXT_2);
+        ((TextView)findViewById(R.id.tc_text_6)).setText(DatingConstants.ELIGIBILITY_TEXT_3);
+
+        ((TextView)findViewById(R.id.tc_service)).setText(DatingConstants.TC_SERVICE_TEXT);
+        ((TextView)findViewById(R.id.tc_service_1)).setText(DatingConstants.SERVICEABILITY_TEXT_1);
+        ((TextView)findViewById(R.id.tc_service_2)).setText(DatingConstants.SERVICEABILITY_TEXT_2);
+        ((TextView)findViewById(R.id.tc_service_3)).setText(DatingConstants.SERVICEABILITY_TEXT_3);
+        ((TextView)findViewById(R.id.tc_service_4)).setText(DatingConstants.SERVICEABILITY_TEXT_4);
+        ((TextView)findViewById(R.id.tc_service_5)).setText(DatingConstants.SERVICEABILITY_TEXT_5);
+        ((TextView)findViewById(R.id.tc_service_6)).setText(DatingConstants.SERVICEABILITY_TEXT_6);
+        ((TextView)findViewById(R.id.tc_service_7)).setText(DatingConstants.SERVICEABILITY_TEXT_7);
+        ((TextView)findViewById(R.id.tc_service_8)).setText(DatingConstants.SERVICEABILITY_TEXT_8);
+        ((TextView)findViewById(R.id.tc_service_9)).setText(DatingConstants.SERVICEABILITY_TEXT_9);
+        ((TextView)findViewById(R.id.tc_service_10)).setText(DatingConstants.SERVICEABILITY_TEXT_10);
+        ((TextView)findViewById(R.id.tc_service_11)).setText(DatingConstants.SERVICEABILITY_TEXT_11);
+        ((TextView)findViewById(R.id.tc_service_12)).setText(DatingConstants.SERVICEABILITY_TEXT_12);
+        ((TextView)findViewById(R.id.tc_service_13)).setText(DatingConstants.SERVICEABILITY_TEXT_13);
+
+        ((TextView)findViewById(R.id.tc_proprietary_1)).setText(DatingConstants.PROPRIETARY_1);
+        ((TextView)findViewById(R.id.tc_proprietary_2)).setText(DatingConstants.PROPRIETARY_2);
+        ((TextView)findViewById(R.id.tc_proprietary_3)).setText(DatingConstants.PROPRIETARY_3);
+        ((TextView)findViewById(R.id.tc_proprietary_4)).setText(DatingConstants.PROPRIETARY_4);
+
+        ((TextView)findViewById(R.id.tc_use_1)).setText(DatingConstants.USE_1);
+        ((TextView)findViewById(R.id.tc_use_2)).setText(DatingConstants.USE_2);
+        ((TextView)findViewById(R.id.tc_use_3)).setText(DatingConstants.USE_3);
+
+        ((TextView)findViewById(R.id.tc_sponsors)).setText(DatingConstants.SPONSORS);
+
+        ((TextView)findViewById(R.id.tc_disclaimer_1)).setText(DatingConstants.DISCLAIMER_1);
+        ((TextView)findViewById(R.id.tc_disclaimer_2)).setText(DatingConstants.DISCLAIMER_2);
+        ((TextView)findViewById(R.id.tc_disclaimer_3)).setText(DatingConstants.DISCLAIMER_3);
+
+        ((TextView)findViewById(R.id.tc_liability_1)).setText(DatingConstants.LIABILITY_1);
+        ((TextView)findViewById(R.id.tc_liability_2)).setText(DatingConstants.LIABILITY_2);
+        ((TextView)findViewById(R.id.tc_liability_3)).setText(DatingConstants.LIABILITY_3);
+
+        ((TextView)findViewById(R.id.tc_ideminification)).setText(DatingConstants.INDEMNIFICATION);
+        ((TextView)findViewById(R.id.tc_trem_termination)).setText(DatingConstants.TERMINATION);
+
+        ((TextView)findViewById(R.id.tc_arbitration_1)).setText(DatingConstants.ARBITRATION_1);
+        ((TextView)findViewById(R.id.tc_arbitration_2)).setText(DatingConstants.ARBITRATION_2);
+        ((TextView)findViewById(R.id.tc_arbitration_3)).setText(DatingConstants.ARBITRATION_3);
+        ((TextView)findViewById(R.id.tc_arbitration_4)).setText(DatingConstants.ARBITRATION_4);
+        ((TextView)findViewById(R.id.tc_arbitration_5)).setText(DatingConstants.ARBITRATION_5);
+
+        ((TextView)findViewById(R.id.tc_general_provisions)).setText(DatingConstants.GENERAL_PROVISIONS);
+
+        ((TextView)findViewById(R.id.tc_digital_millenium)).setText(DatingConstants.DIGITAL_MILLENNIUM);
+        ((TextView)findViewById(R.id.tc_digital_millenium_1)).setText(DatingConstants.DIGITAL_MILLENIUM_1);
+        ((TextView)findViewById(R.id.tc_digital_millenium_2)).setText(DatingConstants.DIGITAL_MILLENIUM_2);
+        ((TextView)findViewById(R.id.tc_digital_millenium_3)).setText(DatingConstants.DIGITAL_MILLENIUM_3);
+        ((TextView)findViewById(R.id.tc_digital_millenium_4)).setText(DatingConstants.DIGITAL_MILLENIUM_4);
+        ((TextView)findViewById(R.id.tc_digital_millenium_5)).setText(DatingConstants.DIGITAL_MILLENIUM_5);
+        ((TextView)findViewById(R.id.tc_digital_millenium_6)).setText(DatingConstants.DIGITAL_MILLENIUM_6);
+
+        ((TextView)findViewById(R.id.tc_digital_millenium_other)).setText(DatingConstants.DMC_OTHER);
+
+        ((TextView)findViewById(R.id.tc_digital_millenium_add_1)).setText(DatingConstants.DMC_OTHER_1);
+        ((TextView)findViewById(R.id.tc_digital_millenium_add_2)).setText(DatingConstants.DMC_OTHER_2);
+        ((TextView)findViewById(R.id.tc_digital_millenium_add_3)).setText(DatingConstants.DMC_OTHER_3);
+
+        ((TextView)findViewById(R.id.tc_revision_date)).setText(DatingConstants.REVISION_DATE);
+
+
+
+    }
+
 }
+
+

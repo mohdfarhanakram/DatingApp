@@ -26,6 +26,8 @@
     <color name="bar_color_3">#ec8375</color>
     <color name="bar_color_4">#1fb36b</color>
 
+    <color name="tc_bg_color">#676F95</color>
+    <color name="tc_header_text_color">#ffffff</color>
 
 
 </resources>

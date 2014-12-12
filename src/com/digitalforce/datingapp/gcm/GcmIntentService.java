@@ -10,7 +10,11 @@ import android.os.SystemClock;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 import com.digitalforce.datingapp.R;
+import com.digitalforce.datingapp.constants.AppConstants;
+import com.digitalforce.datingapp.model.Chat;
+import com.digitalforce.datingapp.parser.JsonParser;
 import com.digitalforce.datingapp.view.RudeChatActivity;
+import com.farru.android.application.BaseApplication;
 import com.google.android.gms.gcm.GoogleCloudMessaging;
 
 /**
@@ -45,26 +49,22 @@ public class GcmIntentService extends IntentService {
              */
             if (GoogleCloudMessaging.
                     MESSAGE_TYPE_SEND_ERROR.equals(messageType)) {
-                sendNotification("Send error: " + extras.toString());
+                //sendNotification("Send error: " + extras.toString());
             } else if (GoogleCloudMessaging.
                     MESSAGE_TYPE_DELETED.equals(messageType)) {
-                sendNotification("Deleted messages on server: " +
-                        extras.toString());
+                //sendNotification("Deleted messages on server: " +extras.toString());
                 // If it's a regular GCM message, do some work.
             } else if (GoogleCloudMessaging.MESSAGE_TYPE_MESSAGE.equals(messageType)) {
-                // This loop represents the service doing some work.
-                for (int i=0; i<5; i++) {
-                    Log.i(TAG, "Working... " + (i + 1)
-                            + "/5 @ " + SystemClock.elapsedRealtime());
-                    try {
-                        Thread.sleep(5000);
-                    } catch (InterruptedException e) {
-                    }
+
+                String json = intent.getStringExtra("data");
+                Chat chat = JsonParser.parseNotificationData(json);
+                if(AppConstants.isRunningInBg){
+                    sendNotification(chat);
+                    Log.i(TAG, "Received: " + extras.toString());
+                }else{
+
                 }
-                Log.i(TAG, "Completed work @ " + SystemClock.elapsedRealtime());
-                // Post notification of received message.
-                sendNotification("Received: " + extras.toString());
-                Log.i(TAG, "Received: " + extras.toString());
+
             }
         }
         // Release the wake lock provided by the WakefulBroadcastReceiver.
@@ -74,21 +74,33 @@ public class GcmIntentService extends IntentService {
     // Put the message into a notification and post it.
     // This is just one simple example of what you might choose to do with
     // a GCM message.
-    private void sendNotification(String msg) {
+    private void sendNotification(Chat chat) {
+        if(chat==null)
+            return;
         mNotificationManager = (NotificationManager)
                 this.getSystemService(Context.NOTIFICATION_SERVICE);
 
-        PendingIntent contentIntent = PendingIntent.getActivity(this, 0,new Intent(this, RudeChatActivity.class), 0);
+        Intent intentChat = new Intent(this, RudeChatActivity.class);
+        intentChat.putExtra(AppConstants.CHAT_USER_ID,chat.getUserId());
+        intentChat.putExtra(AppConstants.CHAT_USER_NAME,chat.getByName());
+        intentChat.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        PendingIntent contentIntent = PendingIntent.getActivity(this, 0,intentChat, 0);
 
         NotificationCompat.Builder mBuilder =
                 new NotificationCompat.Builder(this)
                         .setSmallIcon(R.drawable.ic_launcher)
                         .setContentTitle(getResources().getString(R.string.app_name))
                         .setStyle(new NotificationCompat.BigTextStyle()
-                                .bigText(msg))
-                        .setContentText(msg);
+                                .bigText(chat.getText()))
+                        .setContentText(chat.getText());
 
         mBuilder.setContentIntent(contentIntent);
+        mBuilder.setAutoCancel(true);
         mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
+    }
+
+
+    private void parseData(String message){
+        //String data =
     }
 }

@@ -52,10 +52,9 @@ public class ChatActivity extends BaseActivity{
 
         mtxtTitle.setText(getResources().getString(R.string.chat));
 
-        hitRequestForOnlineUser();
-		
 
-	}
+        hitRequestForOnlineUser();
+    }
 
 	@Override
 	public void onEvent(int eventId, Object eventData) {

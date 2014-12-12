@@ -66,4 +66,6 @@ public class AppConstants {
     public static String PDF_URL        ="http://www.stagecoachbus.com/PdfUploads/Timetable_28768_5.pdf";
     public static String LOCAL_PDF_URL        = "file:///android_asset/rental_application.pdf";
 
+    public static boolean isRunningInBg = true;
+
 }

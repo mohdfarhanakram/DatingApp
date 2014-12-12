@@ -143,7 +143,7 @@
                 <category android:name="com.digitalforce.datingapp" />
             </intent-filter>
         </receiver>
-        <service android:name=".GcmIntentService" />
+        <service android:name="com.digitalforce.datingapp.gcm.GcmIntentService" />
     </application>
 
 </manifest>

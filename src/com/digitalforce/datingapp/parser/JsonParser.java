@@ -208,4 +208,24 @@ public class JsonParser {
     }
 
 
+    public static Chat parseNotificationData(String json){
+        Chat chat = null;
+        try{
+           chat = new Chat();
+            JSONObject  jObj = new JSONObject(json);
+            chat.setUserId(jObj.optString("sender"));
+            chat.setText(jObj.optString("msg"));
+            chat.setChatImage(jObj.optString("image"));
+            chat.setByName(jObj.optString("from_name"));
+            chat.setByPhoto(jObj.optString("by_photo"));  //ToDo Need to changed
+            chat.setType(jObj.optString("type"));
+            chat.setTime(AppUtil.getFormatedDate(jObj.optString("date")));
+        }catch(Exception e){
+
+        }
+
+        return chat;
+    }
+
+
 }

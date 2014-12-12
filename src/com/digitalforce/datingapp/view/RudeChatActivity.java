@@ -48,6 +48,8 @@ public class RudeChatActivity extends BaseActivity implements View.OnClickListen
         findViewById(R.id.img_action_menu).setVisibility(View.INVISIBLE);
 
         mChatListView = (ListView)findViewById(R.id.chat_list_view);
+        mChatListView.setTranscriptMode(ListView.TRANSCRIPT_MODE_ALWAYS_SCROLL);
+        mChatListView.setStackFromBottom(true);
         findViewById(R.id.send_btn).setOnClickListener(this);
 
         refreshChatHistory();
@@ -197,6 +199,21 @@ public class RudeChatActivity extends BaseActivity implements View.OnClickListen
             sendMessage(msg,0);
             ((EditText)findViewById(R.id.msg_edit)).setText("");
         }
+    }
+
+
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        AppConstants.isRunningInBg = false;
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        AppConstants.isRunningInBg = true;
     }
 
 

@@ -187,15 +187,15 @@ public class JsonParser {
                     chat.setByPhoto(jObj.optString("by_photo"));
                     chat.setType(jObj.optString("type"));
                     chat.setTime(AppUtil.getFormatedDate(jObj.optString("time")));
-
-                    if(chats.indexOf(chat)== -1){
+                    chats.add(chat);
+                    /*if(chats.indexOf(chat)== -1){
                         chats.add(chat);
                         chats.add(new Chat(chat));
 
                     }else{
                         chat.setTime("");
                         chats.add(chat);
-                    }
+                    }*/
 
                 }
             }

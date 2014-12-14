@@ -28,6 +28,8 @@
 
     <color name="tc_bg_color">#676F95</color>
     <color name="tc_header_text_color">#ffffff</color>
+    <color name="chat_user_color">#a1addf</color>
+    <color name="chat_text_color">#676F95</color>
 
 
 </resources>

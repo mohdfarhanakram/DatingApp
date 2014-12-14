@@ -1,6 +1,11 @@
 package com.digitalforce.datingapp.view;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
+import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -44,21 +49,43 @@ public class RudeChatActivity extends BaseActivity implements View.OnClickListen
 
         mUserId = getIntent().getStringExtra(AppConstants.CHAT_USER_ID);
 
-        ((TextView) findViewById(R.id.txt_screen_title)).setText(getIntent().getStringExtra(AppConstants.CHAT_USER_NAME));
-        findViewById(R.id.img_action_menu).setVisibility(View.INVISIBLE);
+        ((TextView) findViewById(R.id.txt_screen_title)).setText("Chat");
+        ((TextView) findViewById(R.id.txt_profile_name)).setText(getIntent().getStringExtra(AppConstants.CHAT_USER_NAME));
+        findViewById(R.id.img_action_menu).setVisibility(View.VISIBLE);
 
         mChatListView = (ListView)findViewById(R.id.chat_list_view);
         mChatListView.setTranscriptMode(ListView.TRANSCRIPT_MODE_ALWAYS_SCROLL);
         mChatListView.setStackFromBottom(true);
         findViewById(R.id.send_btn).setOnClickListener(this);
 
-        refreshChatHistory();
 
     }
+
+    private BroadcastReceiver mMessageReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            // Get extra data included in the Intent
+            String json = intent.getStringExtra("data");
+            Chat chat = JsonParser.parseNotificationData(json);
+            if(chat!=null){
+                Calendar calendar = Calendar.getInstance();
+                String year  = calendar.get(Calendar.YEAR)+"";
+                String month = (calendar.get(Calendar.MONTH)+ 1)+"";
+                String day = calendar.get(Calendar.DAY_OF_MONTH)+"";
+
+                String date = Utils.getShortMonth(month)+" "+day+", "+year;
+                chat.setTime(date);
+                setAdapterData(chat);
+            }
+        }
+    };
+
+
 
     @Override
     public void updateUi(ServiceResponse serviceResponse) {
         super.updateUi(serviceResponse);
+        findViewById(R.id.main_layout).setVisibility(View.VISIBLE);
         removeProgressDialog();
         if(serviceResponse!=null){
             switch (serviceResponse.getErrorCode()) {
@@ -80,6 +107,7 @@ public class RudeChatActivity extends BaseActivity implements View.OnClickListen
     private void onSuccess(ServiceResponse serviceResponse){
         switch (serviceResponse.getEventType()){
             case ApiEvent.CHAT_HISTORY_EVENT:
+
                 chatArrayList = (ArrayList<Chat>)serviceResponse.getResponseObject();
                 mRudeChatAdapter = new RudeChatAdapter(this,chatArrayList);
                 mChatListView.setAdapter(mRudeChatAdapter);
@@ -95,8 +123,8 @@ public class RudeChatActivity extends BaseActivity implements View.OnClickListen
 
     }
 
-    private void refreshChatHistory(){
-        postData(DatingUrlConstants.SHOW_CHAT_HISTORY_URL, ApiEvent.CHAT_HISTORY_EVENT,chatHistoryJsonRequest());
+    private void refreshChatHistory(boolean showLoader){
+        postData(DatingUrlConstants.SHOW_CHAT_HISTORY_URL, ApiEvent.CHAT_HISTORY_EVENT,chatHistoryJsonRequest(),showLoader);
     }
 
     private void sendMessage(String msg,int event){
@@ -122,23 +150,28 @@ public class RudeChatActivity extends BaseActivity implements View.OnClickListen
         chat.setByPhoto(DatingAppPreference.getString(DatingAppPreference.USER_PROFILE_URL, "", this));// By photo
         chat.setTime(date);
 
-        if(chatArrayList.indexOf(chat)== -1){
+        setAdapterData(chat);
+
+        postData(DatingUrlConstants.SEND_MSG_URL, ApiEvent.SEND_MSG_EVENT,sendMessageJsonRequest(msg,event),false);
+    }
+
+    private void setAdapterData(Chat chat){
+       /* if(chatArrayList.indexOf(chat)== -1){
             chatArrayList.add(chat);
             chatArrayList.add(new Chat(chat));
 
         }else{
             chat.setTime("");
             chatArrayList.add(chat);
-        }
+        }*/
+        chatArrayList.add(chat);
         mRudeChatAdapter = (RudeChatAdapter)mChatListView.getAdapter();
         if(mRudeChatAdapter==null){
             mRudeChatAdapter = new RudeChatAdapter(this,chatArrayList);
             mChatListView.setAdapter(mRudeChatAdapter);
         }else{
-          mRudeChatAdapter.setChatList(chatArrayList);
+            mRudeChatAdapter.setChatList(chatArrayList);
         }
-
-        postData(DatingUrlConstants.SEND_MSG_URL, ApiEvent.SEND_MSG_EVENT,sendMessageJsonRequest(msg,event),false);
     }
 
     private String sendMessageJsonRequest(String msg,int type){
@@ -208,12 +241,22 @@ public class RudeChatActivity extends BaseActivity implements View.OnClickListen
     protected void onResume() {
         super.onResume();
         AppConstants.isRunningInBg = false;
+        if(mRudeChatAdapter==null){
+            refreshChatHistory(true);
+        }else{
+            refreshChatHistory(false);
+        }
+
+
+        LocalBroadcastManager.getInstance(this).registerReceiver(mMessageReceiver,new IntentFilter(AppConstants.INTENT_EVENT_NAME));
     }
 
     @Override
     protected void onPause() {
         super.onPause();
         AppConstants.isRunningInBg = true;
+        // Unregister since the activity is about to be closed.
+        LocalBroadcastManager.getInstance(this).unregisterReceiver(mMessageReceiver);
     }
 
 

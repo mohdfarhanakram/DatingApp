@@ -52,17 +52,29 @@ public class RudeChatAdapter extends BaseAdapter{
 
         if(convertView==null){
             holder = new ViewHolder();
-            if(isMineMessage(chat.getUserId())){
-                convertView = LayoutInflater.from(mContext).inflate(R.layout.chat_bubble_item_right,parent,false);
-            }else{
-                convertView = LayoutInflater.from(mContext).inflate(R.layout.chat_bubble_item_left,parent,false);
-            }
-            holder.headerView = convertView.findViewById(R.id.header_layout);
+
+            convertView = LayoutInflater.from(mContext).inflate(R.layout.row_chat_bubble_item,parent,false);
+
+            //holder.headerView = convertView.findViewById(R.id.header_layout);
             holder.mainLayout = convertView.findViewById(R.id.main_layout);
-            holder.headerTextView = (TextView)convertView.findViewById(R.id.header_text_view);
-            holder.chatMsgTextView = (TextView)convertView.findViewById(R.id.txtv_chat_msg);
-            holder.profileImg = (ImageView)convertView.findViewById(R.id.img_member);
-            holder.chatPicMsgImageView = (ImageView)convertView.findViewById(R.id.imgv_chat_img);
+            //holder.headerTextView = (TextView)convertView.findViewById(R.id.header_text_view);
+
+            holder.leftChatMsgTextView = (TextView)convertView.findViewById(R.id.left_txtv_chat_msg);
+            holder.leftProfileImg = (ImageView)convertView.findViewById(R.id.left_img_member);
+            holder.leftChatPicMsgImageView = (ImageView)convertView.findViewById(R.id.left_imgv_chat_img);
+
+            holder.rightChatMsgTextView = (TextView)convertView.findViewById(R.id.right_txtv_chat_msg);
+            holder.rightProfileImg = (ImageView)convertView.findViewById(R.id.right_img_member);
+            holder.rightChatPicMsgImageView = (ImageView)convertView.findViewById(R.id.right_imgv_chat_img);
+
+            holder.leftChatLayout = convertView.findViewById(R.id.left_chat_layout);
+            holder.rightChatLayout = convertView.findViewById(R.id.right_chat_layout);
+
+            holder.leftChatUserTextView = (TextView)convertView.findViewById(R.id.left_user_name);
+            holder.rightChatUserTextView = (TextView)convertView.findViewById(R.id.right_user_name);
+
+            holder.leftChatTimeTextView = (TextView)convertView.findViewById(R.id.left_chat_time);
+            holder.rightChatTimeTextView = (TextView)convertView.findViewById(R.id.right_chat_time);
 
             convertView.setTag(holder);
 
@@ -70,42 +82,83 @@ public class RudeChatAdapter extends BaseAdapter{
            holder = (ViewHolder)convertView.getTag();
         }
 
+        if(isMineMessage(chat.getUserId())){
+            holder.leftChatLayout.setVisibility(View.GONE);
+            holder.rightChatLayout.setVisibility(View.VISIBLE);
+            setData(chat,holder.rightProfileImg,holder.rightChatMsgTextView,holder.rightChatPicMsgImageView,holder.rightChatUserTextView,holder.rightChatTimeTextView);
+        }else{
+            holder.leftChatLayout.setVisibility(View.VISIBLE);
+            holder.rightChatLayout.setVisibility(View.GONE);
+            setData(chat,holder.leftProfileImg,holder.leftChatMsgTextView,holder.leftChatPicMsgImageView,holder.leftChatUserTextView,holder.leftChatTimeTextView);
+        }
 
-        if(chat.isHeader()){
+
+       /* if(chat.isHeader()){
             holder.headerView.setVisibility(View.VISIBLE);
             holder.mainLayout.setVisibility(View.GONE);
             holder.headerTextView.setText(chat.getTime());
         }else{
             holder.headerView.setVisibility(View.GONE);
             holder.mainLayout.setVisibility(View.VISIBLE);
-            picassoLoad(chat.getByPhoto(),holder.profileImg);
-            switch (chat.getChatType()){
-                case 0: //text msg
-                    holder.chatMsgTextView.setVisibility(View.VISIBLE);
-                    holder.chatPicMsgImageView.setVisibility(View.GONE);
-                    holder.chatMsgTextView.setText(chat.getText());
-                    break;
-                case 1: // image
-                    holder.chatMsgTextView.setVisibility(View.GONE);
-                    holder.chatPicMsgImageView.setVisibility(View.VISIBLE);
-                    holder.chatMsgTextView.setText(chat.getText());
-                    picassoLoad(chat.getChatImage(),holder.chatPicMsgImageView);
-                    break;
-                default:
+
+            if(isMineMessage(chat.getUserId())){
+                holder.leftChatLayout.setVisibility(View.GONE);
+                holder.rightChatLayout.setVisibility(View.VISIBLE);
+                setData(chat,holder.rightProfileImg,holder.rightChatMsgTextView,holder.rightChatPicMsgImageView);
+            }else{
+                holder.leftChatLayout.setVisibility(View.VISIBLE);
+                holder.rightChatLayout.setVisibility(View.GONE);
+                setData(chat,holder.leftProfileImg,holder.leftChatMsgTextView,holder.leftChatPicMsgImageView);
             }
-        }
+
+        }*/
 
         return convertView;
     }
 
 
-    private static class ViewHolder {
-        public View headerView;
+    private void setData(Chat chat,ImageView profileImgView,TextView msgTv,ImageView imageView,TextView userNameView,TextView chatTimingView) {
+        picassoLoad(chat.getByPhoto(), profileImgView);
+        userNameView.setText(chat.getByName());
+        chatTimingView.setText(chat.getTime());
+        switch (chat.getChatType()) {
+            case 0: //text msg
+                msgTv.setVisibility(View.VISIBLE);
+                imageView.setVisibility(View.GONE);
+                msgTv.setText(chat.getText());
+                break;
+            case 1: // image
+                msgTv.setVisibility(View.GONE);
+                imageView.setVisibility(View.VISIBLE);
+                msgTv.setText(chat.getText());
+                picassoLoad(chat.getChatImage(), imageView);
+                break;
+            default:
+        }
+    }
+
+    private class ViewHolder {
+
+        //public View headerView;
         public View mainLayout;
-        public TextView headerTextView;
-        public TextView chatMsgTextView;
-        public ImageView profileImg;
-        public ImageView chatPicMsgImageView;
+        //public TextView headerTextView;
+
+        public TextView leftChatMsgTextView;
+        public ImageView leftProfileImg;
+        public ImageView leftChatPicMsgImageView;
+
+        public TextView rightChatMsgTextView;
+        public ImageView rightProfileImg;
+        public ImageView rightChatPicMsgImageView;
+
+        public View leftChatLayout;
+        public View rightChatLayout;
+
+        public TextView rightChatUserTextView;
+        public TextView rightChatTimeTextView;
+
+        public TextView leftChatUserTextView;
+        public TextView leftChatTimeTextView;
     }
 
 
@@ -118,6 +171,5 @@ public class RudeChatAdapter extends BaseAdapter{
         if(!StringUtils.isNullOrEmpty(url))
            PicassoEx.getPicasso(mContext).load(url).error(R.drawable.farhan).placeholder(R.drawable.farhan).fit().into(imageView);
     }
-
 
 }

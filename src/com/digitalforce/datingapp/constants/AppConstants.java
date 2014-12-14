@@ -67,5 +67,6 @@ public class AppConstants {
     public static String LOCAL_PDF_URL        = "file:///android_asset/rental_application.pdf";
 
     public static boolean isRunningInBg = true;
+    public final static String INTENT_EVENT_NAME = "gcm_n2him_chat";
 
 }

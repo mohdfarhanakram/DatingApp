@@ -64,6 +64,8 @@
                     android:layout_height="wrap_content" />
 
             <ImageView android:id="@+id/left_imgv_chat_img"
+                       android:minWidth="30dp"
+                       android:minHeight="30dp"
                        android:layout_width="wrap_content"
                        android:layout_height="wrap_content"/>
 
@@ -116,6 +118,8 @@
                     android:layout_height="wrap_content" />
 
             <ImageView android:id="@+id/right_imgv_chat_img"
+                       android:minWidth="30dp"
+                       android:minHeight="30dp"
                        android:layout_width="wrap_content"
                        android:layout_height="wrap_content"/>
 
@@ -123,8 +127,8 @@
         <com.digitalforce.datingapp.widgets.RoundedImageView
                 android:layout_weight="0"
                 android:id="@+id/right_img_member"
-                android:layout_width="@dimen/dp_70"
-                android:layout_height="@dimen/dp_70"
+                android:layout_width="@dimen/dp_60"
+                android:layout_height="@dimen/dp_60"
                 android:contentDescription="@null"
                 android:src="@drawable/farhan"
                 app:border="true"

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res/com.digitalforce.datingapp"
+              android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content">
+
+    <LinearLayout
+            android:id="@+id/header_layout"
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+        <TextView
+                android:id="@+id/header_text_view"
+                android:layout_gravity="center"
+                android:textSize="@dimen/sp_14"
+                android:paddingLeft="2dp"
+                android:paddingRight="2dp"
+                android:background="@drawable/round_corner_button"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+    </LinearLayout>
+
+    <LinearLayout
+            android:id="@+id/main_layout"
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp">
+
+        <LinearLayout
+                android:id="@+id/left_chat_layout"
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+            <com.digitalforce.datingapp.widgets.RoundedImageView
+                    android:id="@+id/left_img_member"
+                    android:layout_width="@dimen/dp_70"
+                    android:layout_height="@dimen/dp_70"
+                    android:contentDescription="@null"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/farhan"
+                    app:border="true"
+                    app:border_color="@color/white"
+                    app:border_width="1dp"
+                    app:shadow="true" />
+            <TextView
+                    android:paddingLeft="10dp"
+                    android:paddingTop="5dp"
+                    android:paddingRight="10dp"
+                    android:paddingBottom="10dp"
+                    android:layout_gravity="center_vertical"
+                    android:id="@+id/left_txtv_chat_msg"
+                    android:background="@drawable/speech_bubble_orange"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            <ImageView android:id="@+id/left_imgv_chat_img"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"/>
+            <View android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"></View>
+
+        </LinearLayout>
+
+        <LinearLayout
+                android:id="@+id/right_chat_layout"
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
+
+            <View android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1"></View>
+
+            <TextView
+                    android:layout_weight="0"
+                    android:paddingLeft="10dp"
+                    android:paddingTop="5dp"
+                    android:paddingRight="10dp"
+                    android:paddingBottom="10dp"
+                    android:layout_gravity="center_vertical"
+                    android:id="@+id/right_txtv_chat_msg"
+                    android:background="@drawable/speech_bubble_green"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            <ImageView android:id="@+id/right_imgv_chat_img"
+                       android:layout_weight="0"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"/>
+            <com.digitalforce.datingapp.widgets.RoundedImageView
+                    android:layout_weight="0"
+                    android:id="@+id/right_img_member"
+                    android:layout_width="@dimen/dp_70"
+                    android:layout_height="@dimen/dp_70"
+                    android:contentDescription="@null"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/farhan"
+                    app:border="true"
+                    app:border_color="@color/white"
+                    app:border_width="1dp"
+                    app:shadow="true" />
+
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

@@ -102,4 +102,44 @@
 
         <string name="tc_header_text">Terms and Conditions of Service</string>
 
+
+    <string-array name="emotions_imgs">
+        <item>@drawable/amazed</item>
+        <item>@drawable/angel</item>
+        <item>@drawable/angry</item>
+        <item>@drawable/beaten</item>
+        <item>@drawable/bored</item>
+        <item>@drawable/clown</item>
+        <item>@drawable/confused</item>
+        <item>@drawable/cool</item>
+        <item>@drawable/cry</item>
+        <item>@drawable/devil</item>
+        <item>@drawable/doubtful</item>
+        <item>@drawable/emo</item>
+        <item>@drawable/frozen</item>
+        <item>@drawable/grin</item>
+        <item>@drawable/indian</item>
+        <item>@drawable/karate</item>
+        <item>@drawable/kiss</item>
+        <item>@drawable/laugh</item>
+        <item>@drawable/love</item>
+        <item>@drawable/millionaire</item>
+        <item>@drawable/nerd</item>
+        <item>@drawable/ninja</item>
+        <item>@drawable/party</item>
+        <item>@drawable/pirate</item>
+        <item>@drawable/punk</item>
+        <item>@drawable/sad</item>
+        <item>@drawable/santa</item>
+        <item>@drawable/shy</item>
+        <item>@drawable/sick</item>
+        <item>@drawable/smile</item>
+        <item>@drawable/speechless</item>
+        <item>@drawable/sweating</item>
+        <item>@drawable/tongue</item>
+        <item>@drawable/vampire</item>
+        <item>@drawable/wacky</item>
+        <item>@drawable/wink</item>
+    </string-array>
+
 </resources>

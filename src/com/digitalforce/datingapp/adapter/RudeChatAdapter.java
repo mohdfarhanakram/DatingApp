@@ -55,9 +55,8 @@ public class RudeChatAdapter extends BaseAdapter{
 
             convertView = LayoutInflater.from(mContext).inflate(R.layout.row_chat_bubble_item,parent,false);
 
-            //holder.headerView = convertView.findViewById(R.id.header_layout);
+
             holder.mainLayout = convertView.findViewById(R.id.main_layout);
-            //holder.headerTextView = (TextView)convertView.findViewById(R.id.header_text_view);
 
             holder.leftChatMsgTextView = (TextView)convertView.findViewById(R.id.left_txtv_chat_msg);
             holder.leftProfileImg = (ImageView)convertView.findViewById(R.id.left_img_member);
@@ -93,26 +92,6 @@ public class RudeChatAdapter extends BaseAdapter{
         }
 
 
-       /* if(chat.isHeader()){
-            holder.headerView.setVisibility(View.VISIBLE);
-            holder.mainLayout.setVisibility(View.GONE);
-            holder.headerTextView.setText(chat.getTime());
-        }else{
-            holder.headerView.setVisibility(View.GONE);
-            holder.mainLayout.setVisibility(View.VISIBLE);
-
-            if(isMineMessage(chat.getUserId())){
-                holder.leftChatLayout.setVisibility(View.GONE);
-                holder.rightChatLayout.setVisibility(View.VISIBLE);
-                setData(chat,holder.rightProfileImg,holder.rightChatMsgTextView,holder.rightChatPicMsgImageView);
-            }else{
-                holder.leftChatLayout.setVisibility(View.VISIBLE);
-                holder.rightChatLayout.setVisibility(View.GONE);
-                setData(chat,holder.leftProfileImg,holder.leftChatMsgTextView,holder.leftChatPicMsgImageView);
-            }
-
-        }*/
-
         return convertView;
     }
 
@@ -132,6 +111,11 @@ public class RudeChatAdapter extends BaseAdapter{
                 imageView.setVisibility(View.VISIBLE);
                 msgTv.setText(chat.getText());
                 picassoLoad(chat.getChatImage(), imageView);
+                break;
+            case 2: // emotions
+                msgTv.setVisibility(View.GONE);
+                imageView.setVisibility(View.VISIBLE);
+                imageView.setImageResource(mContext.getResources().obtainTypedArray(R.array.emotions_imgs).getResourceId(getEmotionId(chat.getText()),-1));
                 break;
             default:
         }
@@ -170,6 +154,13 @@ public class RudeChatAdapter extends BaseAdapter{
     public void picassoLoad(String url, ImageView imageView) {
         if(!StringUtils.isNullOrEmpty(url))
            PicassoEx.getPicasso(mContext).load(url).error(R.drawable.farhan).placeholder(R.drawable.farhan).fit().into(imageView);
+    }
+
+
+    private int getEmotionId(String msg){
+
+        int id = Integer.parseInt(msg.replaceAll("emotionn2him","").trim());
+        return id;
     }
 
 }

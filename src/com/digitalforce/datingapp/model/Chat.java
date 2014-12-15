@@ -105,6 +105,8 @@ public class Chat {
 
     public int getChatType(){
         if(type.equalsIgnoreCase("text")){
+            if(getText().contains("emotion"))
+                return 2;
             return 0;
         }else{
             return 1;

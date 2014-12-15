@@ -94,18 +94,24 @@ public class GcmIntentService extends IntentService {
         NotificationCompat.Builder mBuilder =
                 new NotificationCompat.Builder(this)
                         .setSmallIcon(R.drawable.ic_launcher)
-                        .setContentTitle(getResources().getString(R.string.app_name))
+                        .setContentTitle(chat.getByName())
                         .setStyle(new NotificationCompat.BigTextStyle()
                                 .bigText(chat.getText()))
                         .setContentText(chat.getText());
 
         mBuilder.setContentIntent(contentIntent);
         mBuilder.setAutoCancel(true);
-        mNotificationManager.notify(NOTIFICATION_ID, mBuilder.build());
+        mNotificationManager.notify(getNotificationId(chat.getUserId()), mBuilder.build());
     }
 
 
-    private void parseData(String message){
-        //String data =
+    private int getNotificationId(String userId){
+        int id = 1;
+       try{
+           id =  Integer.parseInt(userId);
+       }catch(Exception e){
+
+       }
+        return id;
     }
 }

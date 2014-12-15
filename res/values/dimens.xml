@@ -654,4 +654,10 @@
  <dimen name="tc_text_1_size">14sp</dimen>
     <dimen name="eligiblity_text_left_margin">10dp</dimen>
 
+    <dimen name="send_img_width">150dp</dimen>
+    <dimen name="send_img_height">150dp</dimen>
+
+    <dimen name="player_img_width">100dp</dimen>
+    <dimen name="player_img_height">100dp</dimen>
+
 </resources>

@@ -88,20 +88,44 @@ public class GcmIntentService extends IntentService {
         Intent intentChat = new Intent(this, RudeChatActivity.class);
         intentChat.putExtra(AppConstants.CHAT_USER_ID,chat.getUserId());
         intentChat.putExtra(AppConstants.CHAT_USER_NAME,chat.getByName());
+        intentChat.putExtra(AppConstants.IS_COMING_FROM_NOTIFICATION,true);
         intentChat.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
         PendingIntent contentIntent = PendingIntent.getActivity(this, 0,intentChat, 0);
 
+        String msg = null;
+
+        switch (chat.getChatType()){
+            case 0:  //text
+            case 2:  //text
+                msg = chat.getText();
+                break;
+            case 1:  //Image
+                msg = "Image";
+                break;
+            case 3:  //audio
+                msg = "Audio";
+                break;
+            case 4:  //video
+                msg = "Video";
+                break;
+            default:
+        }
+
+        setTypeOfNotification(contentIntent,chat.getUserId(),chat.getByName(),msg);
+    }
+
+    private void setTypeOfNotification(PendingIntent contentIntent,String userId,String userName,String chatText){
         NotificationCompat.Builder mBuilder =
                 new NotificationCompat.Builder(this)
                         .setSmallIcon(R.drawable.ic_launcher)
-                        .setContentTitle(chat.getByName())
+                        .setContentTitle(userName)
                         .setStyle(new NotificationCompat.BigTextStyle()
-                                .bigText(chat.getText()))
-                        .setContentText(chat.getText());
+                                .bigText(chatText))
+                        .setContentText(chatText);
 
         mBuilder.setContentIntent(contentIntent);
         mBuilder.setAutoCancel(true);
-        mNotificationManager.notify(getNotificationId(chat.getUserId()), mBuilder.build());
+        mNotificationManager.notify(getNotificationId(userId), mBuilder.build());
     }
 
 

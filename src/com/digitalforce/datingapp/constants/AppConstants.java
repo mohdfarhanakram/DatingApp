@@ -68,5 +68,11 @@ public class AppConstants {
 
     public static boolean isRunningInBg = true;
     public final static String INTENT_EVENT_NAME = "gcm_n2him_chat";
+    public final static String EMOTION_TAG = "n2him";
+
+    public final static String RECORDED_AUDIO_URL = "recorded_audio_url";
+
+    public final static String IS_COMING_FROM_NOTIFICATION = "is_coming_from_notification";
+    public final static String IS_USER_ONLINE = "is_user_online";
 
 }

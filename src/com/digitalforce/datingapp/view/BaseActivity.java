@@ -3,15 +3,19 @@
  */
 package com.digitalforce.datingapp.view;
 
+import java.io.File;
 import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Timer;
 import java.util.TimerTask;
 
 //import com.splunk.mint.Mint;
 import android.os.AsyncTask;
+import android.os.Environment;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.google.android.gms.gcm.GoogleCloudMessaging;
@@ -856,6 +860,66 @@ public abstract class BaseActivity extends FragmentActivity implements IScreen,R
             return false;
         }
         return true;
+    }
+
+
+
+
+    public File createFile(int event) {
+        // Create an image file name
+        try{
+            String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+            File albumF = getAlbumDir();
+            File f = null;
+            switch(event){
+                case 1: // image
+                    String imageFileName = "IMG" + timeStamp + "_";
+                    return File.createTempFile(imageFileName, ".jpg", albumF);
+
+                case 3:  //audio
+                    String audioFileName = "AUDIO"+ timeStamp + "_";
+                    return File.createTempFile(audioFileName, ".3gpp", albumF);
+
+                case 4:  //video
+                    String videoFileName = "VIDEO"+ timeStamp + "_";
+                    return File.createTempFile(videoFileName, ".mp4", albumF);
+                default:
+
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
+    protected File getAlbumDir() {
+        File storageDir = null;
+        if (Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState())) {
+            storageDir = getAlbumStorageDir("n2him");
+            if (storageDir != null) {
+                if (!storageDir.mkdirs()) {
+                    if (!storageDir.exists()) {
+                        Log.d("CameraSample", "failed to create directory");
+                        return null;
+                    }
+                }
+            }
+
+        } else {
+            Log.v(getString(R.string.app_name), "External storage is not mounted READ/WRITE.");
+        }
+        return storageDir;
+    }
+
+
+    protected File getAlbumStorageDir(String albumName) {
+        return new File(
+                Environment.getExternalStoragePublicDirectory(
+                        Environment.DIRECTORY_DCIM
+                ),
+                albumName
+        );
     }
 
 

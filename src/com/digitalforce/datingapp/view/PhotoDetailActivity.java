@@ -4,6 +4,8 @@
 package com.digitalforce.datingapp.view;
 
 import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.Display;
 import android.view.View;
@@ -15,6 +17,7 @@ import com.digitalforce.datingapp.R;
 import com.digitalforce.datingapp.constants.AppConstants;
 import com.digitalforce.datingapp.utils.PicassoEx;
 import com.digitalforce.datingapp.utils.ToastCustom;
+import com.farru.android.utill.StringUtils;
 import com.farru.android.utill.Utils;
 
 /**
@@ -105,7 +108,23 @@ public class PhotoDetailActivity extends BaseActivity implements OnClickListener
 	    }
 
     public void picassoLoad(String imgUrl, ImageView imageView,int width,int height) {
-        PicassoEx.getPicasso(this).load(imgUrl).resize(width,height).into(imageView);
+        if(!StringUtils.isNullOrEmpty(imgUrl)){
+            if(!imgUrl.contains("http"))
+                createBitmapImage(imageView,imgUrl);
+            else
+                PicassoEx.getPicasso(this).load(imgUrl).resize(width, height).into(imageView);
+
+        }
+
+    }
+
+    private void createBitmapImage(ImageView img , String path){
+        BitmapFactory.Options options = null;
+        options = new BitmapFactory.Options();
+        options.inSampleSize = 5;
+        Bitmap bitmap = BitmapFactory.decodeFile(path,options);
+        if(bitmap!=null)
+            img.setImageBitmap(bitmap);
     }
 
 }

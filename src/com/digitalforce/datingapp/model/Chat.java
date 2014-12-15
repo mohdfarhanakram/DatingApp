@@ -1,5 +1,7 @@
 package com.digitalforce.datingapp.model;
 
+import android.graphics.Bitmap;
+import com.digitalforce.datingapp.constants.AppConstants;
 import com.digitalforce.datingapp.persistance.DatingAppPreference;
 import com.farru.android.utill.StringUtils;
 
@@ -9,19 +11,57 @@ import com.farru.android.utill.StringUtils;
 public class Chat {
     private String userId;
     private String text;
-    private String chatImage;
+    private String chatMediaUrl;
     private String byName;
     private String byPhoto;
     private String type;
     private String time;
+
+    private int emotionId = -1;
+
+    private String baseEncoded;
+
+    private String localMediaUrl;
+
+    public String getChatMediaUrl() {
+        return chatMediaUrl;
+    }
+
+    public void setChatMediaUrl(String chatMediaUrl) {
+        this.chatMediaUrl = chatMediaUrl;
+    }
+
+    public String getBaseEncoded() {
+        return baseEncoded;
+    }
+
+    public void setBaseEncoded(String baseEncoded) {
+        this.baseEncoded = baseEncoded;
+    }
+
+    public String getLocalMediaUrl() {
+        return localMediaUrl;
+    }
+
+    public void setLocalMediaUrl(String localMediaUrl) {
+        this.localMediaUrl = localMediaUrl;
+    }
+
+    public int getEmotionId() {
+        return emotionId;
+    }
+
+    public void setEmotionId(int emotionId) {
+        this.emotionId = emotionId;
+    }
 
     public Chat(){}
 
     public Chat(Chat chat){
         userId = chat.getUserId();
         text = chat.getText();
-        chatImage = chat.getChatImage();
-        byName = chat.getChatImage();
+        chatMediaUrl = chat.getChatMediaUrl();
+        byName = chat.getByName();
         byPhoto = chat.getByPhoto();
         type = chat.getType();
     }
@@ -59,13 +99,7 @@ public class Chat {
         this.text = text;
     }
 
-    public String getChatImage() {
-        return chatImage;
-    }
 
-    public void setChatImage(String chatImage) {
-        this.chatImage = chatImage;
-    }
 
     public String getByName() {
         return byName;
@@ -105,12 +139,31 @@ public class Chat {
 
     public int getChatType(){
         if(type.equalsIgnoreCase("text")){
-            if(getText().contains("emotion"))
+            if(getText().contains(AppConstants.EMOTION_TAG) && isContainsId(getText())){
                 return 2;
+            }
             return 0;
-        }else{
+        }else if(type.equalsIgnoreCase("image")){
             return 1;
+        }else if(type.equalsIgnoreCase("audio")){
+            return 3;
+        }else if(type.equalsIgnoreCase("video")){
+            return 4;
+        }else{
+            return 0;
         }
+    }
+
+
+    private boolean isContainsId(String msg){
+        try{
+           emotionId = Integer.parseInt(msg.replaceAll(AppConstants.EMOTION_TAG,"").trim());
+           return true;
+       }catch(Exception e){
+            emotionId = -1;
+       }
+
+        return false;
     }
 
 

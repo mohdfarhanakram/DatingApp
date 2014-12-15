@@ -182,10 +182,19 @@ public class JsonParser {
                     Chat chat = new Chat();
                     chat.setUserId(jObj.optString("userId"));
                     chat.setText(jObj.optString("text"));
-                    chat.setChatImage(jObj.optString("chat_image"));
+                    String type = jObj.optString("type");
+                    chat.setType(type);
+
+                    if(type.equalsIgnoreCase("IMAGE"))
+                        chat.setChatMediaUrl(jObj.optString("chat_image"));
+                    else if(type.equalsIgnoreCase("audio"))
+                        chat.setChatMediaUrl(jObj.optString("chat_audio"));
+                    else if(type.equalsIgnoreCase("video"))
+                        chat.setChatMediaUrl(jObj.optString("chat_video"));
+
+
                     chat.setByName(jObj.optString("by_name"));
                     chat.setByPhoto(jObj.optString("by_photo"));
-                    chat.setType(jObj.optString("type"));
                     chat.setTime(AppUtil.getFormatedDate(jObj.optString("time")));
                     chats.add(chat);
                     /*if(chats.indexOf(chat)== -1){
@@ -215,10 +224,17 @@ public class JsonParser {
             JSONObject  jObj = new JSONObject(json);
             chat.setUserId(jObj.optString("sender"));
             chat.setText(jObj.optString("msg"));
-            chat.setChatImage(jObj.optString("image"));
+            String type = jObj.optString("type");
+            chat.setType(type);
+
+            if(type.equalsIgnoreCase("IMAGE"))
+                chat.setChatMediaUrl(jObj.optString("image"));
+            else if(type.equalsIgnoreCase("audio"))
+                chat.setChatMediaUrl(jObj.optString("audio"));
+            else if(type.equalsIgnoreCase("video"))
+                chat.setChatMediaUrl(jObj.optString("video"));
+
             chat.setByName(jObj.optString("from_name"));
-            chat.setByPhoto(jObj.optString("by_photo"));  //ToDo Need to changed
-            chat.setType(jObj.optString("type"));
             chat.setTime(AppUtil.getFormatedDate(jObj.optString("date")));
         }catch(Exception e){
 

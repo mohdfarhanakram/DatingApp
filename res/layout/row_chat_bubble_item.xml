@@ -64,10 +64,21 @@
                     android:layout_height="wrap_content" />
 
             <ImageView android:id="@+id/left_imgv_chat_img"
-                       android:minWidth="30dp"
-                       android:minHeight="30dp"
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"/>
+                       android:paddingTop="5dp"
+                       android:layout_width="@dimen/send_img_width"
+                       android:layout_height="@dimen/send_img_height"/>
+            <ImageView android:id="@+id/left_emotion_img"
+                       android:paddingTop="5dp"
+                       android:layout_width="30dp"
+                       android:layout_height="30dp"/>
+
+            <ImageView android:id="@+id/left_media_img"
+                       android:layout_gravity="center_horizontal"
+                       android:paddingTop="5dp"
+                       android:background="#00BAFF"
+                       android:src="@drawable/ic_action_play"
+                       android:layout_width="@dimen/player_img_width"
+                       android:layout_height="@dimen/player_img_height"/>
 
          </LinearLayout>
 
@@ -118,10 +129,20 @@
                     android:layout_height="wrap_content" />
 
             <ImageView android:id="@+id/right_imgv_chat_img"
-                       android:minWidth="30dp"
-                       android:minHeight="30dp"
-                       android:layout_width="wrap_content"
-                       android:layout_height="wrap_content"/>
+                       android:paddingTop="5dp"
+                       android:layout_width="@dimen/send_img_width"
+                       android:layout_height="@dimen/send_img_height"/>
+            <ImageView android:id="@+id/right_emotion_img"
+                       android:paddingTop="5dp"
+                       android:layout_width="30dp"
+                       android:layout_height="30dp"/>
+            <ImageView android:id="@+id/right_media_img"
+                       android:layout_gravity="center_horizontal"
+                       android:background="#00BAFF"
+                       android:paddingTop="5dp"
+                       android:src="@drawable/ic_action_play"
+                       android:layout_width="@dimen/player_img_width"
+                       android:layout_height="@dimen/player_img_height"/>
 
         </LinearLayout>
         <com.digitalforce.datingapp.widgets.RoundedImageView

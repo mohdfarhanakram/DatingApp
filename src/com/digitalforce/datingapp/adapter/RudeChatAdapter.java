@@ -1,6 +1,11 @@
 package com.digitalforce.datingapp.adapter;
 
 import android.content.Context;
+import android.content.Intent;
+import android.content.res.TypedArray;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,11 +13,16 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.digitalforce.datingapp.R;
+import com.digitalforce.datingapp.constants.AppConstants;
 import com.digitalforce.datingapp.model.Chat;
 import com.digitalforce.datingapp.persistance.DatingAppPreference;
 import com.digitalforce.datingapp.utils.PicassoEx;
+import com.digitalforce.datingapp.view.AudioPlayerActivity;
+import com.digitalforce.datingapp.view.PhotoDetailActivity;
+import com.digitalforce.datingapp.view.PlayVideoActivity;
 import com.farru.android.utill.StringUtils;
 
+import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 
 /**
@@ -75,6 +85,14 @@ public class RudeChatAdapter extends BaseAdapter{
             holder.leftChatTimeTextView = (TextView)convertView.findViewById(R.id.left_chat_time);
             holder.rightChatTimeTextView = (TextView)convertView.findViewById(R.id.right_chat_time);
 
+            holder.rightEmotionImgView = (ImageView)convertView.findViewById(R.id.right_emotion_img);
+            holder.leftEmotionImgView = (ImageView)convertView.findViewById(R.id.left_emotion_img);
+
+            holder.rightPlayImgView = (ImageView)convertView.findViewById(R.id.right_media_img);
+            holder.leftPlayImgView = (ImageView)convertView.findViewById(R.id.left_media_img);
+
+
+
             convertView.setTag(holder);
 
         }else{
@@ -84,11 +102,11 @@ public class RudeChatAdapter extends BaseAdapter{
         if(isMineMessage(chat.getUserId())){
             holder.leftChatLayout.setVisibility(View.GONE);
             holder.rightChatLayout.setVisibility(View.VISIBLE);
-            setData(chat,holder.rightProfileImg,holder.rightChatMsgTextView,holder.rightChatPicMsgImageView,holder.rightChatUserTextView,holder.rightChatTimeTextView);
+            setData(chat,holder.rightProfileImg,holder.rightChatMsgTextView,holder.rightChatPicMsgImageView,holder.rightChatUserTextView,holder.rightChatTimeTextView,holder.rightEmotionImgView,holder.rightPlayImgView);
         }else{
             holder.leftChatLayout.setVisibility(View.VISIBLE);
             holder.rightChatLayout.setVisibility(View.GONE);
-            setData(chat,holder.leftProfileImg,holder.leftChatMsgTextView,holder.leftChatPicMsgImageView,holder.leftChatUserTextView,holder.leftChatTimeTextView);
+            setData(chat,holder.leftProfileImg,holder.leftChatMsgTextView,holder.leftChatPicMsgImageView,holder.leftChatUserTextView,holder.leftChatTimeTextView,holder.leftEmotionImgView,holder.leftPlayImgView);
         }
 
 
@@ -96,27 +114,85 @@ public class RudeChatAdapter extends BaseAdapter{
     }
 
 
-    private void setData(Chat chat,ImageView profileImgView,TextView msgTv,ImageView imageView,TextView userNameView,TextView chatTimingView) {
+    private void setData(Chat chat,ImageView profileImgView,TextView msgTv,ImageView imageView,TextView userNameView,TextView chatTimingView,ImageView emotionView,ImageView playerView) {
         picassoLoad(chat.getByPhoto(), profileImgView);
         userNameView.setText(chat.getByName());
         chatTimingView.setText(chat.getTime());
         switch (chat.getChatType()) {
             case 0: //text msg
                 msgTv.setVisibility(View.VISIBLE);
+                emotionView.setVisibility(View.GONE);
                 imageView.setVisibility(View.GONE);
+                playerView.setVisibility(View.GONE);
                 msgTv.setText(chat.getText());
                 break;
             case 1: // image
                 msgTv.setVisibility(View.GONE);
+                emotionView.setVisibility(View.GONE);
                 imageView.setVisibility(View.VISIBLE);
+                imageView.setTag(chat.getChatMediaUrl());
+                imageView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(mContext,PhotoDetailActivity.class);
+                        intent.putExtra(AppConstants.IMAGE_URL, (String)v.getTag());
+                        mContext.startActivity(intent);
+                    }
+                });
+                playerView.setVisibility(View.GONE);
                 msgTv.setText(chat.getText());
-                picassoLoad(chat.getChatImage(), imageView);
+                picassoLoad(chat.getChatMediaUrl(), imageView);
                 break;
             case 2: // emotions
-                msgTv.setVisibility(View.GONE);
-                imageView.setVisibility(View.VISIBLE);
-                imageView.setImageResource(mContext.getResources().obtainTypedArray(R.array.emotions_imgs).getResourceId(getEmotionId(chat.getText()),-1));
+
+                TypedArray emotions = mContext.getResources().obtainTypedArray(R.array.emotions_imgs);
+                if(chat.getEmotionId()<emotions.length()){
+                    msgTv.setVisibility(View.GONE);
+                    emotionView.setVisibility(View.VISIBLE);
+                    imageView.setVisibility(View.GONE);
+                    playerView.setVisibility(View.GONE);
+                    emotionView.setImageResource(emotions.getResourceId(chat.getEmotionId(),-1));
+                }else{
+                    msgTv.setVisibility(View.VISIBLE);
+                    imageView.setVisibility(View.GONE);
+                    emotionView.setVisibility(View.GONE);
+                    playerView.setVisibility(View.GONE);
+                    msgTv.setText(chat.getText());
+                }
                 break;
+            case 3:
+                msgTv.setVisibility(View.VISIBLE);
+                msgTv.setText("Audio");
+                imageView.setVisibility(View.GONE);
+                emotionView.setVisibility(View.GONE);
+                playerView.setVisibility(View.VISIBLE);
+                playerView.setTag(chat.getChatMediaUrl());
+                playerView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(mContext,AudioPlayerActivity.class);
+                        intent.putExtra(AppConstants.RECORDED_AUDIO_URL, (String)v.getTag());
+                        mContext.startActivity(intent);
+                    }
+                });
+                break;
+            case 4:
+                msgTv.setText("Video");
+                msgTv.setVisibility(View.VISIBLE);
+                imageView.setVisibility(View.GONE);
+                emotionView.setVisibility(View.GONE);
+                playerView.setVisibility(View.VISIBLE);
+                playerView.setTag(chat.getChatMediaUrl());
+                playerView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent i = new Intent(mContext,PlayVideoActivity.class);
+                        i.putExtra(AppConstants.USER_VIDEO_URL,(String)v.getTag());
+                        mContext.startActivity(i);
+                    }
+                });
+                break;
+
             default:
         }
     }
@@ -143,6 +219,12 @@ public class RudeChatAdapter extends BaseAdapter{
 
         public TextView leftChatUserTextView;
         public TextView leftChatTimeTextView;
+
+        public ImageView leftEmotionImgView;
+        public ImageView rightEmotionImgView;
+
+        public ImageView leftPlayImgView;
+        public ImageView rightPlayImgView;
     }
 
 
@@ -152,15 +234,25 @@ public class RudeChatAdapter extends BaseAdapter{
 
 
     public void picassoLoad(String url, ImageView imageView) {
-        if(!StringUtils.isNullOrEmpty(url))
-           PicassoEx.getPicasso(mContext).load(url).error(R.drawable.farhan).placeholder(R.drawable.farhan).fit().into(imageView);
+        if(!StringUtils.isNullOrEmpty(url)){
+            if(!url.contains("http"))
+               createBitmapImage(imageView,url);
+            else
+                PicassoEx.getPicasso(mContext).load(url).fit().into(imageView);
+
+        }
     }
 
 
-    private int getEmotionId(String msg){
-
-        int id = Integer.parseInt(msg.replaceAll("emotionn2him","").trim());
-        return id;
+    private void createBitmapImage(ImageView img , String path){
+        BitmapFactory.Options options = null;
+        options = new BitmapFactory.Options();
+        options.inSampleSize = 5;
+        Bitmap bitmap = BitmapFactory.decodeFile(path,options);
+        if(bitmap!=null)
+             img.setImageBitmap(bitmap);
     }
+
+
 
 }

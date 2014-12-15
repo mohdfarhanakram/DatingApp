@@ -45,6 +45,7 @@ public class ChatActivity extends BaseActivity{
                 Intent intentChat = new Intent(ChatActivity.this, RudeChatActivity.class);
                 intentChat.putExtra(AppConstants.CHAT_USER_ID,userList.get(position).getUserId());
                 intentChat.putExtra(AppConstants.CHAT_USER_NAME,userList.get(position).getFirstName()+" "+userList.get(position).getLastName());
+                intentChat.putExtra(AppConstants.IS_USER_ONLINE,userList.get(position).getStatus().equals("Online"));
                 intentChat.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intentChat);
             }

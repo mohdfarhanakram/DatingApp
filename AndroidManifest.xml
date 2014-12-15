@@ -133,6 +133,9 @@
         <activity
                 android:name="com.digitalforce.datingapp.view.UserLocationActivity"
                 android:screenOrientation="portrait" />
+        <activity
+                android:name="com.digitalforce.datingapp.view.AudioPlayerActivity"
+                android:screenOrientation="portrait" />
         <receiver
                 android:name="com.digitalforce.datingapp.gcm.GcmBroadcastReceiver"
                 android:permission="com.google.android.c2dm.permission.SEND" >

@@ -1,24 +1,26 @@
 package com.digitalforce.datingapp.view;
 
+import android.app.AlertDialog;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
+import android.content.*;
 import android.content.res.TypedArray;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Environment;
+import android.provider.MediaStore;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.content.LocalBroadcastManager;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Base64;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.ListView;
-import android.widget.TextView;
+import android.widget.*;
 import com.digitalforce.datingapp.R;
 import com.digitalforce.datingapp.adapter.RudeChatAdapter;
 import com.digitalforce.datingapp.constants.ApiEvent;
@@ -29,6 +31,7 @@ import com.digitalforce.datingapp.parser.JsonParser;
 import com.digitalforce.datingapp.persistance.DatingAppPreference;
 import com.digitalforce.datingapp.utils.AppUtil;
 import com.digitalforce.datingapp.widgets.FlowLayout;
+import com.edmodo.cropper.CropImageView;
 import com.farru.android.network.ServiceResponse;
 import com.farru.android.persistance.AppSharedPreference;
 import com.farru.android.utill.StringUtils;
@@ -36,8 +39,14 @@ import com.farru.android.utill.Utils;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.zip.Inflater;
 
 /**
@@ -52,12 +61,29 @@ public class RudeChatActivity extends BaseActivity implements View.OnClickListen
     private ArrayList<Chat> chatArrayList = new ArrayList<Chat>();
     private RudeChatAdapter mRudeChatAdapter;
 
+    private NotificationManager  mNotificationManager;
+
+    protected static final String JPEG_FILE_PREFIX = "IMG_";
+    protected static final String JPEG_FILE_SUFFIX = ".jpg";
+
+    String mPhotoMediaPath;
+    String mVideoMediaPath;
+    String mAudioMediaPath;
+    String mBaseEncodedString;
+
+    private boolean isUserOnline;
+    private boolean isComingFromNotification;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rude_chat_layout);
 
         mUserId = getIntent().getStringExtra(AppConstants.CHAT_USER_ID);
+
+        isUserOnline = getIntent().getBooleanExtra(AppConstants.IS_USER_ONLINE,false);
+        isComingFromNotification = getIntent().getBooleanExtra(AppConstants.IS_COMING_FROM_NOTIFICATION,false);
 
         ((TextView) findViewById(R.id.txt_screen_title)).setText("Chat");
         ((TextView) findViewById(R.id.txt_profile_name)).setText(getIntent().getStringExtra(AppConstants.CHAT_USER_NAME));
@@ -71,32 +97,13 @@ public class RudeChatActivity extends BaseActivity implements View.OnClickListen
         findViewById(R.id.smiley_btn).setOnClickListener(this);
         findViewById(R.id.camera_btn).setOnClickListener(this);
         findViewById(R.id.mic_btn).setOnClickListener(this);
+        findViewById(R.id.video_btn).setOnClickListener(this);
 
-
-        ((EditText)findViewById(R.id.msg_edit)).addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                if(s.toString().length()>0){
-                    findViewById(R.id.media_layout).setVisibility(View.GONE);
-                    findViewById(R.id.send_btn).setVisibility(View.VISIBLE);
-                }else{
-                    findViewById(R.id.media_layout).setVisibility(View.VISIBLE);
-                    findViewById(R.id.send_btn).setVisibility(View.GONE);
-                }
-            }
-        });
         setEmotionView();
     }
+
+
+
 
     private BroadcastReceiver mMessageReceiver = new BroadcastReceiver() {
         @Override
@@ -171,7 +178,7 @@ public class RudeChatActivity extends BaseActivity implements View.OnClickListen
         postData(DatingUrlConstants.SHOW_CHAT_HISTORY_URL, ApiEvent.CHAT_HISTORY_EVENT,chatHistoryJsonRequest(),showLoader);
     }
 
-    private void sendMessage(String msg,int event){
+    private void sendMessage(Chat chat,int event){
 
         Calendar calendar = Calendar.getInstance();
         String year  = calendar.get(Calendar.YEAR)+"";
@@ -180,34 +187,25 @@ public class RudeChatActivity extends BaseActivity implements View.OnClickListen
 
         String date = Utils.getShortMonth(month)+" "+day+", "+year;
 
-        Chat chat = new Chat();
         chat.setUserId(DatingAppPreference.getString(DatingAppPreference.USER_ID, "", this));
         chat.setByName(DatingAppPreference.getString(DatingAppPreference.USER_NAME, "", this));
-        if(event==0){
-            chat.setType("text");
-            chat.setText(msg);
-        }else{
-            chat.setType("image");
-            chat.setChatImage(""); //chat url
-        }
 
         chat.setByPhoto(DatingAppPreference.getString(DatingAppPreference.USER_PROFILE_URL, "", this));// By photo
         chat.setTime(date);
 
         setAdapterData(chat);
 
-        postData(DatingUrlConstants.SEND_MSG_URL, ApiEvent.SEND_MSG_EVENT,sendMessageJsonRequest(msg,event),false);
+        if(event == 0){
+            postData(DatingUrlConstants.SEND_MSG_URL, ApiEvent.SEND_MSG_EVENT,sendMessageJsonRequest(chat.getText(),event),false);
+        }else{
+            decodeMedia(chat, event);
+        }
+
+
     }
 
     private void setAdapterData(Chat chat){
-       /* if(chatArrayList.indexOf(chat)== -1){
-            chatArrayList.add(chat);
-            chatArrayList.add(new Chat(chat));
 
-        }else{
-            chat.setTime("");
-            chatArrayList.add(chat);
-        }*/
         chatArrayList.add(chat);
         mRudeChatAdapter = (RudeChatAdapter)mChatListView.getAdapter();
         if(mRudeChatAdapter==null){
@@ -236,15 +234,15 @@ public class RudeChatActivity extends BaseActivity implements View.OnClickListen
                /* case 2:
                     jsonObject.putOpt("text", msg);
                     jsonObject.putOpt("type", "emotion");
-                    break;
+                    break;*/
                 case 3:
-                    jsonObject.putOpt("image", msg);
+                    jsonObject.putOpt("audio", msg);
                     jsonObject.putOpt("type", "audio");
                     break;
                 case 4:
-                    jsonObject.putOpt("image", msg);
+                    jsonObject.putOpt("video", msg);
                     jsonObject.putOpt("type", "video");
-                    break;*/
+                    break;
             }
 
         } catch (JSONException e) {
@@ -273,6 +271,12 @@ public class RudeChatActivity extends BaseActivity implements View.OnClickListen
 
     @Override
     public void onClick(View v) {
+
+        if(!isComingFromNotification && !isUserOnline){
+            showCommonError(getIntent().getStringExtra(AppConstants.CHAT_USER_NAME) + " is offline, you can not chat with him.");
+            return;
+        }
+
         switch (v.getId()){
             case R.id.send_btn:
                 sendChatMessage();
@@ -283,13 +287,15 @@ public class RudeChatActivity extends BaseActivity implements View.OnClickListen
                 }else{
                     findViewById(R.id.emotion_layout).setVisibility(View.GONE);
                 }
-                sendChatMessage();
                 break;
             case R.id.mic_btn:
-                sendChatMessage();
+                recordAudio();
                 break;
             case R.id.camera_btn:
-                sendChatMessage();
+                selectImage();
+                break;
+            case R.id.video_btn:
+                recordVideo();
                 break;
             default:
         }
@@ -299,11 +305,43 @@ public class RudeChatActivity extends BaseActivity implements View.OnClickListen
     private void sendChatMessage(){
         String msg = ((EditText)findViewById(R.id.msg_edit)).getText().toString();
         if(!StringUtils.isNullOrEmpty(msg)){
-            sendMessage(msg,0);
+            Chat chat = new Chat();
+            chat.setText(msg);
+            chat.setType("text");
+            sendMessage(chat, 0);
             ((EditText)findViewById(R.id.msg_edit)).setText("");
         }
     }
 
+
+    private void sendEmotions(int id){
+        Chat chat = new Chat();
+        chat.setText(AppConstants.EMOTION_TAG+id+AppConstants.EMOTION_TAG); //add emotion key to identify emotion message
+        chat.setType("text");
+        sendMessage(chat, 0);
+    }
+
+    private void sendImage(){
+        Chat chat = new Chat();
+        chat.setChatMediaUrl(mPhotoMediaPath);
+        chat.setType("IMAGE");
+        sendMessage(chat,1);
+    }
+
+
+    private void sendAudio(){
+        Chat chat = new Chat();
+        chat.setChatMediaUrl(mAudioMediaPath);
+        chat.setType("audio");
+        sendMessage(chat,3);
+    }
+
+    private void sendVideo(){
+        Chat chat = new Chat();
+        chat.setChatMediaUrl(mVideoMediaPath);
+        chat.setType("video");
+        sendMessage(chat,4);
+    }
 
 
 
@@ -314,7 +352,7 @@ public class RudeChatActivity extends BaseActivity implements View.OnClickListen
         if(mRudeChatAdapter==null){
             refreshChatHistory(true);
         }else{
-            refreshChatHistory(false);
+            //refreshChatHistory(false);
         }
 
 
@@ -354,34 +392,53 @@ public class RudeChatActivity extends BaseActivity implements View.OnClickListen
 
     }
 
-
-    private void sendEmotions(int id){
-        sendMessage("emotion"+id+"emotion",0);  //add emotion key to identify emotion message
-    }
-
     private void sendNotification(Chat chat) {
         if(chat==null)
             return;
-        NotificationManager  mNotificationManager = (NotificationManager)
+        mNotificationManager = (NotificationManager)
                 this.getSystemService(Context.NOTIFICATION_SERVICE);
 
         Intent intentChat = new Intent(this, RudeChatActivity.class);
         intentChat.putExtra(AppConstants.CHAT_USER_ID,chat.getUserId());
         intentChat.putExtra(AppConstants.CHAT_USER_NAME,chat.getByName());
+        intentChat.putExtra(AppConstants.IS_COMING_FROM_NOTIFICATION,true);
         intentChat.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
         PendingIntent contentIntent = PendingIntent.getActivity(this, 0,intentChat, 0);
 
+        String msg = null;
+
+        switch (chat.getChatType()){
+            case 0:  //text
+            case 2:  //text
+                msg = chat.getText();
+                break;
+            case 1:  //Image
+                msg = "Image";
+                break;
+            case 3:  //audio
+                msg = "Audio";
+                break;
+            case 4:  //video
+                msg = "Video";
+                break;
+            default:
+        }
+
+        setTypeOfNotification(contentIntent, chat.getUserId(), chat.getByName(), msg);
+    }
+
+    private void setTypeOfNotification(PendingIntent contentIntent,String userId,String userName,String chatText){
         NotificationCompat.Builder mBuilder =
                 new NotificationCompat.Builder(this)
                         .setSmallIcon(R.drawable.ic_launcher)
-                        .setContentTitle(chat.getByName())
+                        .setContentTitle(userName)
                         .setStyle(new NotificationCompat.BigTextStyle()
-                                .bigText(chat.getText()))
-                        .setContentText(chat.getText());
+                                .bigText(chatText))
+                        .setContentText(chatText);
 
         mBuilder.setContentIntent(contentIntent);
         mBuilder.setAutoCancel(true);
-        mNotificationManager.notify(getNotificationId(chat.getUserId()), mBuilder.build());
+        mNotificationManager.notify(getNotificationId(userId), mBuilder.build());
     }
 
 
@@ -390,10 +447,201 @@ public class RudeChatActivity extends BaseActivity implements View.OnClickListen
         try{
             id =  Integer.parseInt(userId);
         }catch(Exception e){
-
+            e.printStackTrace();
         }
         return id;
     }
 
+
+
+    private void selectImage() {
+        final CharSequence[] items = { "Take Photo", "Choose from Gallery",
+                "Cancel" };
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Send Picture");
+        builder.setItems(items, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int item) {
+                if (items[item].equals("Take Photo")) {
+
+                    Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+
+                    File f = null;
+                    try {
+                        f = createFile(1);
+                        mPhotoMediaPath = f.getAbsolutePath();
+                        takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(f));
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        f = null;
+                        Toast.makeText(RudeChatActivity.this, "Error while starting Camera.", Toast.LENGTH_SHORT).show();
+                        finish();
+                        return;
+                    }
+                    startActivityForResult(takePictureIntent, AppConstants.REQUEST_CODE_FOR_CAMERA);
+
+                } else if (items[item].equals("Choose from Gallery")) {
+                    Intent intent = new Intent(
+                            Intent.ACTION_PICK,
+                            android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                    intent.setType("image/*");
+                    startActivityForResult(
+                            Intent.createChooser(intent, "Select File"),
+                            AppConstants.REQUEST_CODE_FOR_GALLERY);
+                } else if (items[item].equals("Cancel")) {
+                    dialog.dismiss();
+                }
+            }
+        });
+        builder.show();
+    }
+
+    private void recordAudio(){
+        Intent i = new Intent(this,AudioRecorderActivity.class);
+        startActivityForResult(i, AppConstants.REQUEST_CODE_FOR_AUDIO);
+    }
+    private void recordVideo(){
+        //create new Intent
+        Intent intent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
+        File f = createFile(4);
+        mVideoMediaPath = f.getAbsolutePath();
+        intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(f));
+        //intent.putExtra(MediaStore.EXTRA_OUTPUT, getOutputMediaFileUri());
+        intent.putExtra(MediaStore.EXTRA_VIDEO_QUALITY, 0);
+        intent.putExtra(MediaStore.EXTRA_SIZE_LIMIT , 102400);  // 100kb
+        intent.putExtra(MediaStore.EXTRA_DURATION_LIMIT , 60);
+
+        startActivityForResult(intent, AppConstants.REQUEST_CODE_FOR_VIDEO);
+    }
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == RESULT_OK) {
+            if (requestCode == AppConstants.REQUEST_CODE_FOR_CAMERA) {
+
+                sendImage();
+
+            } else if (requestCode == AppConstants.REQUEST_CODE_FOR_GALLERY) {
+                Uri selectedImageUri = data.getData();
+                mPhotoMediaPath = Utils.getPath(selectedImageUri, this);
+                sendImage();
+
+            }else if(requestCode == AppConstants.REQUEST_CODE_FOR_VIDEO){
+
+                if(resultCode == RESULT_OK)
+                     sendVideo();
+
+            }else if(requestCode == AppConstants.REQUEST_CODE_FOR_AUDIO){
+                if(resultCode == RESULT_OK){
+                    mAudioMediaPath = data.getStringExtra(AppConstants.RECORDED_AUDIO_URL);
+                    sendAudio();
+                }
+
+
+            }
+        }
+    }
+
+
+   private String createEncodeImage(String path){
+        BitmapFactory.Options options = null;
+        options = new BitmapFactory.Options();
+        options.inSampleSize = 3;
+        Bitmap bitmap = BitmapFactory.decodeFile(path,options);
+       if(bitmap!=null){
+           ByteArrayOutputStream stream = new ByteArrayOutputStream();
+           // Must compress the Image to reduce image size to make upload easy
+           bitmap.compress(Bitmap.CompressFormat.JPEG, 50, stream);
+           byte[] byte_arr = stream.toByteArray();
+           // Encode Image to String
+           return Base64.encodeToString(byte_arr, 0);
+       }
+       return "";
+
+
+    }
+
+
+
+
+
+    private void decodeMedia(final Chat chat,final int event){
+        new AsyncTask<Void, Void, String>() {
+
+            protected void onPreExecute() {
+
+            };
+
+            @Override
+            protected String doInBackground(Void... params) {
+
+                if(event==1){
+                    mBaseEncodedString = createEncodeImage(chat.getChatMediaUrl());
+                }else if(event==3){
+                    mBaseEncodedString = createEncodeAudioString(chat.getChatMediaUrl());
+                }else if(event==4){
+                    mBaseEncodedString = createEncodeVideoString(chat.getChatMediaUrl());
+                }
+
+                return "";
+            }
+
+            @Override
+            protected void onPostExecute(String msg) {
+
+                postData(DatingUrlConstants.SEND_MSG_URL, ApiEvent.SEND_MSG_EVENT,sendMessageJsonRequest(mBaseEncodedString,event),false);
+
+            }
+        }.execute(null, null, null);
+    }
+
+
+    private String createEncodeVideoString(String url){
+        try{
+
+            FileInputStream fis = new FileInputStream(url);
+            ByteArrayOutputStream objByteArrayOS = new ByteArrayOutputStream();
+            byte[] byteBufferString = new byte[1024];
+
+            for (int readNum; (readNum = fis.read(byteBufferString)) != -1;)
+            {
+                objByteArrayOS.write(byteBufferString, 0, readNum);
+
+            }
+
+            byte[] byteBinaryData = Base64.encode((objByteArrayOS.toByteArray()), Base64.DEFAULT);
+
+            return new String(byteBinaryData);
+
+        }catch(Exception e){
+
+        }
+        return "";
+    }
+
+    private String createEncodeAudioString(String path){
+        try{
+
+            FileInputStream fis = new FileInputStream(path);
+            ByteArrayOutputStream objByteArrayOS = new ByteArrayOutputStream();
+            byte[] byteBufferString = new byte[1024];
+
+            for (int readNum; (readNum = fis.read(byteBufferString)) != -1;)
+            {
+                objByteArrayOS.write(byteBufferString, 0, readNum);
+
+            }
+
+            byte[] byteBinaryData = Base64.encode((objByteArrayOS.toByteArray()), Base64.DEFAULT);
+
+            return  new String(byteBinaryData);
+
+
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+
+        return "";
+    }
 
 }

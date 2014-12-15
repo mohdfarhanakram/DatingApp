@@ -44,6 +44,8 @@ public class ProfileActivity extends BaseActivity implements OnClickListener{
 	private UserInfo mUserInfo;
 	private AboutFragment aboutFragment;
 
+    private boolean isUserOnline;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
@@ -191,6 +193,7 @@ public class ProfileActivity extends BaseActivity implements OnClickListener{
                 Intent intentChat = new Intent(this, RudeChatActivity.class);
                 intentChat.putExtra(AppConstants.CHAT_USER_ID,mUserInfo.getUserId());
                 intentChat.putExtra(AppConstants.CHAT_USER_NAME,mUserInfo.getFirstName()+" "+mUserInfo.getLastName());
+                intentChat.putExtra(AppConstants.IS_USER_ONLINE,isUserOnline);
                 intentChat.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intentChat);
             }
@@ -355,8 +358,10 @@ public class ProfileActivity extends BaseActivity implements OnClickListener{
 				mtxtHivStatus.setText(userInfo.get(i).getHivStatus());
 				if(userInfo.get(i).getStatus().equals("Online"))
 				{
+                    isUserOnline = true;
 					mimgOnlineStatus.setImageResource(R.drawable.online_staus);
 				}else{
+                    isUserOnline = false;
 					mimgOnlineStatus.setImageResource(R.drawable.offline);
 				}
 				

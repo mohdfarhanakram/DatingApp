@@ -46,12 +46,9 @@ public class PlayVideoActivity extends BaseActivity{
                 .LayoutParams.FLAG_FORCE_NOT_FULLSCREEN);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        // Execute StreamVideo AsyncTask
-
-        // Create a progressbar
         pDialog = new ProgressDialog(this);
         // Set progressbar title
-        pDialog.setTitle("Fetching User Video");
+        pDialog.setTitle("Fetching Video");
         // Set progressbar message
         pDialog.setMessage("Buffering...");
         pDialog.setIndeterminate(false);

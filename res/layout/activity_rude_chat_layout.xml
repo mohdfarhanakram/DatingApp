@@ -109,25 +109,74 @@
         </LinearLayout>
 
         <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:background="#69A1De" >
+                android:id="@+id/media_layout"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_horizontal"
+                android:layout_weight="0"
+                android:background="#00BAFF"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content">
 
             <ImageView
-                    android:layout_weight="0"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
                     android:layout_gravity="center_vertical"
-                    android:id="@+id/smiley_btn"
-                    android:src="@drawable/ic_action_important"
+                    android:id="@+id/mic_btn"
+                    android:src="@drawable/chat_mic"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
 
+            <ImageView
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:layout_gravity="center_vertical"
+                    android:id="@+id/camera_btn"
+                    android:src="@drawable/chat_camera"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            <ImageView
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:layout_gravity="center_vertical"
+                    android:id="@+id/video_btn"
+                    android:src="@drawable/chat_video"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+            <ImageView
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:layout_weight="0"
+                    android:layout_gravity="center_vertical"
+                    android:id="@+id/smiley_btn"
+                    android:src="@drawable/chat_emotions"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="#EFEFF4" >
+
             <EditText
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
                     android:layout_weight="1"
                     android:id="@+id/msg_edit"
-                    android:hint="Type your message"
-                    android:textSize="12sp"
+                    android:hint="Type Your Message...."
+                    android:background="@null"
+                    android:textSize="16sp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
@@ -137,53 +186,22 @@
             </EditText>
 
             <ImageView
+                    android:paddingRight="5dp"
                     android:layout_gravity="center_vertical"
-                    android:visibility="gone"
+                    android:visibility="visible"
                     android:layout_weight="0"
                     android:id="@+id/send_btn"
-                    android:src="@drawable/ic_action_send_now"
+                    android:src="@drawable/chat_send"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"/>
 
-            <LinearLayout
-                    android:id="@+id/media_layout"
-                    android:layout_gravity="center_vertical"
-                    android:layout_weight="0"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-                <ImageView
-                        android:layout_gravity="center_vertical"
-                        android:id="@+id/camera_btn"
-                        android:src="@drawable/ic_action_camera"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-                <ImageView
-                        android:layout_marginLeft="2dp"
-                        android:layout_gravity="center_vertical"
-                        android:id="@+id/mic_btn"
-                        android:src="@drawable/ic_action_mic"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
-
-            </LinearLayout>
-
-           <!-- <Button
-                    android:layout_marginLeft="5dp"
-                    android:id="@+id/send_btn"
-                    android:textSize="@dimen/sp_14"
-                    android:layout_width="wrap_content"
-                    android:background="@drawable/round_corner_button"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:textColor="@android:color/white"
-                    android:text="Send"/>-->
         </LinearLayout>
 
         <com.digitalforce.datingapp.widgets.FlowLayout
                 android:visibility="gone"
                 android:layout_gravity="center_horizontal"
                 android:id="@+id/emotion_layout"
-                android:layout_width="fill_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
 
         </com.digitalforce.datingapp.widgets.FlowLayout>

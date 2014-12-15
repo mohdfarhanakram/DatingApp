@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.media.MediaRecorder;
 import android.os.Bundle;
@@ -18,6 +19,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.digitalforce.datingapp.R;
+import com.digitalforce.datingapp.constants.AppConstants;
 
 /**
  * @author FARHAN
@@ -43,6 +45,8 @@ public class AudioRecorderActivity extends BaseActivity
 	private Timer mTimer;
 	
 	private String mEncodeString;
+
+    private String mAudioMediaUrl;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -71,7 +75,9 @@ public class AudioRecorderActivity extends BaseActivity
 			public void onClick(View v) {
 				stopTimer();
 				stop(v);
-				setResult(RESULT_OK);
+                Intent i = new Intent();
+                i.putExtra(AppConstants.RECORDED_AUDIO_URL,mAudioMediaUrl);
+				setResult(RESULT_OK,i);
 				finish();
 			}
 		});
@@ -101,7 +107,8 @@ public class AudioRecorderActivity extends BaseActivity
 	private void prepareMediaPlayer() {
 		time = 0;
 		if(myRecorder==null){
-			File f = new File(android.os.Environment.getExternalStorageDirectory(), "farhantemp.3gpp");
+			File f = createFile(3);
+            mAudioMediaUrl = f.getAbsolutePath();
 			myRecorder = new MediaRecorder();
 			myRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
 			myRecorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
@@ -216,7 +223,10 @@ public class AudioRecorderActivity extends BaseActivity
 						
 					}else{
 						stopTimer();
-						setResult(RESULT_OK);
+                        Intent i = new Intent();
+                        i.putExtra(AppConstants.RECORDED_AUDIO_URL,mAudioMediaUrl);
+						setResult(RESULT_OK,i);
+
 						finish();
 					}
 					

@@ -21,6 +21,7 @@
         <TextView 
             style="@style/txt_base"
             android:textSize="@dimen/sp_10"
+            android:textColor="#a7b4e6"
             android:text="@string/age"/>
     </LinearLayout>
     <View 
@@ -39,6 +40,7 @@
         <TextView 
             style="@style/txt_base"
             android:textSize="@dimen/sp_10"
+            android:textColor="#a7b4e6"
             android:text="@string/weight"/>
     </LinearLayout>
     <View 
@@ -57,6 +59,7 @@
         <TextView 
             style="@style/txt_base"
             android:textSize="@dimen/sp_10"
+            android:textColor="#a7b4e6"
             android:text="@string/height"/>
     </LinearLayout>
     <View 
@@ -75,6 +78,7 @@
         <TextView 
             style="@style/txt_base"
             android:textSize="@dimen/sp_10"
+            android:textColor="#a7b4e6"
             android:text="@string/sex_role"/>
     </LinearLayout>
     <View 
@@ -93,6 +97,7 @@
         <TextView 
             style="@style/txt_base"
             android:textSize="@dimen/sp_10"
+            android:textColor="#a7b4e6"
             android:text="@string/hiv_status"/>
     </LinearLayout>
 

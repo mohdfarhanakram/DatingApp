@@ -40,10 +40,7 @@ import com.farru.android.utill.Utils;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.BitmapDescriptorFactory;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.Marker;
-import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.*;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -57,6 +54,8 @@ public class ExploreFragment extends SupportMapFragment implements UpdateMapAfte
     private ArrayList<UserInfo> mlistNearBy = new ArrayList<UserInfo>();
 
     private WeakHashMap<String, Object> haspMap;
+
+    private String mSearchKey = "";
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
@@ -104,12 +103,12 @@ public class ExploreFragment extends SupportMapFragment implements UpdateMapAfte
 
 	private void setUpMap() {
 		// Hide the zoom controls as the button panel will cover it.
-        googleMap.animateCamera(CameraUpdateFactory.zoomTo(10), 2000, null);
+        //googleMap.animateCamera(CameraUpdateFactory.zoomTo(15), 2000, null);
 		float latitude = Float.parseFloat(DatingAppPreference.getString(DatingAppPreference.USER_DEVICE_LATITUDE, "0.0", getActivity()));
 		float longitude = Float.parseFloat(DatingAppPreference.getString(DatingAppPreference.USER_DEVICE_LONGITUDE, "0.0", getActivity()));
 		final LatLng USER_CURRENT_LOCATION = new LatLng(latitude,longitude);
         googleMap.getUiSettings().setZoomControlsEnabled(false);
-        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(USER_CURRENT_LOCATION, 18));
+        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(USER_CURRENT_LOCATION, 9));
         setCurrentLocation(USER_CURRENT_LOCATION);
 
         setMapListener();
@@ -270,12 +269,14 @@ public class ExploreFragment extends SupportMapFragment implements UpdateMapAfte
 
                     if(mlistNearBy.size()>0){
 
-                       //ToastCustom.makeText(getActivity(),mlistNearBy.size()+"",3000);
+                       //ToastCustom.makeText(getActivity(),"You have found "+mlistNearBy.size()+" user(s)",3000);
 
                         if(googleMap!=null){
                             googleMap.clear();
                             setUpMap();
                             addMarkers();
+                            LatLng pos = new LatLng(Float.parseFloat(mlistNearBy.get(0).getLatitude()), Float.parseFloat(mlistNearBy.get(0).getLongitude()));
+                            googleMap.moveCamera(CameraUpdateFactory.newCameraPosition(new CameraPosition(pos,9,0,0)));
                         }
 
                     }else{

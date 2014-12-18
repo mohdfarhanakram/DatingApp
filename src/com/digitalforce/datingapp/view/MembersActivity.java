@@ -21,6 +21,7 @@ import com.digitalforce.datingapp.constants.DatingUrlConstants;
 import com.digitalforce.datingapp.fragments.BaseFragment;
 import com.digitalforce.datingapp.fragments.ExploreFragment;
 import com.digitalforce.datingapp.fragments.NearByFragment;
+import com.digitalforce.datingapp.model.UserInfo;
 import com.digitalforce.datingapp.persistance.DatingAppPreference;
 import com.digitalforce.datingapp.utils.ToastCustom;
 import com.farru.android.network.ServiceResponse;
@@ -33,6 +34,8 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+
 public class MembersActivity extends BaseActivity implements OnClickListener{
 
 	private ImageView mimgMenuOption;
@@ -43,6 +46,8 @@ public class MembersActivity extends BaseActivity implements OnClickListener{
 	
 	private String EXPLORER_TAG = "explorer";
 	private String NEAR_BY_TAG = "near_by_tag";
+
+    private String mSearchKey = "";
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -129,9 +134,32 @@ public class MembersActivity extends BaseActivity implements OnClickListener{
 		if(serviceResponse!=null){
 			switch (serviceResponse.getErrorCode()) {
 			case ServiceResponse.SUCCESS:
+
+                if(serviceResponse.getEventType()==ApiEvent.SEARCH_EVENT){
+                    ArrayList<UserInfo> list = (ArrayList<UserInfo>)serviceResponse.getResponseObject();
+                    if(list!=null && list.size()>0){
+                        ToastCustom.makeText(this,list.size()+" users found in "+mSearchKey,3000);
+                    }else{
+                        ToastCustom.makeText(this,"No users found in "+mSearchKey,3000);
+                    }
+                }
+
+
 				break;
 			case ServiceResponse.MESSAGE_ERROR:
-				showCommonError(serviceResponse.getErrorMessages());
+                /*if(serviceResponse.getEventType()==ApiEvent.SEARCH_EVENT){
+                    ArrayList<UserInfo> list = (ArrayList<UserInfo>)serviceResponse.getResponseObject();
+                    if(list!=null && list.size()>0){
+                        ToastCustom.makeText(this,list.size()+" users found in "+mSearchKey,3000);
+                    }else{
+                        ToastCustom.makeText(this,"No users found in "+mSearchKey,3000);
+                    }
+                }else{
+                    showCommonError(serviceResponse.getErrorMessages());
+                }*/
+
+                showCommonError(serviceResponse.getErrorMessages());
+
 				break;
 			default:
 				showCommonError(null);
@@ -231,6 +259,7 @@ public class MembersActivity extends BaseActivity implements OnClickListener{
 
     private void performSearch(String searchKey){
         postData(DatingUrlConstants.SEARCH_URL, ApiEvent.SEARCH_EVENT,getSearchRequestJsonString(searchKey));
+        mSearchKey = searchKey;
         medtSearch.setText("");
     }
 

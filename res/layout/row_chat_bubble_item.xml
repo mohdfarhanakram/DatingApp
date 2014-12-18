@@ -69,8 +69,8 @@
                        android:layout_height="@dimen/send_img_height"/>
             <ImageView android:id="@+id/left_emotion_img"
                        android:paddingTop="5dp"
-                       android:layout_width="30dp"
-                       android:layout_height="30dp"/>
+                       android:layout_width="@dimen/emotion_width"
+                       android:layout_height="@dimen/emotion_width"/>
 
             <ImageView android:id="@+id/left_media_img"
                        android:layout_gravity="center_horizontal"
@@ -134,8 +134,8 @@
                        android:layout_height="@dimen/send_img_height"/>
             <ImageView android:id="@+id/right_emotion_img"
                        android:paddingTop="5dp"
-                       android:layout_width="30dp"
-                       android:layout_height="30dp"/>
+                       android:layout_width="@dimen/emotion_width"
+                       android:layout_height="@dimen/emotion_width"/>
             <ImageView android:id="@+id/right_media_img"
                        android:layout_gravity="center_horizontal"
                        android:background="#00BAFF"

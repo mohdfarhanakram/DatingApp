@@ -9,6 +9,7 @@
     <TextView 
         style="@style/txt_base"
         android:text="@string/_looking_for"
+        android:textColor="#a1addf"
         android:textSize="@dimen/sp_14"/>
     <TextView 
         android:id="@+id/txt_fragment_about_looking_for"
@@ -23,6 +24,7 @@
     <TextView 
         style="@style/txt_base"
         android:text="@string/_about_me"
+        android:textColor="#a1addf"
         android:textSize="@dimen/sp_14"/>
     <TextView
         android:id="@+id/txt_fragment_about_about_me" 
@@ -37,6 +39,7 @@
     <TextView 
         style="@style/txt_base"
         android:text="@string/_interest"
+        android:textColor="#a1addf"
         android:textSize="@dimen/sp_14"/>
     <TextView 
         android:id="@+id/txt_fragment_about_interest"

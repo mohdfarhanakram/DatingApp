@@ -81,6 +81,8 @@ public class NearByAdapter extends BaseAdapter{
 			viewHolder = (ViewHolder)convertView.getTag();
 		}
 
+        viewHolder.place.setVisibility(View.GONE);
+
         viewHolder.infoDistance.setTag(nearBy);
         viewHolder.infoDistance.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -101,7 +103,7 @@ public class NearByAdapter extends BaseAdapter{
 		if(!StringUtils.isNullOrEmpty(nearBy.getFirstName())){
 			
 			viewHolder.infoLayout.setVisibility(View.VISIBLE);
-			viewHolder.member.setText(nearBy.getFirstName());
+			viewHolder.member.setText(nearBy.getFirstName()+" "+nearBy.getLastName());
 			
 		}else if(!StringUtils.isNullOrEmpty(nearBy.getLastName())){
 			

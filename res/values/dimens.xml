@@ -660,4 +660,6 @@
     <dimen name="player_img_width">100dp</dimen>
     <dimen name="player_img_height">100dp</dimen>
 
+    <dimen name="emotion_width">40dp</dimen>
+
 </resources>

@@ -9,7 +9,7 @@
             android:layout_gravity="center"
             android:layout_margin="3dp"
             android:id="@+id/img_emotion"
-            android:layout_width="@dimen/emotion_width"
-            android:layout_height="@dimen/emotion_width"/>
+            android:layout_width="@dimen/l_emotion_width"
+            android:layout_height="@dimen/l_emotion_width"/>
 
 </LinearLayout>

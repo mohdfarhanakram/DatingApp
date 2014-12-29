@@ -16,7 +16,7 @@
             android:layout_gravity="center_vertical"
             app:border="true"
             app:border_color="@color/white"
-            app:border_width="1dp"
+            app:border_width="3dp"
             app:shadow="true" />
     <LinearLayout
             android:layout_weight="1"
@@ -68,7 +68,7 @@
             android:id="@+id/txt_last_chat_time"
             style="@style/txt_base"
             android:padding="@dimen/dp_3"
-            android:textColor="#aaaaaa"
+            android:textColor="#00baff"
             android:text="@string/member_nmae"
             android:textSize="@dimen/sp_12" />
 

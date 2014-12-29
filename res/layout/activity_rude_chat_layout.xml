@@ -18,25 +18,25 @@
             android:layout_height="fill_parent">
 
         <LinearLayout
-                android:visibility="gone"
+                android:visibility="visible"
                 android:padding="5dp"
                 android:orientation="horizontal"
                 android:layout_width="fill_parent"
                 android:background="@drawable/insight_header_shape"
-                android:layout_height="70dp">
+                android:layout_height="80dp">
             <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
 
                 <com.digitalforce.datingapp.widgets.RoundedImageView
                         android:id="@+id/img_profile"
-                        android:layout_width="@dimen/dp_60"
-                        android:layout_height="@dimen/dp_60"
+                        android:layout_width="@dimen/dp_70"
+                        android:layout_height="@dimen/dp_70"
                         android:contentDescription="@null"
                         android:src="@drawable/farhan"
                         app:border="true"
                         app:border_color="@color/white"
-                        app:border_width="1dp"
+                        app:border_width="3dp"
                         app:shadow="true" />
 
                 <ImageView

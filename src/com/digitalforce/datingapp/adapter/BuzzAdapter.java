@@ -84,10 +84,10 @@ public class BuzzAdapter extends BaseAdapter {
 
         viewHolder.place.setVisibility(View.GONE);
 
-        if(!StringUtils.isNullOrEmpty(nearBy.getFirstName())){
+        if(!StringUtils.isNullOrEmpty(nearBy.getFirstName()+" "+nearBy.getLastName())){
 
             viewHolder.infoLayout.setVisibility(View.VISIBLE);
-            viewHolder.member.setText(nearBy.getFirstName());
+            viewHolder.member.setText(nearBy.getFirstName()+" "+nearBy.getLastName());
 
         }else if(!StringUtils.isNullOrEmpty(nearBy.getLastName())){
 

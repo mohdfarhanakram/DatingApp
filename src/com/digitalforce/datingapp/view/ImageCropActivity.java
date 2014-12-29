@@ -21,6 +21,7 @@ import com.digitalforce.datingapp.R;
 import com.digitalforce.datingapp.constants.ApiEvent;
 import com.digitalforce.datingapp.constants.AppConstants;
 import com.digitalforce.datingapp.constants.DatingUrlConstants;
+import com.digitalforce.datingapp.utils.AppUtil;
 import com.edmodo.cropper.CropImageView;
 import com.edmodo.cropper.cropwindow.CropOverlayView;
 
@@ -42,7 +43,8 @@ public class ImageCropActivity extends BaseActivity implements OnClickListener{
 		options = new BitmapFactory.Options();
 		options.inSampleSize = 3;
 		Bitmap bitmap = BitmapFactory.decodeFile(path,options);
-		((CropImageView)findViewById(R.id.crop_image_view)).setImageBitmap(bitmap);
+        Bitmap aBitmap = AppUtil.getActualBitmap(path,bitmap);
+        ((CropImageView) findViewById(R.id.crop_image_view)).setImageBitmap(aBitmap);
 
 
 

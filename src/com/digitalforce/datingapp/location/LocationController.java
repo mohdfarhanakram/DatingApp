@@ -25,7 +25,8 @@ public class LocationController /*extends AsyncTask<Void, Void, Void>*/{
 	
 	public void execute(){
 		if(LocationUtils.isLocationEnabled(mContext)){
-			Location location = LocationUtils.getLastKnownLocation(mContext);
+			//Location location = LocationUtils.getLastKnownLocation(mContext);
+            Location location = (new LocationUtils()).getLocation(mContext);
 			if(location!=null){
 				mLocationListener.onLocationFound(LocationListener.LOCATION_FOUND, location);
 			}else{

@@ -4,10 +4,7 @@ import java.util.List;
 
 import android.annotation.TargetApi;
 import android.content.Context;
-import android.location.Address;
-import android.location.Geocoder;
-import android.location.Location;
-import android.location.LocationManager;
+import android.location.*;
 import android.os.Build;
 import android.os.SystemClock;
 import android.text.format.DateUtils;
@@ -114,6 +111,23 @@ public class LocationUtils {
 		}
 		return mostRecentLocation;
 	}
+
+
+    public  Location getLocation(Context context) {
+        Location location = null;
+        try {
+            LocationManager locationManager = (LocationManager) context.getSystemService(context.LOCATION_SERVICE);
+            Criteria criteria = new Criteria();
+            String provider = locationManager.getBestProvider(criteria, false);
+            location = locationManager.getLastKnownLocation(provider);
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+        }
+        return location;
+
+    }
 
 	/**
 	 * @param pContext

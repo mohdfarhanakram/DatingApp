@@ -16,6 +16,7 @@ import com.digitalforce.datingapp.R;
 import com.digitalforce.datingapp.constants.AppConstants;
 import com.digitalforce.datingapp.model.Chat;
 import com.digitalforce.datingapp.persistance.DatingAppPreference;
+import com.digitalforce.datingapp.utils.AppUtil;
 import com.digitalforce.datingapp.utils.PicassoEx;
 import com.digitalforce.datingapp.view.AudioPlayerActivity;
 import com.digitalforce.datingapp.view.PhotoDetailActivity;
@@ -249,10 +250,13 @@ public class RudeChatAdapter extends BaseAdapter{
         options = new BitmapFactory.Options();
         options.inSampleSize = 5;
         Bitmap bitmap = BitmapFactory.decodeFile(path,options);
-        if(bitmap!=null)
-             img.setImageBitmap(bitmap);
+        if(bitmap!=null){
+            Bitmap aBitmap = AppUtil.getActualBitmap(path, bitmap);
+            if(aBitmap!=null){
+                img.setImageBitmap(aBitmap);
+            }
+        }
+
     }
-
-
 
 }

@@ -537,7 +537,6 @@ public class RudeChatActivity extends BaseActivity implements View.OnClickListen
                     sendAudio();
                 }
 
-
             }
         }
     }
@@ -549,20 +548,20 @@ public class RudeChatActivity extends BaseActivity implements View.OnClickListen
         options.inSampleSize = 3;
         Bitmap bitmap = BitmapFactory.decodeFile(path,options);
        if(bitmap!=null){
-           ByteArrayOutputStream stream = new ByteArrayOutputStream();
-           // Must compress the Image to reduce image size to make upload easy
-           bitmap.compress(Bitmap.CompressFormat.JPEG, 50, stream);
-           byte[] byte_arr = stream.toByteArray();
-           // Encode Image to String
-           return Base64.encodeToString(byte_arr, 0);
+           Bitmap aBitmap = AppUtil.getActualBitmap(path,bitmap);
+           if(aBitmap!=null){
+               ByteArrayOutputStream stream = new ByteArrayOutputStream();
+               // Must compress the Image to reduce image size to make upload easy
+               aBitmap.compress(Bitmap.CompressFormat.JPEG, 50, stream);
+               byte[] byte_arr = stream.toByteArray();
+               // Encode Image to String
+               return Base64.encodeToString(byte_arr, 0);
+           }
+
        }
        return "";
 
-
     }
-
-
-
 
 
     private void decodeMedia(final Chat chat,final int event){

@@ -664,4 +664,8 @@
     <dimen name="l_emotion_width">40dp</dimen>
     <dimen name="time_width">10dp</dimen>
 
+    <dimen name="media_comp_padding">20dp</dimen>
+    <dimen name="chat_user_header_size">16sp</dimen>
+    <dimen name="chat_text_size">14sp</dimen>
+
 </resources>

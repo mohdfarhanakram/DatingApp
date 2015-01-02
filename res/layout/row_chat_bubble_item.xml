@@ -29,8 +29,11 @@
                 android:layout_weight="1"
                 android:orientation="vertical"
                 android:layout_margin="5dp"
-                android:padding="8dp"
-                android:background="@color/white"
+                android:paddingLeft="15dp"
+                android:paddingTop="8dp"
+                android:paddingRight="8dp"
+                android:paddingBottom="8dp"
+                android:background="@drawable/left_bub"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content">
 
@@ -42,7 +45,7 @@
                         android:layout_weight="1"
                         android:layout_gravity="center_vertical"
                         android:id="@+id/left_user_name"
-                        android:textSize="14sp"
+                        android:textSize="@dimen/chat_user_header_size"
                         android:textStyle="bold"
                         android:textColor="@color/chat_user_color"
                         android:layout_width="wrap_content"
@@ -68,6 +71,7 @@
                     android:paddingTop="5dp"
                     android:layout_gravity="center_vertical"
                     android:id="@+id/left_txtv_chat_msg"
+                    android:textSize="@dimen/chat_text_size"
                     android:textColor="@color/chat_text_color"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
@@ -103,9 +107,12 @@
         <LinearLayout
                 android:layout_weight="1"
                 android:orientation="vertical"
-                android:padding="8dp"
+                android:paddingLeft="8dp"
+                android:paddingTop="8dp"
+                android:paddingRight="15dp"
+                android:paddingBottom="8dp"
                 android:layout_margin="5dp"
-                android:background="@color/white"
+                android:background="@drawable/right_bub"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content">
 
@@ -117,7 +124,7 @@
                         android:layout_weight="1"
                         android:layout_gravity="center_vertical"
                         android:id="@+id/right_user_name"
-                        android:textSize="14sp"
+                        android:textSize="@dimen/chat_user_header_size"
                         android:textStyle="bold"
                         android:textColor="@color/chat_user_color"
                         android:layout_width="wrap_content"
@@ -143,6 +150,7 @@
                     android:textColor="@color/chat_text_color"
                     android:layout_gravity="center_vertical"
                     android:id="@+id/right_txtv_chat_msg"
+                    android:textSize="@dimen/chat_text_size"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 

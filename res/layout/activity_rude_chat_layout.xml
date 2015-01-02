@@ -120,8 +120,8 @@
             <ImageView
                     android:paddingTop="5dp"
                     android:paddingBottom="5dp"
-                    android:paddingLeft="15dp"
-                    android:paddingRight="15dp"
+                    android:paddingLeft="@dimen/media_comp_padding"
+                    android:paddingRight="@dimen/media_comp_padding"
                     android:layout_gravity="center_vertical"
                     android:id="@+id/mic_btn"
                     android:src="@drawable/chat_mic"
@@ -131,8 +131,8 @@
             <ImageView
                     android:paddingTop="5dp"
                     android:paddingBottom="5dp"
-                    android:paddingLeft="15dp"
-                    android:paddingRight="15dp"
+                    android:paddingLeft="@dimen/media_comp_padding"
+                    android:paddingRight="@dimen/media_comp_padding"
                     android:layout_gravity="center_vertical"
                     android:id="@+id/camera_btn"
                     android:src="@drawable/chat_camera"
@@ -142,8 +142,8 @@
             <ImageView
                     android:paddingTop="5dp"
                     android:paddingBottom="5dp"
-                    android:paddingLeft="15dp"
-                    android:paddingRight="15dp"
+                    android:paddingLeft="@dimen/media_comp_padding"
+                    android:paddingRight="@dimen/media_comp_padding"
                     android:layout_gravity="center_vertical"
                     android:id="@+id/video_btn"
                     android:src="@drawable/chat_video"
@@ -153,8 +153,8 @@
             <ImageView
                     android:paddingTop="5dp"
                     android:paddingBottom="5dp"
-                    android:paddingLeft="15dp"
-                    android:paddingRight="15dp"
+                    android:paddingLeft="@dimen/media_comp_padding"
+                    android:paddingRight="@dimen/media_comp_padding"
                     android:layout_weight="0"
                     android:layout_gravity="center_vertical"
                     android:id="@+id/smiley_btn"

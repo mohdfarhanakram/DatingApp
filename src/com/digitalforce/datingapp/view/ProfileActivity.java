@@ -194,6 +194,9 @@ public class ProfileActivity extends BaseActivity implements OnClickListener{
                 intentChat.putExtra(AppConstants.CHAT_USER_ID,mUserInfo.getUserId());
                 intentChat.putExtra(AppConstants.CHAT_USER_NAME,mUserInfo.getFirstName()+" "+mUserInfo.getLastName());
                 intentChat.putExtra(AppConstants.IS_USER_ONLINE,isUserOnline);
+				intentChat.putExtra(AppConstants.CHAT_USER_LOCATION, mUserInfo.getCountry());
+				intentChat.putExtra(AppConstants.CHAT_USER_AWAY,mUserInfo.getDistance());
+				intentChat.putExtra(AppConstants.CHAT_USER_IMAGE,mUserInfo.getImage());
                 intentChat.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intentChat);
             }

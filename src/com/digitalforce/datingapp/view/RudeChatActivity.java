@@ -87,6 +87,21 @@ public class RudeChatActivity extends BaseActivity implements View.OnClickListen
 
         ((TextView) findViewById(R.id.txt_screen_title)).setText("Chat");
         ((TextView) findViewById(R.id.txt_profile_name)).setText(getIntent().getStringExtra(AppConstants.CHAT_USER_NAME));
+
+        if(!StringUtils.isNullOrEmpty(getIntent().getStringExtra(AppConstants.CHAT_USER_LOCATION)))
+           ((TextView) findViewById(R.id.txt_profile_location)).setText(getIntent().getStringExtra(AppConstants.CHAT_USER_LOCATION));
+        else
+            ((TextView) findViewById(R.id.txt_profile_location)).setText("N/A");
+
+        if(!StringUtils.isNullOrEmpty(getIntent().getStringExtra(AppConstants.CHAT_USER_AWAY)))
+           ((TextView) findViewById(R.id.txt_profile_distance)).setText("Approx. "+getIntent().getStringExtra(AppConstants.CHAT_USER_AWAY)+" Away");
+        else
+            ((TextView) findViewById(R.id.txt_profile_distance)).setText("N/A");
+
+        if(!StringUtils.isNullOrEmpty(getIntent().getStringExtra(AppConstants.CHAT_USER_IMAGE))){
+            picassoLoad(getIntent().getStringExtra(AppConstants.CHAT_USER_IMAGE),(ImageView)findViewById(R.id.img_profile));
+        }
+
         findViewById(R.id.img_action_menu).setVisibility(View.VISIBLE);
 
         mChatListView = (ListView)findViewById(R.id.chat_list_view);

@@ -75,4 +75,8 @@ public class AppConstants {
     public final static String IS_COMING_FROM_NOTIFICATION = "is_coming_from_notification";
     public final static String IS_USER_ONLINE = "is_user_online";
 
+    public final static String CHAT_USER_LOCATION = "chat_user_location";
+    public final static String CHAT_USER_AWAY = "chat_user_away";
+    public final static String CHAT_USER_IMAGE = "chat_user_image";
+
 }

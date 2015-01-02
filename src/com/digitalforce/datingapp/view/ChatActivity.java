@@ -46,6 +46,9 @@ public class ChatActivity extends BaseActivity{
                 intentChat.putExtra(AppConstants.CHAT_USER_ID,userList.get(position).getUserId());
                 intentChat.putExtra(AppConstants.CHAT_USER_NAME,userList.get(position).getFirstName()+" "+userList.get(position).getLastName());
                 intentChat.putExtra(AppConstants.IS_USER_ONLINE,userList.get(position).getStatus().equals("Online"));
+                intentChat.putExtra(AppConstants.CHAT_USER_LOCATION, userList.get(position).getCountry());
+                intentChat.putExtra(AppConstants.CHAT_USER_AWAY,userList.get(position).getDistance());
+                intentChat.putExtra(AppConstants.CHAT_USER_IMAGE,userList.get(position).getImage());
                 intentChat.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intentChat);
             }

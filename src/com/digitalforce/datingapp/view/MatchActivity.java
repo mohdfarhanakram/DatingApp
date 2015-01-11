@@ -107,10 +107,10 @@ public class MatchActivity extends BaseActivity{
                 jsonObject.putOpt("max_age", DatingAppPreference.getString(DatingAppPreference.MAX_AGE, "60", this));
                 jsonObject.putOpt("sex_role", DatingAppPreference.getString(DatingAppPreference.SEX_ROLE, "", this));
 
-                jsonObject.putOpt("height_start", DatingAppPreference.getString(DatingAppPreference.MIN_HEIGHT, "3 ft 0 in", this));
-                jsonObject.putOpt("height_end", DatingAppPreference.getString(DatingAppPreference.MAX_HEIGHT, "9 ft 11 in", this));
-                jsonObject.putOpt("weight_start", DatingAppPreference.getString(DatingAppPreference.MIN_WEIGHT, "99 lbs", this));
-                jsonObject.putOpt("weight_end", DatingAppPreference.getString(DatingAppPreference.MAX_WEIGHT, "2300 lbs", this));
+                jsonObject.putOpt("height_start", getUpdatedHeight(DatingAppPreference.getString(DatingAppPreference.MIN_HEIGHT, "4'0\""+"(121 cm)", this)));
+                jsonObject.putOpt("height_end", getUpdatedHeight(DatingAppPreference.getString(DatingAppPreference.MAX_HEIGHT, "7'11\""+"(241 cm)", this)));
+                jsonObject.putOpt("weight_start", getUpdatedWeight(DatingAppPreference.getString(DatingAppPreference.MIN_WEIGHT, "99 lbs (44 kg)", this)));
+                jsonObject.putOpt("weight_end", getUpdatedWeight(DatingAppPreference.getString(DatingAppPreference.MAX_WEIGHT, "264 lbs (119 kg)", this)));
                 jsonObject.putOpt("body_type", DatingAppPreference.getString(DatingAppPreference.BODY_TYPE, "", this));
                 jsonObject.putOpt("looking_for", DatingAppPreference.getString(DatingAppPreference.LOOKING_FOR, "", this));
                 jsonObject.putOpt("relationship_status", DatingAppPreference.getString(DatingAppPreference.RELATION_SHIP, "", this));
@@ -168,6 +168,40 @@ public class MatchActivity extends BaseActivity{
 			break;
 		}
 		
+	}
+
+
+	private String getUpdatedHeight(String height){
+		String h = height;
+		try{
+			int ft = Integer.parseInt(height.substring(0,1));
+			int cm = Integer.parseInt(height.substring(2,3));
+			h = convertInCM(ft,cm)+"";
+		}catch(Exception e){
+			e.printStackTrace();;
+		}
+
+		return h;
+	}
+
+
+
+
+	private String getUpdatedWeight(String weight){
+		String w = weight;
+		try{
+			int index = weight.indexOf("lbs");
+			w = weight.substring(0,index-1);
+		}catch(Exception e){
+			e.printStackTrace();;
+		}
+
+		return w;
+	}
+
+	private int convertInCM(int ft,int cm){
+		int a = (12*ft)+ cm;
+		return (int)(a * 2.54);
 	}
 
 }

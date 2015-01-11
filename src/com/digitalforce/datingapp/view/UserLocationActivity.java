@@ -5,6 +5,7 @@ import android.os.Bundle;
 import com.digitalforce.datingapp.R;
 import com.digitalforce.datingapp.constants.AppConstants;
 import com.digitalforce.datingapp.model.UserInfo;
+import com.farru.android.utill.StringUtils;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
@@ -23,7 +24,7 @@ public class UserLocationActivity extends BaseActivity{
     private String mLatitude="0";
     private String mLongitude="0";
     private String userName;
-    private String userId;
+    private String userId="";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,6 +70,9 @@ public class UserLocationActivity extends BaseActivity{
 
                   public void onInfoWindowClick(Marker marker) {
 
+                          if(StringUtils.isNullOrEmpty(userId)){
+                              return;
+                          }
                           Intent i = new Intent(UserLocationActivity.this, ProfileActivity.class);
                           i.putExtra(AppConstants.SHOW_PROFILE_USER_ID, userId);
                           startActivity(i);

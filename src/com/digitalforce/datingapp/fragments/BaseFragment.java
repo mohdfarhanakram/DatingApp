@@ -31,9 +31,18 @@ public abstract class BaseFragment extends Fragment {
 		((BaseActivity)getActivity()).postData(url, eventType, postData,false);
 
 	}
+
+	public void postData(String url, int eventType, String postData,Object requestObj) {
+		((BaseActivity)getActivity()).postData(url, eventType, postData,true,requestObj);
+
+	}
 	
 	
 	public void updateUi(ServiceResponse serviceResponse){
 		
+	}
+
+	public void removePhoto(boolean isRemove, boolean isPublic){
+
 	}
 }

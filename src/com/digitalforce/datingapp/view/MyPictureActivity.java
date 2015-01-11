@@ -51,6 +51,7 @@ public class MyPictureActivity extends BaseActivity implements OnClickListener{
 
 	private String mImagePath;
 	private String mBaseEncodedString;
+	private boolean mIsRemoveClicked = false;
 
 	private boolean isPublicSelected = true;
 
@@ -65,6 +66,7 @@ public class MyPictureActivity extends BaseActivity implements OnClickListener{
 
 		mtxtPublicPic.setOnClickListener(this);
 		mtxtPrivatePic.setOnClickListener(this);
+		findViewById(R.id.remove_image).setOnClickListener(this);
 
         drawFragment(isPublicSelected);
 
@@ -76,12 +78,15 @@ public class MyPictureActivity extends BaseActivity implements OnClickListener{
     protected void saveInstanceState(Bundle outState) {
 
         outState.putBoolean("isPublicSelected",isPublicSelected);
+		outState.putBoolean("isRemoveClicked",mIsRemoveClicked);
+
     }
 
     @Override
     protected void restoreInstanceState(Bundle savedInstanceState) {
 
         isPublicSelected = savedInstanceState.getBoolean("isPublicSelected", true);
+		mIsRemoveClicked = savedInstanceState.getBoolean("isRemoveClicked", false);
 
     }
 
@@ -146,8 +151,25 @@ public class MyPictureActivity extends BaseActivity implements OnClickListener{
 		case R.id.img_action_add:
 			selectImage();
 			break;
+		case R.id.remove_image:
+			removeImage(!mIsRemoveClicked,isPublicSelected);
+			break;
 		default:
 			break;
+		}
+
+	}
+
+	private void removeImage(boolean isRemove,boolean isPublic){
+
+		FragmentManager fragmentmaneger = getSupportFragmentManager();
+		for(int i=0; i<fragmentmaneger.getFragments().size(); i++){
+			if(fragmentmaneger.getFragments().get(i) instanceof BaseFragment){
+				BaseFragment fragment = (BaseFragment)fragmentmaneger.getFragments().get(i);
+				mIsRemoveClicked = isRemove;
+				fragment.removePhoto(isRemove,isPublic);
+			}
+
 		}
 
 	}

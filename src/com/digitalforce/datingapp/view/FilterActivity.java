@@ -278,7 +278,7 @@ public class FilterActivity extends BaseActivity implements OnClickListener{
 		String ethinicity = DatingAppPreference.getString(DatingAppPreference.ETHNICITY, "All", this);
 
         String minHeight = DatingAppPreference.getString(DatingAppPreference.MIN_HEIGHT, "4'0\""+"(121 cm)", this);
-        String maxHeight = DatingAppPreference.getString(DatingAppPreference.MAX_HEIGHT, "7 ft 11 in", this);
+        String maxHeight = DatingAppPreference.getString(DatingAppPreference.MAX_HEIGHT, "7'11\""+"(241 cm)", this);
         String minWeight = DatingAppPreference.getString(DatingAppPreference.MIN_WEIGHT, "99 lbs (44 kg)", this);
         String maxWeight = DatingAppPreference.getString(DatingAppPreference.MAX_WEIGHT, "264 lbs (119 kg)", this);
         String sexRole = DatingAppPreference.getString(DatingAppPreference.SEX_ROLE, "All", this);
@@ -302,5 +302,7 @@ public class FilterActivity extends BaseActivity implements OnClickListener{
         mSwitch.setChecked(isEnable);
 
 	}
+
+
 
 }

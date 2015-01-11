@@ -16,6 +16,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 
 import com.digitalforce.datingapp.R;
+import com.digitalforce.datingapp.listener.RemovePhotoListener;
 import com.digitalforce.datingapp.utils.PicassoEx;
 import com.farru.android.utill.StringUtils;
 
@@ -29,11 +30,15 @@ public class MyPictureAdapter extends BaseAdapter{
 	private ArrayList<String> mPictureList;
 	private LayoutInflater mInflater;
 	private String mEncodedImage;
+	private boolean mIsRemove;
+	private RemovePhotoListener mListener;
 
-	public MyPictureAdapter(Context context,ArrayList<String> pictureList,String encodedImage){
+
+	public MyPictureAdapter(Context context,ArrayList<String> pictureList,String encodedImage,RemovePhotoListener listener){
 		mContext = context;
 		mPictureList = pictureList;
 		mEncodedImage = encodedImage;
+		mListener = listener;
 		mInflater = LayoutInflater.from(context);
 	}
 
@@ -63,6 +68,7 @@ public class MyPictureAdapter extends BaseAdapter{
 			viewHolder = new ViewHolder();
 			convertView =  mInflater.inflate(R.layout.row_my_picture_layout, parent, false);
 			viewHolder.myPicImageView = (ImageView)convertView.findViewById(R.id.my_picture_img_view);
+			viewHolder.crossImageView = (ImageView)convertView.findViewById(R.id.cross_img);
 			convertView.setTag(viewHolder);
 		}else{
 			viewHolder = (ViewHolder)convertView.getTag();
@@ -87,6 +93,19 @@ public class MyPictureAdapter extends BaseAdapter{
 		}else{
 			if(!StringUtils.isNullOrEmpty(url)) picassoLoad(url, viewHolder.myPicImageView);
 		}
+
+		if(mIsRemove)
+			viewHolder.crossImageView.setVisibility(View.VISIBLE);
+		else
+			viewHolder.crossImageView.setVisibility(View.GONE);
+
+		viewHolder.crossImageView.setTag(position);
+		viewHolder.crossImageView.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+                mListener.onRemovePhoto((Integer)view.getTag());
+			}
+		});
 		
 		
 		return convertView;
@@ -94,10 +113,22 @@ public class MyPictureAdapter extends BaseAdapter{
 
 	public class ViewHolder{
 		public ImageView myPicImageView;
+		public ImageView crossImageView;
 	}
 
 	public void picassoLoad(String url, ImageView imageView) {
 		PicassoEx.getPicasso(mContext).load(url).error(R.drawable.farhan).placeholder(R.drawable.farhan).fit().into(imageView);
+	}
+
+	public void setRemovePhoto(boolean isRemove){
+		mIsRemove = isRemove;
+		notifyDataSetChanged();
+	}
+
+	public void setPhotoList(ArrayList<String> photoList){
+		mPictureList = photoList;
+		mIsRemove = false;
+		notifyDataSetChanged();
 	}
 
 }

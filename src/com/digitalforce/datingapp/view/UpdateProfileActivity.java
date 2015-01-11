@@ -375,8 +375,8 @@ public class UpdateProfileActivity extends BaseActivity implements OnClickListen
 			jsonObject.putOpt("about_me", medtAboutMe.getText().toString());
 			jsonObject.putOpt("age", medtAge.getText().toString());
             jsonObject.putOpt("dob", "");
-			jsonObject.putOpt("height", medtHeight.getText().toString());
-			jsonObject.putOpt("weight", medtWeight.getText().toString());
+			jsonObject.putOpt("height",getUpdatedHeight(medtHeight.getText().toString()));
+			jsonObject.putOpt("weight", getUpdatedWeight(medtWeight.getText().toString()));
 			jsonObject.putOpt("hiv_status", medtHivStatus.getText().toString());
 			jsonObject.putOpt("looking_for", medtLokingFor.getText().toString());
 			jsonObject.putOpt("interest", medtInterest.getText().toString());
@@ -574,8 +574,8 @@ public class UpdateProfileActivity extends BaseActivity implements OnClickListen
 		if(!StringUtils.isNullOrEmpty(userInfo.getMobile())) medtMobile.setText(userInfo.getMobile());
 		if(!StringUtils.isNullOrEmpty(userInfo.getAboutMe())) medtAboutMe.setText(userInfo.getAboutMe());
 		if(!StringUtils.isNullOrEmpty(userInfo.getAge())) medtAge.setText(userInfo.getAge());
-		if(!StringUtils.isNullOrEmpty(userInfo.getHeight())) medtHeight.setText(userInfo.getHeight());
-		if(!StringUtils.isNullOrEmpty(userInfo.getWeight())) medtWeight.setText(userInfo.getWeight());
+		if(!StringUtils.isNullOrEmpty(userInfo.getHeight())) medtHeight.setText(formattedHeight(userInfo.getHeight()));
+		if(!StringUtils.isNullOrEmpty(userInfo.getWeight())) medtWeight.setText(formattedWeight(userInfo.getWeight()));
 		if(!StringUtils.isNullOrEmpty(userInfo.getLookingFor())) medtLokingFor.setText(userInfo.getLookingFor());
 		if(!StringUtils.isNullOrEmpty(userInfo.getHivStatus())) medtHivStatus.setText(userInfo.getHivStatus());
 		if(!StringUtils.isNullOrEmpty(userInfo.getInterest())) medtInterest.setText(userInfo.getInterest());
@@ -845,7 +845,63 @@ public class UpdateProfileActivity extends BaseActivity implements OnClickListen
 		return selectedIndex;
 		
 	}
-	
-		
+
+
+	private String getUpdatedHeight(String height){
+		String h = height;
+		try{
+			int ft = Integer.parseInt(height.substring(0,1));
+			int cm = Integer.parseInt(height.substring(2,3));
+			h = convertInCM(ft,cm)+"";
+		}catch(Exception e){
+			e.printStackTrace();;
+		}
+
+		return h;
+	}
+
+	private String formattedHeight(String cm){
+		String cmm = cm;
+		try{
+			int inch = (int)(Float.parseFloat(cm)/2.54);
+			int ft = inch/12;
+			int in = inch%12;
+
+			cmm = ((int)ft)+"'"+in+"\"" +" ("+cm+" cm)";
+
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return cmm;
+	}
+
+
+	private String getUpdatedWeight(String weight){
+		String w = weight;
+		try{
+			int index = weight.indexOf("lbs");
+			w = weight.substring(0,index-1);
+		}catch(Exception e){
+			e.printStackTrace();;
+		}
+
+		return w;
+	}
+
+	private String formattedWeight(String w){
+		String weight = w;
+		try{
+			weight = w+" "+"lbs " + "("+getConvertKg((Integer.parseInt(w)))+" kg)";
+
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return weight;
+	}
+
+
+
+
+
 
 }

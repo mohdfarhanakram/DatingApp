@@ -43,6 +43,8 @@ public interface DatingUrlConstants {
 
     public static final String LIKE_URL = BASE_URL+"like.php";
 
+	public static final String DELETE_USER_PHOTO = BASE_URL + "delete_public_images.php";
+
 
 
 }

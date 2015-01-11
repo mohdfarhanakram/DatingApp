@@ -113,6 +113,7 @@ public class RudeChatActivity extends BaseActivity implements View.OnClickListen
         findViewById(R.id.camera_btn).setOnClickListener(this);
         findViewById(R.id.mic_btn).setOnClickListener(this);
         findViewById(R.id.video_btn).setOnClickListener(this);
+        findViewById(R.id.img_profile).setOnClickListener(this);
 
         setEmotionView();
     }
@@ -311,6 +312,11 @@ public class RudeChatActivity extends BaseActivity implements View.OnClickListen
                 break;
             case R.id.video_btn:
                 recordVideo();
+                break;
+            case R.id.img_profile:
+                Intent i = new Intent(this, ProfileActivity.class);
+                i.putExtra(AppConstants.SHOW_PROFILE_USER_ID, mUserId);
+                startActivity(i);
                 break;
             default:
         }

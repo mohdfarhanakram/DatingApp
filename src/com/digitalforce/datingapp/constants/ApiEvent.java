@@ -38,5 +38,7 @@ public interface ApiEvent {
     public static final int MARK_INTERESTED_EVENT   	    = 27;
     public static final int MARK_NOT_INTERESTED_EVENT   	= 28;
     public static final int LIKE_EVENT   	                = 29;
+	public static final int DELETE_PUBLIC_PHOTO_EVENT   	= 30;
+	public static final int DELETE_PRIVATE_PHOTO_EVENT   	= 31;
 
 }

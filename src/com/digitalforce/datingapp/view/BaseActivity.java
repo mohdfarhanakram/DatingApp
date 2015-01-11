@@ -526,7 +526,7 @@ public abstract class BaseActivity extends FragmentActivity implements IScreen,R
 	 * @param contentType content type for distinguishing json/plain text request
 	 * @param parser      parser object tobe used for response parsing
 	 */
-	private void postData(String url, int eventType, HashMap<String, String> map, String postData, int contentType, IParser parser) {
+	private void postData(String url, int eventType, HashMap<String, String> map, String postData, int contentType, IParser parser,Object requestObject) {
 
 		if(Config.DEBUG)
 			Log.d("request",url+"");
@@ -537,6 +537,8 @@ public abstract class BaseActivity extends FragmentActivity implements IScreen,R
 			} else
 				req = new VolleyGenericRequest(contentType, url, postData, this, this, this);
 			req.setEventType(eventType);
+
+			req.setRequestData(requestObject);
 
 			req.setParser(parser == null ? new BaseParser() : parser);
 
@@ -557,7 +559,7 @@ public abstract class BaseActivity extends FragmentActivity implements IScreen,R
 	 * @param parser      parser object tobe used for response parsing
 	 */
 	public void postData(String url, int eventType, String postData, int contentType, IParser parser) {
-		postData(url, eventType, null, postData, contentType, parser);
+		postData(url, eventType, null, postData, contentType, parser,null);
 
 	}
 
@@ -570,7 +572,7 @@ public abstract class BaseActivity extends FragmentActivity implements IScreen,R
 	 * @param parser    parser object to be used for response parsing
 	 */
 	public void postData(String url, int eventType, HashMap<String, String> map, IParser parser) {
-		postData(url, eventType, map, null, VolleyGenericRequest.ContentType.FORM_ENCODED_DATA, parser);
+		postData(url, eventType, map, null, VolleyGenericRequest.ContentType.FORM_ENCODED_DATA, parser,null);
 
 	}
 
@@ -582,12 +584,20 @@ public abstract class BaseActivity extends FragmentActivity implements IScreen,R
 	public void postData(String url, int eventType, String postData,boolean isLoaderRequired) {
 		if(isLoaderRequired)
 			showProgressDialog();
-		postData(url, eventType, null, postData, VolleyGenericRequest.ContentType.JSON, null);
+		postData(url, eventType, null, postData, VolleyGenericRequest.ContentType.JSON, null,null);
 
 	}
 	
 	public void postData(String url, int eventType,String data, IParser parser) {
-		postData(url, eventType, null, data, VolleyGenericRequest.ContentType.JSON, parser);
+		postData(url, eventType, null, data, VolleyGenericRequest.ContentType.JSON, parser,null);
+
+	}
+
+
+	public void postData(String url, int eventType, String postData,boolean isLoaderRequired,Object requestObj) {
+		if(isLoaderRequired)
+			showProgressDialog();
+		postData(url, eventType, null, postData, VolleyGenericRequest.ContentType.JSON, null,requestObj);
 
 	}
 

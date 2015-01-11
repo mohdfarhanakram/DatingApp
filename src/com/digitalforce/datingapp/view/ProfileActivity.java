@@ -355,8 +355,8 @@ public class ProfileActivity extends BaseActivity implements OnClickListener{
 				    mtxtlocation.setText(userInfo.get(i).getCountry());
                 mDistance.setText("Approx. "+userInfo.get(i).getDistance()+" Away");
 				mtxtage.setText(userInfo.get(i).getAge());
-				mtxtWeight.setText(userInfo.get(i).getWeight());
-				mtxtheight.setText(userInfo.get(i).getHeight());
+				mtxtWeight.setText(userInfo.get(i).getWeight().contains("lbs")?userInfo.get(i).getWeight():userInfo.get(i).getWeight()+" lbs");
+				mtxtheight.setText(formattedHeight(userInfo.get(i).getHeight()));
 				mtxtSexRole.setText(userInfo.get(i).getSexRole());
 				mtxtHivStatus.setText(userInfo.get(i).getHivStatus());
 				if(userInfo.get(i).getStatus().equals("Online"))
@@ -482,8 +482,28 @@ public class ProfileActivity extends BaseActivity implements OnClickListener{
       i.putExtra(AppConstants.MAP_LATITUDE,mUserInfo.getLatitude());
       i.putExtra(AppConstants.MAP_LONGITUDE,mUserInfo.getLongitude());
       i.putExtra(AppConstants.MAP_USER_NAME,mUserInfo.getFirstName());
+	  i.putExtra(AppConstants.MAP_USER_ID,mUserInfo.getUserId());
       startActivity(i);
 
   }
+
+	private int getConvertKg(int lbs){
+		return (int)(lbs / 2.20462262185);
+	}
+
+	private String formattedHeight(String cm){
+		String cmm = cm;
+		try{
+			int inch = (int)(Float.parseFloat(cm)/2.54);
+			int ft = inch/12;
+			int in = inch%12;
+
+			cmm = ((int)ft)+"'"+in+"\"";
+
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return cmm;
+	}
 
 }

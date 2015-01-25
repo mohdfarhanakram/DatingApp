@@ -484,8 +484,7 @@ public class ProfileActivity extends BaseActivity implements OnClickListener{
       i.putExtra(AppConstants.MAP_USER_NAME,mUserInfo.getFirstName());
 	  i.putExtra(AppConstants.MAP_USER_ID,mUserInfo.getUserId());
       startActivity(i);
-
-  }
+}
 
 	private int getConvertKg(int lbs){
 		return (int)(lbs / 2.20462262185);

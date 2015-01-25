@@ -11,7 +11,9 @@ import java.util.TimerTask;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.media.MediaRecorder;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -48,6 +50,7 @@ public class AudioRecorderActivity extends BaseActivity
 
     private String mAudioMediaUrl;
 
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -55,6 +58,9 @@ public class AudioRecorderActivity extends BaseActivity
 
 		mTimeTv = (TextView)findViewById(R.id.timer_txtv);
 
+		File f = new File(android.os.Environment.getExternalStorageDirectory(), "farhantemp.3gpp");
+
+		mAudioMediaUrl = f.getAbsolutePath();
 
 		prepareMediaPlayer();
 
@@ -108,12 +114,12 @@ public class AudioRecorderActivity extends BaseActivity
 		time = 0;
 		if(myRecorder==null){
 			File f = createFile(3);
-            mAudioMediaUrl = f.getAbsolutePath();
+            //mAudioMediaUrl = f.getAbsolutePath();
 			myRecorder = new MediaRecorder();
 			myRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
 			myRecorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
 			myRecorder.setAudioEncoder(MediaRecorder.OutputFormat.AMR_NB);
-			myRecorder.setOutputFile(f.getAbsolutePath());
+			myRecorder.setOutputFile(mAudioMediaUrl);
 		}
 
 	}

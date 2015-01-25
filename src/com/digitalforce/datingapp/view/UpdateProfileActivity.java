@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.util.ArrayList;
 
+import android.provider.SyncStateContract;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -494,15 +495,8 @@ public class UpdateProfileActivity extends BaseActivity implements OnClickListen
 				Toast.makeText(this, f.getAbsolutePath() , Toast.LENGTH_LONG).show();
 				saveAndEncodeVideo();
 			}else if(requestCode == AppConstants.REQUEST_CODE_FOR_AUDIO){
-				File f = new File(Environment.getExternalStorageDirectory().toString());
-				for (File temp : f.listFiles()) {
-					if (temp.getName().equals("farhantemp.3gpp")) {
-						f = temp;
-						break;
-					}
-				}
 
-				mAudioFilePath = f.getAbsolutePath();
+				mAudioFilePath = data.getStringExtra(AppConstants.RECORDED_AUDIO_URL);
 
 				saveAndEncodeAudio();
 

@@ -14,5 +14,14 @@
       </configuration>
     </facet>
   </component>
+  <component name="NewModuleRootManager" inherit-compiler-output="false">
+    <output url="file://$MODULE_DIR$/other/google-play-services_lib/bin/classes" />
+    <exclude-output />
+    <content url="file://$MODULE_DIR$/other/google-play-services_lib">
+      <sourceFolder url="file://$MODULE_DIR$/other/google-play-services_lib/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/other/google-play-services_lib/gen" isTestSource="false" generated="true" />
+    </content>
+    <orderEntry type="jdk" jdkName="Android API 20 Platform" jdkType="Android SDK" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
 </module>
-

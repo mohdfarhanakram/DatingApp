@@ -162,11 +162,12 @@ public class RudeChatAdapter extends BaseAdapter{
                 }
                 break;
             case 3:
-                msgTv.setVisibility(View.VISIBLE);
                 msgTv.setText("Audio");
+                msgTv.setVisibility(View.GONE);
                 imageView.setVisibility(View.GONE);
                 emotionView.setVisibility(View.GONE);
                 playerView.setVisibility(View.VISIBLE);
+                playerView.setImageResource(R.drawable.play_audio_msg);
                 playerView.setTag(chat.getChatMediaUrl());
                 playerView.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -179,10 +180,11 @@ public class RudeChatAdapter extends BaseAdapter{
                 break;
             case 4:
                 msgTv.setText("Video");
-                msgTv.setVisibility(View.VISIBLE);
+                msgTv.setVisibility(View.GONE);
                 imageView.setVisibility(View.GONE);
                 emotionView.setVisibility(View.GONE);
                 playerView.setVisibility(View.VISIBLE);
+                playerView.setImageResource(R.drawable.play_video_msg);
                 playerView.setTag(chat.getChatMediaUrl());
                 playerView.setOnClickListener(new View.OnClickListener() {
                     @Override

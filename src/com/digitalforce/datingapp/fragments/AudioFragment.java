@@ -6,6 +6,7 @@ import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.util.Log;
 import android.widget.Button;
+import android.widget.ImageView;
 import com.digitalforce.datingapp.R;
 
 import android.os.Bundle;
@@ -17,6 +18,7 @@ import com.digitalforce.datingapp.constants.AppConstants;
 import com.digitalforce.datingapp.model.UserInfo;
 import com.digitalforce.datingapp.view.BaseActivity;
 import com.digitalforce.datingapp.view.PlayVideoActivity;
+import com.farru.android.ui.widget.CustomAlert;
 import com.farru.android.utill.StringUtils;
 
 public class AudioFragment extends Fragment{
@@ -36,8 +38,10 @@ public class AudioFragment extends Fragment{
         mView.findViewById(R.id.btn_play_audio).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                playAudio(mUserInfo.getAudio());
+                if(!StringUtils.isNullOrEmpty(mUserInfo.getAudio()))
+                   playAudio(mUserInfo.getAudio());
+                else
+                    ((BaseActivity)(getActivity())).showCommonError("No profile audio.");
 
             }
         });
@@ -55,7 +59,7 @@ public class AudioFragment extends Fragment{
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        if(mUserInfo!=null && !StringUtils.isNullOrEmpty(mUserInfo.getAudio())){
+        /*if(mUserInfo!=null && !StringUtils.isNullOrEmpty(mUserInfo.getAudio())){
             mView.findViewById(R.id.btn_play_audio).setVisibility(View.VISIBLE);
             mView.findViewById(R.id.audio_txt_view).setVisibility(View.GONE);
 
@@ -63,14 +67,14 @@ public class AudioFragment extends Fragment{
             mView.findViewById(R.id.btn_play_audio).setVisibility(View.GONE);
             mView.findViewById(R.id.audio_txt_view).setVisibility(View.VISIBLE);
 
-        }
+        }*/
     }
 
     private void playAudio(String url){
 
         try{
             ((BaseActivity)getActivity()).showProgressDialog();
-            ((Button)mView.findViewById(R.id.btn_play_audio)).setEnabled(false);
+            ((ImageView)mView.findViewById(R.id.btn_play_audio)).setEnabled(false);
 
             mediaPlayer = new MediaPlayer();
             mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
@@ -80,7 +84,7 @@ public class AudioFragment extends Fragment{
                 @Override
                 public boolean onError(MediaPlayer mp, int what, int extra) {
                     ((BaseActivity)getActivity()).removeProgressDialog();
-                    ((Button)mView.findViewById(R.id.btn_play_audio)).setEnabled(true);
+                    ((ImageView)mView.findViewById(R.id.btn_play_audio)).setEnabled(true);
                     // ... react appropriately ...
                     // The MediaPlayer has moved to the Error state, must be reset!
                     return false;
@@ -91,7 +95,7 @@ public class AudioFragment extends Fragment{
                 @Override
                 public void onPrepared(MediaPlayer mp) {
                     ((BaseActivity)getActivity()).removeProgressDialog();
-                    ((Button)mView.findViewById(R.id.btn_play_audio)).setEnabled(false);
+                    ((ImageView)mView.findViewById(R.id.btn_play_audio)).setEnabled(false);
                     mediaPlayer.start();
                 }
 
@@ -100,7 +104,7 @@ public class AudioFragment extends Fragment{
             mediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
                 @Override
                 public void onCompletion(MediaPlayer mp) {
-                    ((Button)mView.findViewById(R.id.btn_play_audio)).setEnabled(true);
+                    ((ImageView)mView.findViewById(R.id.btn_play_audio)).setEnabled(true);
                 }
             });
 

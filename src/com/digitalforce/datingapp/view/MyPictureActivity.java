@@ -95,7 +95,7 @@ public class MyPictureActivity extends BaseActivity implements OnClickListener{
 		super.onPostCreate(savedInstanceState);
 
 		(findViewById(R.id.img_action_add)).setVisibility(View.VISIBLE);
-		((ImageView)findViewById(R.id.img_action_add)).setImageResource(R.drawable.add_photo);
+		((ImageView)findViewById(R.id.img_action_add)).setImageResource(R.drawable.add_picture_icon);
 		((ImageView)findViewById(R.id.img_action_add)).setOnClickListener(this);
 	}
 

@@ -9,13 +9,13 @@
         android:id="@+id/remove_image"
         style="@style/img_home"
         android:contentDescription="@null"
-        android:src="@drawable/ic_action_remove"
+        android:src="@drawable/delete_picture_icon"
         android:visibility="visible" />
 
     <ImageView
         style="@style/img_home"
         android:contentDescription="@null"
-        android:src="@drawable/ic_action_new"
+        android:src="@drawable/add_picture_icon"
         android:visibility="invisible" />
 
     <TextView
@@ -31,7 +31,7 @@
         android:id="@+id/img_action_add"
         style="@style/img_home"
         android:contentDescription="@null"
-        android:src="@drawable/ic_action_new" />
+        android:src="@drawable/add_picture_icon" />
 
     <ImageView
         android:id="@+id/img_action_menu"

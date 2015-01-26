@@ -14,5 +14,32 @@
       </configuration>
     </facet>
   </component>
+  <component name="NewModuleRootManager" inherit-compiler-output="false">
+    <output url="file://$MODULE_DIR$/other/facebook/bin/classes" />
+    <exclude-output />
+    <content url="file://$MODULE_DIR$/other/facebook">
+      <sourceFolder url="file://$MODULE_DIR$/other/facebook/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/other/facebook/gen" isTestSource="false" generated="true" />
+    </content>
+    <orderEntry type="jdk" jdkName="Android API 20 Platform" jdkType="Android SDK" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library">
+      <library name="bolts-android-1.1.2.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/other/facebook/libs/bolts-android-1.1.2.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="android-support-v4.jar">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/libs/android-support-v4.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+  </component>
 </module>
-

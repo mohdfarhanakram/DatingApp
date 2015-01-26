@@ -20,7 +20,7 @@
                     android:visibility="gone"
                 android:id="@+id/layout_setting_more_something"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/set_layout_height"
                 android:gravity="center"
                 android:orientation="horizontal"
                 android:padding="@dimen/dp_10" >
@@ -47,20 +47,20 @@
                 </LinearLayout>
 
                 <ImageView
-                    android:layout_width="@dimen/dp_30"
-                    android:layout_height="@dimen/dp_30"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                     android:layout_weight="0"
                     android:contentDescription="@null"
-                    android:src="@drawable/next" />
+                    android:src="@drawable/set_next" />
             </LinearLayout>
 
-            <View android:visibility="gone" style="@style/view" />
+            <View android:visibility="gone" style="@style/set_view" />
 
             <LinearLayout
                     android:visibility="gone"
                 android:id="@+id/layout_setting_just_another"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                    android:layout_height="@dimen/set_layout_height"
                 android:gravity="center"
                 android:orientation="horizontal"
                 android:padding="@dimen/dp_10" >
@@ -86,20 +86,20 @@
                 </LinearLayout>
 
                 <ImageView
-                    android:layout_width="@dimen/dp_30"
-                    android:layout_height="@dimen/dp_30"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                     android:layout_weight="0"
                     android:contentDescription="@null"
-                    android:src="@drawable/next" />
+                    android:src="@drawable/set_next" />
             </LinearLayout>
 
-            <View android:visibility="gone" style="@style/view" />
+            <View android:visibility="gone" style="@style/set_view" />
 
             <LinearLayout
                     android:visibility="gone"
                 android:id="@+id/layout_setting_other"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                    android:layout_height="@dimen/set_layout_height"
                 android:gravity="center"
                 android:orientation="horizontal"
                 android:padding="@dimen/dp_10" >
@@ -125,19 +125,19 @@
                 </LinearLayout>
 
                 <ImageView
-                    android:layout_width="@dimen/dp_30"
-                    android:layout_height="@dimen/dp_30"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                     android:layout_weight="0"
                     android:contentDescription="@null"
-                    android:src="@drawable/next" />
+                    android:src="@drawable/set_next" />
             </LinearLayout>
 
-            <View android:visibility="gone" style="@style/view" />
+            <View android:visibility="gone" style="@style/set_view" />
 
             <LinearLayout
                 android:id="@+id/layout_setting_profile"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/set_layout_height"
                 android:gravity="center"
                 android:orientation="horizontal"
                 android:padding="@dimen/dp_10" >
@@ -164,19 +164,19 @@
                 </LinearLayout>
 
                 <ImageView
-                    android:layout_width="@dimen/dp_30"
-                    android:layout_height="@dimen/dp_30"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_weight="0"
                     android:contentDescription="@null"
-                    android:src="@drawable/next" />
+                    android:src="@drawable/set_next" />
             </LinearLayout>
 
-            <View style="@style/view" />
+            <View style="@style/set_view" />
 
             <LinearLayout
                 android:id="@+id/layout_setting_filters"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/set_layout_height"
                 android:gravity="center"
                 android:orientation="horizontal"
                 android:padding="@dimen/dp_10" >
@@ -203,19 +203,19 @@
                 </LinearLayout>
 
                 <ImageView
-                    android:layout_width="@dimen/dp_30"
-                    android:layout_height="@dimen/dp_30"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_weight="0"
                     android:contentDescription="@null"
-                    android:src="@drawable/next" />
+                    android:src="@drawable/set_next" />
             </LinearLayout>
 
-            <View style="@style/view" />
+            <View style="@style/set_view" />
 
             <LinearLayout
                 android:id="@+id/layout_setting_premium_membership"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/set_layout_height"
                 android:gravity="center"
                 android:orientation="horizontal"
                 android:padding="@dimen/dp_10" >
@@ -242,14 +242,14 @@
                 </LinearLayout>
 
                 <ImageView
-                    android:layout_width="@dimen/dp_30"
-                    android:layout_height="@dimen/dp_30"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                     android:layout_weight="0"
                     android:contentDescription="@null"
-                    android:src="@drawable/next" />
+                    android:src="@drawable/set_next" />
             </LinearLayout>
 
-            <View style="@style/view" />
+            <View style="@style/set_view" />
         </LinearLayout>
     </ScrollView>
 

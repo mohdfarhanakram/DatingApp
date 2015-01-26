@@ -53,7 +53,7 @@ public class UpdateProfileActivity extends BaseActivity implements OnClickListen
 	private EditText medtFname,medtLname,medtDob,medtGender,medtCountry,medtMobile,
 	medtAboutMe, medtAge,  medtHeight, medtWeight, medtLokingFor,
 	medtHivStatus,medtInterest,medtSexRole,medtCity,medtBodyType,medtEthnicity;
-	private Button mbtnUpdate;
+	private ImageView mbtnUpdate;
 
 	private RoundedImageView mProfileImage;
 
@@ -121,7 +121,7 @@ public class UpdateProfileActivity extends BaseActivity implements OnClickListen
 		medtHivStatus = (EditText) findViewById(R.id.edt_update_profile_hiv_status);
 		medtInterest = (EditText) findViewById(R.id.edt_update_profile_interest);
 		medtSexRole = (EditText) findViewById(R.id.edt_update_profile_sex_role);
-		mbtnUpdate = (Button) findViewById(R.id.btn_update_profile_update);
+		mbtnUpdate = (ImageView) findViewById(R.id.btn_update_profile_update);
 		mtxtTap = (TextView) findViewById(R.id.txt_update_profile_photo);
         medtBodyType = (EditText) findViewById(R.id.edt_update_profile_body_type);
         medtEthnicity = (EditText) findViewById(R.id.edt_update_profile_ethnicity);
@@ -198,10 +198,10 @@ public class UpdateProfileActivity extends BaseActivity implements OnClickListen
 			videoRecording();
 			break;
 		case R.id.edt_update_profile_fname:
-			new DialogUpdateProfile(UpdateProfileActivity.this, medtFname, getResources().getString(R.string.fname), medtFname.getText().toString()).show();
+			new DialogUpdateProfile(UpdateProfileActivity.this, medtFname, getResources().getString(R.string.fname), "Please enter your first name",medtFname.getText().toString()).show();
 			break;
 		case R.id.edt_update_profile_lname:
-			new DialogUpdateProfile(UpdateProfileActivity.this, medtLname, getResources().getString(R.string.lname), medtLname.getText().toString()).show();
+			new DialogUpdateProfile(UpdateProfileActivity.this, medtLname, getResources().getString(R.string.lname), "Please enter your last name",medtLname.getText().toString()).show();
 			break;
 		/*case R.id.edt_update_profile_dob:
 			break;*/
@@ -214,13 +214,13 @@ public class UpdateProfileActivity extends BaseActivity implements OnClickListen
 			showSingleSelectionDialog(medtCountry, country_list, getResources().getString(R.string.country));
 			break;
         case R.id.edt_update_profile_city:
-              new DialogUpdateProfile(UpdateProfileActivity.this, medtCity, getResources().getString(R.string.city), medtCity.getText().toString()).show();
+              new DialogUpdateProfile(UpdateProfileActivity.this, medtCity, getResources().getString(R.string.city), "Please enter your city",medtCity.getText().toString()).show();
              break;
 		case R.id.edt_update_profile_mobile:
-			new DialogUpdateProfile(UpdateProfileActivity.this, medtMobile, getResources().getString(R.string.mobile), medtMobile.getText().toString()).show();
+			new DialogUpdateProfile(UpdateProfileActivity.this, medtMobile, getResources().getString(R.string.mobile),"Please enter your mobile no", medtMobile.getText().toString()).show();
 			break;
 		case R.id.edt_update_profile_about_me:
-			new DialogUpdateProfile(UpdateProfileActivity.this, medtAboutMe, getResources().getString(R.string.about_me), medtAboutMe.getText().toString()).show();
+			new DialogUpdateProfile(UpdateProfileActivity.this, medtAboutMe, getResources().getString(R.string.about_me), "Please enter about your self",medtAboutMe.getText().toString()).show();
 			break;
 		case R.id.edt_update_profile_age:
 			showSingleSelectionDialog(medtAge, getAgeArray(), getResources().getString(R.string.age));
@@ -240,7 +240,7 @@ public class UpdateProfileActivity extends BaseActivity implements OnClickListen
 
 			break;
 		case R.id.edt_update_profile_interest:
-                new DialogUpdateProfile(UpdateProfileActivity.this, medtInterest, getResources().getString(R.string.interest), medtInterest.getText().toString()).show();
+                new DialogUpdateProfile(UpdateProfileActivity.this, medtInterest, getResources().getString(R.string.interest), "Please write something about your interest ",medtInterest.getText().toString()).show();
 
                 break;
             case R.id.edt_update_profile_ethnicity:

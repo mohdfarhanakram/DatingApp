@@ -4,16 +4,14 @@
     android:layout_height="200dp"
     android:background="@android:color/transparent">
 
-    <Button
+    <ImageView
+            android:visibility="visible"
             android:id="@+id/btn_play_video"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@android:color/white"
+            android:src="@drawable/play_video"
             android:layout_centerInParent="true"
-            android:padding="@dimen/dp_10"
-            android:text="Play Video"
-            android:textColor="#69A1De"
-            android:textSize="@dimen/sp_14" />
+            android:padding="@dimen/dp_10"/>
 
     <TextView
             android:id="@+id/video_txt_view"
@@ -21,6 +19,7 @@
             android:layout_centerInParent="true"
             android:textColor="@color/white"
             android:textSize="16sp"
+            android:visibility="gone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 

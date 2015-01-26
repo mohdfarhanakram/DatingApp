@@ -19,7 +19,7 @@
         android:text="@string/looking_for_msg"
         android:singleLine="false"/>
     <View 
-        style="@style/view"
+        style="@style/abt_view"
         android:layout_margin="@dimen/dp_5"/>
     <TextView 
         style="@style/txt_base"
@@ -34,7 +34,7 @@
         android:text="@string/common_msg"
         android:singleLine="false"/>
     <View 
-        style="@style/view"
+        style="@style/abt_view"
         android:layout_margin="@dimen/dp_5"/>
     <TextView 
         style="@style/txt_base"

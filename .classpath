@@ -13,5 +13,6 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/FacebookSDK"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/MPChartLib"/>
 	<classpathentry kind="lib" path="other/MPChartLib/libs/nineoldandroids-2.4.0-2.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/SwitchCompatLibrary"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>

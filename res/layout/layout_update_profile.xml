@@ -405,44 +405,37 @@
                 android:padding="@dimen/dp_5"
                 android:visibility="visible" >
 
-                <Button
+                <ImageView
+                    android:padding="5dp"
                     android:id="@+id/btn_update_profile_audio"
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight=".5"
-                    android:background="@android:color/white"
-                    android:padding="@dimen/dp_10"
-                    android:text="Record Audio"
-                    android:textColor="#69A1De"
-                    android:textSize="@dimen/sp_14" />
+                    android:src="@drawable/record_audio"
+                    android:layout_weight="0"/>
 
                 <View
+                    android:layout_weight="1"
                     android:layout_width="@dimen/dp_10"
                     android:layout_height="match_parent"
                     android:background="@android:color/transparent" />
 
-                <Button
+                <ImageView
+                    android:src="@drawable/record_video"
+                    android:layout_weight="0"
+                    android:padding="5dp"
                     android:id="@+id/btn_update_profile_video"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight=".5"
-                    android:background="@android:color/white"
-                    android:padding="@dimen/dp_10"
-                    android:text="Record Video"
-                    android:textColor="#69A1De"
-                    android:textSize="@dimen/sp_14" />
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
             </LinearLayout>
 
-            <Button
+            <ImageView
+                android:padding="5dp"
                 android:id="@+id/btn_update_profile_update"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_margin="@dimen/dp_5"
-                android:background="@color/btn_color"
-                android:padding="@dimen/dp_8"
-                android:text="@string/update"
-                android:textColor="@android:color/white" />
+                android:src="@drawable/update_button"
+                android:layout_margin="@dimen/dp_5"/>
         </LinearLayout>
     </ScrollView>
 

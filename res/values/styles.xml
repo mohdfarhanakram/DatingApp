@@ -56,6 +56,18 @@
         <item name="android:background">@color/view_color</item>
     </style>
 
+    <style name="abt_view">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/abt_us_sep</item>
+    </style>
+
+    <style name="set_view">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/set_separator</item>
+    </style>
+
     <style name="view_vetical">
         <item name="android:layout_width">@dimen/dp_1</item>
         <item name="android:layout_height">match_parent</item>

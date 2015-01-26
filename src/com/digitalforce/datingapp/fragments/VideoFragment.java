@@ -16,6 +16,7 @@ import android.widget.VideoView;
 import com.digitalforce.datingapp.R;
 import com.digitalforce.datingapp.constants.AppConstants;
 import com.digitalforce.datingapp.model.UserInfo;
+import com.digitalforce.datingapp.view.BaseActivity;
 import com.digitalforce.datingapp.view.PlayVideoActivity;
 import com.farru.android.utill.StringUtils;
 
@@ -34,9 +35,15 @@ public class VideoFragment extends Fragment{
         mView.findViewById(R.id.btn_play_video).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getActivity(),PlayVideoActivity.class);
-                i.putExtra(AppConstants.USER_VIDEO_URL,mUserInfo.getVideo());
-                startActivity(i);
+
+                if(!StringUtils.isNullOrEmpty(mUserInfo.getVideo())){
+                    Intent i = new Intent(getActivity(),PlayVideoActivity.class);
+                    i.putExtra(AppConstants.USER_VIDEO_URL,mUserInfo.getVideo());
+                    startActivity(i);
+                }else{
+                    ((BaseActivity)(getActivity())).showCommonError("No profile video.");
+                }
+
             }
         });
 		return mView;
@@ -51,14 +58,14 @@ public class VideoFragment extends Fragment{
 	@Override
 	public void onViewCreated(View view, Bundle savedInstanceState) {
 		super.onViewCreated(view, savedInstanceState);
-        if(mUserInfo!=null && !StringUtils.isNullOrEmpty(mUserInfo.getVideo())){
+        /*if(mUserInfo!=null && !StringUtils.isNullOrEmpty(mUserInfo.getVideo())){
             mView.findViewById(R.id.btn_play_video).setVisibility(View.VISIBLE);
             mView.findViewById(R.id.video_txt_view).setVisibility(View.GONE);
         }else{
             mView.findViewById(R.id.btn_play_video).setVisibility(View.GONE);
             mView.findViewById(R.id.video_txt_view).setVisibility(View.VISIBLE);
 
-        }
+        }*/
     }
 
 }

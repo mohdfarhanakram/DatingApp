@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/DatingApp.iml" filepath="$PROJECT_DIR$/DatingApp.iml" />
       <module fileurl="file://$PROJECT_DIR$/FacebookSDK.iml" filepath="$PROJECT_DIR$/FacebookSDK.iml" />
       <module fileurl="file://$PROJECT_DIR$/MPChartLib.iml" filepath="$PROJECT_DIR$/MPChartLib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/other/SwitchCompatLibrary/SwitchCompatLibrary.iml" filepath="$PROJECT_DIR$/other/SwitchCompatLibrary/SwitchCompatLibrary.iml" />
       <module fileurl="file://$PROJECT_DIR$/google-play-services_lib.iml" filepath="$PROJECT_DIR$/google-play-services_lib.iml" />
     </modules>
   </component>

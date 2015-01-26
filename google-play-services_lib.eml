@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<component jdk="Android API 19 Platform" jdk_type="Android SDK">
+<component jdk="Android API 20 Platform" jdk_type="Android SDK">
 	<exclude-output/>
 	<contentEntry url="file://$MODULE_DIR$/other/google-play-services_lib"/>
 </component>

@@ -88,7 +88,6 @@
             <ImageView android:id="@+id/left_media_img"
                        android:layout_gravity="center_horizontal"
                        android:paddingTop="5dp"
-                       android:background="#00BAFF"
                        android:src="@drawable/ic_action_play"
                        android:layout_width="@dimen/player_img_width"
                        android:layout_height="@dimen/player_img_height"/>
@@ -164,7 +163,6 @@
                        android:layout_height="@dimen/emotion_width"/>
             <ImageView android:id="@+id/right_media_img"
                        android:layout_gravity="center_horizontal"
-                       android:background="#00BAFF"
                        android:paddingTop="5dp"
                        android:src="@drawable/ic_action_play"
                        android:layout_width="@dimen/player_img_width"

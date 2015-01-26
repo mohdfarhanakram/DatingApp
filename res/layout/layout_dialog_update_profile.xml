@@ -1,40 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="@dimen/dp_300"
+	android:padding="15dp"
     android:layout_height="wrap_content"
-    android:background="@drawable/outline_profile"
+    android:background="@drawable/dialog_bg"
     android:orientation="vertical" >
-    <TextView 
-        android:id="@+id/txt_dialog_update_profile_title"
-        style="@style/txt_base"
-        android:layout_width="match_parent"
-        android:text="@string/text"
-        android:padding="@dimen/dp_10"
-        android:textSize="@dimen/sp_16"/>
+    <TextView
+		android:id="@+id/txt_dialog_update_profile_title"
+		android:textColor="#0589C4"
+		android:layout_gravity="center_horizontal"
+		android:gravity="center_horizontal"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:text="@string/text"
+		android:textStyle="bold"
+		android:textSize="20sp"/>
+	<TextView
+			android:id="@+id/txt_dialog_update_profile_sub_title"
+			android:textColor="#606062"
+			android:layout_gravity="center_horizontal"
+			android:gravity="center_horizontal"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:text="Please write something about your interest"
+			android:layout_margin="@dimen/dp_5"
+			android:textSize="18sp"/>
 	<EditText
 	    android:id="@+id/edt_dailog_update_profile_" 
 	    style="@style/edit"
+		android:layout_marginTop="5dp"
 	    android:singleLine="false"
 	    android:padding="@dimen/dp_7"
 	    android:layout_margin="@dimen/dp_1"
 	    android:background="@drawable/outline_dialog_update"/>
 	<LinearLayout 
 	    android:layout_width="match_parent"
-	    android:layout_height="wrap_content"
-	    android:padding="@dimen/dp_5"
+	    android:layout_height="60dp"
+		android:layout_marginTop="10dp"
 	    android:orientation="horizontal">
-	    <Button 
+	    <ImageView
 	        android:id="@+id/btn_dialog_update_profile_ok"
-	        android:layout_width="0dp"
-	        android:layout_weight=".50"
-	        android:layout_marginRight="@dimen/dp_5"
-	        style="@style/btn"
-	        android:text="@string/ok"/>
-	    <Button 
+	        android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+	        android:layout_weight="1"
+	        android:src="@drawable/cancel_button"/>
+		<View android:layout_weight="0" android:layout_width="5dp" android:layout_height="wrap_content"></View>
+	    <ImageView
 	        android:id="@+id/btn_dialog_update_profile_cancel"
-	        android:layout_width="0dp"
-	        android:layout_weight=".50"
-	        style="@style/btn"
-	        android:text="@string/cancel"/>
+	        android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+			android:src="@drawable/ok_button"/>
 	</LinearLayout>
 </LinearLayout>

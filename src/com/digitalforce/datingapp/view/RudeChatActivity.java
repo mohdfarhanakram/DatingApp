@@ -27,6 +27,7 @@ import com.digitalforce.datingapp.constants.ApiEvent;
 import com.digitalforce.datingapp.constants.AppConstants;
 import com.digitalforce.datingapp.constants.DatingUrlConstants;
 import com.digitalforce.datingapp.model.Chat;
+import com.digitalforce.datingapp.model.UserInfo;
 import com.digitalforce.datingapp.parser.JsonParser;
 import com.digitalforce.datingapp.persistance.DatingAppPreference;
 import com.digitalforce.datingapp.utils.AppUtil;
@@ -88,7 +89,7 @@ public class RudeChatActivity extends BaseActivity implements View.OnClickListen
         ((TextView) findViewById(R.id.txt_screen_title)).setText("Chat");
         ((TextView) findViewById(R.id.txt_profile_name)).setText(getIntent().getStringExtra(AppConstants.CHAT_USER_NAME));
 
-        if(!StringUtils.isNullOrEmpty(getIntent().getStringExtra(AppConstants.CHAT_USER_LOCATION)))
+       if(!StringUtils.isNullOrEmpty(getIntent().getStringExtra(AppConstants.CHAT_USER_LOCATION)))
            ((TextView) findViewById(R.id.txt_profile_location)).setText(getIntent().getStringExtra(AppConstants.CHAT_USER_LOCATION));
         else
             ((TextView) findViewById(R.id.txt_profile_location)).setText("N/A");
@@ -175,7 +176,10 @@ public class RudeChatActivity extends BaseActivity implements View.OnClickListen
         switch (serviceResponse.getEventType()){
             case ApiEvent.CHAT_HISTORY_EVENT:
 
-                chatArrayList = (ArrayList<Chat>)serviceResponse.getResponseObject();
+                UserInfo userInfo = (UserInfo)serviceResponse.getResponseObject();
+                updateData(userInfo);
+                chatArrayList = userInfo.getChats();
+                updateData(userInfo);
                 mRudeChatAdapter = new RudeChatAdapter(this,chatArrayList);
                 mChatListView.setAdapter(mRudeChatAdapter);
                 break;
@@ -662,6 +666,23 @@ public class RudeChatActivity extends BaseActivity implements View.OnClickListen
         }
 
         return "";
+    }
+
+    private void updateData(UserInfo userInfo){
+        if(!StringUtils.isNullOrEmpty(userInfo.getCountry()))
+            ((TextView) findViewById(R.id.txt_profile_location)).setText(getIntent().getStringExtra(AppConstants.CHAT_USER_LOCATION));
+        else
+            ((TextView) findViewById(R.id.txt_profile_location)).setText("N/A");
+
+        if(!StringUtils.isNullOrEmpty(userInfo.getCity()))
+            ((TextView) findViewById(R.id.txt_profile_distance)).setText("Approx. "+getIntent().getStringExtra(AppConstants.CHAT_USER_AWAY)+" Away");
+        else
+            ((TextView) findViewById(R.id.txt_profile_distance)).setText("N/A");
+
+        if(!StringUtils.isNullOrEmpty(userInfo.getImage())){
+            picassoLoad(getIntent().getStringExtra(AppConstants.CHAT_USER_IMAGE),(ImageView)findViewById(R.id.img_profile));
+        }
+
     }
 
 }

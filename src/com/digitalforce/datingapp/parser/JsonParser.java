@@ -170,8 +170,24 @@ public class JsonParser {
 
 	}
 
+	public static UserInfo parseUserChat(JSONObject jsonObject){
+		UserInfo userInfo = new UserInfo();
+		try{
+			JSONObject  userJObj = jsonObject.optJSONObject("userprofile");
+			userInfo.setImage(userJObj.optString("userImage"));
+			userInfo.setDistance(userJObj.optString("distance"));
+			userInfo.setCountry(userJObj.optString("country"));
+			userInfo.setCity(userJObj.optString("city"));
+			userInfo.setUserId(userJObj.optString("userId"));
+			userInfo.setChats(parseUserChatHistoryData(jsonObject));
+		}catch(Exception e){
 
-    public static ArrayList<Chat> parseChatHistoryData(JSONObject jsonObject){
+		}
+		return userInfo;
+	}
+
+
+    public static ArrayList<Chat> parseUserChatHistoryData(JSONObject jsonObject){
 
         ArrayList<Chat> chats = new ArrayList<Chat>();
         try {

@@ -10,7 +10,7 @@ package com.digitalforce.datingapp.constants;
 public class AppConstants {
 	
 	public static final String LOG_TAG        = "datingapp";
-	public static final String FB_APP_ID      = "804602229562570";  //Testing - 808631839159609  //Live - 804602229562570
+	public static final String FB_APP_ID      = "587523331348919";  //Testing - 808631839159609  //Live - 804602229562570 //Far - 587523331348919
     public static final String BUGSENSE_API_KEY = "b55d72ab";
 	
 	public static final String APP_NAME_SPACE = "com.digitalforce.datingapp";

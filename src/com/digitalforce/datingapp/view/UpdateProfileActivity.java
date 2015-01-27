@@ -68,7 +68,7 @@ public class UpdateProfileActivity extends BaseActivity implements OnClickListen
 	private String mAudioEncodedString;
 	private String mAudioFilePath;
 	private String mGender[] = {"Male","Female"};
-	private String mHivStatus[] = {"POS","NEG"};
+	private String mHivStatus[] = {"Not Sure","Negative","Positive","Negative, on Prep","Positive, Undetectable"};
 	private String country_list[] = {"Afghanistan","Albania","Algeria","America","Andorra","Angola","Anguilla","Antigua &amp; Barbuda","Argentina","Armenia","Aruba",
 			"Australia","Austria","Azerbaijan","Bahamas","Bahrain","Bangladesh","Barbados","Belarus","Belgium","Belize","Benin","Bermuda","Bhutan","Bolivia",
 			"Bosnia &amp; Herzegovina","Botswana","Brazil","British Virgin Islands","Brunei","Bulgaria","Burkina Faso","Burundi","Cambodia","Cameroon","Cape Verde",
@@ -86,11 +86,11 @@ public class UpdateProfileActivity extends BaseActivity implements OnClickListen
 			"Togo","Tonga","Trinidad &amp; Tobago","Tunisia","Turkey","Turkmenistan","Turks &amp; Caicos","Uganda","Ukraine","United Arab Emirates","United Kingdom",
 			"Uruguay","USA","Uzbekistan","Venezuela","Vietnam","Virgin Islands (US)","Yemen","Zambia","Zimbabwe"};
 
-    private String sex_roles[] = {"Top Versatile","Top (Vers Top)","Bottom(Vers Bottom)"};
+    private String sex_roles[] = {"Top","Bottom"," Versatile","Vers Top","Vers Bottom"};
 
-    private String looking_for[] = {"Sex","Relationship","Long Term Relationship","Dating","Fun","Flirt","Friends","Network","Sugar Daddy"};
+    private String looking_for[] = {"Chat","Dates","Friends","Networking","Relationship","Right Now","Trans","Bear","Daddy","Son"};
 
-    private String body_types[] = {"Slim","Average","Athletic","Heavy"};
+    private String body_types[] = {"Toned","Average","Large","Muscular","Slim","Stocky"};
 
     String[] ethnicity = {"Asian","Black","Latino","Mixed","White","Other"};
 

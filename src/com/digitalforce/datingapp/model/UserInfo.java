@@ -34,7 +34,17 @@ public class UserInfo extends NearBy{
     private String chatMessageTime;
     private String chatMessage;
 
-    public String getChatMessage() {
+	private ArrayList<Chat> chats = new ArrayList<Chat>();
+
+	public ArrayList<Chat> getChats() {
+		return chats;
+	}
+
+	public void setChats(ArrayList<Chat> chats) {
+		this.chats = chats;
+	}
+
+	public String getChatMessage() {
         return chatMessage;
     }
 
@@ -195,5 +205,7 @@ public class UserInfo extends NearBy{
 	public void setUserId(String userId) {
 		this.userId = userId;
 	}
+
+
 
 }

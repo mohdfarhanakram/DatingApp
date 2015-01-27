@@ -26,11 +26,11 @@ import de.ankri.views.Switch;
 public class FilterActivity extends BaseActivity implements OnClickListener{
 
 
-    private String sex_roles[] = {"All","Top Versatile","Top (Vers Top)","Bottom(Vers Bottom)"};
+    private String sex_roles[] = {"Top","Bottom"," Versatile","Vers Top","Vers Bottom"};
 
-    private String looking_for[] = {"All","Sex","Relationship","Long Term Relationship","Dating","Fun","Flirt","Friends","Network","Sugar Daddy"};
+    private String looking_for[] = {"Chat","Dates","Friends","Networking","Relationship","Right Now","Trans","Bear","Daddy","Son"};
 
-    private String body_types[] = {"All","Slim","Average","Athletic","Heavy"};
+    private String body_types[] = {"Toned","Average","Large","Muscular","Slim","Stocky"};
 
     private String relation_ship_status[] = {"All","Single","Married"};
 

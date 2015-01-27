@@ -22,84 +22,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6faf868d-9412-430f-9fbd-2525aa09d15f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/abt_us_sep.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/add_picture_icon.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable/cancel_button.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/delete_picture_icon.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/insert_info_box.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable/ok_button.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/play_audio.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/play_audio_msg.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/play_video.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/play_video_msg.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/record_audio.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/record_video.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/set_next.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/set_separator.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/update_button.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable/dialog_bg.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
-      <change type="DELETED" beforePath="F:\Project\DatingApp\DatingApp\res\drawable-hdpi\ic_action_new.png" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/digitalforce/datingapp/BuildConfig.class" afterPath="$PROJECT_DIR$/bin/classes/com/digitalforce/datingapp/BuildConfig.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/other/google-play-services_lib/bin/classes/com/google/android/gms/BuildConfig.class" afterPath="$PROJECT_DIR$/other/google-play-services_lib/bin/classes/com/google/android/gms/BuildConfig.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/cancel_button_no_txt.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/ok_button_no_txt.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/digitalforce/datingapp/constants/DatingConstants.class" afterPath="$PROJECT_DIR$/bin/classes/com/digitalforce/datingapp/constants/DatingConstants.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/digitalforce/datingapp/constants/DatingUrlConstants.class" afterPath="$PROJECT_DIR$/bin/classes/com/digitalforce/datingapp/constants/DatingUrlConstants.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/digitalforce/datingapp/view/ForgotpsswordActivity.class" afterPath="$PROJECT_DIR$/bin/classes/com/digitalforce/datingapp/view/ForgotpsswordActivity.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/digitalforce/datingapp/view/LoginActivity.class" afterPath="$PROJECT_DIR$/bin/classes/com/digitalforce/datingapp/view/LoginActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/digitalforce/datingapp/R$attr.class" afterPath="$PROJECT_DIR$/bin/classes/com/digitalforce/datingapp/R$attr.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/other/google-play-services_lib/bin/classes/com/google/android/gms/R$attr.class" afterPath="$PROJECT_DIR$/other/google-play-services_lib/bin/classes/com/google/android/gms/R$attr.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/digitalforce/datingapp/R$color.class" afterPath="$PROJECT_DIR$/bin/classes/com/digitalforce/datingapp/R$color.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/other/google-play-services_lib/bin/classes/com/google/android/gms/R$color.class" afterPath="$PROJECT_DIR$/other/google-play-services_lib/bin/classes/com/google/android/gms/R$color.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/digitalforce/datingapp/R$dimen.class" afterPath="$PROJECT_DIR$/bin/classes/com/digitalforce/datingapp/R$dimen.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/digitalforce/datingapp/R$drawable.class" afterPath="$PROJECT_DIR$/bin/classes/com/digitalforce/datingapp/R$drawable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/other/google-play-services_lib/bin/classes/com/google/android/gms/R$drawable.class" afterPath="$PROJECT_DIR$/other/google-play-services_lib/bin/classes/com/google/android/gms/R$drawable.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/digitalforce/datingapp/R$id.class" afterPath="$PROJECT_DIR$/bin/classes/com/digitalforce/datingapp/R$id.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/other/google-play-services_lib/bin/classes/com/google/android/gms/R$id.class" afterPath="$PROJECT_DIR$/other/google-play-services_lib/bin/classes/com/google/android/gms/R$id.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/other/google-play-services_lib/bin/classes/com/google/android/gms/R$integer.class" afterPath="$PROJECT_DIR$/other/google-play-services_lib/bin/classes/com/google/android/gms/R$integer.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/digitalforce/datingapp/R$layout.class" afterPath="$PROJECT_DIR$/bin/classes/com/digitalforce/datingapp/R$layout.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/digitalforce/datingapp/R$string.class" afterPath="$PROJECT_DIR$/bin/classes/com/digitalforce/datingapp/R$string.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/other/google-play-services_lib/bin/classes/com/google/android/gms/R$string.class" afterPath="$PROJECT_DIR$/other/google-play-services_lib/bin/classes/com/google/android/gms/R$string.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/digitalforce/datingapp/R$style.class" afterPath="$PROJECT_DIR$/bin/classes/com/digitalforce/datingapp/R$style.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/other/google-play-services_lib/bin/classes/com/google/android/gms/R$style.class" afterPath="$PROJECT_DIR$/other/google-play-services_lib/bin/classes/com/google/android/gms/R$style.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/other/google-play-services_lib/bin/classes/com/google/android/gms/R$styleable.class" afterPath="$PROJECT_DIR$/other/google-play-services_lib/bin/classes/com/google/android/gms/R$styleable.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/digitalforce/datingapp/R.class" afterPath="$PROJECT_DIR$/bin/classes/com/digitalforce/datingapp/R.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/other/google-play-services_lib/bin/classes/com/google/android/gms/R.class" afterPath="$PROJECT_DIR$/other/google-play-services_lib/bin/classes/com/google/android/gms/R.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/digitalforce/datingapp/view/SignUpActivity.class" afterPath="$PROJECT_DIR$/bin/classes/com/digitalforce/datingapp/view/SignUpActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/digitalforce/datingapp/view/SplashActivity$1.class" afterPath="$PROJECT_DIR$/bin/classes/com/digitalforce/datingapp/view/SplashActivity$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/digitalforce/datingapp/view/SplashActivity.class" afterPath="$PROJECT_DIR$/bin/classes/com/digitalforce/datingapp/view/SplashActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/digitalforce/datingapp/utils/ToastCustom.class" afterPath="$PROJECT_DIR$/bin/classes/com/digitalforce/datingapp/utils/ToastCustom.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/other/google-play-services_lib/bin/classes/android/UnusedStub.class" afterPath="$PROJECT_DIR$/other/google-play-services_lib/bin/classes/android/UnusedStub.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/digitalforce/datingapp/utils/Validation.class" afterPath="$PROJECT_DIR$/bin/classes/com/digitalforce/datingapp/utils/Validation.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/drawable-hdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/res/drawable-hdpi/ic_launcher.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/drawable-xhdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/res/drawable-xhdpi/ic_launcher.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.classpath" afterPath="$PROJECT_DIR$/.classpath" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/digitalforce/datingapp/fragments/AudioFragment.java" afterPath="$PROJECT_DIR$/src/com/digitalforce/datingapp/fragments/AudioFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DatingApp.eml" afterPath="$PROJECT_DIR$/DatingApp.eml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DatingApp.iml" afterPath="$PROJECT_DIR$/DatingApp.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/digitalforce/datingapp/dialog/DialogUpdateProfile.java" afterPath="$PROJECT_DIR$/src/com/digitalforce/datingapp/dialog/DialogUpdateProfile.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FacebookSDK.eml" afterPath="$PROJECT_DIR$/FacebookSDK.eml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FacebookSDK.iml" afterPath="$PROJECT_DIR$/FacebookSDK.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MPChartLib.iml" afterPath="$PROJECT_DIR$/MPChartLib.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/digitalforce/datingapp/view/MyPictureActivity.java" afterPath="$PROJECT_DIR$/src/com/digitalforce/datingapp/view/MyPictureActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/digitalforce/datingapp/adapter/RudeChatAdapter.java" afterPath="$PROJECT_DIR$/src/com/digitalforce/datingapp/adapter/RudeChatAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/other/SwitchCompatLibrary/SwitchCompatLibrary.iml" afterPath="$PROJECT_DIR$/other/SwitchCompatLibrary/SwitchCompatLibrary.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/drawable/farhan.png" afterPath="$PROJECT_DIR$/res/drawable/farhan.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/drawable-hdpi/splash_new.png" afterPath="$PROJECT_DIR$/res/drawable-hdpi/splash_new.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/digitalforce/datingapp/constants/AppConstants.java" afterPath="$PROJECT_DIR$/src/com/digitalforce/datingapp/constants/AppConstants.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/digitalforce/datingapp/parser/BaseParser.java" afterPath="$PROJECT_DIR$/src/com/digitalforce/datingapp/parser/BaseParser.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/digitalforce/datingapp/constants/DatingConstants.java" afterPath="$PROJECT_DIR$/src/com/digitalforce/datingapp/constants/DatingConstants.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/digitalforce/datingapp/view/FilterActivity.java" afterPath="$PROJECT_DIR$/src/com/digitalforce/datingapp/view/FilterActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/digitalforce/datingapp/parser/JsonParser.java" afterPath="$PROJECT_DIR$/src/com/digitalforce/datingapp/parser/JsonParser.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/digitalforce/datingapp/view/RudeChatActivity.java" afterPath="$PROJECT_DIR$/src/com/digitalforce/datingapp/view/RudeChatActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/digitalforce/datingapp/view/UpdateProfileActivity.java" afterPath="$PROJECT_DIR$/src/com/digitalforce/datingapp/view/UpdateProfileActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/digitalforce/datingapp/fragments/VideoFragment.java" afterPath="$PROJECT_DIR$/src/com/digitalforce/datingapp/fragments/VideoFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/add_photo_actionbar.xml" afterPath="$PROJECT_DIR$/res/layout/add_photo_actionbar.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/values/dimens.xml" afterPath="$PROJECT_DIR$/res/values/dimens.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/google-play-services_lib.eml" afterPath="$PROJECT_DIR$/google-play-services_lib.eml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/google-play-services_lib.iml" afterPath="$PROJECT_DIR$/google-play-services_lib.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/layout_dialog_update_profile.xml" afterPath="$PROJECT_DIR$/res/layout/layout_dialog_update_profile.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/layout_fragment_about.xml" afterPath="$PROJECT_DIR$/res/layout/layout_fragment_about.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/layout_fragment_audio.xml" afterPath="$PROJECT_DIR$/res/layout/layout_fragment_audio.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/layout_fragment_video.xml" afterPath="$PROJECT_DIR$/res/layout/layout_fragment_video.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/layout_setting.xml" afterPath="$PROJECT_DIR$/res/layout/layout_setting.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/digitalforce/datingapp/model/UserInfo.java" afterPath="$PROJECT_DIR$/src/com/digitalforce/datingapp/model/UserInfo.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/layout_splash_screen.xml" afterPath="$PROJECT_DIR$/res/layout/layout_splash_screen.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/layout_term_condition.xml" afterPath="$PROJECT_DIR$/res/layout/layout_term_condition.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/layout_update_profile.xml" afterPath="$PROJECT_DIR$/res/layout/layout_update_profile.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/drawable/outline_dialog_update.xml" afterPath="$PROJECT_DIR$/res/drawable/outline_dialog_update.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/drawable/outline_profile.xml" afterPath="$PROJECT_DIR$/res/drawable/outline_profile.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/row_chat_bubble_item.xml" afterPath="$PROJECT_DIR$/res/layout/row_chat_bubble_item.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/values/styles.xml" afterPath="$PROJECT_DIR$/res/values/styles.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="DatingApp.iws" />
@@ -134,49 +79,106 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="RudeChatAdapter.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/digitalforce/datingapp/adapter/RudeChatAdapter.java">
+      <file leaf-file-name="UpdateProfileActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/digitalforce/datingapp/view/UpdateProfileActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.5172415" vertical-offset="2442" max-vertical-offset="3978">
-              <caret line="201" column="0" selection-start-line="201" selection-start-column="0" selection-end-line="201" selection-end-column="0" />
-              <folding>
-                <element signature="e#7549#7935#0" expanded="true" />
-                <element signature="e#7934#7935#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MyPictureActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/digitalforce/datingapp/view/MyPictureActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="713" max-vertical-offset="5712">
-              <caret line="97" column="101" selection-start-line="97" selection-start-column="54" selection-end-line="97" selection-end-column="101" />
+            <state vertical-scroll-proportion="-7.8965516" vertical-offset="621" max-vertical-offset="14484">
+              <caret line="92" column="89" selection-start-line="88" selection-start-column="3" selection-end-line="92" selection-end-column="89" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="row_chat_bubble_item.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/layout/row_chat_bubble_item.xml">
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
+      <file leaf-file-name="FilterActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/digitalforce/datingapp/view/FilterActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.8727272" vertical-offset="2626" max-vertical-offset="3247">
-              <caret line="167" column="61" selection-start-line="167" selection-start-column="61" selection-end-line="167" selection-end-column="61" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="4998">
+              <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
               <folding>
-                <element signature="e#8000#8026#0" expanded="true" />
+                <element signature="n#!!doc" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dimens.xml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/res/values/dimens.xml">
+      <file leaf-file-name="RudeChatActivity.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/digitalforce/datingapp/view/RudeChatActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6135266" vertical-offset="11000" max-vertical-offset="11543">
-              <caret line="662" column="44" selection-start-line="662" selection-start-column="44" selection-end-line="662" selection-end-column="44" />
+            <state vertical-scroll-proportion="0.662531" vertical-offset="668" max-vertical-offset="10829">
+              <caret line="103" column="9" selection-start-line="103" selection-start-column="9" selection-end-line="103" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="layout_update_profile.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/res/layout/layout_update_profile.xml">
+          <provider editor-type-id="android-designer">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-51.618183" vertical-offset="0" max-vertical-offset="7633">
+              <caret line="167" column="44" selection-start-line="167" selection-start-column="44" selection-end-line="167" selection-end-column="44" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="splash_new.png" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/res/drawable-hdpi/splash_new.png">
+          <provider selected="true" editor-type-id="images">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="splash.png" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/res/drawable/splash.png">
+          <provider selected="true" editor-type-id="images">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SplashActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/digitalforce/datingapp/view/SplashActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1581">
+              <caret line="41" column="43" selection-start-line="41" selection-start-column="43" selection-end-line="41" selection-end-column="43" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="layout_splash_screen.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/res/layout/layout_splash_screen.xml">
+          <provider editor-type-id="android-designer">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-3.709091" vertical-offset="0" max-vertical-offset="357">
+              <caret line="12" column="33" selection-start-line="12" selection-start-column="33" selection-end-line="12" selection-end-column="33" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TermConditionActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/digitalforce/datingapp/view/TermConditionActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2992">
+              <caret line="35" column="48" selection-start-line="35" selection-start-column="48" selection-end-line="35" selection-end-column="48" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="layout_term_condition.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/res/layout/layout_term_condition.xml">
+          <provider editor-type-id="android-designer">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-4.090909" vertical-offset="10298" max-vertical-offset="10761">
+              <caret line="619" column="42" selection-start-line="619" selection-start-column="42" selection-end-line="619" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -202,7 +204,6 @@
         <option value="$PROJECT_DIR$/res/layout/layout_chat.xml" />
         <option value="$PROJECT_DIR$/res/layout/row_chat_layout.xml" />
         <option value="$PROJECT_DIR$/res/layout/row_emotion_layout.xml" />
-        <option value="$PROJECT_DIR$/src/com/digitalforce/datingapp/constants/AppConstants.java" />
         <option value="$PROJECT_DIR$/src/com/digitalforce/datingapp/view/ChatActivity.java" />
         <option value="$PROJECT_DIR$/res/layout/activity_rude_chat_layout.xml" />
         <option value="$PROJECT_DIR$/res/layout/layout_fragment_photos.xml" />
@@ -212,14 +213,11 @@
         <option value="$PROJECT_DIR$/src/com/digitalforce/datingapp/constants/ApiEvent.java" />
         <option value="$PROJECT_DIR$/src/com/digitalforce/datingapp/adapter/MyPictureAdapter.java" />
         <option value="$PROJECT_DIR$/src/com/digitalforce/datingapp/view/BaseActivity.java" />
-        <option value="$PROJECT_DIR$/src/com/digitalforce/datingapp/parser/BaseParser.java" />
         <option value="$PROJECT_DIR$/src/com/digitalforce/datingapp/fragments/BaseFragment.java" />
         <option value="$PROJECT_DIR$/src/com/digitalforce/datingapp/fragments/PublicPhotoFragment.java" />
         <option value="$PROJECT_DIR$/res/layout/row_my_picture_layout.xml" />
         <option value="$PROJECT_DIR$/src/com/digitalforce/datingapp/fragments/PrivatePhotoFragment.java" />
-        <option value="$PROJECT_DIR$/src/com/digitalforce/datingapp/view/FilterActivity.java" />
         <option value="$PROJECT_DIR$/src/com/digitalforce/datingapp/view/MatchActivity.java" />
-        <option value="$PROJECT_DIR$/src/com/digitalforce/datingapp/view/RudeChatActivity.java" />
         <option value="$PROJECT_DIR$/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/src/com/digitalforce/datingapp/view/UserLocationActivity.java" />
         <option value="$PROJECT_DIR$/src/com/digitalforce/datingapp/view/ProfileActivity.java" />
@@ -229,12 +227,10 @@
         <option value="$PROJECT_DIR$/src/com/digitalforce/datingapp/fragments/VideoFragment.java" />
         <option value="$PROJECT_DIR$/src/com/digitalforce/datingapp/fragments/AudioFragment.java" />
         <option value="$PROJECT_DIR$/res/layout/layout_fragment_video.xml" />
-        <option value="$PROJECT_DIR$/res/layout/layout_update_profile.xml" />
         <option value="$PROJECT_DIR$/res/drawable/outline_profile.xml" />
         <option value="$PROJECT_DIR$/res/drawable/dialog_bg.xml" />
         <option value="$PROJECT_DIR$/res/drawable/outline_dialog_update.xml" />
         <option value="$PROJECT_DIR$/src/com/digitalforce/datingapp/dialog/DialogUpdateProfile.java" />
-        <option value="$PROJECT_DIR$/src/com/digitalforce/datingapp/view/UpdateProfileActivity.java" />
         <option value="$PROJECT_DIR$/res/layout/layout_dialog_update_profile.xml" />
         <option value="$PROJECT_DIR$/res/layout/layout_setting.xml" />
         <option value="$PROJECT_DIR$/res/values/styles.xml" />
@@ -244,6 +240,17 @@
         <option value="$PROJECT_DIR$/res/layout/row_chat_bubble_item.xml" />
         <option value="$PROJECT_DIR$/src/com/digitalforce/datingapp/adapter/RudeChatAdapter.java" />
         <option value="$PROJECT_DIR$/res/values/dimens.xml" />
+        <option value="$PROJECT_DIR$/src/com/digitalforce/datingapp/constants/AppConstants.java" />
+        <option value="$PROJECT_DIR$/src/com/digitalforce/datingapp/constants/DatingConstants.java" />
+        <option value="$PROJECT_DIR$/src/com/digitalforce/datingapp/model/UserInfo.java" />
+        <option value="$PROJECT_DIR$/src/com/digitalforce/datingapp/parser/BaseParser.java" />
+        <option value="$PROJECT_DIR$/src/com/digitalforce/datingapp/parser/JsonParser.java" />
+        <option value="$PROJECT_DIR$/res/layout/layout_splash_screen.xml" />
+        <option value="$PROJECT_DIR$/res/layout/layout_term_condition.xml" />
+        <option value="$PROJECT_DIR$/res/layout/layout_update_profile.xml" />
+        <option value="$PROJECT_DIR$/src/com/digitalforce/datingapp/view/UpdateProfileActivity.java" />
+        <option value="$PROJECT_DIR$/src/com/digitalforce/datingapp/view/FilterActivity.java" />
+        <option value="$PROJECT_DIR$/src/com/digitalforce/datingapp/view/RudeChatActivity.java" />
       </list>
     </option>
   </component>
@@ -364,33 +371,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="view" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DatingApp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DatingApp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="datingapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fragments" />
+              <option name="myItemId" value="model" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -405,24 +386,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DatingApp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DatingApp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="drawable-hdpi" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -724,10 +687,10 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980332" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32980332" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3207262" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32952693" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21644296" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25503355" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32952693" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27684563" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -735,7 +698,7 @@
       <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="14" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4161074" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.15337424" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.15337424" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.29865772" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -831,13 +794,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/com/digitalforce/datingapp/view/RudeChatActivity.java</url>
-          <line>547</line>
+          <line>551</line>
           <properties />
           <option name="timeStamp" value="49" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/com/digitalforce/datingapp/view/RudeChatActivity.java</url>
-          <line>611</line>
+          <line>615</line>
           <properties />
           <option name="timeStamp" value="52" />
         </line-breakpoint>
@@ -962,13 +925,13 @@
           <option name="timeStamp" value="92" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/com/digitalforce/datingapp/view/BaseActivity.java</url>
-          <line>107</line>
+          <url>file://$PROJECT_DIR$/src/com/digitalforce/datingapp/view/RudeChatActivity.java</url>
+          <line>154</line>
           <properties />
-          <option name="timeStamp" value="93" />
+          <option name="timeStamp" value="95" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="94" />
+      <option name="time" value="96" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -977,116 +940,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/farru/android/network/ServiceResponse.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1252" max-vertical-offset="2057">
-          <caret line="124" column="0" selection-start-line="124" selection-start-column="0" selection-end-line="124" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/digitalforce/datingapp/fragments/BaseFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="262" max-vertical-offset="714">
-          <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/digitalforce/datingapp/adapter/MyPictureAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="646" max-vertical-offset="2040">
-          <caret line="68" column="66" selection-start-line="68" selection-start-column="66" selection-end-line="68" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/row_my_picture_layout.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.7818182" vertical-offset="0" max-vertical-offset="493">
-          <caret line="9" column="37" selection-start-line="9" selection-start-column="37" selection-end-line="9" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/digitalforce/datingapp/fragments/PublicPhotoFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1852" max-vertical-offset="3281">
-          <caret line="149" column="5" selection-start-line="145" selection-start-column="4" selection-end-line="149" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/digitalforce/datingapp/fragments/PrivatePhotoFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2189" max-vertical-offset="3230">
-          <caret line="179" column="64" selection-start-line="179" selection-start-column="64" selection-end-line="179" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://F:/AndroidStudio/sdk/platforms/android-20/android.jar!/java/lang/String.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.42332613" vertical-offset="1895" max-vertical-offset="3281">
-          <caret line="212" column="5" selection-start-line="212" selection-start-column="5" selection-end-line="212" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/digitalforce/datingapp/view/FilterActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="4216" max-vertical-offset="4998">
-          <caret line="283" column="98" selection-start-line="283" selection-start-column="98" selection-end-line="283" selection-end-column="98" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/digitalforce/datingapp/view/MatchActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="445" max-vertical-offset="3162">
-          <caret line="69" column="13" selection-start-line="69" selection-start-column="13" selection-end-line="69" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="701" max-vertical-offset="2686">
-          <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/digitalforce/datingapp/fragments/NearByFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="164" max-vertical-offset="1581">
-          <caret line="44" column="0" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1270#1280#0" expanded="false" />
-            <element signature="e#1767#2163#0" expanded="false" />
-            <element signature="e#2162#2163#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/digitalforce/datingapp/fragments/ExploreFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="938" max-vertical-offset="4811">
-          <caret line="106" column="0" selection-start-line="106" selection-start-column="0" selection-end-line="106" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/digitalforce/datingapp/view/MembersActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1456" max-vertical-offset="4403">
-          <caret line="135" column="41" selection-start-line="135" selection-start-column="41" selection-end-line="135" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/digitalforce/datingapp/view/UserLocationActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="37" max-vertical-offset="1411">
-          <caret line="19" column="27" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/digitalforce/datingapp/view/AudioPlayerActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1258">
@@ -1150,14 +1003,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/digitalforce/datingapp/view/RudeChatActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="4401" max-vertical-offset="10489">
-          <caret line="321" column="9" selection-start-line="321" selection-start-column="9" selection-end-line="321" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/drawable-xhdpi/ic_launcher.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -1180,22 +1025,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-4.0" vertical-offset="649" max-vertical-offset="4811">
           <caret line="76" column="0" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/digitalforce/datingapp/view/BaseActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="572" max-vertical-offset="14348">
-          <caret line="110" column="37" selection-start-line="110" selection-start-column="20" selection-end-line="110" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/digitalforce/datingapp/view/SplashActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1065" max-vertical-offset="1581">
-          <caret line="112" column="41" selection-start-line="112" selection-start-column="41" selection-end-line="112" selection-end-column="41" />
           <folding />
         </state>
       </provider>
@@ -1263,23 +1092,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/layout_update_profile.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.0" vertical-offset="7086" max-vertical-offset="7599">
-          <caret line="433" column="51" selection-start-line="433" selection-start-column="51" selection-end-line="433" selection-end-column="51" />
-          <folding>
-            <element signature="e#5339#5352#0" expanded="true" />
-            <element signature="e#5438#5452#0" expanded="true" />
-            <element signature="e#6622#6639#0" expanded="true" />
-            <element signature="e#16844#16858#0" expanded="true" />
-            <element signature="e#17733#17746#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/res/drawable/outline_profile.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.4" vertical-offset="0" max-vertical-offset="272">
@@ -1314,14 +1126,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="289" max-vertical-offset="1122">
           <caret line="46" column="34" selection-start-line="46" selection-start-column="34" selection-end-line="46" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/digitalforce/datingapp/view/UpdateProfileActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="114" max-vertical-offset="14484">
-          <caret line="248" column="22" selection-start-line="248" selection-start-column="22" selection-end-line="248" selection-end-column="22" />
           <folding />
         </state>
       </provider>
@@ -1498,8 +1302,173 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/res/values/dimens.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6135266" vertical-offset="11000" max-vertical-offset="11543">
+        <state vertical-scroll-proportion="-450.16" vertical-offset="0" max-vertical-offset="11543">
           <caret line="662" column="44" selection-start-line="662" selection-start-column="44" selection-end-line="662" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="889" max-vertical-offset="2686">
+          <caret line="64" column="72" selection-start-line="64" selection-start-column="26" selection-end-line="64" selection-end-column="72" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/libs/twitter4j-core-4.0.1.jar!/twitter4j/auth/RequestToken.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5322034" vertical-offset="285" max-vertical-offset="629">
+          <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/digitalforce/datingapp/constants/DatingConstants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2057">
+          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/digitalforce/datingapp/social/twitter/LoginTwitter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.6551723" vertical-offset="1116" max-vertical-offset="2737">
+          <caret line="99" column="53" selection-start-line="99" selection-start-column="53" selection-end-line="99" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/digitalforce/datingapp/model/UserInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="343" max-vertical-offset="2397">
+          <caret line="39" column="21" selection-start-line="39" selection-start-column="21" selection-end-line="39" selection-end-column="21" />
+          <folding>
+            <element signature="e#731#737#0" expanded="false" />
+            <element signature="e#777#778#0" expanded="false" />
+            <element signature="e#796#797#0" expanded="false" />
+            <element signature="e#844#845#0" expanded="false" />
+            <element signature="e#869#870#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/digitalforce/datingapp/view/BaseActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="419" max-vertical-offset="14348">
+          <caret line="107" column="0" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/digitalforce/datingapp/parser/JsonParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2670" max-vertical-offset="4386">
+          <caret line="186" column="5" selection-start-line="186" selection-start-column="5" selection-end-line="186" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/digitalforce/datingapp/constants/AppConstants.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="288" max-vertical-offset="1496">
+          <caret line="23" column="57" selection-start-line="23" selection-start-column="57" selection-end-line="23" selection-end-column="57" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/digitalforce/datingapp/parser/BaseParser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2274" max-vertical-offset="2805">
+          <caret line="156" column="22" selection-start-line="156" selection-start-column="22" selection-end-line="156" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/drawable-hdpi/splash_new.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/drawable/splash.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/digitalforce/datingapp/view/SplashActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1581">
+          <caret line="41" column="43" selection-start-line="41" selection-start-column="43" selection-end-line="41" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/layout_splash_screen.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.709091" vertical-offset="0" max-vertical-offset="357">
+          <caret line="12" column="33" selection-start-line="12" selection-start-column="33" selection-end-line="12" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/digitalforce/datingapp/view/TermConditionActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2992">
+          <caret line="35" column="48" selection-start-line="35" selection-start-column="48" selection-end-line="35" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/layout_term_condition.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.090909" vertical-offset="10298" max-vertical-offset="10761">
+          <caret line="619" column="42" selection-start-line="619" selection-start-column="42" selection-end-line="619" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/layout_update_profile.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-51.618183" vertical-offset="0" max-vertical-offset="7633">
+          <caret line="167" column="44" selection-start-line="167" selection-start-column="44" selection-end-line="167" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/digitalforce/datingapp/view/UpdateProfileActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.8965516" vertical-offset="621" max-vertical-offset="14484">
+          <caret line="92" column="89" selection-start-line="88" selection-start-column="3" selection-end-line="92" selection-end-column="89" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/digitalforce/datingapp/view/FilterActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="4998">
+          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/digitalforce/datingapp/view/RudeChatActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.662531" vertical-offset="668" max-vertical-offset="10829">
+          <caret line="103" column="9" selection-start-line="103" selection-start-column="9" selection-end-line="103" selection-end-column="9" />
           <folding />
         </state>
       </provider>

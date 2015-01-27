@@ -145,7 +145,7 @@ public class BaseParser implements IParser {
                 response.setResponseObject(JsonParser.parseAddPrivatePublicPhotoJson(jsonObject));
                 break;
             case ApiEvent.CHAT_HISTORY_EVENT:
-                response.setResponseObject(JsonParser.parseChatHistoryData(jsonObject));
+                response.setResponseObject(JsonParser.parseUserChat(jsonObject));
                 break;
             case ApiEvent.SEND_MSG_EVENT:
                 break;

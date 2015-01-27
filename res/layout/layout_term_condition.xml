@@ -606,8 +606,8 @@
             android:layout_height="wrap_content"
             android:padding="@dimen/dp_10"
             android:textSize="@dimen/sp_14"
-            android:background="@android:color/white"
-            android:textColor="#69A1De"
+            android:background="@drawable/ok_button_no_txt"
+            android:textColor="@android:color/white"
             android:text="@string/accept"/>
         <View 
             android:layout_width="@dimen/dp_10"
@@ -620,8 +620,8 @@
             android:padding="@dimen/dp_10"
             android:layout_height="wrap_content"
             android:textSize="@dimen/sp_14"
-            android:textColor="#69A1De"
-            android:background="@android:color/white"
+            android:textColor="#6F6F6F"
+            android:background="@drawable/cancel_button_no_txt"
             android:text="@string/cancel"/>
     </LinearLayout>
 </RelativeLayout>

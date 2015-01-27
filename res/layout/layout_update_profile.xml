@@ -96,6 +96,7 @@
             -->
 
             <LinearLayout
+                    android:visibility="gone"
                 android:id="@+id/layout_update_profile_gender"
                 style="@style/layout_profile" >
 
@@ -164,6 +165,7 @@
             </LinearLayout>
 
             <LinearLayout
+                    android:visibility="gone"
                 android:id="@+id/layout_update_profile_mobile"
                 style="@style/layout_profile" >
 

@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@drawable/splash_new" >
+    android:background="@drawable/bg" >
 
     <ImageView
         android:id="@+id/img_logo"
@@ -10,7 +10,7 @@
         android:layout_height="@dimen/dp_55"
         android:layout_centerInParent="true"
         android:contentDescription="@null"
-        android:visibility="gone"
+        android:visibility="visible"
         android:src="@drawable/app_tit" />
 
 </RelativeLayout>

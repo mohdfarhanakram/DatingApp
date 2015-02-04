@@ -59,7 +59,9 @@
     <style name="abt_view">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:background">@drawable/abt_us_sep</item>
+        <item name="android:layout_marginTop">@dimen/dp_5</item>
+        <item name="android:layout_marginBottom">@dimen/dp_5</item>
+        <item name="android:background">@drawable/set_separator</item>
     </style>
 
     <style name="set_view">
@@ -90,12 +92,27 @@
         <item name="android:padding">@dimen/dp_5</item>
     </style>
 
+    <style name="img_home1">
+        <item name="android:layout_width">@dimen/dp_20</item>
+        <item name="android:layout_height">@dimen/dp_20</item>
+        <item name="android:layout_margin">2dp</item>
+    </style>
+
     <style name="txt_base">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:singleLine">true</item>
         <item name="android:textSize">@dimen/sp_12</item>
         <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="txt_sub_base">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:singleLine">false</item>
+        <item name="android:maxLines">2</item>
+        <item name="android:textSize">@dimen/sp_12</item>
+        <item name="android:textColor">#7278A4</item>
     </style>
 
     <style name="layout_home">

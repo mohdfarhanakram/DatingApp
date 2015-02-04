@@ -27,12 +27,12 @@
 
             <ImageView
                 android:id="@+id/micImage"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_below="@+id/heading_txtv"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="20dp"
-                android:src="@android:drawable/presence_audio_online" />
+                android:src="@drawable/ic_action_mic"/>
 
             <TextView
                 android:id="@+id/timer_txtv"

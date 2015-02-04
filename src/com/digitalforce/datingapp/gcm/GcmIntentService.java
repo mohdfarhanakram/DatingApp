@@ -6,6 +6,8 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.media.RingtoneManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.support.v4.app.NotificationCompat;
@@ -125,6 +127,8 @@ public class GcmIntentService extends IntentService {
 
         mBuilder.setContentIntent(contentIntent);
         mBuilder.setAutoCancel(true);
+        Uri uri= RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+        mBuilder.setSound(uri);
         mNotificationManager.notify(getNotificationId(userId), mBuilder.build());
     }
 

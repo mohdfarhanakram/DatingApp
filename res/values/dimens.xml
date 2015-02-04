@@ -660,7 +660,7 @@
     <dimen name="player_img_width">120dp</dimen>
     <dimen name="player_img_height">120dp</dimen>
 
-    <dimen name="emotion_width">80dp</dimen>
+    <dimen name="emotion_width">60dp</dimen>
     <dimen name="l_emotion_width">40dp</dimen>
     <dimen name="time_width">10dp</dimen>
 
@@ -668,6 +668,6 @@
     <dimen name="chat_user_header_size">16sp</dimen>
     <dimen name="chat_text_size">14sp</dimen>
 
-    <dimen name="set_layout_height">60dp</dimen>
+    <dimen name="set_layout_height">80dp</dimen>
 
 </resources>

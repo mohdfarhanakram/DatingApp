@@ -7,7 +7,8 @@
 
     <ImageView
         android:id="@+id/remove_image"
-        style="@style/img_home"
+        style="@style/img_home1"
+        android:paddingLeft="5dp"
         android:contentDescription="@null"
         android:src="@drawable/delete_picture_icon"
         android:visibility="visible" />
@@ -29,7 +30,7 @@
 
     <ImageView
         android:id="@+id/img_action_add"
-        style="@style/img_home"
+        style="@style/img_home1"
         android:contentDescription="@null"
         android:src="@drawable/add_picture_icon" />
 

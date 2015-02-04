@@ -2,16 +2,19 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="@dimen/dp_5"
-    android:paddingRight="@dimen/dp_5"
+
     android:background="@android:color/transparent"
     android:orientation="vertical" >
-    <TextView 
+    <TextView
+            android:paddingLeft="@dimen/dp_5"
+            android:paddingRight="@dimen/dp_5"
         style="@style/txt_base"
         android:text="@string/_looking_for"
         android:textColor="#a1addf"
         android:textSize="@dimen/sp_14"/>
-    <TextView 
+    <TextView
+            android:paddingLeft="@dimen/dp_5"
+            android:paddingRight="@dimen/dp_5"
         android:id="@+id/txt_fragment_about_looking_for"
         style="@style/txt_base"
         android:layout_marginTop="@dimen/dp_5"
@@ -20,13 +23,17 @@
         android:singleLine="false"/>
     <View 
         style="@style/abt_view"
-        android:layout_margin="@dimen/dp_5"/>
-    <TextView 
+/>
+    <TextView
+            android:paddingLeft="@dimen/dp_5"
+            android:paddingRight="@dimen/dp_5"
         style="@style/txt_base"
         android:text="@string/_about_me"
         android:textColor="#a1addf"
         android:textSize="@dimen/sp_14"/>
     <TextView
+            android:paddingLeft="@dimen/dp_5"
+            android:paddingRight="@dimen/dp_5"
         android:id="@+id/txt_fragment_about_about_me" 
         style="@style/txt_base"
         android:layout_marginTop="@dimen/dp_5"
@@ -35,13 +42,17 @@
         android:singleLine="false"/>
     <View 
         style="@style/abt_view"
-        android:layout_margin="@dimen/dp_5"/>
-    <TextView 
+/>
+    <TextView
+            android:paddingLeft="@dimen/dp_5"
+            android:paddingRight="@dimen/dp_5"
         style="@style/txt_base"
         android:text="@string/_interest"
         android:textColor="#a1addf"
         android:textSize="@dimen/sp_14"/>
-    <TextView 
+    <TextView
+            android:paddingLeft="@dimen/dp_5"
+            android:paddingRight="@dimen/dp_5"
         android:id="@+id/txt_fragment_about_interest"
         style="@style/txt_base"
         android:layout_marginTop="@dimen/dp_5"

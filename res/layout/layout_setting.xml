@@ -8,131 +8,16 @@
     <include layout="@layout/layout_action_bar" />
 
     <ScrollView
+            android:layout_marginTop="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <LinearLayout
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical" >
 
-            <LinearLayout
-                    android:visibility="gone"
-                android:id="@+id/layout_setting_more_something"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/set_layout_height"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:padding="@dimen/dp_10" >
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical" >
-
-                    <TextView
-                        style="@style/txt_base"
-                        android:layout_width="match_parent"
-                        android:text="@string/more_something"
-                        android:textSize="@dimen/sp_14" />
-
-                    <TextView
-                        style="@style/txt_base"
-                        android:visibility="gone"
-                        android:layout_marginTop="@dimen/dp_3"
-                        android:singleLine="false"
-                        android:text="@string/common_msg"
-                        android:textSize="@dimen/sp_10" />
-                </LinearLayout>
-
-                <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                    android:layout_weight="0"
-                    android:contentDescription="@null"
-                    android:src="@drawable/set_next" />
-            </LinearLayout>
-
-            <View android:visibility="gone" style="@style/set_view" />
-
-            <LinearLayout
-                    android:visibility="gone"
-                android:id="@+id/layout_setting_just_another"
-                android:layout_width="match_parent"
-                    android:layout_height="@dimen/set_layout_height"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:padding="@dimen/dp_10" >
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical" >
-
-                    <TextView
-                        style="@style/txt_base"
-                        android:layout_width="match_parent"
-                        android:text="@string/just_another_setting"
-                        android:textSize="@dimen/sp_14" />
-
-                    <TextView
-                        style="@style/txt_base"
-                        android:layout_marginTop="@dimen/dp_3"
-                        android:singleLine="false"
-                        android:text="@string/common_msg"
-                        android:textSize="@dimen/sp_10" />
-                </LinearLayout>
-
-                <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                    android:layout_weight="0"
-                    android:contentDescription="@null"
-                    android:src="@drawable/set_next" />
-            </LinearLayout>
-
-            <View android:visibility="gone" style="@style/set_view" />
-
-            <LinearLayout
-                    android:visibility="gone"
-                android:id="@+id/layout_setting_other"
-                android:layout_width="match_parent"
-                    android:layout_height="@dimen/set_layout_height"
-                android:gravity="center"
-                android:orientation="horizontal"
-                android:padding="@dimen/dp_10" >
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical" >
-
-                    <TextView
-                        style="@style/txt_base"
-                        android:layout_width="match_parent"
-                        android:text="@string/other_setting"
-                        android:textSize="@dimen/sp_14" />
-
-                    <TextView
-                        style="@style/txt_base"
-                        android:layout_marginTop="@dimen/dp_3"
-                        android:singleLine="false"
-                        android:text="@string/common_msg"
-                        android:textSize="@dimen/sp_10" />
-                </LinearLayout>
-
-                <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                    android:layout_weight="0"
-                    android:contentDescription="@null"
-                    android:src="@drawable/set_next" />
-            </LinearLayout>
-
-            <View android:visibility="gone" style="@style/set_view" />
 
             <LinearLayout
                 android:id="@+id/layout_setting_profile"
@@ -155,11 +40,11 @@
                         android:textSize="@dimen/sp_14" />
 
                     <TextView
-                        style="@style/txt_base"
-                        android:visibility="gone"
+                        android:paddingRight="5dp"
+                        style="@style/txt_sub_base"
+                        android:visibility="visible"
                         android:layout_marginTop="@dimen/dp_3"
-                        android:singleLine="false"
-                        android:text="@string/common_msg"
+                        android:text="Edit, Update profile details, upload profile video and audio message, set profile avatar."
                         android:textSize="@dimen/sp_10" />
                 </LinearLayout>
 
@@ -194,11 +79,9 @@
                         android:textSize="@dimen/sp_14" />
 
                     <TextView
-                        style="@style/txt_base"
+                        style="@style/txt_sub_base"
                         android:layout_marginTop="@dimen/dp_3"
-                        android:singleLine="false"
-                        android:visibility="gone"
-                        android:text="@string/common_msg"
+                        android:text="Apply filters result filters for Match Finder"
                         android:textSize="@dimen/sp_10" />
                 </LinearLayout>
 
@@ -233,11 +116,9 @@
                         android:textSize="@dimen/sp_14" />
 
                     <TextView
-                        style="@style/txt_base"
+                        style="@style/txt_sub_base"
                         android:layout_marginTop="@dimen/dp_3"
-                        android:singleLine="false"
-                        android:visibility="gone"
-                        android:text="@string/common_msg"
+                        android:text="Activate Premium Membership feature."
                         android:textSize="@dimen/sp_10" />
                 </LinearLayout>
 

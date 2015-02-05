@@ -22,28 +22,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6faf868d-9412-430f-9fbd-2525aa09d15f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/audio_mic.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/res/drawable-hdpi/off.png" />
-      <change type="DELETED" beforePath="F:\Project\DatingApp\DatingApp\res\drawable-hdpi\offline.png" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/digitalforce/datingapp/R$drawable.class" afterPath="$PROJECT_DIR$/bin/classes/com/digitalforce/datingapp/R$drawable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/digitalforce/datingapp/R$id.class" afterPath="$PROJECT_DIR$/bin/classes/com/digitalforce/datingapp/R$id.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/digitalforce/datingapp/R$layout.class" afterPath="$PROJECT_DIR$/bin/classes/com/digitalforce/datingapp/R$layout.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/digitalforce/datingapp/R$string.class" afterPath="$PROJECT_DIR$/bin/classes/com/digitalforce/datingapp/R$string.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/digitalforce/datingapp/R$style.class" afterPath="$PROJECT_DIR$/bin/classes/com/digitalforce/datingapp/R$style.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/digitalforce/datingapp/R.class" afterPath="$PROJECT_DIR$/bin/classes/com/digitalforce/datingapp/R.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/digitalforce/datingapp/view/SignUpActivity.class" afterPath="$PROJECT_DIR$/bin/classes/com/digitalforce/datingapp/view/SignUpActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/classes/com/digitalforce/datingapp/utils/ToastCustom.class" afterPath="$PROJECT_DIR$/bin/classes/com/digitalforce/datingapp/utils/ToastCustom.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/drawable-hdpi/ic_action_mic.png" afterPath="$PROJECT_DIR$/res/drawable-hdpi/ic_action_mic.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/digitalforce/datingapp/gcm/GcmIntentService.java" afterPath="$PROJECT_DIR$/src/com/digitalforce/datingapp/gcm/GcmIntentService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/digitalforce/datingapp/view/SettingActivity.java" afterPath="$PROJECT_DIR$/src/com/digitalforce/datingapp/view/SettingActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/activity_audio_recorder.xml" afterPath="$PROJECT_DIR$/res/layout/activity_audio_recorder.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/add_photo_actionbar.xml" afterPath="$PROJECT_DIR$/res/layout/add_photo_actionbar.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/values/dimens.xml" afterPath="$PROJECT_DIR$/res/values/dimens.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/layout_fragment_about.xml" afterPath="$PROJECT_DIR$/res/layout/layout_fragment_about.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/layout_profile.xml" afterPath="$PROJECT_DIR$/res/layout/layout_profile.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/layout_setting.xml" afterPath="$PROJECT_DIR$/res/layout/layout_setting.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/layout_splash_screen.xml" afterPath="$PROJECT_DIR$/res/layout/layout_splash_screen.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/values/styles.xml" afterPath="$PROJECT_DIR$/res/values/styles.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/row_chat_bubble_item.xml" afterPath="$PROJECT_DIR$/res/layout/row_chat_bubble_item.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="DatingApp.iws" />
@@ -78,85 +58,50 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="SettingActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/digitalforce/datingapp/view/SettingActivity.java">
+      <file leaf-file-name="ProfileActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/digitalforce/datingapp/view/ProfileActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="530" max-vertical-offset="1105">
-              <caret line="57" column="52" selection-start-line="57" selection-start-column="52" selection-end-line="57" selection-end-column="52" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="245" max-vertical-offset="8194">
+              <caret line="53" column="41" selection-start-line="53" selection-start-column="41" selection-end-line="53" selection-end-column="41" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="layout_setting.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/layout/layout_setting.xml">
+      <file leaf-file-name="layout_profile.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/res/layout/layout_profile.xml">
           <provider editor-type-id="android-designer">
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.709091" vertical-offset="0" max-vertical-offset="697">
-              <caret line="12" column="45" selection-start-line="12" selection-start-column="45" selection-end-line="12" selection-end-column="45" />
+            <state vertical-scroll-proportion="-10.766666" vertical-offset="510" max-vertical-offset="3128">
+              <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
               <folding>
-                <element signature="n#LinearLayout#0;n#LinearLayout#0;n#ScrollView#0;n#LinearLayout#0;n#!!top" expanded="false" />
-                <element signature="e#812#838#0" expanded="true" />
-                <element signature="n#LinearLayout#1;n#LinearLayout#0;n#ScrollView#0;n#LinearLayout#0;n#!!top" expanded="false" />
-                <element signature="n#LinearLayout#2;n#LinearLayout#0;n#ScrollView#0;n#LinearLayout#0;n#!!top" expanded="false" />
+                <element signature="e#1648#1662#0" expanded="true" />
+                <element signature="e#1709#1723#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MyPictureActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/digitalforce/datingapp/view/MyPictureActivity.java">
+      <file leaf-file-name="RudeChatAdapter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/digitalforce/datingapp/adapter/RudeChatAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="362" max-vertical-offset="5712">
-              <caret line="60" column="42" selection-start-line="60" selection-start-column="42" selection-end-line="60" selection-end-column="42" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="406" max-vertical-offset="3927">
+              <caret line="66" column="83" selection-start-line="66" selection-start-column="83" selection-end-line="66" selection-end-column="83" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="layout_my_picture.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/layout/layout_my_picture.xml">
+      <file leaf-file-name="row_chat_bubble_item.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/res/layout/row_chat_bubble_item.xml">
           <provider editor-type-id="android-designer">
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.7636364" vertical-offset="22" max-vertical-offset="408">
-              <caret line="7" column="37" selection-start-line="7" selection-start-column="37" selection-end-line="7" selection-end-column="37" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="add_photo_actionbar.xml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/res/layout/add_photo_actionbar.xml">
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7534626" vertical-offset="17" max-vertical-offset="850">
-              <caret line="17" column="42" selection-start-line="17" selection-start-column="42" selection-end-line="17" selection-end-column="42" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dimens.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/values/dimens.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.88" vertical-offset="11152" max-vertical-offset="11543">
-              <caret line="672" column="12" selection-start-line="672" selection-start-column="12" selection-end-line="672" selection-end-column="12" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="styles.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/res/values/styles.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.68" vertical-offset="1349" max-vertical-offset="3587">
-              <caret line="98" column="12" selection-start-line="98" selection-start-column="12" selection-end-line="98" selection-end-column="12" />
+            <state vertical-scroll-proportion="0.8095238" vertical-offset="2584" max-vertical-offset="3247">
+              <caret line="169" column="0" selection-start-line="169" selection-start-column="0" selection-end-line="169" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -207,7 +152,6 @@
         <option value="$PROJECT_DIR$/src/com/digitalforce/datingapp/dialog/DialogUpdateProfile.java" />
         <option value="$PROJECT_DIR$/res/layout/layout_dialog_update_profile.xml" />
         <option value="$PROJECT_DIR$/src/com/digitalforce/datingapp/view/MyPictureActivity.java" />
-        <option value="$PROJECT_DIR$/res/layout/row_chat_bubble_item.xml" />
         <option value="$PROJECT_DIR$/src/com/digitalforce/datingapp/adapter/RudeChatAdapter.java" />
         <option value="$PROJECT_DIR$/src/com/digitalforce/datingapp/constants/AppConstants.java" />
         <option value="$PROJECT_DIR$/src/com/digitalforce/datingapp/constants/DatingConstants.java" />
@@ -224,12 +168,13 @@
         <option value="$PROJECT_DIR$/res/layout/activity_audio_recorder.xml" />
         <option value="$PROJECT_DIR$/src/com/digitalforce/datingapp/view/ProfileActivity.java" />
         <option value="$PROJECT_DIR$/res/layout/layout_fragment_about.xml" />
-        <option value="$PROJECT_DIR$/res/layout/layout_profile.xml" />
         <option value="$PROJECT_DIR$/res/values/dimens.xml" />
         <option value="$PROJECT_DIR$/res/layout/layout_setting.xml" />
         <option value="$PROJECT_DIR$/src/com/digitalforce/datingapp/view/SettingActivity.java" />
         <option value="$PROJECT_DIR$/res/values/styles.xml" />
         <option value="$PROJECT_DIR$/res/layout/add_photo_actionbar.xml" />
+        <option value="$PROJECT_DIR$/res/layout/layout_profile.xml" />
+        <option value="$PROJECT_DIR$/res/layout/row_chat_bubble_item.xml" />
       </list>
     </option>
   </component>
@@ -268,7 +213,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -322,6 +266,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -332,7 +277,7 @@
     <property name="MemberChooser.showClasses" value="true" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="recentsLimit" value="5" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="F:/RDDDPP/Android-Desktop-Remote-Control/Touch" />
     <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -627,7 +572,6 @@
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26687115" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="14" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.12248322" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.15337424" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -637,6 +581,7 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.12248322" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -871,6 +816,14 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/res/values/styles.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1349" max-vertical-offset="3587">
+          <caret line="98" column="12" selection-start-line="98" selection-start-column="12" selection-end-line="98" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/layout_dialog_update_profile.xml">
       <provider editor-type-id="android-designer">
         <state />
@@ -884,13 +837,6 @@
     <entry file="file://$PROJECT_DIR$/res/drawable-hdpi/separator.png">
       <provider selected="true" editor-type-id="images">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/digitalforce/datingapp/adapter/RudeChatAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.5172415" vertical-offset="2442" max-vertical-offset="3978">
-          <caret line="201" column="0" selection-start-line="201" selection-start-column="0" selection-end-line="201" selection-end-column="0" />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/AndroidManifest.xml">
@@ -940,9 +886,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="288" max-vertical-offset="1496">
           <caret line="23" column="57" selection-start-line="23" selection-start-column="57" selection-end-line="23" selection-end-column="57" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -996,9 +939,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="4998">
           <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1036,12 +976,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="3315">
           <caret line="84" column="47" selection-start-line="84" selection-start-column="47" selection-end-line="84" selection-end-column="47" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#1430#1438#0" expanded="false" />
-            <element signature="e#1858#2050#0" expanded="false" />
-            <element signature="e#2049#2050#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1065,7 +999,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="235" max-vertical-offset="4573">
           <caret line="54" column="42" selection-start-line="54" selection-start-column="42" selection-end-line="54" selection-end-column="42" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1084,24 +1017,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1581">
           <caret line="36" column="45" selection-start-line="36" selection-start-column="45" selection-end-line="36" selection-end-column="45" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/drawable-hdpi/set_separator.png">
       <provider selected="true" editor-type-id="images">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/row_chat_bubble_item.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.7454545" vertical-offset="1332" max-vertical-offset="3247">
-          <caret line="84" column="58" selection-start-line="84" selection-start-column="58" selection-end-line="84" selection-end-column="58" />
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/layout/activity_audio_player.xml">
@@ -1120,7 +1041,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="551" max-vertical-offset="4250">
           <caret line="56" column="47" selection-start-line="56" selection-start-column="47" selection-end-line="56" selection-end-column="47" />
           <folding>
-            <element signature="n#!!doc" expanded="true" />
+            <element signature="n#!!doc" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1164,32 +1085,32 @@
         <state vertical-scroll-proportion="-5.9454546" vertical-offset="353" max-vertical-offset="1173">
           <caret line="40" column="35" selection-start-line="40" selection-start-column="35" selection-end-line="40" selection-end-column="35" />
           <folding>
-            <element signature="e#329#342#0" expanded="true" />
-            <element signature="e#376#389#0" expanded="true" />
-            <element signature="e#443#465#0" expanded="true" />
-            <element signature="e#527#541#0" expanded="true" />
-            <element signature="e#590#603#0" expanded="true" />
-            <element signature="e#637#650#0" expanded="true" />
-            <element signature="e#773#786#0" expanded="true" />
-            <element signature="e#823#836#0" expanded="true" />
-            <element signature="e#858#883#0" expanded="true" />
-            <element signature="e#1013#1026#0" expanded="true" />
-            <element signature="e#1060#1073#0" expanded="true" />
-            <element signature="e#1127#1146#0" expanded="true" />
-            <element signature="e#1208#1222#0" expanded="true" />
-            <element signature="e#1271#1284#0" expanded="true" />
-            <element signature="e#1318#1331#0" expanded="true" />
-            <element signature="e#1452#1465#0" expanded="true" />
-            <element signature="e#1502#1515#0" expanded="true" />
-            <element signature="e#1687#1700#0" expanded="true" />
-            <element signature="e#1734#1747#0" expanded="true" />
-            <element signature="e#1801#1820#0" expanded="true" />
-            <element signature="e#1882#1896#0" expanded="true" />
-            <element signature="e#1945#1958#0" expanded="true" />
-            <element signature="e#1992#2005#0" expanded="true" />
-            <element signature="e#2125#2138#0" expanded="true" />
-            <element signature="e#2175#2188#0" expanded="true" />
-            <element signature="e#2210#2230#0" expanded="true" />
+            <element signature="e#329#342#0" expanded="false" />
+            <element signature="e#376#389#0" expanded="false" />
+            <element signature="e#443#465#0" expanded="false" />
+            <element signature="e#527#541#0" expanded="false" />
+            <element signature="e#590#603#0" expanded="false" />
+            <element signature="e#637#650#0" expanded="false" />
+            <element signature="e#773#786#0" expanded="false" />
+            <element signature="e#823#836#0" expanded="false" />
+            <element signature="e#858#883#0" expanded="false" />
+            <element signature="e#1013#1026#0" expanded="false" />
+            <element signature="e#1060#1073#0" expanded="false" />
+            <element signature="e#1127#1146#0" expanded="false" />
+            <element signature="e#1208#1222#0" expanded="false" />
+            <element signature="e#1271#1284#0" expanded="false" />
+            <element signature="e#1318#1331#0" expanded="false" />
+            <element signature="e#1452#1465#0" expanded="false" />
+            <element signature="e#1502#1515#0" expanded="false" />
+            <element signature="e#1687#1700#0" expanded="false" />
+            <element signature="e#1734#1747#0" expanded="false" />
+            <element signature="e#1801#1820#0" expanded="false" />
+            <element signature="e#1882#1896#0" expanded="false" />
+            <element signature="e#1945#1958#0" expanded="false" />
+            <element signature="e#1992#2005#0" expanded="false" />
+            <element signature="e#2125#2138#0" expanded="false" />
+            <element signature="e#2175#2188#0" expanded="false" />
+            <element signature="e#2210#2230#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1198,28 +1119,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="7" max-vertical-offset="1020">
           <caret line="27" column="52" selection-start-line="27" selection-start-column="52" selection-end-line="27" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/res/layout/layout_profile.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.90229887" vertical-offset="723" max-vertical-offset="3128">
-          <caret line="61" column="41" selection-start-line="61" selection-start-column="41" selection-end-line="61" selection-end-column="41" />
-          <folding>
-            <element signature="e#1648#1662#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/digitalforce/datingapp/view/ProfileActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.51336896" vertical-offset="3395" max-vertical-offset="8194">
-          <caret line="241" column="50" selection-start-line="241" selection-start-column="50" selection-end-line="241" selection-end-column="50" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1231,12 +1130,12 @@
         <state vertical-scroll-proportion="0.68421054" vertical-offset="382" max-vertical-offset="2482">
           <caret line="37" column="44" selection-start-line="37" selection-start-column="44" selection-end-line="37" selection-end-column="44" />
           <folding>
-            <element signature="e#4263#4277#0" expanded="true" />
-            <element signature="e#4416#4430#0" expanded="true" />
-            <element signature="e#4498#4512#0" expanded="true" />
-            <element signature="e#5002#5016#0" expanded="true" />
-            <element signature="e#5163#5177#0" expanded="true" />
-            <element signature="e#5360#5375#0" expanded="true" />
+            <element signature="e#4263#4277#0" expanded="false" />
+            <element signature="e#4416#4430#0" expanded="false" />
+            <element signature="e#4498#4512#0" expanded="false" />
+            <element signature="e#5002#5016#0" expanded="false" />
+            <element signature="e#5163#5177#0" expanded="false" />
+            <element signature="e#5360#5375#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1245,13 +1144,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.4903846" vertical-offset="136" max-vertical-offset="1258">
           <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/res/values/dimens.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.88" vertical-offset="11152" max-vertical-offset="11543">
+        <state vertical-scroll-proportion="0.0" vertical-offset="11152" max-vertical-offset="11543">
           <caret line="672" column="12" selection-start-line="672" selection-start-column="12" selection-end-line="672" selection-end-column="12" />
           <folding />
         </state>
@@ -1262,11 +1160,10 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.709091" vertical-offset="0" max-vertical-offset="697">
+        <state vertical-scroll-proportion="0.0" vertical-offset="204" max-vertical-offset="697">
           <caret line="12" column="45" selection-start-line="12" selection-start-column="45" selection-end-line="12" selection-end-column="45" />
           <folding>
             <element signature="n#LinearLayout#0;n#LinearLayout#0;n#ScrollView#0;n#LinearLayout#0;n#!!top" expanded="false" />
-            <element signature="e#812#838#0" expanded="true" />
             <element signature="n#LinearLayout#1;n#LinearLayout#0;n#ScrollView#0;n#LinearLayout#0;n#!!top" expanded="false" />
             <element signature="n#LinearLayout#2;n#LinearLayout#0;n#ScrollView#0;n#LinearLayout#0;n#!!top" expanded="false" />
           </folding>
@@ -1277,7 +1174,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="530" max-vertical-offset="1105">
           <caret line="57" column="52" selection-start-line="57" selection-start-column="52" selection-end-line="57" selection-end-column="52" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1285,7 +1184,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="362" max-vertical-offset="5712">
           <caret line="60" column="42" selection-start-line="60" selection-start-column="42" selection-end-line="60" selection-end-column="42" />
-          <folding />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#6251#7145#0" expanded="false" />
+            <element signature="e#7144#7145#0" expanded="false" />
+            <element signature="e#10856#10857#0" expanded="false" />
+            <element signature="e#10888#10889#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1294,7 +1200,7 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.7636364" vertical-offset="22" max-vertical-offset="408">
+        <state vertical-scroll-proportion="0.0" vertical-offset="22" max-vertical-offset="408">
           <caret line="7" column="37" selection-start-line="7" selection-start-column="37" selection-end-line="7" selection-end-column="37" />
           <folding />
         </state>
@@ -1307,7 +1213,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/res/values/styles.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.68" vertical-offset="1349" max-vertical-offset="3587">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1349" max-vertical-offset="3587">
           <caret line="98" column="12" selection-start-line="98" selection-start-column="12" selection-end-line="98" selection-end-column="12" />
           <folding />
         </state>
@@ -1318,8 +1224,49 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7534626" vertical-offset="17" max-vertical-offset="850">
-          <caret line="17" column="42" selection-start-line="17" selection-start-column="42" selection-end-line="17" selection-end-column="42" />
+        <state vertical-scroll-proportion="-9.066667" vertical-offset="0" max-vertical-offset="850">
+          <caret line="16" column="31" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/digitalforce/datingapp/view/ProfileActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="245" max-vertical-offset="8194">
+          <caret line="53" column="41" selection-start-line="53" selection-start-column="41" selection-end-line="53" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/layout_profile.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-10.766666" vertical-offset="510" max-vertical-offset="3128">
+          <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+          <folding>
+            <element signature="e#1648#1662#0" expanded="true" />
+            <element signature="e#1709#1723#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/digitalforce/datingapp/adapter/RudeChatAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="406" max-vertical-offset="3927">
+          <caret line="66" column="83" selection-start-line="66" selection-start-column="83" selection-end-line="66" selection-end-column="83" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/res/layout/row_chat_bubble_item.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8095238" vertical-offset="2584" max-vertical-offset="3247">
+          <caret line="169" column="0" selection-start-line="169" selection-start-column="0" selection-end-line="169" selection-end-column="0" />
           <folding />
         </state>
       </provider>

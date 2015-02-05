@@ -42,8 +42,8 @@
 
                     <ImageView
                         android:id="@+id/img_profile_online_status"
-                        android:layout_width="@dimen/dp_15"
-                        android:layout_height="@dimen/dp_15"
+                        android:layout_width="@dimen/dp_10"
+                        android:layout_height="@dimen/dp_10"
                         android:layout_marginRight="@dimen/dp_8"
                         android:contentDescription="@null"
                         android:src="@drawable/off"/>

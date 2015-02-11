@@ -131,6 +131,80 @@
             </LinearLayout>
 
             <View style="@style/set_view" />
+
+            <LinearLayout
+                    android:id="@+id/layout_setting_share"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/set_layout_height"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/dp_10" >
+
+                <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical" >
+
+                    <TextView
+                            style="@style/txt_base"
+                            android:layout_width="match_parent"
+                            android:text="Share N2HIM"
+                            android:textSize="@dimen/sp_14" />
+
+                    <TextView
+                            style="@style/txt_sub_base"
+                            android:layout_marginTop="@dimen/dp_3"
+                            android:text="Share N2HIM app"
+                            android:textSize="@dimen/sp_10" />
+                </LinearLayout>
+
+                <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0"
+                        android:contentDescription="@null"
+                        android:src="@drawable/set_next" />
+            </LinearLayout>
+
+            <View style="@style/set_view" />
+
+            <LinearLayout
+                    android:id="@+id/layout_setting_contactus"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/set_layout_height"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/dp_10" >
+
+                <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical" >
+
+                    <TextView
+                            style="@style/txt_base"
+                            android:layout_width="match_parent"
+                            android:text="Contact N2HIM"
+                            android:textSize="@dimen/sp_14" />
+
+                    <TextView
+                            style="@style/txt_sub_base"
+                            android:layout_marginTop="@dimen/dp_3"
+                            android:text="For any query/suggestion/feedback please contact at support@n2him.com"
+                            android:textSize="@dimen/sp_10" />
+                </LinearLayout>
+
+                <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0"
+                        android:contentDescription="@null"
+                        android:src="@drawable/set_next" />
+            </LinearLayout>
+
+            <View style="@style/set_view" />
         </LinearLayout>
     </ScrollView>
 

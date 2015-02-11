@@ -8,6 +8,8 @@
 
     -->
     <style name="AppBaseTheme" parent="android:Theme.Light">
+
+        <!--<item name="android:alertDialogStyle">@style/CustomDialogTheme</item>-->
         <!--
             Theme customizations available in newer API levels can go in
             res/values-vXX/styles.xml, while customizations related to
@@ -177,6 +179,28 @@
         <item name="switchPadding">16dip</item>
         <item name="switchTextAppearance">@style/TextAppearance</item>
     </style>
+
+    <!--<style name="CustomDialogTheme" parent="">
+        <item name="android:windowTitleStyle">@style/dialog_title_style</item>
+    </style>
+
+    <style name="dialog_title_style" parent="android:Widget.TextView">
+        <item name="android:background">@color/com_facebook_blue</item>
+        <item name="android:padding">10dp</item>
+    </style>-->
+
+    <!--<style name="CustomDialogTheme" parent="@android:style/Theme.Dialog">
+        <item name="android:bottomBright">@color/white</item>
+        <item name="android:bottomDark">@color/white</item>
+        <item name="android:bottomMedium">@color/white</item>
+        <item name="android:centerBright">@color/white</item>
+        <item name="android:centerDark">@color/white</item>
+        <item name="android:centerMedium">@color/white</item>
+        <item name="android:fullBright">@color/com_facebook_blue</item>
+        <item name="android:fullDark">@color/com_facebook_blue</item>
+        <item name="android:topBright">@color/blue</item>
+        <item name="android:topDark">@color/blue</item>
+    </style>-->
 
     <!--<style name="mySwitchStyle">
         <item name="track">@drawable/switch_track_green</item>

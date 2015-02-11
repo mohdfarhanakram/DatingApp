@@ -1,5 +1,6 @@
 package com.digitalforce.datingapp.view;
 
+import android.net.Uri;
 import com.digitalforce.datingapp.R;
 import com.digitalforce.datingapp.utils.ToastCustom;
 
@@ -35,6 +36,9 @@ public class SettingActivity extends BaseActivity implements OnClickListener{
 		mProfile.setOnClickListener(this);
 		mfilters.setOnClickListener(this);
 		mPremiumMembership.setOnClickListener(this);
+		findViewById(R.id.layout_setting_share).setOnClickListener(this);
+		findViewById(R.id.layout_setting_contactus).setOnClickListener(this);
+
 	}
 
 	@Override
@@ -46,22 +50,43 @@ public class SettingActivity extends BaseActivity implements OnClickListener{
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
-		case R.id.layout_setting_profile:
-			//ToastCustom.underDevelopment(this);
-			Intent intentProfile = new Intent(this, UpdateProfileActivity.class);
-			startActivity(intentProfile);
-			break;
-		case R.id.layout_setting_filters:
-			Intent intentFilter = new Intent(this, FilterActivity.class);
-			startActivity(intentFilter);
-			break;
-		case R.id.layout_setting_premium_membership:
-			ToastCustom.underDevelopment(this);
-			break;
+			case R.id.layout_setting_profile:
+				//ToastCustom.underDevelopment(this);
+				Intent intentProfile = new Intent(this, UpdateProfileActivity.class);
+				startActivity(intentProfile);
+				break;
+			case R.id.layout_setting_filters:
+				Intent intentFilter = new Intent(this, FilterActivity.class);
+				startActivity(intentFilter);
+				break;
+			case R.id.layout_setting_premium_membership:
+				ToastCustom.underDevelopment(this);
+				break;
 
-		default:
-			break;
+			case R.id.layout_setting_share:
+				navigateToSharedScreen();
+				break;
+			case R.id.layout_setting_contactus:
+				email();
+				break;
+
+			default:
+				break;
 		}
+	}
+
+
+	private void navigateToSharedScreen() {
+		Intent intent = new Intent(Intent.ACTION_SEND);
+		intent.setType("text/plain");
+		intent.putExtra(Intent.EXTRA_TEXT, "N2HIM");
+		startActivity(Intent.createChooser(intent, "Share"));
+	}
+
+	private void email(){
+		Intent email = new Intent(Intent.ACTION_SENDTO);
+		email.setData(Uri.parse("mailto:support@n2him.com"));
+		startActivity(Intent.createChooser(email, "N2HIM Support"));
 	}
 
 }

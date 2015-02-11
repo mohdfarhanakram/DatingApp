@@ -316,8 +316,9 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="30dp"
-                    android:background="@color/btn_color"
-                    android:padding="@dimen/dp_8"
+                    android:background="@drawable/ok_button_no_txt"
+                    android:padding="@dimen/dp_10"
+                    android:textSize="@dimen/sp_14"
                     android:text="Apply Filter"
                     android:textColor="@android:color/white" />
 

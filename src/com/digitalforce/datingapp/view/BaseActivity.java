@@ -371,6 +371,7 @@ public abstract class BaseActivity extends FragmentActivity implements IScreen,R
 			case ServiceResponse.MESSAGE_ERROR:
 				showCommonError(serviceResponse.getErrorMessages());
 				break;
+
 			default:
 				showCommonError(null);
 				break;

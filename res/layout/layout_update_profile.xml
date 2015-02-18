@@ -281,7 +281,7 @@
                     android:layout_width="0dp"
                     android:layout_weight=".40"
                     android:padding="@dimen/dp_5"
-                    android:text="@string/hiv_status"
+                    android:text="KYS"
                     android:textSize="@dimen/sp_14" />
 
                 <EditText
@@ -290,7 +290,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:focusableInTouchMode="false"
-                    android:hint="KYS" />
+                    android:hint="@string/hiv_status" />
             </LinearLayout>
 
             <LinearLayout

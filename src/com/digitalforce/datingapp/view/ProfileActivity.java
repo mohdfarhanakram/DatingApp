@@ -102,6 +102,7 @@ public class ProfileActivity extends BaseActivity implements OnClickListener,Blo
 			mimgFavourite.setEnabled(false);
 			mimgFavourite.setClickable(false);
             findViewById(R.id.heart_button).setEnabled(false);
+			mimgBack.setVisibility(View.INVISIBLE);
 
 		}else{
 			mimgFavourite.setEnabled(true);
@@ -451,7 +452,7 @@ public class ProfileActivity extends BaseActivity implements OnClickListener,Blo
            url = DatingUrlConstants.MARK_NOT_INTERESTED_URL;
        }
 
-       postData(url,event,getInterestedJsonResponse());
+	   postData(url, event, getInterestedJsonResponse());
 
    }
 
@@ -488,7 +489,7 @@ public class ProfileActivity extends BaseActivity implements OnClickListener,Blo
           e.printStackTrace();
       }
 
-      Log.e("Request", jsonObject.toString());
+	  Log.e("Request", jsonObject.toString());
       return jsonObject.toString();
   }
 

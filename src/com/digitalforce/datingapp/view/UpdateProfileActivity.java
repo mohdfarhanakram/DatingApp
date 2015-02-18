@@ -7,6 +7,8 @@ import java.util.ArrayList;
 
 import android.provider.SyncStateContract;
 import android.view.LayoutInflater;
+import com.digitalforce.datingapp.dialog.AudioRecordingDialog;
+import com.digitalforce.datingapp.listener.AudioRecordingCompleteListener;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -47,7 +49,7 @@ import com.farru.android.utill.Utils;
 
 
 
-public class UpdateProfileActivity extends BaseActivity implements OnClickListener{
+public class UpdateProfileActivity extends BaseActivity implements OnClickListener,AudioRecordingCompleteListener {
 
 	private ImageView mimgback, mimgMenu;
 	private TextView mtxtTitle, mtxtTap;
@@ -192,8 +194,9 @@ public class UpdateProfileActivity extends BaseActivity implements OnClickListen
 			break;
 
 		case R.id.btn_update_profile_audio:
-			Intent i = new Intent(this,AudioRecorderActivity.class);
-			startActivityForResult(i, AppConstants.REQUEST_CODE_FOR_AUDIO);
+			(new AudioRecordingDialog(this,this)).show();
+			/*Intent i = new Intent(this,AudioRecorderActivity.class);
+			startActivityForResult(i, AppConstants.REQUEST_CODE_FOR_AUDIO);*/
 			break;
 		case R.id.btn_update_profile_video:
 			videoRecording();
@@ -898,8 +901,9 @@ public class UpdateProfileActivity extends BaseActivity implements OnClickListen
 	}
 
 
-
-
-
-
+	@Override
+	public void onRecordingCompleted(String mediaPath) {
+		mAudioFilePath = mediaPath;
+		saveAndEncodeAudio();
+	}
 }

@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.PagerAdapter;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,33 +29,61 @@ import java.util.ArrayList;
  * Created by FARHAN on 2/17/2015.
  */
 
-public class GalleryAdapter extends FragmentStatePagerAdapter {
 
+public class GalleryAdapter extends PagerAdapter {
     private Context context;
     private ArrayList<String> urls;
 
-
-    public GalleryAdapter(FragmentManager fm,Context context, ArrayList<String> urls) {
-        super(fm);
+    public GalleryAdapter(Context context, ArrayList<String> urls) {
         this.context = context;
         this.urls = urls;
     }
 
-
+    @Override
+    public Object instantiateItem(ViewGroup container, int position) {
+        position=position%urls.size();
+        View view = getView(position);
+        container.addView(view);
+        return view;
+    }
 
     @Override
-    public Fragment getItem(int i) {
-
-        String url = urls.get(i);
-        ImageFragment fragment = new ImageFragment();
-        fragment.setImageUrl(url);
-        return fragment;
-
+    public void destroyItem(ViewGroup container, int position, Object object) {
+        container.removeView((View) object);
     }
 
     @Override
     public int getCount() {
         return urls==null?0:urls.size();
+        /*if(urls.size()>0)
+            return Integer.MAX_VALUE;
+        else
+            return 0;*/
+    }
+
+    @Override
+    public boolean isViewFromObject(View view, Object o) {
+        return view == o;
+    }
+
+    public View getView(int position) {
+        ImageView imageView = new ImageView(context);
+        imageView.setScaleType(ImageView.ScaleType.FIT_XY);
+        imageView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.FILL_PARENT, ViewGroup.LayoutParams.FILL_PARENT));
+        String url = urls.get(position);
+        imageView.setTag(urls);
+        picassoLoad(url, imageView);
+        return imageView;
+
+    }
+
+    @Override
+    public int getItemPosition(Object object) {
+        return POSITION_NONE;
+    }
+
+    private void picassoLoad(String url, ImageView imageView) {
+        PicassoEx.getPicasso(context).load(url).error(R.drawable.bg).placeholder(R.drawable.bg).fit().into(imageView);
     }
 }
 

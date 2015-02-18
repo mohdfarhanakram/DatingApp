@@ -3,18 +3,21 @@
 
     <item android:state_pressed="false"
         android:state_enabled="false"
-        android:textColor="@color/black"
-        android:drawable="@color/silver"/>
+        android:textColor="#6F6F6F"
+        android:drawable="@drawable/cancel_button_no_txt"/>
     
      <item android:state_pressed="true"
         android:state_enabled="true"
         android:textColor="@color/white"
-        android:drawable="@color/btn_color"/>
+        android:drawable="@drawable/ok_button_no_txt"/>
      
      
      <item 
         android:state_enabled="true"
         android:textColor="@color/white"
-        android:drawable="@color/btn_color"/> 
+        android:drawable="@drawable/ok_button_no_txt"/>
 
 </selector>
+
+
+

@@ -3,6 +3,8 @@ package com.digitalforce.datingapp.dialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.view.Window;
@@ -37,7 +39,8 @@ public class PhotoGalleryDialog extends Dialog implements android.view.View.OnCl
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.photo_gallery_layout);
 
-        ((ViewPager)findViewById(R.id.gallery_view_pager)).setAdapter(new GalleryAdapter(mContext.getSupportFragmentManager(),mContext,photoUrls));
+        ((ViewPager)findViewById(R.id.gallery_view_pager)).setAdapter(new GalleryAdapter(mContext, photoUrls));
+        ((ViewPager)findViewById(R.id.gallery_view_pager)).setCurrentItem(index);
 
     }
 

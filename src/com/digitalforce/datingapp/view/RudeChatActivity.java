@@ -26,6 +26,8 @@ import com.digitalforce.datingapp.adapter.RudeChatAdapter;
 import com.digitalforce.datingapp.constants.ApiEvent;
 import com.digitalforce.datingapp.constants.AppConstants;
 import com.digitalforce.datingapp.constants.DatingUrlConstants;
+import com.digitalforce.datingapp.dialog.AudioRecordingDialog;
+import com.digitalforce.datingapp.listener.AudioRecordingCompleteListener;
 import com.digitalforce.datingapp.model.Chat;
 import com.digitalforce.datingapp.model.UserInfo;
 import com.digitalforce.datingapp.parser.JsonParser;
@@ -53,7 +55,7 @@ import java.util.zip.Inflater;
 /**
  * Created by FARHAN on 11/8/2014.
  */
-public class RudeChatActivity extends BaseActivity implements View.OnClickListener{
+public class RudeChatActivity extends BaseActivity implements View.OnClickListener,AudioRecordingCompleteListener {
 
     private String mUserId;
 
@@ -523,8 +525,9 @@ public class RudeChatActivity extends BaseActivity implements View.OnClickListen
     }
 
     private void recordAudio(){
-        Intent i = new Intent(this,AudioRecorderActivity.class);
-        startActivityForResult(i, AppConstants.REQUEST_CODE_FOR_AUDIO);
+        (new AudioRecordingDialog(this,this)).show();
+        /*Intent i = new Intent(this,AudioRecorderActivity.class);
+        startActivityForResult(i, AppConstants.REQUEST_CODE_FOR_AUDIO);*/
     }
     private void recordVideo(){
         //create new Intent
@@ -685,4 +688,9 @@ public class RudeChatActivity extends BaseActivity implements View.OnClickListen
 
     }
 
+    @Override
+    public void onRecordingCompleted(String mediaPath) {
+        mAudioMediaPath = mediaPath;
+        sendAudio();
+    }
 }

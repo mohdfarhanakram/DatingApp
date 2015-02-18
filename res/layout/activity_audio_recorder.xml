@@ -1,18 +1,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent" >
-
-    <ScrollView
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent" >
-
-        <RelativeLayout
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:background="@drawable/bg"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp" >
+    android:layout_width="@dimen/dp_300"
+    android:padding="10dp"
+    android:layout_height="250dp"
+    android:background="@drawable/dialog_bg">
 
             <TextView
                 android:id="@+id/heading_txtv"
@@ -21,7 +12,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="10dp"
                 android:text="Audio Recorder"
-                android:textColor="@color/white"
+                android:textColor="#0589C4"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
@@ -40,10 +31,10 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/micImage"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="15dp"
                 android:text="00:00/01:00"
-                android:textColor="@color/white"
-                android:textSize="25sp"
+                android:textColor="#606062"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <LinearLayout
@@ -51,7 +42,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/timer_txtv"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="15dp"
                 android:orientation="horizontal" >
 
                 <Button
@@ -59,7 +50,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight=".5"
-                    android:background="@drawable/btn_selector"
+                    android:background="@drawable/ok_button_no_txt"
                     android:padding="@dimen/dp_10"
                     android:text="Start"
                     android:enabled="true"
@@ -77,10 +68,10 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight=".5"
-                    android:background="@drawable/btn_selector"
+                    android:background="@drawable/cancel_button_no_txt"
                     android:padding="@dimen/dp_10"
                     android:text="Stop"
-                    android:textColor="@android:color/white"
+                    android:textColor="#6F6F6F"
                     android:textSize="@dimen/sp_14" />
             </LinearLayout>
 
@@ -135,7 +126,5 @@
                 android:padding="@dimen/dp_8"
                 android:text="@string/update"
                 android:textColor="@android:color/white" />
-        </RelativeLayout>
-    </ScrollView>
 
 </RelativeLayout>

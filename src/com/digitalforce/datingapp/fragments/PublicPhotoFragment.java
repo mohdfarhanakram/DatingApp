@@ -5,6 +5,7 @@ package com.digitalforce.datingapp.fragments;
 
 import java.util.ArrayList;
 
+import com.digitalforce.datingapp.dialog.PhotoGalleryDialog;
 import com.digitalforce.datingapp.listener.RemovePhotoListener;
 import com.sromku.simple.fb.listeners.OnPhotosListener;
 import org.json.JSONException;
@@ -152,11 +153,13 @@ public class PublicPhotoFragment extends BaseFragment implements RemovePhotoList
 	
 	private void selectImageOperation(String imgUrl) {
 
-		Intent intent = new Intent(getActivity(),PhotoDetailActivity.class);
+		(new PhotoGalleryDialog(getActivity(),mPictureList,mPictureList.indexOf(imgUrl))).show();
+
+		/*Intent intent = new Intent(getActivity(),PhotoDetailActivity.class);
 		intent.putExtra(AppConstants.IMAGE_URL, imgUrl);
 		intent.putExtra(AppConstants.IS_COMING_FROM_PUBLIC_PHOTO, true);
 		startActivity(intent);
-		
+		*/
         /*final CharSequence[] items = { "Make Profile Photo", "Make Private",
                 "Delete" };
  

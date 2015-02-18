@@ -6,6 +6,7 @@ import java.io.FileInputStream;
 import java.util.ArrayList;
 
 import android.provider.SyncStateContract;
+import android.view.LayoutInflater;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -309,8 +310,6 @@ public class UpdateProfileActivity extends BaseActivity implements OnClickListen
 
 		removeProgressDialog();
 
-
-
 		if(serviceResponse!=null){
 			switch (serviceResponse.getErrorCode()) {
 			case ServiceResponse.SUCCESS:
@@ -576,6 +575,9 @@ public class UpdateProfileActivity extends BaseActivity implements OnClickListen
 		if(!StringUtils.isNullOrEmpty(userInfo.getSexRole())) medtSexRole.setText(userInfo.getSexRole());
         if(!StringUtils.isNullOrEmpty(userInfo.getCity())) medtCity.setText(userInfo.getCity());
 
+		if(!StringUtils.isNullOrEmpty(userInfo.getBodyType())) medtBodyType.setText(userInfo.getBodyType());
+		if(!StringUtils.isNullOrEmpty(userInfo.getEthnicity())) medtEthnicity.setText(userInfo.getEthnicity());
+
 
 		if(!StringUtils.isNullOrEmpty(userInfo.getImage()))
 			picassoLoad(userInfo.getImage(), mProfileImage);
@@ -742,7 +744,9 @@ public class UpdateProfileActivity extends BaseActivity implements OnClickListen
 	
 	private void showSingleSelectionDialog(final EditText resId,final String[] options,String title){
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
-		builder.setTitle(title);
+		View titleView = LayoutInflater.from(this).inflate(R.layout.dialog_title_view,null);
+		((TextView)titleView.findViewById(R.id.dialo_title)).setText(title);
+		builder.setCustomTitle(titleView);
 		int selectedIndex = getSelectedIndex(resId.getText().toString(), options);
 		builder.setSingleChoiceItems(options, selectedIndex, new DialogInterface.OnClickListener() {
 		//builder.setItems(options, new DialogInterface.OnClickListener() {

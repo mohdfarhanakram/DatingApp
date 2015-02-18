@@ -45,6 +45,8 @@ public interface DatingUrlConstants {
 
 	public static final String DELETE_USER_PHOTO = BASE_URL + "delete_public_images.php";
 
+	public static final String BLOCK_REPORT_URL = BASE_URL + "blockandreport.php";
+
 
 
 }

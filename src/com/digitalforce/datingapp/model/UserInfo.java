@@ -29,6 +29,7 @@ public class UserInfo extends NearBy{
     private Insight insight;
     private boolean interestStatus;
     private String bodyType;
+	private String ethnicity;
     private String city;
 
     private String chatMessageTime;
@@ -206,6 +207,11 @@ public class UserInfo extends NearBy{
 		this.userId = userId;
 	}
 
+	public String getEthnicity() {
+		return ethnicity;
+	}
 
-
+	public void setEthnicity(String ethnicity) {
+		this.ethnicity = ethnicity;
+	}
 }

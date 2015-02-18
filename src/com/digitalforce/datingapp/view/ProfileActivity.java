@@ -3,6 +3,8 @@ package com.digitalforce.datingapp.view;
 import java.util.ArrayList;
 
 import android.content.Intent;
+import com.digitalforce.datingapp.dialog.BlockReportDialog;
+import com.digitalforce.datingapp.listener.BlockReportListener;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -32,7 +34,7 @@ import com.digitalforce.datingapp.utils.ToastCustom;
 import com.farru.android.network.ServiceResponse;
 import com.farru.android.utill.StringUtils;
 
-public class ProfileActivity extends BaseActivity implements OnClickListener{
+public class ProfileActivity extends BaseActivity implements OnClickListener,BlockReportListener {
 
 	private TextView mtxtAbout, mtxtPhotos, mtxtInsight, mtxtage, mtxtWeight, mtxtheight, mtxtName, mtxtlocation,
 	mtxtSexRole, mtxtHivStatus, mtxtProfileTitle, mtxtVedio, mtxtAudio,mDistance;
@@ -69,6 +71,7 @@ public class ProfileActivity extends BaseActivity implements OnClickListener{
         mDistance = (TextView)findViewById(R.id.txt_profile_distance);
 
 		mimgBack = (ImageView) findViewById(R.id.img_action_back);
+		mimgBack.setVisibility(View.VISIBLE);
 		mimgMenu = (ImageView) findViewById(R.id.img_action_menu);
 		mimgProfile = (ImageView) findViewById(R.id.img_profile);
 		mimgChat = (ImageView) findViewById(R.id.img_profile_chat);
@@ -123,6 +126,7 @@ public class ProfileActivity extends BaseActivity implements OnClickListener{
 
 		findViewById(R.id.heart_button).setOnClickListener(this);
         findViewById(R.id.point_pin).setOnClickListener(this);
+		mimgBack.setOnClickListener(this);
 		
 	}
 
@@ -226,11 +230,22 @@ public class ProfileActivity extends BaseActivity implements OnClickListener{
             case R.id.point_pin:
                 openUserLocation();
                 break;
+			case R.id.img_action_back:
+				showBlockReportDialog();
+				break;
 		default:
 			break;
 		}
 
 	}
+
+	/**
+	 * show block and report Dialog.
+	 */
+	private void showBlockReportDialog() {
+		(new BlockReportDialog(this,this)).show();
+	}
+
 	/**
 	 * call fragment
 	 * @param fragment
@@ -276,6 +291,10 @@ public class ProfileActivity extends BaseActivity implements OnClickListener{
                     showCommonError(serviceResponse.getBaseModel().getSuccessMsg());
                     updateInterestButton(false);
                     break;
+				case ApiEvent.REPORT_USER_EVENT:
+				case ApiEvent.BLOCK_USER_EVENT:
+					showCommonError(serviceResponse.getBaseModel().getSuccessMsg());
+				break;
 				default:
 					break;
 				}
@@ -505,4 +524,33 @@ public class ProfileActivity extends BaseActivity implements OnClickListener{
 		return cmm;
 	}
 
+	@Override
+	public void onBlockReport(boolean block) {
+        String json = getBlockReportJsonString(block);
+		int event = block==true? ApiEvent.BLOCK_USER_EVENT : ApiEvent.REPORT_USER_EVENT;
+		postData(DatingUrlConstants.BLOCK_REPORT_URL, event, json,true);
+	}
+
+	public String getBlockReportJsonString(boolean block){
+		//{"userid":"3","action":"report"}, for block json{"userid":"3","block_user_id":"1", "action":"block"}
+
+		JSONObject jsonObject = new JSONObject();
+		try {
+			jsonObject.putOpt("userid", DatingAppPreference.getString(DatingAppPreference.USER_ID, "", this));
+			if(block){
+				jsonObject.put("action", "block");
+				jsonObject.put("block_user_id", calledUserProfileId);
+			}else{
+				jsonObject.put("action", "report");
+			}
+
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		Log.e("Request", jsonObject.toString());
+		return jsonObject.toString();
+
+	}
 }

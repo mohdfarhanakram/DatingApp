@@ -91,6 +91,8 @@ public class JsonParser {
                 nearBy.setCity(nearJObj.optString("city"));
                 nearBy.setChatMessageTime(nearJObj.optString("chat_message_time"));
 				nearBy.setChatMessage(nearJObj.optString("chat_message"));
+				nearBy.setBodyType(nearJObj.optString("body_type"));
+				nearBy.setEthnicity(nearJObj.optString("ethnicity"));
 
 				JSONArray photoJArray = nearJObj.optJSONArray("public_photos");
 				if(photoJArray!=null){

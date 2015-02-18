@@ -98,7 +98,7 @@
             style="@style/txt_base"
             android:textSize="@dimen/sp_10"
             android:textColor="#a7b4e6"
-            android:text="@string/hiv_status"/>
+            android:text="KYS"/>
     </LinearLayout>
 
 </LinearLayout>

@@ -8,6 +8,7 @@ import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.EditText;
@@ -125,7 +126,9 @@ public class FilterActivity extends BaseActivity implements OnClickListener{
         }
 
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
-		builder.setTitle(title);
+        View titleView = LayoutInflater.from(this).inflate(R.layout.dialog_title_view,null);
+        ((TextView)titleView.findViewById(R.id.dialo_title)).setText(title);
+        builder.setCustomTitle(titleView);
 		String selectedString = "";
 		TextView t = (TextView)findViewById(resId);
 		if(t!=null){

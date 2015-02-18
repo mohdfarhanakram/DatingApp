@@ -292,10 +292,10 @@ public class RudeChatActivity extends BaseActivity implements View.OnClickListen
     @Override
     public void onClick(View v) {
 
-        if(!isComingFromNotification && !isUserOnline){
+        /*if(!isComingFromNotification && !isUserOnline){
             showCommonError(getIntent().getStringExtra(AppConstants.CHAT_USER_NAME) + " is offline, you can not chat with him.");
             return;
-        }
+        }*/
 
         switch (v.getId()){
             case R.id.send_btn:

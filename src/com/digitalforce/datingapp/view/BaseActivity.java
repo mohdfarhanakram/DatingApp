@@ -214,7 +214,7 @@ public abstract class BaseActivity extends FragmentActivity implements IScreen,R
 	protected void onPostCreate(Bundle savedInstanceState) {
 		super.onPostCreate(savedInstanceState);
 
-		View backBtn = findViewById(R.id.img_action_back);
+		/*View backBtn = findViewById(R.id.img_action_back);
 		if(backBtn!=null){
 			backBtn.setOnClickListener(new OnClickListener() {
 
@@ -224,7 +224,7 @@ public abstract class BaseActivity extends FragmentActivity implements IScreen,R
 
 				}
 			});
-		}
+		}*/
 		View menuBtn = findViewById(R.id.img_action_menu);
 		if(menuBtn!=null){
 			menuBtn.setOnClickListener(new OnClickListener() {

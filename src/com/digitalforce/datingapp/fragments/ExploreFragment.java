@@ -145,7 +145,7 @@ public class ExploreFragment extends SupportMapFragment implements UpdateMapAfte
 
                 marker = googleMap.addMarker(new MarkerOptions()
                         .position(pos)
-                        .title(mlistNearBy.get(i).getFirstName().trim())
+                        .title(mlistNearBy.get(i).getFirstName().trim() + " (" + mlistNearBy.get(i).getAge()+")")
                         .snippet(mlistNearBy.get(i).getDistance()));
 
             haspMap.put(marker.getId(), mlistNearBy.get(i));
@@ -317,7 +317,7 @@ public class ExploreFragment extends SupportMapFragment implements UpdateMapAfte
 
         for(int i=0; i<mlistNearBy.size();i++){
             LatLng pos = new LatLng(Float.parseFloat(mlistNearBy.get(i).getLatitude()), Float.parseFloat(mlistNearBy.get(i).getLongitude()));
-            if(marker.getTitle().equalsIgnoreCase(mlistNearBy.get(i).getFirstName()) && pos.latitude == marker.getPosition().latitude && pos.longitude == marker.getPosition().longitude){
+            if(marker.getTitle().equalsIgnoreCase(mlistNearBy.get(i).getFirstName()+ " (" + mlistNearBy.get(i).getAge()+")") && pos.latitude == marker.getPosition().latitude && pos.longitude == marker.getPosition().longitude){
                 return mlistNearBy.get(i);
 
             }

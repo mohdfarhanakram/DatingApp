@@ -98,6 +98,8 @@ public class BaseParser implements IParser {
             case ApiEvent.LIKE_EVENT:
             case ApiEvent.DELETE_PUBLIC_PHOTO_EVENT:
             case ApiEvent.DELETE_PRIVATE_PHOTO_EVENT:
+            case ApiEvent.REPORT_USER_EVENT:
+            case ApiEvent.BLOCK_USER_EVENT:
                 response.setErrorMessages(jsonObject.optString("error", null));
                 break;
             default:
@@ -154,6 +156,9 @@ public class BaseParser implements IParser {
             case ApiEvent.LIKE_EVENT:
             case ApiEvent.DELETE_PUBLIC_PHOTO_EVENT:
             case ApiEvent.DELETE_PRIVATE_PHOTO_EVENT:
+                break;
+            case ApiEvent.REPORT_USER_EVENT:
+            case ApiEvent.BLOCK_USER_EVENT:
                 break;
             default:
                 break;

@@ -7,9 +7,10 @@
 
     <ImageView
         android:id="@+id/img_action_back"
-        style="@style/img_home"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
         android:contentDescription="@null"
-        android:src="@drawable/back"
+        android:src="@drawable/block_icon"
         android:visibility="invisible" />
 
     <TextView

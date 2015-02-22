@@ -157,7 +157,10 @@ public class Chat {
 
     private boolean isContainsId(String msg){
         try{
-           emotionId = Integer.parseInt(msg.replaceAll(AppConstants.EMOTION_TAG,"").trim());
+            String[] msgArr = msg.split(AppConstants.EMOTION_TAG);
+            String emotionNo = msgArr[msgArr.length-1];
+
+           emotionId = Integer.parseInt(emotionNo.trim());
            return true;
        }catch(Exception e){
             emotionId = -1;
@@ -165,6 +168,33 @@ public class Chat {
 
         return false;
     }
+
+
+    private String getMsgEmotions(String msg){
+
+        int emotionId = -1;
+        String finalMsg = "";
+        try{
+
+            String emotionMsg = "";
+            String[] msgArr = msg.split(";");
+            String userName = msgArr[0];
+            String emotMsg = msgArr[1];
+
+            emotionId = Integer.parseInt(emotMsg.replaceAll(AppConstants.EMOTION_TAG,"").trim());
+
+            if(emotionId!=-1){
+                finalMsg = userName+" "+AppConstants.EMOTION_MSG;
+            }
+
+        }catch(Exception e){
+            emotionId = -1;
+            e.printStackTrace();
+        }
+
+        return finalMsg;
+    }
+
 
 
 }

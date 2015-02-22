@@ -5,6 +5,8 @@
     android:layout_height="250dp"
     android:background="@drawable/dialog_bg">
 
+           <ImageView  android:layout_alignParentRight="true" android:id="@+id/close_btn" android:padding="1dp" android:layout_gravity="right" android:layout_width="wrap_content" android:layout_height="wrap_content" android:src="@drawable/close"/>
+
             <TextView
                 android:id="@+id/heading_txtv"
                 android:layout_width="wrap_content"

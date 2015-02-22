@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.digitalforce.datingapp.R;
 import com.digitalforce.datingapp.constants.AppConstants;
+import com.digitalforce.datingapp.dialog.PhotoGalleryDialog;
 import com.digitalforce.datingapp.model.Chat;
 import com.digitalforce.datingapp.persistance.DatingAppPreference;
 import com.digitalforce.datingapp.utils.AppUtil;
@@ -135,9 +136,13 @@ public class RudeChatAdapter extends BaseAdapter{
                 imageView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent = new Intent(mContext,PhotoDetailActivity.class);
+                        String imgUrl = (String)v.getTag();
+                        ArrayList<String> urls = new ArrayList<String>();
+                        urls.add(imgUrl);
+                        (new PhotoGalleryDialog(mContext,urls, urls.indexOf(imgUrl))).show();
+                        /*Intent intent = new Intent(mContext,PhotoDetailActivity.class);
                         intent.putExtra(AppConstants.IMAGE_URL, (String)v.getTag());
-                        mContext.startActivity(intent);
+                        mContext.startActivity(intent);*/
                     }
                 });
                 playerView.setVisibility(View.GONE);

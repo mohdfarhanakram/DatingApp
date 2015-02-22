@@ -79,4 +79,6 @@ public class AppConstants {
     public final static String CHAT_USER_AWAY = "chat_user_away";
     public final static String CHAT_USER_IMAGE = "chat_user_image";
 
+    public final static String EMOTION_MSG =" just sent you an icon";
+
 }

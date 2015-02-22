@@ -343,7 +343,8 @@ public class RudeChatActivity extends BaseActivity implements View.OnClickListen
 
     private void sendEmotions(int id){
         Chat chat = new Chat();
-        chat.setText(AppConstants.EMOTION_TAG+id+AppConstants.EMOTION_TAG); //add emotion key to identify emotion message
+        String UserName = DatingAppPreference.getString(DatingAppPreference.USER_NAME, "", this);
+        chat.setText(UserName+";"+AppConstants.EMOTION_TAG+id+AppConstants.EMOTION_TAG); //add emotion key to identify emotion message
         chat.setType("text");
         sendMessage(chat, 0);
     }

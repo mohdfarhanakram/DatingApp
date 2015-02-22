@@ -8,6 +8,7 @@ import com.digitalforce.datingapp.R;
 import com.digitalforce.datingapp.adapter.MyPictureAdapter;
 import com.digitalforce.datingapp.adapter.ProfilePhotoAdapter;
 import com.digitalforce.datingapp.constants.AppConstants;
+import com.digitalforce.datingapp.dialog.PhotoGalleryDialog;
 import com.digitalforce.datingapp.view.PhotoDetailActivity;
 import com.farru.android.utill.Utils;
 
@@ -65,8 +66,10 @@ public class PhotosFragment extends BaseFragment{
 
     private void selectImageOperation(String imgUrl) {
 
-        Intent intent = new Intent(getActivity(),PhotoDetailActivity.class);
+		(new PhotoGalleryDialog(getActivity(),mPhotoList,mPhotoList.indexOf(imgUrl))).show();
+
+        /*Intent intent = new Intent(getActivity(),PhotoDetailActivity.class);
         intent.putExtra(AppConstants.IMAGE_URL, imgUrl);
-        startActivity(intent);
+        startActivity(intent);*/
     }
 }

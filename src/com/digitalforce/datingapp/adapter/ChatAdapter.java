@@ -1,6 +1,7 @@
 package com.digitalforce.datingapp.adapter;
 
 import com.digitalforce.datingapp.R;
+import com.digitalforce.datingapp.constants.AppConstants;
 import com.digitalforce.datingapp.model.UserInfo;
 import com.digitalforce.datingapp.utils.PicassoEx;
 import com.digitalforce.datingapp.widgets.RoundedImageView;
@@ -76,7 +77,12 @@ public class ChatAdapter extends BaseAdapter{
         }
 
         if(!StringUtils.isNullOrEmpty(userInfo.getChatMessage())){
-            viewHolder.chatMsg.setText(userInfo.getChatMessage());
+            if(!StringUtils.isNullOrEmpty(getMsgEmotions(userInfo.getChatMessage()))){
+                viewHolder.chatMsg.setText(getMsgEmotions(userInfo.getChatMessage()));
+            }else{
+                viewHolder.chatMsg.setText(userInfo.getChatMessage());
+            }
+
             viewHolder.chatMsg.setVisibility(View.VISIBLE);
         }else{
             viewHolder.chatMsg.setVisibility(View.GONE);
@@ -121,6 +127,31 @@ public class ChatAdapter extends BaseAdapter{
         public ImageView imageViewStatus;
         public TextView chatMsg;
         public TextView lastChatTime;
+    }
+
+    private String getMsgEmotions(String msg){
+
+        int emotionId = -1;
+        String finalMsg = "";
+        try{
+
+            String emotionMsg = "";
+            String[] msgArr = msg.split(";");
+            String userName = msgArr[0];
+            String emotMsg = msgArr[1];
+
+            emotionId = Integer.parseInt(emotMsg.replaceAll(AppConstants.EMOTION_TAG,"").trim());
+
+            if(emotionId!=-1){
+                finalMsg = userName+" "+AppConstants.EMOTION_MSG;
+            }
+
+        }catch(Exception e){
+            emotionId = -1;
+            e.printStackTrace();
+        }
+
+        return finalMsg;
     }
 
 }

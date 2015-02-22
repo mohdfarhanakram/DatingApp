@@ -117,6 +117,15 @@ public class AudioRecordingDialog extends Dialog {
             }
         });
 
+        findViewById(R.id.close_btn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                stopTimer();
+                stop(view);
+                dismiss();
+            }
+        });
+
     }
 
 
